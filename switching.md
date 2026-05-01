@@ -17,7 +17,7 @@
 
 # Topology Algorithm
 
-**Bridge ID Examples**
+**Bridge ID Examples**<br>
 `sw2 - 32768 / 1 / 52:54:00:4b:99:08`  < --- will be elected as root, since bridge priority isn't configured.<br>
 `sw1 - 32768 / 1 / 52:54:00:e8:3a:ff` <br>
 `sw4 - 32768 / 1 / 52:54:00:e8:7c:8e`

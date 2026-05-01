@@ -1,3 +1,55 @@
+## Terms
+
+* **Bridge ID:** 8 bytes. Bridge Priority + Extension ID (the vlan) + mac address.
+
+**Example**
+32768 / 1 / 52:54:00:4b:99:08
+
+* **BPDU:** Bridge Protocol Data Unit. The frame used in 802.1D STP.
+
+* **STP:** Spanning tree protocol. Frequently cited at 802.1D.
+
+* **802.1D:** An IEEE standard. The oldest Ethernet STP.
+
+* **Bridge:** A device that participates in the spanning tree algorithm. 
+
+* **Designated ports:** send BPDUs downstream.
+
+* **Root Port** Receive BPDUs. are the best port towards the root bridge, either the lowest total cost or the lowest advertised priority or lowest advertised port ID (interface number).
+
+
+# Topology Algorithm
+
+1. All bridges send BPDUs, as root.
+1. All bridges compare BDPUs.
+1. Bridge with lowest BPDU priority is root.
+1. All ports on root bridge are DP, and BPDU cost field is set to zero.
+1. DPs only sends BDPUs.
+1. RPs only receive BPDUs.
+1. A non-root bridge can only have one RP.
+1. Root bridge sends BPDU (Root Identifier: Me, Bridge Identifier: Me, Cost: 0)
+1. Non-root bridge gets two BPDUs, from two ports. It uses the Root Port Algo to select one port as RP.
+1. Non-root bridge has RP. Sees cost in received BPDU, adds it's listed cost from the port it was received on.
+1. Cost to root bridge is cost-in-BPDU + port cost. Copy that cost into the BPDUs to send out DPs.
+1. Non-root bridge transitions all other ports to DP.
+1. If a DP gets a BDPU, it means there is a loop, set this port to block.
+
+
+
+# Port Selection Algo
+
+- Lowest cost to root.
+  - Lowest system priority of advertising switch.
+    - Lowest MAC of advertising switch.
+      - Lowest port priority on receiving switch.
+        - Lowest interface number on receiving switch.
+
+# Timers
+
+* **Hello Time** is usually 2 seconds between BPDUs.
+* **Forward Delay** is typically 15 seconds. It's between off -> listening -> learning.
+
+
 ## Root bridges election in Spanning Tree.
 
 Two bridges send each other BPDUs, they compare bridge IDs to see who will keep sending BPDUs
@@ -22,7 +74,7 @@ The root bridge BPDU gets stuff tack'd onto it. The root bridge advertises itsel
 
 Cost is the value of the link, towards the root bridge.
 
-<pre>
+```
  ┌───────┐                                                                    
  │  SW1  │                                                                    
  └───┬───┘                                                                    
@@ -42,7 +94,7 @@ Eth0 │
  ┌───┴───┐                                                                    
  │  SW2  │                                                                    
  └───────┘                                                                    
-</pre>
+```
 
 
 ## Portfast
@@ -54,65 +106,11 @@ For end Hosts
 
 Best practice is to set the root to `0` and the secondary to `4096`.
 
-### BPDU Guard
 
-Detects a BPDU, and shuts down a port.
-
-The global command only affects ports that have portfast already turned on.
-
-```
-switch(config)# spanning-tree portfast bpduguard default
-```
-
-... should be set so access ports go `errdisable` when a rogue switch is connected and require an operator to correct.
-
-#### Seeing `err-disabled` status
-```
-switch# show int status
-
-Port      Name               Status       Vlan       Duplex  Speed Type 
-[output omitted]
-Et2/3                        err-disabled 1            auto   auto unknown
-Et3/0                        connected    trunk        auto   auto unknown
-Et3/1                        connected    1            auto   auto unknown
-```
-
-#### Turning on automated recovery
-```
-switch(config)# errdisable recovery cause bpduguard
-```
-
-#### Verify
-```
-switch# show errdisable recovery 
-ErrDisable Reason            Timer Status
------------------            --------------
-arp-inspection               Disabled
-bpduguard                    Enabled
-
-[output omitted]
-          
-Interface       Errdisable reason       Time left(sec)
----------       -----------------       --------------
-unicast-flood                Disabled
-vmps                         Disabled
-psp                          Disabled
-dual-active-recovery         Disabled
-evc-lite input mapping fa    Disabled
-Recovery command: "clear     Disabled
-
-Timer interval: 300 seconds
-
-Interfaces that will be enabled at the next timeout:
-
-Interface       Errdisable reason       Time left(sec)
----------       -----------------       --------------
-Et2/3                  bpduguard          296
-```
 
 ### STP Loop Guard
 
-A unidirectional failure on a `root` or `alternate` port will cause spanning tree to loop, as other switches will unblock ports, and the unidirectional failure will still foward frames. To prevent this, turn on `stp loop guard` so ... if a port doesn't get a BPDU, it enters `STP loop-inconsistent` disabling the port.
+A unidirectional failure on a `root` or `alternate` port will cause spanning tree to loop, as other switches will unblock ports, and the unidirectional failure will still forward frames. To prevent this, turn on `stp loop guard` so ... if a port doesn't get a BPDU, it enters `STP loop-inconsistent` disabling the port.
 
 This is done per interface, and is pretty tedious.
 
@@ -125,9 +123,9 @@ More details [here](https://www.cisco.com/c/en/us/support/docs/lan-switching/spa
 
 ## Port Types
 
-**Designated ports** send BPDUs downstream.
+* **Designated ports:** send BPDUs downstream.
 
-**Root Ports** are the best port towards the root bridge, either the lowest total cost or the lowest advertised priority or lowest advertised port ID (interface number).
+* **Root Ports** are the best port towards the root bridge, either the lowest total cost or the lowest advertised priority or lowest advertised port ID (interface number).
 
 ## BPDU Fields
 
@@ -167,25 +165,25 @@ The 802.1D committee wanted *two* learning states[^stp], one with and one withou
        │  Turn on interface
        │
 ┌──────▼──────┐
-│  Listening  │ Recieve + Send BPDUs
+│  Listening  │ Receive + Send BPDUs
 └──────┬──────┘
        │
        │  forward delay (default 15s)
        │
 ┌──────▼──────┐
-│  Learning   │ Recieve + Send BPDUs + Progam CAM
+│  Learning   │ Receive + Send BPDUs + Program CAM
 └──────┬──────┘
        │
        │  forward delay (default 15s)
        │
 ┌──────▼──────┐
-│  Forwarding │ Recieve + Send BPDUs + Program CAM + Forward Frames
+│  Forwarding │ Receive + Send BPDUs + Program CAM + Forward Frames
 └─────────────┘
 ```
 
 #### BPDU Frame Format
 
-This is a RSTP BPDU in Wireshark taken via GNS3.
+This is a RSTP BPDU.
 ```
 Spanning Tree Protocol
 
@@ -298,92 +296,16 @@ This is what the BPDU looks like on-the-wire
            2 Bytes
 ```
 
-## ARP
-Captured on-wire via GNS3 from ipterm-to-ipterm
-
-```
-packet #1 - who has 10.0.6.10? Tell 10.0.0.20
-packet #2 - 10.0.0.10 is at ce:b1:5f:58:1d:8a
-```
-#### ARP Request
-```
-> Ethernet II
-
-    Destination: Broadcast (ff:ff:ff:ff:ff:ff)
-    Source: 1a:20:4e:9e:fb:9c (1a:20:4e:9e:fb:9c)
-    Type: ARP (0x0806)
-
-> Address Resolution Protocol (request)
-
-    Hardware type: Ethernet (1)
-    Protocol type: IPv4 (0x0800)
-    Hardware size: 6
-    Protocol size: 4
-    Opcode: request (1)
-    Sender MAC address: 1a:20:4e:9e:fb:9c (1a:20:4e:9e:fb:9c)
-    Sender IP address: 10.0.0.20
-    Target MAC address: 00:00:00_00:00:00 (00:00:00:00:00:00)
-    Target IP address: 10.0.0.10
-```
-#### ARP Reply
-```
-> Ethernet II
-
-    Destination: 1a:20:4e:9e:fb:9c (1a:20:4e:9e:fb:9c)
-    Source: ce:b1:5f:58:1d:8a (ce:b1:5f:58:1d:8a)
-    Type: ARP (0x0806)
-    Padding: <lots of zeros>
-
-> Address Resolution Protocol (reply)
-
-    Hardware type: Ethernet (1)
-    Protocol type: IPv4 (0x0800)
-    Hardware size: 6
-    Protocol size: 4
-    Opcode: reply (2)
-    Sender MAC address: ce:b1:5f:58:1d:8a (ce:b1:5f:58:1d:8a)
-    Sender IP address: 10.0.0.10
-    Target MAC address: 1a:20:4e:9e:fb:9c (1a:20:4e:9e:fb:9c)
-    Target IP address: 10.0.0.20
-```
-
-### 802.1Q Frame Format
-
-32 bits added to a ethernet frame to multiplex VLANs
-```
-                                   ┌────── Priority Code Point(PCP)
-                                   │         Used for LAN CoS
-                                   │
-                                   │   ┌── Drop Elgible Indicator (DEI)
-                                   │   │
-                                   ▼   ▼
-┌───────────────────────────────┬─────┬─┬───────────────────────┐
-│    Tag Protocol Identifier    │     │ │                       │
-│     (TPID) Set to 0x8100      │ PCP │ │       VLAN ID         │
-│                               │     │ │                       │
-│1 2 3 4 5 6 7 8 1 2 3 4 5 6 7 8│1 2 3│4│5 6 7 8 1 2 3 4 5 6 7 8│
-└───────────────────────────────┴─────┴─┴───────────────────────┘
-            16 bits                3   1        12 bits
-```
-| VLAN ID             | Purpose     | 
-| -------------- | ---------------------|
-|0| reserved for 802.1P|
-|1| default vlan |
-|2-1001| normal network operations|
-|1002-1005| reserved|
-|1006-4094| extended vlan range|
 
 ## Topology Change Notifications (TCNs)
 
-The default for cisco is keeping a mac-address on the CAM for 300 seconds.
+The default for Cisco is keeping a mac-address in CAM for 300 seconds.
 
-Recieving a TCN sets this `max age` to the `forward delay` usually 15 seconds.
+Receiving a TCN sets this `max age` to the `forward delay` usually 15 seconds.
 
 ```
 switch# show mac address-table aging-time 
 Global Aging Time:  300
-Vlan    Aging Time
-----    ----------
 ```
 
 ##### Finding TCNs

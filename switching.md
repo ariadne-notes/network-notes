@@ -2,9 +2,6 @@
 
 * **Bridge ID:** 8 bytes. Bridge Priority + Extension ID (the vlan) + mac address.
 
-**Example**
-32768 / 1 / 52:54:00:4b:99:08
-
 * **BPDU:** Bridge Protocol Data Unit. The frame used in 802.1D STP.
 
 * **STP:** Spanning tree protocol. Frequently cited at 802.1D.
@@ -19,6 +16,12 @@
 
 
 # Topology Algorithm
+
+**Bridge ID Examples**
+`sw2 - 32768 / 1 / 52:54:00:4b:99:08`  < --- will be elected as root, since bridge priority isn't configured.
+`sw1 - 32768 / 1 / 52:54:00:e8:3a:ff`
+`sw4 - 32768 / 1 / 52:54:00:e8:7c:8e`
+
 
 1. All bridges send BPDUs, as root.
 1. All bridges compare BDPUs.

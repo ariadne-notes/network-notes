@@ -1,6 +1,6 @@
-### BPDU Guard
+- Only works if the attached device sends a BPDU. Cannot prevent a switch from being attached to a port. 802.1x helps with that.
 
-Detects a BPDU, and shuts down a port.
+**Detects a BPDU, and err-disables a port**
 
 The global command only affects ports that have portfast already turned on.
 

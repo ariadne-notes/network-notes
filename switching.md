@@ -1,5 +1,9 @@
 ## Terms
 
+* **Bridge:** A device that participates in the spanning tree algorithm.
+
+* **Root Bridge:** The bridge that wins the STP election.
+
 * **Bridge ID:** 8 bytes. Bridge Priority + Extension ID (the vlan) + mac address.
 
 * **BPDU:** Bridge Protocol Data Unit. The frame used in 802.1D STP.
@@ -8,48 +12,79 @@
 
 * **802.1D:** An IEEE standard. The oldest Ethernet STP.
 
-* **Bridge:** A device that participates in the spanning tree algorithm. 
+* **Root ID:** - The bridge that has won and is winning the elections.
 
-* **Designated ports:** send BPDUs downstream.
+* **Designated ports:** AKA DP. Sends BPDUs downstream.
 
-* **Root Port** Receive BPDUs. are the best port towards the root bridge, either the lowest total cost or the lowest advertised priority or lowest advertised port ID (interface number).
+* **Root Port:** AKA, RP. AKA, Upstream. Receives BPDUs, from upstream switch. Each bridge can have only one RP. RP is picked by `port-selection-algo`
 
+* **TC Bit:** Topology Change. The root bridge sets the TC to tell other bridges to set their mac address tables to `max age`
 
 # Topology Algorithm
 
-**Bridge ID Examples**<br>
-`sw2 - 32768 / 1 / 52:54:00:4b:99:08`  < --- will be elected as root, since bridge priority isn't configured.<br>
-`sw1 - 32768 / 1 / 52:54:00:e8:3a:ff` <br>
-`sw4 - 32768 / 1 / 52:54:00:e8:7c:8e`
+Who is the root?
 
 
-1. All bridges send BPDUs, as root.
-1. All bridges compare BDPUs.
-1. Bridge with lowest BPDU priority is root.
+
+## How STP makes a loop free topology.
+
+STP elects root and designated ports, aka RP, and DPs.
+
+- A bridge can only have one RP.
+- All ports on the root are DPs.
+- Ports on the root bridge never enter blocking.
+- The RP is always the port with the best config BPDU (using the port algo)
+- Blocked ports must keep receiving BPDUs to stay blocked (the election must keep occurring, forever)
+- if two DPs send and receive BPDUs
+  - There is a loop.
+  - The port that has the inferior BPDU will block.
+  
+1. All bridges turn on send BPDUs on all STP ports, themselves as root.
+1. STP ports (bridges) compare BPDUs.
+1. Bridge with lowest Bridge ID is root, (Lowest priority, if priority is default, lowest mac, usually the oldest switch)
 1. All ports on root bridge are DP, and BPDU cost field is set to zero.
-1. DPs only sends BDPUs.
-1. RPs only receive BPDUs.
+1. Root sends BPDUs.
+1. DPs send configuration BDPUs.
+1. RPs receive configuration BPDUs.
+1. Root bridge sends BPDU, cost is 0, with port identifiers set.
 1. A non-root bridge can only have one RP.
-1. Root bridge sends BPDU (Root Identifier: Me, Bridge Identifier: Me, Cost: 0)
-1. Non-root bridge gets two BPDUs, from two ports. It uses the Root Port Algo to select one port as RP.
-1. Non-root bridge has RP. Sees cost in received BPDU, adds it's listed cost from the port it was received on.
-1. Cost to root bridge is cost-in-BPDU + port cost. Copy that cost into the BPDUs to send out DPs.
-1. Non-root bridge transitions all other ports to DP.
-1. If a DP gets a BDPU, it means there is a loop, set this port to block.
+1. Non-root bridge gets BPDUs. It uses the port selection Algo to pick one RP.
+1. Non-root bridge starts STP elections on all other ports, by sending BPDUs. It takes the cost for the RP port (it's cost) puts that into the sent BPDUs.
+1. If a DP gets a BDPU, STP blocks the port if the received BPDU is better.
 
 
 
 # Port Selection Algo
 
-- Lowest cost to root.
-  - Lowest system priority of advertising switch.
-    - Lowest MAC of advertising switch.
-      - Lowest port priority on receiving switch.
-        - Lowest interface number on receiving switch.
+- All choices are made based on the received BPDU.
+- Modifications are made on the upstream switch.
+
+1. Lowest cost to root.
+1. Lowest system priority of advertising switch.
+1. Lowest MAC of advertising switch.
+1. Port Identifier Byte of advertising switch (port priority + port number)
+
+
+```
+Spanning Tree Protocol
+    Protocol Identifier: Spanning Tree Protocol (0x0000)
+    Protocol Version Identifier: Spanning Tree (0)
+    BPDU Type: Configuration (0x00)
+    BPDU flags: 0x01, Topology Change
+    Root Identifier: 32768 / 1 / 52:54:00:10:43:6f
+    Root Path Cost: 0
+    Bridge Identifier: 32768 / 1 / 52:54:00:10:43:6f
+    Port identifier: 0x0002     < ------------------------- first byte is "port priority" the default on Cisco is 128, or 0x80
+    Message Age: 0
+    Max Age: 20
+    Hello Time: 2
+    Forward Delay: 15
+```
 
 # Timers
 
 * **Hello Time** is usually 2 seconds between BPDUs.
+
 * **Forward Delay** is typically 15 seconds. It's between off -> listening -> learning.
 
 
@@ -129,12 +164,6 @@ More details [here](https://www.cisco.com/c/en/us/support/docs/lan-switching/spa
 * **Designated ports:** send BPDUs downstream.
 
 * **Root Ports** are the best port towards the root bridge, either the lowest total cost or the lowest advertised priority or lowest advertised port ID (interface number).
-
-## BPDU Fields
-
-**Root ID** - The bridge that has won and is winning the elections
-
-**Bridge ID** - The bridge sending the BPDUs.
 
 ## Root Path Cost
 **Root Path Cost** - What the interfaces costs + the advertised cost to the root. The root sends a cost of 0.
@@ -299,12 +328,109 @@ This is what the BPDU looks like on-the-wire
            2 Bytes
 ```
 
+# Port elections
+
+Bridge Priority + Vlan + Bridge MAC + Port Priority + Port Number
+
+## Default settings
+
+Who is the root?
+
+Both bridges temporarily send BPDUs with themselves both set as root.
+
+```
++--------+                                                                                       +-------+                                                                 
+|        |                                                                                       |       |                                                                 
+|      1 +-- 32768 / 1 / 52:54:00:4b:99:08 / 8001 ------- 32768 / 1 / 52:54:00:e8:3a:ff / 8001 --+ 1     |                                                                 
+|  SW1 2 +-- 32768 / 1 / 52:54:00:4b:99:08 / 8002 ------- 32768 / 1 / 52:54:00:e8:3a:ff / 8002 --+ 2 SW2 |                                                                
+|      3 +-- 32768 / 1 / 52:54:00:4b:99:08 / 8003 ------- 32768 / 1 / 52:54:00:e8:3a:ff / 8003 --+ 3     |                                                                 
+|        |                                                                                       |       |                                                                 
++--------+                                                                                       +-------+
+```
+
+SW1 wins with `4b`. SW1 has the lower MAC address.
+
+`32768 / 1 / 52:54:00:4b:99:08 / 8001` < `32768 / 1 / 52:54:00:e8:3a:ff`
+
+## Setting Bridge priority to zero
+
+Who is the root?
+
+Both bridges temporarily send BPDUs with themselves both set as root.
+
+```
++--------+                                                                                       +-------+                                                                 
+|        |                                                                                       |       |                                                                 
+|      1 +-- 32768 / 1 / 52:54:00:4b:99:08 / 8001 ----------- 0 / 1 / 52:54:00:e8:3a:ff / 8001 --+ 1     |                                                                 
+|  SW1 2 +-- 32768 / 1 / 52:54:00:4b:99:08 / 8002 ----------- 0 / 1 / 52:54:00:e8:3a:ff / 8002 --+ 2 SW2 |                                                                
+|      3 +-- 32768 / 1 / 52:54:00:4b:99:08 / 8003 ----------- 0 / 1 / 52:54:00:e8:3a:ff / 8003 --+ 3     |                                                                 
+|        |                                                                                       |       |                                                                 
++--------+                                                                                       +-------+
+```
+
+SW2 wins with `0`. SW2 has the lower bridge priority.
+
+`32768 / 1 / 52:54:00:4b:99:08 / 8001` > `0 / 1 / 52:54:00:e8:3a:ff`
+
+## Port Blocking, Port Default
+
+Which ports block?
+
+```
++-----------+                                                                                       +---------------+                                                                  
+|           |                                                                                       |               |                                                                  
+|      DP 1 |-- 32768 / 1 / 52:54:00:4b:99:08 / 8001 -----------------------------------------------| 1 RP          |                                                                  
+|  SW1 DP 2 |-- 32768 / 1 / 52:54:00:4b:99:08 / 8002 -----------------------------------------------| 2 BLK  SW2    |                                                                  
+|      DP 3 |-- 32768 / 1 / 52:54:00:4b:99:08 / 8003 -----------------------------------------------| 3 BLK         |                                                                  
+|           |                                                                                       |               |                                                                  
++-----------+                                                                                       +---------------+                                                                  
+```                                                                                                                                                                                      
+
+- All ports on root bridge are DP.
+- SW2 gets three BDPDs, the best BPDU is on port 1, it has the lowest port number.
+- SW2 sets the other two ports to BLK.
+
+## Port Blocking, Port Priority
+
+Which ports block?
+
+```
++-----------+                                                                                       +---------------+                                                                  
+|           |                                                                                       |               |                                                                  
+|      DP 1 |-- 32768 / 1 / 52:54:00:4b:99:08 / 8001 -----------------------------------------------| 1 BLK         |                                                                  
+|  SW1 DP 2 |-- 32768 / 1 / 52:54:00:4b:99:08 / 8002 -----------------------------------------------| 2 BLK  SW2    |                                                                  
+|      DP 3 |-- 32768 / 1 / 52:54:00:4b:99:08 / 0003 -----------------------------------------------| 3 RP          |                                                                  
+|           |                                                                                       |               |                                                                  
++-----------+                                                                                       +---------------+                                                                  
+```                                                                                                                                                                                      
+
+- All ports on root bridge are DP.
+- SW2 gets three BDPDs, the best BPDU is on port 3, it has the lowest priority. `00`
+- SW2 sets the other two ports to BLK.
+
 
 ## Topology Change Notifications (TCNs)
 
-The default for Cisco is keeping a mac-address in CAM for 300 seconds.
+A TCN is a kind of BPDU message. There is no root ID or bridge ID.
 
-Receiving a TCN sets this `max age` to the `forward delay` usually 15 seconds.
+```
+Spanning Tree Protocol
+    Protocol Identifier: Spanning Tree Protocol (0x0000)
+    Protocol Version Identifier: Spanning Tree (0)
+    BPDU Type: Topology Change Notification (0x80)
+```
+
+1. Bridge sees change in STP topology, sends TCN to upstream bridge.
+1. Upstream sees TCN, sends a regular BDPU back with TCN-Ack set.
+1. Upstream bridge sends TCN upstream, this continues until TCN reaches the root.
+1. Root Bridge sees the TCN, marks BPDUs with TC bit set.
+1. All bridges see TC, and set their max-age to 15 seconds.
+1. Root bridge stops sending TCs.
+
+
+The default for Cisco is keeping a mac-address in CAM for 300 seconds (5 minutes)
+
+Receiving a TCN sets this `max age` to the `forward delay` usually 15 seconds. This means any server that is not actively sending, will have it's traffic flooded onto that VLAN.
 
 ```
 switch# show mac address-table aging-time 

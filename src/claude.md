@@ -2,7 +2,7 @@
 
 I feed this into claude most of the time to get nice outputs to copy into gear for CML.
 
-
+```
 # Default config
 * enable on top
 * conf t underneath
@@ -41,7 +41,8 @@ I feed this into claude most of the time to get nice outputs to copy into gear f
 * Manually specify the router-id for both, as loopback 0.
 * Advertise all subnets into OSPF
 * Do not use OSPF network statements.
-* Passive interface on interfaces towards hosts, this goes under the router statements..
+* Passive interface on interfaces towards hosts, this goes under the router statements
+```
 
 
 

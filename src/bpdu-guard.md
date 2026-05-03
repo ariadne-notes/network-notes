@@ -2,7 +2,7 @@
 
 **Detects a BPDU, and err-disables a port**
 
-The global command only affects ports that have portfast already turned on.
+The global command only affects ports that have portfast already turned on, i.e. this is an edge feature.
 
 ```
 switch(config)# spanning-tree portfast bpduguard default

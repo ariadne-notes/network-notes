@@ -8,9 +8,12 @@
 - [802.1Q](802.1q.md)
 
 # Switchport Features
-- [BPDU Guard](bpdu-guard.md)
-- [Root Guard](root-guard.md)
 - [Portfast](portfast.md)
+- [BPDU Guard](bpdu-guard.md)
+- [BPDU Filter](bpdu-filter.md)
+- [Root Guard](root-guard.md)
+- [Loop Guard](loop-guard.md)
+
 
 # Switch Features
 - [SPAN, RSPAN, ERSPAN](span-rspan-erspan.md)
@@ -62,8 +65,12 @@
 # Transport and Physical
 - [Optical](optical.md)
 - [T1](t1.md)
+- [STDM](stdm.md)
 - [UDP](udp.md)
 - [HTTP Codes](http-codes.md)
+
+# PKI
+- [Certbot](certbot.md)
 
 # Labs and Tools
 - [Claude](claude.md)
@@ -71,7 +78,5 @@
 - [Subnetting](subnetting.md)
 - [Tables](tables.md)
 - [OS Architecture](os-architecture.md)
-- [STDM](stdm.md)
-- [Certbot](certbot.md)
 - [Wiki.js, Duplicati, Traefik, Portainer](wikijs-duplicati-traefik-portainer.md)
 - [Windows 10 Physical to Virtual](windows-10-physical-to-virtual.md)

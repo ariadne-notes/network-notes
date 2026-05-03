@@ -5,7 +5,7 @@ TCNs have all devices in the STP topoolgy refresh their mac-address tables.
 # Immediately forward traffic
 802.1D waits 50 seconds before forwarding traffic. This means a modern computer, with Ethernet, will be powered on, without network, waiting those 50 seconds for DHCP to complete.
 
-PXE ports should always be portfast, since PXE is even faster.
+PXE (booting from network) ports should always be portfast.
 
 # Enable on all access ports
 

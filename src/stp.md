@@ -196,58 +196,68 @@ The 802.1D committee wanted *two* learning states[^stp], one with and one withou
 [^stp]: *Interconnections* - Radia Perlman, page 67.
 
 ```
-┌─────────────┐
-│     off     │
-└──────┬──────┘
-       │
-       │  Turn on interface
-       │
-┌──────▼──────┐
-│  Listening  │ Receive + Send BPDUs
-└──────┬──────┘
-       │
-       │  forward delay (default 15s)
-       │
-┌──────▼──────┐
-│  Learning   │ Receive + Send BPDUs + Program CAM
-└──────┬──────┘
-       │
-       │  forward delay (default 15s)
-       │
-┌──────▼──────┐
-│  Forwarding │ Receive + Send BPDUs + Program CAM + Forward Frames
-└─────────────┘
+┌─────────────┐                                                     
+│     off     │                                                     
+└──────┬──────┘                                                     
+       │                                                            
+       │  Turn on interface                                         
+       ▼                                                            
+┌─────────────┐                                                     
+│  Listening  │ Receive + Send BPDUs                                
+└──────┬──────┘                                                     
+       │                                                            
+       │  forward delay (default 15s)                               
+       ▼                                                            
+┌─────────────┐                                                     
+│  Learning   │ Receive + Send BPDUs + Program CAM                  
+└──────┬──────┘                                                     
+       │                                                            
+       │  forward delay (default 15s)                               
+       ▼                                                            
+┌─────────────┐                                                     
+│  Forwarding │ Receive + Send BPDUs + Program CAM + Forward Frames 
+└─────────────┘                                                     
 ```
 
 #### BPDU Frame Format
 
-This is a RSTP BPDU.
+- Cost
+This is a STP BPDU.
+- Two flags
+  - TC
+  - TC-Ack
+
+Two bridges
+  - Root bridge
+  - Bridge that sent the BDPU
+  
+- Max Age
+- Forward Hello Time
+- Forward Delay
+  
 ```
 Spanning Tree Protocol
-
     Protocol Identifier: Spanning Tree Protocol (0x0000)
-    Protocol Version Identifier: Rapid Spanning Tree (2)
-    BPDU Type: Rapid/Multiple Spanning Tree (2x02)
-    BPDU flags: 0x3c, Forwarding, Learning, Port Role: Designated
-    
-    0... .... = Topology Change Acknowledgment: No
-    .0.. .... = Agreement: No
-    ..1. .... = Forwarding: Yes
-    ...1 .... = Learning: Yes
-    .... 11.. = Port Role: Designated (3)
-    .... ..0. = Proposal: No
-    .... ...0 = Topology Change: No
-    
-    Root Identifier: 32768 / 1 / aa:bb:cc:00:07:00
-    Root Path Cost: 100
-    
-    Bridge Identifier: 32768 / 1 / aa:bb:cc:00:0a:00
-    Port identifier: 0x8003
-    Message Age: 1
+    Protocol Version Identifier: Spanning Tree (0)
+    BPDU Type: Configuration (0x00)
+    BPDU flags: 0x00
+        0... .... = Topology Change Acknowledgment: No
+        .... ...0 = Topology Change: No
+    Root Identifier: 0 / 1 / 52:54:00:c4:f3:e7
+        Root Bridge Priority: 0
+        Root Bridge System ID Extension: 1
+        Root Bridge System ID: 52:54:00:c4:f3:e7 (52:54:00:c4:f3:e7)
+    Root Path Cost: 0
+    Bridge Identifier: 0 / 1 / 52:54:00:c4:f3:e7
+        Bridge Priority: 0
+        Bridge System ID Extension: 1
+        Bridge System ID: 52:54:00:c4:f3:e7 (52:54:00:c4:f3:e7)
+    Port identifier: 0x8001
+    Message Age: 0
     Max Age: 20
     Hello Time: 2
     Forward Delay: 15
-    Version 1 Length: 0
+
 ```
 
 This is what the BPDU looks like on-the-wire

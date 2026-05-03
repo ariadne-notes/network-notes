@@ -55,3 +55,8 @@ MacAddress          IpAddress        Lease(sec)  Type           VLAN  Interface
 52:54:00:0D:65:73   10.10.10.102     80574       dhcp-snooping   10    GigabitEthernet0/0
 Total number of bindings: 1
 ```
+
+# Reference
+[Cisco - Dynamic ARP Inspection](https://www.cisco.com/c/en/us/td/docs/switches/lan/c9000/sec-crypto/fhs-sisf/fhs-and-sisf-configuration-guide/dynamic-arp-inspection.pdf)
+
+[Practical Networking - Gratuitous ARP](https://www.practicalnetworking.net/series/arp/gratuitous-arp/)

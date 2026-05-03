@@ -64,23 +64,6 @@ STP elects root and designated ports, aka RP, and DPs. It also moves STP ports i
 1. Lowest MAC of advertising switch.
 1. Port Identifier Byte of advertising switch (port priority + port number)
 
-
-```
-Spanning Tree Protocol
-    Protocol Identifier: Spanning Tree Protocol (0x0000)
-    Protocol Version Identifier: Spanning Tree (0)
-    BPDU Type: Configuration (0x00)
-    BPDU flags: 0x01, Topology Change
-    Root Identifier: 32768 / 1 / 52:54:00:10:43:6f
-    Root Path Cost: 0
-    Bridge Identifier: 32768 / 1 / 52:54:00:10:43:6f
-    Port identifier: 0x0002     < ------------------------- first byte is "port priority" the default on Cisco is 128, or 0x80
-    Message Age: 0
-    Max Age: 20
-    Hello Time: 2
-    Forward Delay: 15
-```
-
 ## Timers
 
 * **Hello Time** is usually 2 seconds between BPDUs.
@@ -221,20 +204,7 @@ The 802.1D committee wanted *two* learning states[^stp], one with and one withou
 
 #### BPDU Frame Format
 
-- Cost
-This is a STP BPDU.
-- Two flags
-  - TC
-  - TC-Ack
-
-Two bridges
-  - Root bridge
-  - Bridge that sent the BDPU
-  
-- Max Age
-- Forward Hello Time
-- Forward Delay
-  
+**Wireshark**
 ```
 Spanning Tree Protocol
     Protocol Identifier: Spanning Tree Protocol (0x0000)
@@ -252,13 +222,29 @@ Spanning Tree Protocol
         Bridge Priority: 0
         Bridge System ID Extension: 1
         Bridge System ID: 52:54:00:c4:f3:e7 (52:54:00:c4:f3:e7)
-    Port identifier: 0x8001
+    Port identifier: 0x8001 < ------------------------- first byte is "port priority", the next byte is "Port Number".
     Message Age: 0
     Max Age: 20
     Hello Time: 2
     Forward Delay: 15
-
 ```
+
+- Cost
+This is a STP BPDU.
+- Two flags
+  - TC
+  - TC-Ack
+
+Two bridges
+  - Root bridge
+  - Bridge that sent the BDPU
+  
+- Max Age
+- Forward Hello Time
+- Forward Delay
+- Port Identifier
+
+
 
 This is what the BPDU looks like on-the-wire
 

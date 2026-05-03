@@ -20,6 +20,12 @@ interface GigabitEthernet0/1
 # Validation
 
 ```
+access-1# show ip dhcp snooping binding 
+MacAddress          IpAddress        Lease(sec)  Type           VLAN  Interface
+------------------  ---------------  ----------  -------------  ----  --------------------
+52:54:00:0D:65:73   10.10.10.102     80574       dhcp-snooping   10    GigabitEthernet0/0
+Total number of bindings: 1
+
 access-1# show ip arp inspection 
 
 Source Mac Validation      : Enabled
@@ -49,11 +55,6 @@ IP Address Validation      : Enabled
  ----   -----------------   ----------------------   ---------------------
    10                   0                        0                       0
 
-access-1# show ip dhcp snooping binding 
-MacAddress          IpAddress        Lease(sec)  Type           VLAN  Interface
-------------------  ---------------  ----------  -------------  ----  --------------------
-52:54:00:0D:65:73   10.10.10.102     80574       dhcp-snooping   10    GigabitEthernet0/0
-Total number of bindings: 1
 ```
 
 # Reference

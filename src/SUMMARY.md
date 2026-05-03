@@ -38,7 +38,7 @@
 - [CoPP with ACLs and Object Groups](copp-with-acls-and-object-groups.md)
 - [NAT](nat.md)
 - [ARP](arp.md)
-  - [arp-attacks.md](arp-attacks.md)
+  - [ARP Attacks](arp-attacks.md)
   - [DAI](dai.md)
 # QoS and Timing
  

@@ -559,6 +559,12 @@ switch# show logging | i %LINK
 *Jul  8 06:35:43.756: %LINK-3-UPDOWN: Interface Ethernet0/0, changed state to up
 ```
 
+# Captures
+[STP-stable-state.pcap](./captures/switching/STP-stable-state.pcap)
+
+[STP-TCN-topology-change-notification.pcap](./captures/switching/STP-TCN-topology-change-notification.pcap)
+
+
 # References
 1. R. Perlman, *Interconnections: Bridges, Routers, Switches, and Internetworking Protocols*, 2nd ed. Boston, MA: Addison-Wesley, 1999.
 

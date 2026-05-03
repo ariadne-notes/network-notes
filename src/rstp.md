@@ -80,6 +80,9 @@ No BPDUs being received? Wait for the forward delay, transition port to forwardi
      │                                │     
 ```
 
+# Captures
+[RSTP-initial-bringup-fastest.pcap](./captures/switching/RSTP-initial-bringup-fastest.pcap)
+
 # References
 
 https://www.cisco.com/c/en/us/support/docs/lan-switching/spanning-tree-protocol/24062-146.html

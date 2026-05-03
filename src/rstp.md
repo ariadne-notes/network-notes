@@ -12,7 +12,7 @@
 
 * **Backup port:** A network port that provides link redundancy toward the shared segment within the same collision domain, which is typically a network hub.
 
-* **Edge pors:** are edge of the STP topology, meant for hosts. Edge ports have portfast turned on.
+* **Edge ports:** are edge of the STP topology, meant for hosts. Edge ports have portfast turned on.
 
 * **Non-Edge ports:** have received a BPDUs. Could be attached to switches.
 
@@ -20,7 +20,7 @@
 
 * **Propose bit:** Added in 802.1w, the switch that compares BPDUs and sees it has the superior BPDU sets the `Propose` and `DP` bits.
 
-* **Agree Bit:** The 
+* **Agree Bit:** Tells the other side, "yeah, I agree" the other side immediately moves into forwarding.
 
 # Packet Headers
 ```
@@ -61,14 +61,24 @@ No BPDUs being received? Wait for the forward delay, transition port to forwardi
 
 
 ## Fastest Scenario, the would-be DP is already transmitting.
-```
-SW 1 -------------------------- SW 2
 
-DP, Propose
-                Agree, Forward, Learn
-Forward, learn
 ```
-
+┌─────────┐                      ┌─────────┐
+│         │   Full-Duplex Link   │         │
+│   SW1   ├──────────────────────┤   SW2   │
+│         │                      │         │
+└────┬────┘                      └────┬────┘
+     │                                │     
+     │                                │     
+     │DP, Propose, ──────────────────►│     
+     │                                │     
+     │                                │     
+     │◄───────── Agree, Forward, Learn│     
+     │                                │     
+     │                                │     
+     │Forward, Learn ────────────────►│     
+     │                                │     
+```
 
 # References
 

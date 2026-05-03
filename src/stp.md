@@ -378,6 +378,14 @@ SW2 wins with `0`. SW2 has the lower bridge priority.
 
 `32768 / 1 / 52:54:00:4b:99:08 / 8001` > `0 / 1 / 52:54:00:e8:3a:ff`
 
+```
+!
+! SW2
+!
+spanning-tree vlan 1 priority 0
+```
+
+
 ## Port Blocking, Port Default
 
 Which ports block?
@@ -413,6 +421,41 @@ Which ports block?
 - All ports on root bridge are DP.
 - SW2 gets three BPDUs, the best BPDU is on port 3, it has the lowest priority. `00`
 - SW2 sets the other two ports to BLK.
+
+```
+!
+! SW1
+!
+interface 3
+ spanning-tree vlan 1 port-priority 0
+```
+
+
+## Port Blocking, Cost?
+
+Which ports block?
+
+```
+┌───────────┐                                                                                       ┌───────────────┐ 
+│           │                                                                                       │               │ 
+│      DP 1 │── 32768 / 1 / 52:54:00:4b:99:08 / 8001 ──────────────────────────────────────Cost─4───│ 1 BLK         │ 
+│  SW1 DP 2 │── 32768 / 1 / 52:54:00:4b:99:08 / 8002 ──────────────────────────────────────Cost─1───│ 2 RP   SW2    │ 
+│      DP 3 │── 32768 / 1 / 52:54:00:4b:99:08 / 8003 ──────────────────────────────────────Cost─4───│ 3 BLK         │ 
+│           │                                                                                       │               │ 
+└───────────┘                                                                                       └───────────────┘ 
+```
+
+- All ports on root bridge are DP.
+- SW2 gets three BPDUs, the best BPDU is on port 2, The local switch marked the received cost on that port as `1`
+- SW2 sets the other two ports to BLK.
+
+```
+!
+! SW2
+!
+interface 2
+ spanning-tree vlan 1 cost 1
+```
 
 
 ## Topology Change Notifications (TCNs)

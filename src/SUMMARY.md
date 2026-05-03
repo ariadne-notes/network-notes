@@ -3,10 +3,9 @@
 ----
 
 # Switching
- 
-- [802.1Q](802.1q.md)
 - [STP](stp.md)
 - [RSTP](rstp.md)
+- [802.1Q](802.1q.md)
 - [BPDU Guard](bpdu-guard.md)
 - [SPAN, RSPAN, ERSPAN](span-rspan-erspan.md)
 # Routing

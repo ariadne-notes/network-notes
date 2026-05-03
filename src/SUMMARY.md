@@ -6,7 +6,12 @@
 - [STP](stp.md)
 - [RSTP](rstp.md)
 - [802.1Q](802.1q.md)
+
+# Switch Protection
 - [BPDU Guard](bpdu-guard.md)
+- [Root Guard](root-guard.md)
+
+# Switch Features
 - [SPAN, RSPAN, ERSPAN](span-rspan-erspan.md)
 # Routing
  

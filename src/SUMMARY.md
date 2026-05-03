@@ -60,7 +60,8 @@
 - [UDP](udp.md)
 - [HTTP Codes](http-codes.md)
 # Labs and Tools
- 
+
+- [Claude](claude.md)
 - [CML](cml.md)
 - [Subnetting](subnetting.md)
 - [Tables](tables.md)

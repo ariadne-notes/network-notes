@@ -8,9 +8,9 @@ monitor session 1 destination interface GigabitEthernet1/0/2
 
 # RSPAN
 
-VLAN Encapsulated.
-
-Does not support layer 2 protocols.
+- VLAN Encapsulated.
+- Does not support layer 2 protocols. (CDP, BPDUs)
+- If the source is a trunk port, you can use the `filter` keyword to select specific vlans.
 
 **Source Switch**
 ```

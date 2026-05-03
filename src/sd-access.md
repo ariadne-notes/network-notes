@@ -50,7 +50,7 @@ Control plane traffic is CAPWAP inside of VXLAN-GPO. Dataplane traffic can just 
 * The LISP instance ID is the VRF.
 
 ## Cisco Catalyst Center
-* **NCP:**Network Control Platform. This module is connect via API to the GUI, and is what talks to the network gear via NETCONF, SNMP, or SSH. Does all the underlay automation.
+* **NCP:** Network Control Platform. This module is connect via API to the GUI, and is what talks to the network gear via NETCONF, SNMP, or SSH. Does all the underlay automation.
 
 * **NDA:** Network Data Platform. Data collection and analytics. Netflow, Syslog, ERSPAN, etc.
 

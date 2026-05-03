@@ -1,4 +1,13 @@
-### RFC 791
+# Subnet with fingers
+
+I just memorize these sequences, ungainly, but works.
+
+Decimal masks - `128, 192, 224, 240, 248, 252, 254, 255`
+
+Wildcard masks - `127, 63, 31, 15, 7, 3, 1, 0`
+
+
+# RFC 791 - Classful Networking
 
 Early Internet addressing (1980s) the IP itself indicated the subnet mask, by using the High Order bits. There were only three network sizes.
 
@@ -7,6 +16,12 @@ Early Internet addressing (1980s) the IP itself indicated the subnet mask, by us
 /16 - Address starts with `128-191` - 65,536 networks
 
 /24 - Address starts with `192-223` - 16,777,216 networks
+
+In the long ago, the hope was to use the first few bits of an address to tell the subnet mask. Even though we never do this in the modern era a few parts of classful networking are still here.
+
+- `/24` is a very popular prefix
+- `/16` is a very popular prefix
+- All multicast addresses start with `1110`
 
 ```
 Internet Protocol
@@ -32,7 +47,9 @@ Specification
             111         escape to extended addressing mode
 ```
 
+# RFC1918 Dungeons
 
+These are the most famous IPv4 networks. 
 
 ```
 RFC 1918        Address Allocation for Private Internets   February 1996

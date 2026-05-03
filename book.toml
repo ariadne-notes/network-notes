@@ -1,0 +1,8 @@
+[book]
+title = "Ariadne's Network Notes"
+description = "My notes for studying network things"
+authors = ["Ariadne"]
+language = "en"
+
+[output.html]
+git-repository-url = "https://github.com/ariadne-notes/networking"

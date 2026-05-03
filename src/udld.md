@@ -38,7 +38,7 @@ Gi0/0    91YBLF6S1KI     1            Gi0/0      Bidirectional
 ```
 
 # Capture
-![UDLD.pcap](./captures/UDLD-enabled.pcap)
+[UDLD.pcap](./captures/switching/UDLD-enabled.pcap)
 
 # Reference
 [Layer 2 Configuration Guide, Cisco IOS XE 17.16.x (Catalyst 9500 Switches)](https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9500/software/release/17-16/configuration_guide/lyr2/b_1716_lyr2_9500_cg/configuring_unidirectional_link_detection.html)

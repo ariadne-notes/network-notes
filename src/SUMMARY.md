@@ -7,14 +7,15 @@
 - [RSTP](rstp.md)
 - [802.1Q](802.1q.md)
 
-# Switch Protection
+# Switchport Features
 - [BPDU Guard](bpdu-guard.md)
 - [Root Guard](root-guard.md)
+- [Portfast](portfast.md)
 
 # Switch Features
 - [SPAN, RSPAN, ERSPAN](span-rspan-erspan.md)
+
 # Routing
- 
 - [OSPF](ospf.md)
   - [OSPF LSAs](ospf-lsas.md)
   - [OSPF Router LSA](ospf-router-lsa.md)
@@ -28,44 +29,43 @@
 - [Multicast](multicast.md)
 
 # IPv6
- 
 - [IPv6](ipv6.md)
+
 # Campus and Architecture
- 
 - [Campus Architecture](campus-architecture.md)
 - [SD-Access](sd-access.md)
 - [SD-WAN](sdwan.md)
 - [AAA and ISE](aaa-ise.md)
 - [Device Management](device-mgmt.md)
+
 # Network Services
- 
 - [ACLs](acls.md)
 - [CoPP with ACLs and Object Groups](copp-with-acls-and-object-groups.md)
 - [NAT](nat.md)
 - [ARP](arp.md)
   - [ARP Attacks](arp-attacks.md)
   - [DAI](dai.md)
+
 # QoS and Timing
- 
 - [QoS](qos.md)
 - [PTP](ptp.md)
 - [SyncE](synce.md)
 - [NetFlow](netflow.md)
+
 # Wireless
- 
 - [Wireless](wireless.md)
+
 # Automation
- 
 - [Ansible Basics](ansible-basics.md)
 - [RESTCONF and NETCONF](restconf-and-netconf.md)
+
 # Transport and Physical
- 
 - [Optical](optical.md)
 - [T1](t1.md)
 - [UDP](udp.md)
 - [HTTP Codes](http-codes.md)
-# Labs and Tools
 
+# Labs and Tools
 - [Claude](claude.md)
 - [CML](cml.md)
 - [Subnetting](subnetting.md)

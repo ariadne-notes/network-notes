@@ -8,17 +8,20 @@
 - [MST](mst.md)
 - [802.1Q](802.1q.md)
 
-# ISP Switching
-- [Private Vlans](private-vlans.md)
-- [Metro Ethernet](metro-ethernet.md)
-
-# Switchport Features
+# Enterprise Switchport Features
 - [Portfast](portfast.md)
 - [BPDU Guard](bpdu-guard.md)
 - [BPDU Filter](bpdu-filter.md)
 - [Root Guard](root-guard.md)
 - [Loop Guard](loop-guard.md)
 - [UDLD](udld.md)
+
+# ISP Switching
+- [Metro Ethernet](metro-ethernet.md)
+- [Private Vlans](private-vlans.md)
+
+# ISP Features
+- [Circuit Emulation](cem.md)
 
 
 # Switch Features

@@ -1,0 +1,49 @@
+# Circuit Emulation (CEM)
+
+## Key Terms
+
+| Term        | Definition |
+|-------------|------------|
+| **SPA**     | Shared Port Adapter |
+| **CEoP**    | Circuit Emulation over Packet |
+| **CESoPSN** | Circuit Emulation Service over Packet Switched Network |
+| **SAToP**   | Structure-Agnostic Transport over Packet |
+
+
+## What is CEM?
+
+> CEM treats data as an **arbitrary bit stream** — the actual Layer 1/Layer 2 format is irrelevant to the transport. This makes it ideal for carrying legacy or opaque traffic over modern packet-switched networks.
+
+
+## Common CEM Use Cases
+
+- **2G / 3G** mobile backhaul traffic
+- **T1 / E1** circuit emulation over packet networks
+- **PBX-to-PBX** connectivity
+- **Inter-MSC** (Mobile Switching Center) connectivity
+- **Already-encrypted traffic** with no defined structure (government, high-security)
+- **Proprietary** synchronous or asynchronous data streams
+- **Leased line emulation**
+
+
+## CEoP SPAs (for Cisco 7600)
+
+| SPA                  | Description |
+|----------------------|-------------|
+| `SPA-24CHT1-CE-ATM=` | 24-Port Channelized T1/E1 ATM CEoP SPA |
+| `SPA-2CHT3-CE-ATM=`  | 2-Port Channelized T3/E3 ATM CEoP SPA |
+| `SPA-1CHOC3-CE-ATM=` | 1-Port Channelized OC-3/STM-1 ATM CEoP SPA |
+
+
+## Platforms Supporting CEM
+
+| Platform                         | Notes |
+|----------------------------------|-------|
+| **MWR2941**                      | Native CEM support |
+| **ASR 1000 series**              | Via SPA cards |
+| **ASR 900 series**               | Via SPA cards |
+| **Legacy routers with NM slots** | Via NM card |
+
+## Key Configuration Note
+
+> Creating a `channel-group` under a T1 controller automatically creates the associated **serial interface**.

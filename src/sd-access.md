@@ -26,7 +26,7 @@
 
 * **Fabric Edge Node:** Connects campus host devices to the SDA fabric, usually an access layer or distribution layer device. Is a LISP xTR, with an anycast gateway, with overlay host protocols, (like DHCP).
 
-## Fabric Edge Onboardin
+## Fabric Edge Onboarding
 * (Method 1) Open Auth or MAB, user connects to a port -> host pool.
 * (Method 2) 802.1x authenticates the device -> host pool.
 * Host pool has a SGT, SVI and VRF instance.
@@ -55,3 +55,6 @@ Control plane traffic is CAPWAP inside of VXLAN-GPO. Dataplane traffic can just 
 * **NDA:** Network Data Platform. Data collection and analytics. Netflow, Syslog, ERSPAN, etc.
 
 * **ISE:** Is required. 802.1x, Mac Authentication Bypass (MAB), or Web Authentication (WebAuth). Can talk to AWS or Active Directory. ISE is *tightly* integrated via API calls to CatC.
+
+# References
+[Cisco Software-Defined Access Solution Design Guide](https://www.cisco.com/c/en/us/td/docs/solutions/CVD/Campus/cisco-sda-design-guide.html)

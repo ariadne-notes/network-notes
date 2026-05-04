@@ -2,11 +2,15 @@
 
 ----
 
-# Enterprise Switching
+# Ethernet
 - [STP](stp.md)
 - [RSTP](rstp.md)
 - [MST](mst.md)
 - [802.1Q](802.1q.md)
+- [ARP](arp.md)
+  - [ARP Attacks](arp-attacks.md)
+  - [DAI](dai.md)
+  - [Proxy ARP](proxy-arp.md)
 
 # Enterprise Switchport Features
 - [Portfast](portfast.md)
@@ -63,9 +67,7 @@
 - [ACLs](acls.md)
 - [CoPP with ACLs and Object Groups](copp-with-acls-and-object-groups.md)
 - [NAT](nat.md)
-- [ARP](arp.md)
-  - [ARP Attacks](arp-attacks.md)
-  - [DAI](dai.md)
+
 
 # QoS and Timing
 - [QoS](qos.md)

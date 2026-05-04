@@ -124,5 +124,12 @@ EIGRP can load balance over the successor and feasible successor routes with a v
 
 192.0.2.5 127.255.255.255 - becomes 128.0.0.0, the rest of the bits get dropped.
 
+# Stub Routing
+
+
+- This feature is used so remote sites are never used for transit, and simplifies configuration for remote sites.
+- The router responds to queries for summaries, connected routes, redistributed static routes, external routes, and internal routes with the message "inaccessible."
+- Any neighbor that receives a packet informing it of the stub status will not query the stub router for any routes, and a router that has a stub peer will not query that peer.
+
 # References
 [Cisco - Understand and Use the Enhanced Interior Gateway Routing Protocol](https://www.cisco.com/c/en/us/support/docs/ip/enhanced-interior-gateway-routing-protocol-eigrp/16406-eigrp-toc.html)

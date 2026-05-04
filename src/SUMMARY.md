@@ -16,9 +16,12 @@
 - [Loop Guard](loop-guard.md)
 - [UDLD](udld.md)
 
-# ISP Switching
+# SP Ethernet
 - [Metro Ethernet](metro-ethernet.md)
 - [Private Vlans](private-vlans.md)
+
+# SP Switching
+- [MPLS](mpls.md)
 
 # ISP Features
 - [Circuit Emulation](cem.md)

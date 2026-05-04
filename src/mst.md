@@ -9,104 +9,105 @@ switch(config)# spanning-tree mode ?
 
 The Industry has three kinds of interop. 
 
-```
-| IEEE            | Cisco         | Notes                                      |
-|-----------------|---------------|--------------------------------------------|
-| STP (802.1D)    | PVST+         | Cisco's version is per vlan                |
-| RSTP (802.1w)   | Rapid PVST+   | Cisco's version is per vlan                |
-| MST (802.1s)    | MST           | Same standard; Cisco implements it on-gear |
-```
+
+IEEE            | Cisco         | Notes                                      
+----------------|---------------|--------------------------------------------
+STP (802.1D)    | PVST+         | Cisco's version is per vlan                
+RSTP (802.1w)   | Rapid PVST+   | Cisco's version is per vlan                
+MST (802.1s)    | MST           | Same standard; Cisco implements it on-gear 
 
 Industry liked what Cisco was doing with "per vlan" so MST merges that feature into 802.1s.
 
 # Terms
 
+* **CST:** Common Spanning Tree. For interoperability we fall back to 802.1D, with one spanning tree. MST supports this.
+* **CST Root: The one root bridge for the entire CST.
 * **MST:** Multiple Spanning Trees.
-* **MSTI:** MST Instance, a group of vlans on a common MST.
+* **MSTI:** MST Instance, a group of vlans on a common MSTI.
 * **MST Region:** A group of switches with the same high-level config.
+* **MST Region Boundary:** Where a MST region sends and receives BPDUs with a different switching instance (could be STP, RSTP, MST but a different region)
+* **MST Region Root:** MST can propagate multiple MSTIs. Each MSTI can have it's own root.
 * **IST:** Internal Spanning Tree, this is instance 0, the first instance.
+* **IST Root:** The IST root is the CST root.
+* **CIST:** Common and Internal Spanning tree. MST can derive what STP would do, for interop. If a switch in a MST region is connected to a much older switch, it will present it with a CST.
 * **MST Region Boundary:** Any port that connects to a 802.1D or 802.1W device.
-* **CST:** Common Spanning Tree, what is built by STP, and RSTP.
-* **CIST:** Common and Internal Spanning Tree.
-
+* **PVST Simulation:** if a MST switch is root for the whole switch topology, it will map the IST (instance 0) onto the CST, by sending BPDUs for all the VLANS it sees on the neighbor.
+* **PVST Simulation Check:** If a MST device receives a superior BPDU, it will shut down the port.
 
 
 # Packet
 From wireshark
 
 ```
-Frame 1: Packet, 119 bytes on wire (952 bits), 119 bytes captured (952 bits)
-IEEE 802.3 Ethernet 
-Logical-Link Control
-Spanning Tree Protocol
-    Protocol Identifier: Spanning Tree Protocol (0x0000)
-    Protocol Version Identifier: Multiple Spanning Tree (3)
-    BPDU Type: Rapid/Multiple Spanning Tree (0x02)
-    BPDU flags: 0x7c, Agreement, Forwarding, Learning, Port Role: Designated
-        0... .... = Topology Change Acknowledgment: No
-        .1.. .... = Agreement: Yes
-        ..1. .... = Forwarding: Yes
-        ...1 .... = Learning: Yes
-        .... 11.. = Port Role: Designated (3)
-        .... ..0. = Proposal: No
-        .... ...0 = Topology Change: No
-    Root Identifier: 0 / 0 / 52:54:00:01:22:eb
-    Root Path Cost: 0
-    Bridge Identifier: 0 / 0 / 52:54:00:01:22:eb
-    Port identifier: 0x8001
-    Message Age: 0
-    Max Age: 20
-    Hello Time: 2
-    Forward Delay: 15
-    Version 1 Length: 0
-    Version 3 Length: 64
-    MST Extension
-        MST Config ID format selector: 0
-        MST Config name: 
-        MST Config revision: 0
-        MST Config digest: ac36177f50283cd4b83821d8ab26de62
-        CIST Internal Root Path Cost: 0
-        CIST Bridge Identifier: 0 / 0 / 52:54:00:01:22:eb
-        CIST Remaining hops: 20
+Spanning Tree Protocol                                                                                  
+    Protocol Identifier: Spanning Tree Protocol (0x0000)                                                
+    Protocol Version Identifier: Multiple Spanning Tree (3)                                             
+    BPDU Type: Rapid/Multiple Spanning Tree (0x02)                         ───────┐                     
+    BPDU flags: 0x7c, Agreement, Forwarding, Learning, Port Role: Designated      │                     
+    Root Identifier: 0 / 0 / 52:54:00:5f:ff:79                                    │ Inter-op Data       
+    Root Path Cost: 20000                                                         │   The CST MST       
+    Bridge Identifier: 4096 / 0 / 52:54:00:82:c0:7f                               │     presents outside
+    Port identifier: 0x800e                                                       │       its region    
+    Message Age: 1                                                                │                     
+    Max Age: 20                                                                   │                     
+    Hello Time: 2                                                                 │                     
+    Forward Delay: 15                                                      ───────┘                     
+    Version 1 Length: 0                                                                                 
+    Version 3 Length: 80                                                                                
+    MST Extension                                                                                       
+        MST Config ID format selector: 0                       ───────┐                                 
+        MST Config name: green                                        │   What MST                      
+        MST Config revision: 3                                        │    Shows                        
+        MST Config digest: 059b580e0d7ab80bcf83df54c634d006           │      other                      
+        CIST Internal Root Path Cost: 20000                           │        devices                  
+        CIST Bridge Identifier: 32768 / 0 / 52:54:00:04:67:92         │          in                     
+        CIST Remaining hops: 19                                       │           its                   
+        MSTID 1, Regional Root Identifier 0 / 52:54:00:82:c0:7f       │            Region               
+                                                               ───────┘                                 
 ```
+
+MST keeps track of a few things:
+
+* **Root Identifier**, This is the interop bridge for the whole topology.
+
+* **Bridge Identifier:** This is the interop field that makes a MST region appear as one bridge outside of it.
+
+* **CIST Bridge,** This is the bridge that originated the BPDU. Not visible outside of MST.
+
+* **Regional Root:** The bridge that is the root for `green`. Not visible outside of MST.
+
+
 
 # Basic Config
 ```
 spanning-tree mode mst
-spanning-tree mst 0 priority 0
 ```
 
 
 # More involved config
 ```
-spanning-tree mode mst
-spanning-tree mst 0 root secondary
-spanning-tree mst 1 root primary
+default spanning-tree mst configuration
 spanning-tree mst configuration
-  name MST_CONFIG_NAME_CORE
-  revision 2
-  instance 1 vlan 10,30
-  instance 2 vlan 20,40
+ name blue
+ revision 3
+ instance 1 vlan 10, 20, 30, 40
 ```
 
+**Config Validation**
 ```
-switch# show spanning-tree mst configuration 
-Name      [MST_CONFIG_NAME_CORE]
-Revision  2     Instances configured 3
+S21# show spanning-tree mst configuration 
+Name      [red]
+Revision  3     Instances configured 2
 
 Instance  Vlans mapped
 --------  ---------------------------------------------------------------------
-0         1-9,11-19,21-29,31-39,41-4094
-1         10,30
-2         20,40
+0         1-19,21-39,41-4094
+1         20,40
 -------------------------------------------------------------------------------
 ```
 
-# Misconfigs
+# Outputs
 
-### Mapping Vlans to an instance where ports are blocked.
-- Never Manually prune VLANs from a trunk.
-  - If you must prune, prune all the vlans in an instance.
 
 # Captures
 [MST-bpdu.pcap](./captures/switching/MST-bpdu.pcap)

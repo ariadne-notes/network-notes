@@ -1,3 +1,64 @@
+## ASN 
+
+16-bit ASN - 65,535
+32-bit ASN - 4,294,967,295
+
+### Private Numbers
+
+* 64,512 – 65,534
+
+* 4,200,000,000 – 4,294,967,294
+
+# Requesting an ASN
+
+IANA asks for the following things.
+* Proof of a publicly allocated network range
+* Proof that Internet connectivity is provided through multiple connections
+* Need for a unique routing policy from providers
+
+## BGP Path Attributes
+[RFC 4271 - BGP-4](https://www.rfc-editor.org/rfc/rfc4271#section-5) 
+
+- Well-known mandatory
+- Well-known discretionary
+- Optional transitive
+- Optional nontransitive
+
+| Path Attribute     | Category |
+| ------------------ | ------------------------- |
+| Origin             | Mandatory                 |
+| AS_PATH            | Mandatory                 |
+| NEXT_HOP           | Mandatory                 |
+| LOCAL_PREF         | Discretionary             |
+| ATOMIC_AGGREGATE   | Discretionary             |
+| AGGREGATOR         | Optional Transitive       |
+| COMMUNITY          | Optional Transitive       |
+| MULTI_EXIT_DISC    | Optional Non-Transitive   |
+| ORIGINATOR_ID      | Optional Non-Transitive   |
+| CLUSTER_LIST       | Optional Non-Transitive   |
+
+## BGP Uses TCP
+- Port 179
+- BGP is sensitive to IP fragmentation
+
+## Session Types
+- iBGP Administrative distance of 200
+- eBGP Administrative distance of 20
+
+### eBGP
+- TTL is set to 1.
+- Next-hop is set to what the BGP source connection IP is.
+- Check if the current AS_PATH has our AS.
+- Prepend AS into AS_PATH
+
+# BGP Packet Types
+| Type | Name | Functional Overview |
+|------|--------------|--------------------------------------------------|
+| 1    | OPEN         | Sets up and establishes BGP adjacency            |
+| 2    | UPDATE       | Advertises, updates, or withdraws routes         |
+| 3    | NOTIFICATION | Indicates an error condition to a BGP neighbor   |
+| 4    | KEEPALIVE    | Ensures that BGP neighbors are still alive       |
+
 ## Theory
 - BGP works on the premise that if a router sees its own AS path, it must be a loop.
 - The default timer is 60 seconds with 180 seconds for hold time. This means worst-case is 3 minutes to fail-over.
@@ -6,7 +67,7 @@
 #### Working with BGP
  - Only consider traffic in one direction at a time
  - Accepting a route will affect outgoing traffic
- - Advertising a route will affect incomming traffic
+ - Advertising a route will affect incoming traffic
  - Filter out everything except the routes needed
  - BGP DOES NOT LOAD BALANCE
 
@@ -47,26 +108,7 @@ These read left to right like a book. This prefix was most recently from AS `701
 ```
 [Cisco - Select BGP Best Path Algorithm](https://www.cisco.com/c/en/us/support/docs/ip/border-gateway-protocol-bgp/13753-25.html)
 
-#### BGP Path Attributes
-[RFC 4271 - BGP-4](https://www.rfc-editor.org/rfc/rfc4271#section-5) 
 
-- Well-known mandatory
-- Well-known discretionary
-- Optional transitive
-- Optional nontransitive
-
-| Path Attribute | Category |
-| -- | -- | 
-| Origin             | Mandatory                 |
-| AS_PATH            | Mandatory                 |
-| NEXT_HOP           | Mandatory                 |
-| LOCAL_PREF         | Discretionary             |
-| ATOMIC_AGGREGATE   | Discretionary             |
-| AGGREGATOR         | Optional Transitive       |
-| COMMUNITY          | Optional Transitive       |
-| MULTI_EXIT_DISC    | Optional Non-Transitive   |
-| ORIGINATOR_ID      | Optional Non-Transitive   |
-| CLUSTER_LIST       | Optional Non-Transitive   |
 
 ### Origin
 
@@ -213,4 +255,6 @@ IF you want to add two BGP speakers to the same router reflector cluster, specif
 
 ### BGP redistribution into anything
 
-  
+# References
+
+B. Edgeworth, R. Garza Rios, J. Gooley, and D. Hucaby, *CCNP and CCIE Enterprise Core ENCOR 350-401 Official Cert Guide*, 2nd ed. Indianapolis, IN: Cisco Press, 2023.

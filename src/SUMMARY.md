@@ -43,6 +43,7 @@
   - [OSPF LSAs](ospf-lsas.md)
   - [OSPF Router LSA](ospf-router-lsa.md)
   - [OSPF LSA Captures](ospf-lsa-captures.md)
+  - [OSPF LSA Chart](ospf-lsa-chart.md)
 - [BGP](bgp.md)
 - [EIGRP](eigrp.md)
 - [ISIS](isis.md)

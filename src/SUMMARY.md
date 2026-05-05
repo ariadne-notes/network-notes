@@ -18,6 +18,7 @@
 - [BPDU Filter](bpdu-filter.md)
 - [Root Guard](root-guard.md)
 - [Loop Guard](loop-guard.md)
+- [Port Security](port-security.md)
 - [UDLD](udld.md)
 
 # SP Ethernet

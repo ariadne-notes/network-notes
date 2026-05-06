@@ -54,10 +54,10 @@ IANA asks for the following things.
 # BGP Packet Types
 | Type | Name | Functional Overview |
 |------|--------------|--------------------------------------------------|
-| 1    | OPEN         | Sets up and establishes BGP adjacency            |
-| 2    | UPDATE       | Advertises, updates, or withdraws routes         |
+| 1    | OPEN         | initial bringup                                  |
+| 2    | UPDATE       | Routes and route updates                         |
 | 3    | NOTIFICATION | Indicates an error condition to a BGP neighbor   |
-| 4    | KEEPALIVE    | Ensures that BGP neighbors are still alive       |
+| 4    | KEEPALIVE    | Makes sure everything is OK                      |
 
 ## Theory
 - BGP works on the premise that if a router sees its own AS path, it must be a loop.

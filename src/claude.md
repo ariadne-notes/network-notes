@@ -27,7 +27,7 @@ I feed this into claude most of the time to get nice outputs to copy into gear f
 
 # v6 - L2 addressing
 * v6 subnets are usually /64s.
-* router-to-router subnets in v6 take the form 2001:db8:X:Y:Z/64. X is the lower router number. Y is the higher router number. Z is the router itself.
+* router-to-router subnets in v6 take the form 2001:db8:X:Y::Z/64. X is the lower router number. Y is the higher router number. Z is the router itself.
 * R1-R5 2001:db8:0:15::0/64. 
   * Example: R1 to R5 would be 2001:db8:1:5:1/64
   * Example: R5 to R1 would be 2001:db8:1:5:5/64

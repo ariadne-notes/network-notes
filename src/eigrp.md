@@ -75,10 +75,9 @@ EIGRP can load balance over the successor and feasible successor routes with a v
   - The deadtime is 3x the hold timer.
 
 
-
 # Initial Bringup
 - Send Hello packets, to 224.0.0.10
-  - Doesnt' require multicast to be on
+  - Doesn't' require multicast to be on
   - Unicast Init from neighbor, set Seq, Set Ack to 0
     - Neighbor Sends back Ack as prior sequence number.
     - Update Messages
@@ -112,7 +111,16 @@ EIGRP can load balance over the successor and feasible successor routes with a v
 - Next-hop
 - Prefix Length
 
-# Network
+# Summaries
+
+In EIGRP these go under the interface, on the interface you want the summary to be sent out of.
+
+```
+ethernet 1
+  ip summary-address eigrp 100 192.168.0.0/16
+```
+
+# Network Parser
 
 * The CLI parser is converting the IP into binary, then comparing it to the wild mask.
 * The CLI parser will only save the matched bits of the IP.

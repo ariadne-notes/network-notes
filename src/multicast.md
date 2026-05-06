@@ -3,7 +3,7 @@
 * **Multicast:** A one-to-many service using UDP packets destined to group IP address. Hosts subscribe to the group, routers replicate for the group.
 * **IGMP:** Internet Group Management Protocol. A host uses IGMP to request a multicast stream. Switches see it (for snooping), and the FHR uses this to build the MDT.
 * **PIM:** Protocol Independent Multicast. Multicast capable routers communicate to each over via PIM.
-* **IIL:** Incoming Interface List, part of the MDT.
+* **IIF:** Incoming Interface, AKA, the RPL interface. Part of the MDT.
 * **OIL:** Outgoing Interface List, part of the MDT.
 * **MDT:** Multicast Distribution Tree. The full set of links participating in multicast, via PIM, IGMP, including IILs, and OILs.
 * **RP:** Rendezvous Point. A router designated as the root of a shared tree.

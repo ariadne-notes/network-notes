@@ -101,3 +101,4 @@
 - [OS Architecture](os-architecture.md)
 - [Wiki.js, Duplicati, Traefik, Portainer](wikijs-duplicati-traefik-portainer.md)
 - [Windows 10 Physical to Virtual](windows-10-physical-to-virtual.md)
+- [REST API Return Codes](rest-api-return-codes.md)

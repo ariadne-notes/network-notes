@@ -1,4 +1,4 @@
-# NAT is context Sensitive
+# NAT is Context Sensitive
 
 We specify an `inside` and `outside` network, so we can do one or both transforms.
 
@@ -116,3 +116,9 @@ icmp 10.0.0.2:1024     192.168.1.1:5      10.0.0.3:5         10.0.0.3:1024
 </pre>
 
 [^source]: Source NAT, because the source address needs to be changed to access outside hosts. As packets move through the router, they will create entries for return packets.
+
+----
+
+v1.1 - Last edit 6-May-2025
+
+This work is dedicated to the Public Domain via [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)

@@ -2,6 +2,14 @@
 
 ----
 
+# Networks
+- [Classful Networking](classful-networking.md)
+- [RFC1918 Dungeons](rfc1918-dungeons.md)
+
+# Subnetting
+- [with Fingers](subnet-with-fingers.md)
+- [with the Box Method](subnet-with-the-box-method.md)
+
 # Ethernet
 - [STP](stp.md)
 - [RSTP](rstp.md)
@@ -39,7 +47,7 @@
 - [Multicast](multicast.md)
   - [MSDP](msdp.md)
 
-# Routing
+# Routing Protocols
 - [OSPF](ospf.md)
   - [OSPF LSAs](ospf-lsas.md)
   - [OSPF Router LSA](ospf-router-lsa.md)
@@ -48,10 +56,10 @@
 - [BGP](bgp.md)
 - [EIGRP](eigrp.md)
 - [ISIS](isis.md)
-- [FHRP](fhrp.md)
-- [BFD](bfd.md)
-- [Route Redistribution with Tags](route-redistribution-with-tags.md)
-- [LISP](lisp.md)
+
+# Routing Strategies
+- [Policy Based Routing](policy-based-routing.md)
+
 
 # IPv6
 - [IPv6](ipv6.md)
@@ -72,7 +80,7 @@
 - [QoS](qos.md)
 - [PTP](ptp.md)
 - [SyncE](synce.md)
-- [NetFlow](netflow.md)
+- [Flexible NetFlow](flexible-netflow.md)
 
 # Wireless
 - [Wireless](wireless.md)
@@ -93,12 +101,17 @@
 # PKI
 - [Certbot](certbot.md)
 
-# Labs and Tools
+# Etc (stuff I haven't sorted)
+- [iperf2](iperf2.md)
 - [Claude](claude.md)
 - [CML](cml.md)
-- [Subnetting](subnetting.md)
+
 - [Tables](tables.md)
 - [OS Architecture](os-architecture.md)
 - [Wiki.js, Duplicati, Traefik, Portainer](wikijs-duplicati-traefik-portainer.md)
 - [Windows 10 Physical to Virtual](windows-10-physical-to-virtual.md)
 - [REST API Return Codes](rest-api-return-codes.md)
+- [FHRP](fhrp.md)
+- [BFD](bfd.md)
+- [Route Redistribution with Tags](route-redistribution-with-tags.md)
+- [LISP](lisp.md)

@@ -210,6 +210,7 @@ update();
 
 # Wide Network Vectors
 <pre>
+RFC 7868                      Cisco's EIGRP                     May 2016
 
 5.6.2.1.  Wide Metric Vectors
 
@@ -234,6 +235,9 @@ update();
 # Wide Metric Conversion Constants
 
 <pre>
+
+RFC 7868                      Cisco's EIGRP                     May 2016
+
 5.6.2.2.  Wide Metric Conversion Constants
 
    EIGRP uses a number of defined constants for conversion and
@@ -256,39 +260,66 @@ update();
 
 # Throughput
 <pre>
+RFC 7868                      Cisco's EIGRP                     May 2016
 
+5.6.2.3.  Throughput Calculation
 
-                               (EIGRP_BANDWIDTH * EIGRP_WIDE_SCALE)
-     Max-Throughput = K1 *     ------------------------------------
-                                    Interface Bandwidth (kbps)
-</pre>
+   The formula for the conversion for Max-Throughput value directly from
+   the interface without consideration of congestion-based effects is as
+   follows:
 
-### If K2 is used.
+                                  (EIGRP_BANDWIDTH * EIGRP_WIDE_SCALE)
+        Max-Throughput = K1 *     ------------------------------------
+                                       Interface Bandwidth (kbps)
 
-<pre>
-
+   If K2 is used, the effect of congestion as a measure of load reported
+   by the interface will be used to simulate the "available Throughput"
+   by adjusting the maximum Throughput according to the formula:
 
                                            K2 * Max-Throughput
         Net-Throughput = Max-Throughput + ---------------------
                                               256 - Load
+
+   K2 has the greatest effect on the metric occurs when the load
+   increases beyond 90%.
 </pre>
 
 # Latency
 <pre>
+RFC 7868                      Cisco's EIGRP                     May 2016
 
+5.6.2.4.  Latency Calculation
 
-                       Delay * EIGRP_WIDE_SCALE
-     Latency = K3 *   --------------------------
-                          EIGRP_DELAY_PICO
+   Transmission times derived from physical interfaces MUST be n units
+   of picoseconds, converted to picoseconds prior to being exchanged
+   between neighbors, or used in the composite metric determination.
+
+   This includes delay values present in configuration-based commands
+   (i.e., interface delay, redistribute, default-metric, route-map,
+   etc.).
+
+   The delay value is then converted to a "latency" using the formula:
+
+                          Delay * EIGRP_WIDE_SCALE
+        Latency = K3 *   --------------------------
+                             EIGRP_DELAY_PICO
 </pre>
 
 # Composite Calculation
 <pre>
+RFC 7868                      Cisco's EIGRP                     May 2016
 
+5.6.2.5.  Composite Calculation
 
                                                                 K5
       metric =[(K1*Net-Throughput) + Latency)+(K6*ExtAttr)] * ------
                                                               K4+Rel
+
+   By default, the path selection scheme used by EIGRP is a combination
+   of Throughput and Latency where the selection is a product of total
+   latency and minimum Throughput of all links along the path:
+
+      metric = (K1 * min(Throughput)) + (K3 * sum(Latency)) }
 </pre>
 
 # Validations
@@ -318,3 +349,9 @@ EIGRP-IPv4 VR(EIGRP_100) Topology Entry for AS(100)/ID(1.1.1.1) for 2.2.2.2/32
 
 # References
 [RFC 7868 - Cisco's Enhanced Interior Gateway Routing Protocol (EIGRP)](https://www.rfc-editor.org/rfc/rfc7868.html#section-5.6.2.1)
+
+----
+
+v1.2 - Last edit 9-May-2026
+
+This work is dedicated to the Public Domain via [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)

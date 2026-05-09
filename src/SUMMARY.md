@@ -1,4 +1,5 @@
 - [Author](author.md)
+- [License](license.md)
 
 ----
 
@@ -45,7 +46,7 @@
 
 # Multicast
 - [Multicast](multicast.md)
-  - [Auto-RP(auto-rp.md)
+  - [Auto-RP](auto-rp.md)
   - [MSDP](msdp.md)
 
 # Routing Protocols

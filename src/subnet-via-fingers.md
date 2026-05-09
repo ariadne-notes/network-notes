@@ -22,9 +22,3 @@ A `/32` is a single address. We call these host routes. `8.8.8.8/32` is Google's
 
 # References
 [Using 31-Bit Prefixes on IPv4 Point-to-Point Links](https://www.rfc-editor.org/rfc/rfc3021)
-
-----
-
-v1.2 - Last edit 6-May-2025
-
-This work is dedicated to the Public Domain via [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)

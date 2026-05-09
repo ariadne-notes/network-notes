@@ -364,9 +364,3 @@ EIGRP-IPv4 VR(EIGRP_100) Topology Entry for AS(100)/ID(1.1.1.1) for 2.2.2.2/32
 
 # References
 [RFC 7868 - Cisco's Enhanced Interior Gateway Routing Protocol (EIGRP)](https://www.rfc-editor.org/rfc/rfc7868.html#section-5.6.2.1)
-
-----
-
-v1.2 - Last edit 9-May-2026
-
-This work is dedicated to the Public Domain via [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)

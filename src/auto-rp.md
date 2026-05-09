@@ -7,7 +7,7 @@ A different service, a mapping agent, will read these messages, pick a winner, t
 * 5.5.5.5, Candidate RP.
 * 4.4.4.4, mapping agent.
 
-```
+<pre>
 R4# show ip pim autorp 
 AutoRP Information: 
   AutoRP is enabled.
@@ -17,14 +17,13 @@ AutoRP Information:
 
 PIM AutoRP Statistics: Sent/Received
   RP Announce: 0/16, RP Discovery: 64/42
-```
+</pre>
 
 These packets are slow.
 
-```
-R4#debug ip pim auto-rp 
+<pre>
+R4# debug ip pim auto-rp 
 PIM Auto-RP debugging is on
-R4#
 !
 ! Sent to cisco-rp-discovery
 !
@@ -44,4 +43,7 @@ R4#
 *Apr 25 19:58:30.160:  prm_rp->bidir_mode = 0 vs bidir = 0 (224.0.0.0/4, RP:5.5.5.5), PIMv2 v1
 R4# undebug all
 All possible debugging has been turned off
-```
+</pre>
+
+# References
+[Cisco - Configuring a Rendezvous Point](https://www.cisco.com/c/en/us/td/docs/ios/solutions_docs/ip_multicast/White_papers/rps.html#wp1029236)

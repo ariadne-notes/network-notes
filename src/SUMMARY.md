@@ -57,6 +57,7 @@
   - [OSPF LSA Chart](ospf-lsa-chart.md)
 - [BGP](bgp.md)
 - [EIGRP](eigrp.md)
+  - [EIGRP Classic Metric](eigrp-classic-metric.md)
   - [EIGRP Wide Metric](eigrp-metric-wide.md)
 - [ISIS](isis.md)
 

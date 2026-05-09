@@ -2,8 +2,6 @@
 
 The RFC recommended way to modify a path with EIGRP is **changing the delay**, under the interface. This will not impact other protocols. Modifying bandwidth ... affects lots of things!
 
-
-
 <style>
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
 .wrap{padding:1rem 0;font-size:14px;color:var(--color-text-primary)}

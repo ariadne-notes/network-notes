@@ -1,3 +1,5 @@
+# Classful Networking
+
 __**I S**__
 __**D E A D**__
 
@@ -19,7 +21,9 @@ If someone gives you an IP, you can **never guess** its network without also bei
 
 My personal favorite is `8.8.8.8/32` [Google DNS](https://en.wikipedia.org/wiki/Google_Public_DNS) it works by [Anycast!](https://en.wikipedia.org/wiki/Anycast)
 
-# RFC 791 - Classful Networking
+#  Classful Networking, the RFC 
+
+### RFC 791
 
 ```
 Internet Protocol
@@ -47,6 +51,6 @@ Specification
 
 ----
 
-v1.1 - Last edit 6-May-2025
+v1.2 - Last edit 8-May-2026
 
 This work is dedicated to the Public Domain via [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)

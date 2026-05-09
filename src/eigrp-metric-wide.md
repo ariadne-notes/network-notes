@@ -1,0 +1,304 @@
+
+<style>
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+.wrap{padding:1rem 0;font-size:14px;color:var(--color-text-primary)}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.25rem 1.5rem}
+.field-row{display:flex;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+.field-row label{font-size:13px;color:var(--color-text-secondary);min-width:160px}
+.field-row select,.field-row input[type=number]{font-size:13px}
+.field-row select{flex:1}
+.field-row input[type=number]{width:150px}
+.sec-label{font-size:11px;font-weight:500;letter-spacing:.06em;color:var(--color-text-tertiary);text-transform:uppercase;margin:1.25rem 0 .6rem}
+.kvals{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:.5rem}
+.kv{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--color-text-secondary)}
+.kv input{width:38px;font-size:12px;padding:2px 5px}
+.divider{border:none;border-top:0.5px solid var(--color-border-tertiary);margin:1.25rem 0}
+.results-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:1.25rem}
+.result-card{background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:14px 16px}
+.result-card.rib{border-color:var(--color-border-success)}
+.result-card.wide{border-color:var(--color-border-info)}
+.rc-name{font-size:11px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:var(--color-text-secondary);margin-bottom:6px}
+.rc-metric{font-size:32px;font-weight:500;color:var(--color-text-primary);line-height:1.1}
+.rc-breakdown{font-size:12px;color:var(--color-text-secondary);margin-top:8px;font-family:var(--font-mono);line-height:1.8}
+.linked{font-size:11px;color:var(--color-text-tertiary);margin-left:4px}
+</style>
+
+<h2 class="sr-only">EIGRP named mode 64-bit wide metric calculator per RFC 7868 with correct interface delay constants</h2>
+
+<div class="wrap">
+<div class="card">
+
+  <div class="sec-label">Interface</div>
+  <div class="field-row">
+    <label>Preset</label>
+    <select id="preset" onchange="applyPreset()">
+      <option value="">— custom —</option>
+      <option value="9">Tunnel (9 kbps)</option>
+      <option value="56">56 kbps</option>
+      <option value="64">DS0 (64 kbps)</option>
+      <option value="1544">T1 (1544 kbps)</option>
+      <option value="2048">E1 (2048 kbps)</option>
+      <option value="10000">Ethernet (10 Mbps)</option>
+      <option value="16000">TokRing16 (16 Mbps)</option>
+      <option value="45045">HSSI (45 Mbps)</option>
+      <option value="100000">FastEthernet / FDDI (100 Mbps)</option>
+      <option value="155000">ATM 155 Mbps</option>
+      <option value="1000000">GigabitEthernet (1G)</option>
+      <option value="2000000">2G</option>
+      <option value="5000000">5G</option>
+      <option value="10000000">TenGigabitEthernet (10G)</option>
+      <option value="20000000">20G</option>
+      <option value="50000000">50G</option>
+      <option value="100000000">HundredGigE (100G)</option>
+      <option value="200000000">TwoHundredGigE (200G)</option>
+      <option value="500000000">500G</option>
+    </select>
+  </div>
+  <div class="field-row">
+    <label>Bandwidth (kbps)</label>
+    <input type="number" id="bw" value="1000000" min="1" oninput="document.getElementById('preset').value='';update()">
+  </div>
+  <div class="field-row">
+    <label>Delay (μs)</label>
+    <input type="number" id="delay_us" value="10" min="0" step="any" oninput="syncFromUs();update()">
+  </div>
+  <div class="field-row">
+    <label>Delay (ps) <span class="linked">← tied to μs</span></label>
+    <input type="number" id="delay_ps" value="10000000" min="1" oninput="syncFromPs();update()">
+  </div>
+  <div class="field-row">
+    <label>Load (1–255)</label>
+    <input type="number" id="load" value="1" min="1" max="255" oninput="update()">
+  </div>
+  <div class="field-row">
+    <label>Reliability (1–255)</label>
+    <input type="number" id="rely" value="255" min="1" max="255" oninput="update()">
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="sec-label">K-values</div>
+  <div class="kvals">
+    <div class="kv"><label>K1</label><input type="number" id="k1" value="1" min="0" max="255" oninput="update()"></div>
+    <div class="kv"><label>K2</label><input type="number" id="k2" value="0" min="0" max="255" oninput="update()"></div>
+    <div class="kv"><label>K3</label><input type="number" id="k3" value="1" min="0" max="255" oninput="update()"></div>
+    <div class="kv"><label>K4</label><input type="number" id="k4" value="0" min="0" max="255" oninput="update()"></div>
+    <div class="kv"><label>K5</label><input type="number" id="k5" value="0" min="0" max="255" oninput="update()"></div>
+    <div class="kv"><label>K6</label><input type="number" id="k6" value="0" min="0" max="255" oninput="update()"></div>
+  </div>
+  <div class="field-row" style="margin-top:8px">
+    <label>ExtAttr (K6 term)</label>
+    <input type="number" id="extattr" value="0" min="0" oninput="update()">
+  </div>
+  <div class="field-row">
+    <label>RIB scale</label>
+    <input type="number" id="ribscale" value="128" min="1" oninput="update()">
+  </div>
+
+  <div class="results-grid">
+    <div class="result-card rib">
+      <div class="rc-name">RIB metric (FD)</div>
+      <div class="rc-metric" id="m_rib">—</div>
+      <div class="rc-breakdown" id="bd_rib"></div>
+    </div>
+    <div class="result-card wide">
+      <div class="rc-name">EIGRP named — 64-bit</div>
+      <div class="rc-metric" id="m64">—</div>
+      <div class="rc-breakdown" id="breakdown"></div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<script>
+const EIGRP_BANDWIDTH  = 10_000_000;
+const EIGRP_DELAY_PICO = 1_000_000;
+const EIGRP_WIDE_SCALE = 65536;
+
+// RFC 7868 §5.6.1.2 wide delay column, nanoseconds → converted to μs and ps for display
+// ns * 1000 = ps ; ns / 1000 = μs
+const PRESETS = {
+  9:         { bw: 9,         us: 500000,    ps: 500000000000 },
+  56:        { bw: 56,        us: 20000,     ps: 20000000000  },
+  64:        { bw: 64,        us: 20000,     ps: 20000000000  },
+  1544:      { bw: 1544,      us: 20000,     ps: 20000000000  },
+  2048:      { bw: 2048,      us: 20000,     ps: 20000000000  },
+  10000:     { bw: 10000,     us: 1000,      ps: 1000000000   },
+  16000:     { bw: 16000,     us: 630,       ps: 630000000    },
+  45045:     { bw: 45045,     us: 20000,     ps: 20000000000  },
+  100000:    { bw: 100000,    us: 100,       ps: 100000000    },
+  155000:    { bw: 155000,    us: 100,       ps: 100000000    },
+  1000000:   { bw: 1000000,   us: 10,        ps: 10000000     },
+  2000000:   { bw: 2000000,   us: 5,         ps: 5000000      },
+  5000000:   { bw: 5000000,   us: 2,         ps: 2000000      },
+  10000000:  { bw: 10000000,  us: 1,         ps: 1000000      },
+  20000000:  { bw: 20000000,  us: 0.5,       ps: 500000       },
+  50000000:  { bw: 50000000,  us: 0.2,       ps: 200000       },
+  100000000: { bw: 100000000, us: 0.1,       ps: 100000       },
+  200000000: { bw: 200000000, us: 0.05,      ps: 50000        },
+  500000000: { bw: 500000000, us: 0.02,      ps: 20000        },
+};
+
+function syncFromUs(){
+  const us = +document.getElementById('delay_us').value || 0;
+  document.getElementById('delay_ps').value = us * 1_000_000;
+}
+function syncFromPs(){
+  const ps = +document.getElementById('delay_ps').value || 0;
+  document.getElementById('delay_us').value = ps / 1_000_000;
+}
+
+function applyPreset(){
+  const v = document.getElementById('preset').value;
+  if(!v) return;
+  const p = PRESETS[v];
+  document.getElementById('bw').value       = p.bw;
+  document.getElementById('delay_us').value = p.us;
+  document.getElementById('delay_ps').value = p.ps;
+  update();
+}
+
+function g(id){ return +document.getElementById(id).value || 0; }
+
+function update(){
+  const bw       = g('bw');
+  const delay_ps = g('delay_ps');
+  const load     = g('load');
+  const rely     = g('rely');
+  const K1       = g('k1');
+  const K2       = g('k2');
+  const K3       = g('k3');
+  const K4       = g('k4');
+  const K5       = g('k5');
+  const K6       = g('k6');
+  const extattr  = g('extattr');
+  const ribscale = g('ribscale');
+
+  const max_throughput = K1 * (EIGRP_BANDWIDTH * EIGRP_WIDE_SCALE) / bw;
+
+  const net_throughput = K2 > 0
+    ? max_throughput + (K2 * max_throughput) / (256 - load)
+    : max_throughput;
+
+  const latency = K3 * (delay_ps * EIGRP_WIDE_SCALE) / EIGRP_DELAY_PICO;
+
+  const inner = (K1 * net_throughput) + latency + (K6 * extattr);
+
+  const m64 = (K5 > 0 && (K4 + rely) > 0)
+    ? inner * (K5 / (K4 + rely))
+    : inner;
+
+  const m_rib = m64 / ribscale;
+
+  const fmt = n => n.toLocaleString(undefined, {maximumFractionDigits: 2});
+
+  document.getElementById('m64').textContent   = fmt(m64);
+  document.getElementById('m_rib').textContent = fmt(m_rib);
+
+  document.getElementById('breakdown').innerHTML =
+    `max_throughput:  ${fmt(max_throughput)}<br>` +
+    `net_throughput:  ${fmt(net_throughput)}<br>` +
+    `latency:         ${fmt(latency)}<br>` +
+    (K6 > 0 ? `K6*ExtAttr:      ${fmt(K6*extattr)}<br>` : '') +
+    (K5 > 0 ? `K5/(K4+Rel):     ${(K5/(K4+rely)).toLocaleString(undefined,{maximumFractionDigits:6})}<br>` : '');
+
+  document.getElementById('bd_rib').innerHTML = `64-bit ÷ ${ribscale}`;
+}
+
+update();
+</script>
+
+
+# Wide Network Vectors
+<pre>
+
+5.6.2.1.  Wide Metric Vectors
+
+   EIGRP uses five "vector metrics": minimum Throughput, latency, load,
+   reliability, and MTU.  These values are calculated from destination
+   to source as follows:
+
+              o Throughput    - Minimum value
+              o Latency       - accumulative
+              o Load          - maximum
+              o Reliability   - minimum
+              o MTU           - minimum
+              o Hop count     - accumulative
+              
+   There are two additional values: Jitter and energy.  These two values
+   are accumulated from destination to source:
+
+           o Jitter - accumulative
+           o Energy - accumulative
+</pre>
+
+# Wide Metric Conversion Constants
+
+<pre>
+5.6.2.2.  Wide Metric Conversion Constants
+
+   EIGRP uses a number of defined constants for conversion and
+   calculation of metric values.  These numbers are provided here for
+   reference
+
+           EIGRP_BANDWIDTH                    10,000,000
+           EIGRP_DELAY_PICO                    1,000,000
+           EIGRP_INACCESSIBLE       0xFFFFFFFFFFFFFFFFLL
+           EIGRP_MAX_HOPS                            100
+           EIGRP_CLASSIC_SCALE                       256
+           EIGRP_WIDE_SCALE                        65536
+
+   When computing the metric using the above units, all capacity
+   information will be normalized to kilobytes and picoseconds before
+   being used.  For example, delay is expressed in microseconds per
+   kilobyte, and would be converted to kilobytes per second; likewise,
+   energy would be expressed in power per kilobytes per second of usage.
+</pre>
+
+# Throughput
+<pre>
+
+
+                               (EIGRP_BANDWIDTH * EIGRP_WIDE_SCALE)
+     Max-Throughput = K1 *     ------------------------------------
+                                    Interface Bandwidth (kbps)
+</pre>
+
+### If K2 is used.
+
+<pre>
+
+
+                                           K2 * Max-Throughput
+        Net-Throughput = Max-Throughput + ---------------------
+                                              256 - Load
+</pre>
+
+# Latency
+<pre>
+
+
+                       Delay * EIGRP_WIDE_SCALE
+     Latency = K3 *   --------------------------
+                          EIGRP_DELAY_PICO
+</pre>
+
+# Composite Calculation
+<pre>
+
+
+                                                                K5
+      metric =[(K1*Net-Throughput) + Latency)+(K6*ExtAttr)] * ------
+                                                              K4+Rel
+</pre>
+
+
+<pre>
+R1# show int g0/0 | i BW|ability
+  MTU 1500 bytes, BW 1000000 Kbit/sec, DLY 10 usec, 
+     reliability 255/255, txload 1/255, rxload 1/255
+</pre>
+
+# References
+[RFC 7868 - Cisco's Enhanced Interior Gateway Routing Protocol (EIGRP)](https://www.rfc-editor.org/rfc/rfc7868.html#section-5.6.2.1)

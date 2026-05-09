@@ -55,6 +55,7 @@
   - [OSPF LSA Chart](ospf-lsa-chart.md)
 - [BGP](bgp.md)
 - [EIGRP](eigrp.md)
+  - [EIGRP Wide Metric](eigrp-metric-wide.md
 - [ISIS](isis.md)
 
 # Routing Strategies

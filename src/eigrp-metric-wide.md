@@ -1,6 +1,6 @@
 # EIGRP 64-bit metric Calculator
 
-I only tried this for K1=1, and K3=1. I mostly needed to build this to do unequal costs and variance.
+The RFC recommended way to modify a path with EIGRP is **changing the delay**, under the interface. This will not impact other protocols. Modifying bandwidth will ... affects lots of things!
 
 <style>
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
@@ -233,7 +233,6 @@ RFC 7868                      Cisco's EIGRP                     May 2016
 </pre>
 
 # Wide Metric Conversion Constants
-
 <pre>
 
 RFC 7868                      Cisco's EIGRP                     May 2016
@@ -325,18 +324,34 @@ RFC 7868                      Cisco's EIGRP                     May 2016
 # Validations
 
 <pre>
-R1# show int g0/0 | i BW|ability
-  MTU 1500 bytes, BW 1000000 Kbit/sec, DLY 10 usec, 
-     reliability 255/255, txload 1/255, rxload 1/255
-</pre>
-
-<pre>
 R1# show eigrp address-family ipv4 topology 2.2.2.2/32
 EIGRP-IPv4 VR(EIGRP_100) Topology Entry for AS(100)/ID(1.1.1.1) for 2.2.2.2/32
   State is Passive, Query origin flag is 1, 7 Successor(s), FD is 1392640, RIB is 10880
   Descriptor Blocks:
   10.12.1.2 (GigabitEthernet0/1), from 10.12.1.2, Send flag is 0x0
       Composite metric is (1392640/163840), route is Internal
+      Vector metric:
+        Minimum bandwidth is 1000000 Kbit
+        Total delay is 11250000 picoseconds
+        Reliability is 255/255
+        Load is 1/255
+        Minimum MTU is 1500
+        Hop count is 1
+        Originating router is 2.2.2.2
+</pre>
+
+## A bit harder validation
+
+<pre>
+R1# show ip protocols | i weight
+    Metric weight K1=1, K2=2, K3=3, K4=4, K5=5 K6=0
+    
+R1# show ip eigrp topology 2.2.2.2/32
+EIGRP-IPv4 VR(EIGRP_100) Topology Entry for AS(100)/ID(1.1.1.1) for 2.2.2.2/32
+  State is Passive, Query origin flag is 1, 7 Successor(s), FD is 55450, RIB is 433
+  Descriptor Blocks:
+  10.12.1.2 (GigabitEthernet0/1), from 10.12.1.2, Send flag is 0x0
+      Composite metric is (55450/6338), route is Internal
       Vector metric:
         Minimum bandwidth is 1000000 Kbit
         Total delay is 11250000 picoseconds

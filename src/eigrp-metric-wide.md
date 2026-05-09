@@ -1,6 +1,8 @@
 # EIGRP 64-bit metric Calculator
 
-The RFC recommended way to modify a path with EIGRP is **changing the delay**, under the interface. This will not impact other protocols. Modifying bandwidth will ... affects lots of things!
+The RFC recommended way to modify a path with EIGRP is **changing the delay**, under the interface. This will not impact other protocols. Modifying bandwidth ... affects lots of things!
+
+
 
 <style>
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
@@ -35,12 +37,11 @@ The RFC recommended way to modify a path with EIGRP is **changing the delay**, u
   <div class="field-row">
     <label>Preset</label>
     <select id="preset" onchange="applyPreset()">
-      <option value="">— custom —</option>
       <option value="56">56 kbps</option>
       <option value="1544">1544 kbps</option>
       <option value="10000">10 Mbps</option>
       <option value="100000">100 Mbps</option>
-      <option value="1000000">1 Gbps</option>
+      <option value="1000000" selected>1 Gbps</option>
       <option value="2000000">2 Gbps</option>
       <option value="5000000">5 Gbps</option>
       <option value="10000000">10 Gbps</option>
@@ -48,8 +49,7 @@ The RFC recommended way to modify a path with EIGRP is **changing the delay**, u
       <option value="50000000">50 Gbps</option>
       <option value="100000000">100 Gbps</option>
       <option value="200000000">200 Gbps</option>
-      <option value="400000000">400 Gbps</option>
-      <option value="800000000">800 Gbps</option>
+      <option value="500000000">500 Gbps</option>
     </select>
   </div>
   <div class="field-row">
@@ -149,7 +149,6 @@ function syncFromPs(){
 
 function applyPreset(){
   const v = document.getElementById('preset').value;
-  if(!v) return;
   const p = PRESETS[v];
   document.getElementById('bw').value       = p.bw;
   document.getElementById('delay_us').value = p.us;
@@ -204,6 +203,7 @@ function update(){
   document.getElementById('bd_rib').innerHTML = `64-bit ÷ ${ribscale}`;
 }
 
+applyPreset();
 update();
 </script>
 

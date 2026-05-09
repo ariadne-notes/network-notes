@@ -1,3 +1,6 @@
+# EIGRP 64-bit metric Calculator
+
+I only tried this for K1=1, and K3=1. I mostly needed to build this to do unequal costs and variance.
 
 <style>
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
@@ -33,25 +36,20 @@
     <label>Preset</label>
     <select id="preset" onchange="applyPreset()">
       <option value="">— custom —</option>
-      <option value="9">Tunnel (9 kbps)</option>
       <option value="56">56 kbps</option>
-      <option value="64">DS0 (64 kbps)</option>
-      <option value="1544">T1 (1544 kbps)</option>
-      <option value="2048">E1 (2048 kbps)</option>
-      <option value="10000">Ethernet (10 Mbps)</option>
-      <option value="16000">TokRing16 (16 Mbps)</option>
-      <option value="45045">HSSI (45 Mbps)</option>
-      <option value="100000">FastEthernet / FDDI (100 Mbps)</option>
-      <option value="155000">ATM 155 Mbps</option>
-      <option value="1000000">GigabitEthernet (1G)</option>
-      <option value="2000000">2G</option>
-      <option value="5000000">5G</option>
-      <option value="10000000">TenGigabitEthernet (10G)</option>
-      <option value="20000000">20G</option>
-      <option value="50000000">50G</option>
-      <option value="100000000">HundredGigE (100G)</option>
-      <option value="200000000">TwoHundredGigE (200G)</option>
-      <option value="500000000">500G</option>
+      <option value="1544">1544 kbps</option>
+      <option value="10000">10 Mbps</option>
+      <option value="100000">100 Mbps</option>
+      <option value="1000000">1 Gbps</option>
+      <option value="2000000">2 Gbps</option>
+      <option value="5000000">5 Gbps</option>
+      <option value="10000000">10 Gbps</option>
+      <option value="20000000">20 Gbps</option>
+      <option value="50000000">50 Gbps</option>
+      <option value="100000000">100 Gbps</option>
+      <option value="200000000">200 Gbps</option>
+      <option value="400000000">400 Gbps</option>
+      <option value="800000000">800 Gbps</option>
     </select>
   </div>
   <div class="field-row">
@@ -293,11 +291,29 @@ update();
                                                               K4+Rel
 </pre>
 
+# Validations
 
 <pre>
 R1# show int g0/0 | i BW|ability
   MTU 1500 bytes, BW 1000000 Kbit/sec, DLY 10 usec, 
      reliability 255/255, txload 1/255, rxload 1/255
+</pre>
+
+<pre>
+R1# show eigrp address-family ipv4 topology 2.2.2.2/32
+EIGRP-IPv4 VR(EIGRP_100) Topology Entry for AS(100)/ID(1.1.1.1) for 2.2.2.2/32
+  State is Passive, Query origin flag is 1, 7 Successor(s), FD is 1392640, RIB is 10880
+  Descriptor Blocks:
+  10.12.1.2 (GigabitEthernet0/1), from 10.12.1.2, Send flag is 0x0
+      Composite metric is (1392640/163840), route is Internal
+      Vector metric:
+        Minimum bandwidth is 1000000 Kbit
+        Total delay is 11250000 picoseconds
+        Reliability is 255/255
+        Load is 1/255
+        Minimum MTU is 1500
+        Hop count is 1
+        Originating router is 2.2.2.2
 </pre>
 
 # References

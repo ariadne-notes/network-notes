@@ -155,18 +155,96 @@ router eigrp EIGRP_100
 </pre>
 
 
-# Interface Costs
-EIGRP takes into account link speed, and link delay, so these can be adjusted.
+# Variance
 
-```
-interface 1
-  bandwidth 100000
-  !
-  ! this means add 1 ms.
-  !
-  delay 100
-```
+### Shorter Delays
 
+In this example, the delay scale is 1x, 2x, 3x, 4x, 5x, 6x, 7x.
+
+The lowest RIB FD is 433.
+
+With a variance of two, only two interfaces get added to the RIB.
+
+<pre>
+R1# show ip protocols | i eigrp|variance
+Routing Protocol is "eigrp 100"
+      Maximum metric variance 2
+
+R1# show run | i int|delay
+interface GigabitEthernet0/1
+ delay 1
+interface GigabitEthernet0/2
+ delay 2
+interface GigabitEthernet0/3
+ delay 3
+interface GigabitEthernet0/4
+ delay 4
+interface GigabitEthernet0/5
+ delay 5
+interface GigabitEthernet0/6
+ delay 6
+interface GigabitEthernet0/7
+ delay 7
+
+
+R1# show ip route 
+
+[output omitted]q
+!
+! sorted to look pretty and be in order
+!
+D        2.2.2.2 [90/433] via 10.12.1.2, 00:02:35, GigabitEthernet0/1
+                 [90/729] via 10.12.2.2, 00:02:35, GigabitEthernet0/2
+
+</pre>
+
+
+### Longer Delays
+
+In this example, the delay scale is: 1x, 1.1x, 1.2x, 1.3x, 1.4x, 1.5x, 1.6x
+
+The lowest FD is 3398.
+
+With a variance of two, all seven interfaces get programmed.
+
+<pre>
+R1# show ip protocols | i eigrp|variance
+Routing Protocol is "eigrp 100"
+      Maximum metric variance 2
+!
+! I configured delay, this is the correct way to alter metrics.
+!
+R1# show run | i int|delay
+interface GigabitEthernet0/1
+ delay 11
+interface GigabitEthernet0/2
+ delay 12
+interface GigabitEthernet0/3
+ delay 13
+interface GigabitEthernet0/4
+ delay 14
+interface GigabitEthernet0/5
+ delay 15
+interface GigabitEthernet0/6
+ delay 16
+interface GigabitEthernet0/7
+ delay 17
+
+
+R1# show ip route 
+
+[output omitted]
+!
+! sorted to look pretty and be in order
+!
+D        2.2.2.2 [90/3398] via 10.12.1.2, 00:00:04, GigabitEthernet0/1
+                 [90/3694] via 10.12.2.2, 00:00:04, GigabitEthernet0/2
+                 [90/3991] via 10.12.3.2, 00:00:04, GigabitEthernet0/3
+                 [90/4288] via 10.12.4.2, 00:00:04, GigabitEthernet0/4
+                 [90/4584] via 10.12.5.2, 00:00:04, GigabitEthernet0/5
+                 [90/4881] via 10.12.6.2, 00:00:04, GigabitEthernet0/6
+                 [90/5177] via 10.12.7.2, 00:00:04, GigabitEthernet0/7
+</pre>
 
 # Stub Routing
 
@@ -194,3 +272,5 @@ interface 1
 [Cisco - Configuring EIGRP Wide Metrics](https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9500/software/release/17-18/configuration_guide/rtng/b_1718_rtng_9500_cg/configuring_eigrp_wide_metrics.pdf)
 
 [Cisco - How Does Unequal Cost Path Load Balancing (Variance) Work in IGRP and EIGRP](https://www.cisco.com/c/en/us/support/docs/ip/enhanced-interior-gateway-routing-protocol-eigrp/13677-19.html)
+
+[Cisco - Troubleshooting EIGRP Variance](https://community.cisco.com/t5/networking-knowledge-base/troubleshooting-eigrp-variance-command/ta-p/3129662)

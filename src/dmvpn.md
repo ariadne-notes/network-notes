@@ -1,2 +1,62 @@
+# Phases 1
+
+- GRE
+- Only hub-to-spoke
+
+<pre>
+       ┌─────────┐       
+       │  Hub-1  │       
+       └┬──────┬─┘       
+     ┌──┘      └─────┐   
+┌────┴────┐   ┌──────┴──┐
+│ spoke-1 │   │ spoke-2 │
+└─────────┘   └─────────┘
+</pre>
+
+# Phase 2
+
+- mGRE
+- Spoke-to-spoke
+- Supports Hierarchical Tree Topology, multiple hubs
+
+<pre>
+                           ┌─────────┐                            
+                           │  hub-2  │                            
+                           └─┬─────┬─┘                            
+              ┌──────────────┘     └────────────────┐             
+       ┌──────┴──┐     ┌───────────────────┐     ┌──┴──────┐      
+       │  hub-1  │     │     Phase 2       │     │  hub-3  │      
+       └┬──────┬─┘     │                   │     └─┬──────┬┘      
+     ┌──┘      └─────┐ ▼                   ▼  ┌────┘      └──┐    
+┌────┴────┐   ┌──────┴──┐               ┌─────┴───┐    ┌─────┴───┐
+│ spoke-1 │   │ spoke-2 │               │ spoke-3 │    │ spoke-4 │
+└─────────┘   └─────────┘               └─────────┘    └─────────┘
+</pre>
+
+# Phase 3
+
+- NHRP Path Summarization
+- NHRP Shortcuts
+- NHRP Redirects
+- Hierarchical Tree Topology, multiple hubs, with redirects and shortcuts.
+
+<pre>
+                           ┌─────────┐                                          
+                           │  hub-2  │                                          
+                           └─┬─────┬─┘                                          
+              ┌──────────────┘     └────────────────┐                           
+       ┌──────┴──┐                               ┌──┴──────┐                    
+       │  hub-1  │                               │  hub-3  │                    
+       └┬──────┬─┘                               └─┬──────┬┘                    
+     ┌──┘      └─────┐                        ┌────┘      └──┐                  
+┌────┴────┐   ┌──────┴──┐    Phase 3    ┌─────┴───┐    ┌─────┴───┐              
+│ spoke-1 │   │ spoke-2 │ ◄───────────► │ spoke-3 │    │ spoke-4 │              
+└─────────┘   └─────────┘               └─────────┘    └─────────┘              
+</pre>
+
+
 # References
 [Dynamic Multipoint Virtual Private Network](https://en.wikipedia.org/wiki/Dynamic_Multipoint_Virtual_Private_Network)
+
+[DMVPN - Concepts & Configuration](https://learningnetwork.cisco.com/s/article/dmvpn-concepts-amp-configuration)
+

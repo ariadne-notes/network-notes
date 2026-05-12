@@ -1,4 +1,30 @@
-This solution relies on [Univention UCS](https://www.univention.com/products/ucs/)
+# Architecture
+
+This solution relies on:
+* [Univention UCS](https://www.univention.com/products/ucs/) a Linux based, Active Directory Domain Controller.
+* [FreeRADUS](https://github.com/FreeRADIUS/freeradius-server), an AAA plugin for Univention UCS.
+
+<pre>
+┌──────────────┐          ┌──────────────┐
+│    UCS-1     │          │    UCS-2     │
+│ ┌──────────┐ │   DRS    │ ┌──────────┐ │
+│ │   LDAP   │ │◄────────►│ │   LDAP   │ │
+│ └──────────┘ │          │ └──────────┘ │
+│      ▲       │          │      ▲       │
+│      │       │          │      │       │
+│      ▼       │          │      ▼       │
+│ ┌──────────┐ │          │ ┌──────────┐ │
+│ │FreeRADIUS│ │          │ │FreeRADIUS│ │
+│ └──────────┘ │          │ └──────────┘ │
+└──────────────┘          └──────────────┘
+             ▲              ▲             
+             └──┐         ┌─┘             
+                ▼         ▼               
+             ┌──────────────┐             
+             │   Network    │             
+             │     Device   │             
+             └──────────────┘             
+</pre>
 
 # Cisco Side
 
@@ -22,33 +48,48 @@ line vty 0 15
 # Univention UCS Side
 
 ### LDAP - Create the Groups
-<pre>
-eval $(ucr shell)
+This loads the `dc=` stuff into `$ldap_base`
 
+```
+eval $(ucr shell)
+```
+
+RADIUS Network Admins
+
+```
 udm groups/group create \
   --position "cn=groups,$ldap_base" \
   --set name="RADIUS Network Admins" \
   --set description="Full RADIUS access to network devices"
+```
 
+RADIUS Network Read Only
+
+```
 udm groups/group create \
   --position "cn=groups,$ldap_base" \
   --set name="RADIUS Network Read Only" \
   --set description="Read-only RADIUS access to network devices"
-</pre>
+```
 
 ### LDAP - Verifying the groups
-<pre>
- udm groups/group list --filter name="RADIUS Network Admins"
- 
- udm groups/group list --filter name="RADIUS Network Read Only"
-</pre>
+```
+udm groups/group list --filter name="RADIUS Network Admins"
+
+udm groups/group list --filter name="RADIUS Network Read Only"
+```
 
 ### Add users
-<pre>
+
+Users need to be added to this group directly.
+
+I am `ariadne` so that's my uid.
+
+```
 udm groups/group modify \
   --dn "cn=RADIUS Network Admins,cn=groups,$ldap_base" \
   --append users="uid=ariadne,cn=users,$ldap_base"
-</pre>
+```
 
 ### Verify Users
 ```
@@ -57,20 +98,20 @@ udm users/user list --filter uid=ariadne | grep -i group
 
 ### FreeRADIUS Clients
 
-<pre>
+```
 cat >> /etc/freeradius/3.0/clients.conf << 'EOF'
 
-client management_subnet_52 {
-    ipaddr   = 0.0.0.0/24
+client internal_network {
+    ipaddr   = 0.0.0.0/0
     secret   = StrongSharedSecret123
     nas-type = cisco
 }
 EOF
-</pre>
+```
 
 ### FreeRADIUS Cisco AV Pairs
 
-<pre>
+```
 eval $(ucr shell)
 
 cat >> /etc/freeradius/3.0/mods-config/files/authorize << EOF
@@ -85,22 +126,20 @@ DEFAULT Ldap-Group == "cn=RADIUS Network Read Only,cn=groups,$ldap_base"
 DEFAULT Auth-Type := Reject
         Reply-Message = "Not in any authorized group"
 EOF
-</pre>
-
-### Users
-
-Users need to be added to this group directly.
+```
 
 
 # Testing on Cisco
-
-radtest <user-in-ldap> <ldap-password> <server-ip> 0 <FreeRADIUS-secret>
+```
+test aaa group radius ariadne my-password legacy
+```
 
 # Testing On UCS
+```
+radtest <user-in-ldap> <ldap-password> <server-ip> 0 <FreeRADIUS-secret>
+```
 
 ### Do packets arrive
 ```
 tcpdump -i any -n udp port 1812
 ```
-
- 

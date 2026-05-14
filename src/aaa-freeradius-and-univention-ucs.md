@@ -1,7 +1,7 @@
 # Architecture
 
 This solution relies on:
-* [Univention UCS](https://www.univention.com/products/ucs/) a Linux based, Active Directory Domain Controller.
+* [Univention UCS](https://www.univention.com/products/ucs/) a Linux based, Active Directory, Domain Controller.
 * [FreeRADUS](https://github.com/FreeRADIUS/freeradius-server), an AAA plugin for Univention UCS.
 
 <pre>
@@ -102,7 +102,7 @@ udm users/user list --filter uid=ariadne | grep -i group
 cat >> /etc/freeradius/3.0/clients.conf << 'EOF'
 
 client internal_network {
-    ipaddr   = 0.0.0.0/0
+    ipaddr   = 192.168.0.0/16
     secret   = StrongSharedSecret123
     nas-type = cisco
 }
@@ -143,3 +143,25 @@ radtest <user-in-ldap> <ldap-password> <server-ip> 0 <FreeRADIUS-secret>
 ```
 tcpdump -i any -n udp port 1812
 ```
+
+# Debugging FreeRADIUS
+```
+systemctl daemon-reload
+systemctl restart freeradius
+systemctl status freeradius
+freeradius -X
+```
+
+# After it's working, RSYNC it.
+```
+rsync -av /etc/freeradius/3.0/clients.conf \
+  root@ucs-2:/etc/freeradius/3.0/clients.conf
+```
+
+```
+rsync -av /etc/freeradius/3.0/mods-config/files/authorize \
+  root@ucs-2:/etc/freeradius/3.0/mods-config/files/authorize
+```
+
+# References
+[Univention Corporate Server - Manual for users and administrators](https://docs.software-univention.de/manual/5.0/en/)

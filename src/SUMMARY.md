@@ -4,6 +4,8 @@
 ----
 
 # Networks
+- [IPv4](ipv4.md)
+- [QoS](qos.md)
 - [Classful Networking](classful-networking.md)
 - [RFC1918 Dungeons](rfc1918-dungeons.md)
 
@@ -84,6 +86,7 @@
 - [NAT](nat.md)
 - [SSH](ssh.md)
 - [AAA with FreeRadius and Univention UCS](aaa-freeradius-and-univention-ucs.md)
+- [SNMP](snmp.md)
 
 # QoS and Timing
 - [QoS](qos.md)

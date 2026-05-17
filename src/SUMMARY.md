@@ -5,6 +5,8 @@
 
 # Networks
 - [IPv4 Packet Header](ipv4-packet-header.md)
+- [IPv4 Address Planning](ipv4-address-planning.md)
+- [DNS](dns.md)
 - [QoS](qos.md)
   - [Cisco IOS QoS Commands](cisco-ios-qos-commands.md)
 - [Classful Networking](classful-networking.md)

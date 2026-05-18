@@ -1,60 +1,21 @@
+# OSPF LSA Chart
+<div>
 <style>
-  .ospf-table {
-    border-collapse: collapse;
-    width: 100%;
-    font-size: 0.9em;
-  }
-  .ospf-table th,
-  .ospf-table td {
-    border: 1px solid var(--table-border-color, #ccc);
-    padding: 6px 10px;
-    vertical-align: top;
-  }
-  .ospf-table thead th {
-    background-color: var(--sidebar-bg, #444);
-    color: var(--sidebar-fg, #fff);
-    text-align: center;
-  }
-  .ospf-table td.area-name {
-    font-weight: bold;
-    white-space: nowrap;
-  }
-  .ospf-table td.std {
-    white-space: nowrap;
-    color: var(--fg);
-    opacity: 0.65;
-    font-size: 0.85em;
-  }
-  .ospf-table td.config code {
-    white-space: nowrap;
-  }
-  .ospf-table td.auto-inject {
-    text-align: center;
-  }
-  .lsa-cell {
-    padding: 0 !important;
-    min-width: 60px;
-  }
-  .lsa-block {
-    display: flex;
-    flex-direction: column;
-  }
-  .lsa-box {
-    height: 20px;
-  }
-  .lsa-box.allowed  { background-color: #6dbf6d; }
-  .lsa-box.blocked  { background-color: #d94f4f; }
-  .lsa-notes {
-    padding: 4px 6px;
-    font-size: 0.82em;
-    color: var(--fg);
-  }
-  .lsa-notes code {
-    font-size: 0.9em;
-  }
-  .ospf-table tr.area-row td {
-    border-top: 2px solid var(--table-border-color, #888);
-  }
+  .ospf-table { border-collapse: collapse; width: 100%; font-size: 0.9em; }
+  .ospf-table th, .ospf-table td { border: 1px solid var(--table-border-color, #ccc); padding: 6px 10px; vertical-align: top; }
+  .ospf-table thead th { background-color: var(--sidebar-bg, #444); color: var(--sidebar-fg, #fff); text-align: center; }
+  .ospf-table td.area-name { font-weight: bold; white-space: nowrap; }
+  .ospf-table td.std { white-space: nowrap; color: var(--fg); opacity: 0.65; font-size: 0.85em; }
+  .ospf-table td.config code { white-space: nowrap; }
+  .ospf-table td.auto-inject { text-align: center; }
+  .lsa-cell { padding: 0 !important; min-width: 60px; }
+  .lsa-block { display: flex; flex-direction: column; }
+  .lsa-box { height: 20px; }
+  .lsa-box.allowed { background-color: #6dbf6d; }
+  .lsa-box.blocked { background-color: #d94f4f; }
+  .lsa-notes { padding: 4px 6px; font-size: 0.82em; color: var(--fg); }
+  .lsa-notes code { font-size: 0.9em; }
+  .ospf-table tr.area-row td { border-top: 2px solid var(--table-border-color, #888); }
 </style>
 
 <table class="ospf-table">

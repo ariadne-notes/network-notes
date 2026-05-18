@@ -47,7 +47,7 @@
       <td class="lsa-cell"><div class="lsa-box blocked"></div></td>
     </tr>
     <tr class="lsa-notes-row">
-      <td colspan="11">●<code>default-information originate [always]</code>, creates an E2 route.<br>● Can be linked to other areas via Virtual Links.</td>
+      <td colspan="11">● <code>default-information originate [always]</code>, creates an E2 route.<br>● Can be linked to other areas via Virtual Links.</td>
     </tr>
     <!-- Regular Area -->
     <tr class="area-row">
@@ -81,7 +81,7 @@
       <td class="lsa-cell"><div class="lsa-box blocked"></div></td>
     </tr>
     <tr class="lsa-notes-row">
-      <td colspan="11">Default route injected as an <code>O IA</code>, Type 3. </td>
+      <td colspan="11">● Default route injected as an <code>O IA</code>, Type 3. </td>
     </tr>
     <!-- Totally Stubby -->
     <tr class="area-row">
@@ -98,7 +98,7 @@
       <td class="lsa-cell"><div class="lsa-box blocked"></div></td>
     </tr>
     <tr class="lsa-notes-row">
-      <td colspan="11">ABR gets <code>no-summary</code>, which generates an <code>O IA</code> Type 3 default route.</td>
+      <td colspan="11">● ABR gets <code>no-summary</code>, which generates an <code>O IA</code> Type 3 default route.</td>
     </tr>
     <!-- NSSA -->
     <tr class="area-row">

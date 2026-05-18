@@ -439,6 +439,17 @@ router ospfv3 1
   area 1 filter-list prefix PREFIX_LIST_v6 in
 ```
 
+### Area Types
+
+#### No external network connections
+* **Stub:** From the RFC, these don't have LSA-5 in them, so no external routes. A stub gets a default injected.
+* **Totally Stubby:** A Cisco area, This blocks LSA-3, LSA-4, and LSA-5. The only injected LSA is a LSA-3 from the ABR for the default.
+
+#### External Network connections
+* **NSSA:** From the RFC, this is a stub area with an ASBR. The LSAs within the area are LSA-7, and they get converted to LSA-5 by the ASBR.
+* **Totally Stubby NSSA:**, same as above, used to connect an external network, a default is injected as a LSA-3.
+
+
 ### Sham Link
 
 **The Problem**

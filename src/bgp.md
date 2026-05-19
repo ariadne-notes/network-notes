@@ -259,3 +259,6 @@ IF you want to add two BGP speakers to the same router reflector cluster, specif
 # References
 
 B. Edgeworth, R. Garza Rios, J. Gooley, and D. Hucaby, *CCNP and CCIE Enterprise Core ENCOR 350-401 Official Cert Guide*, 2nd ed. Indianapolis, IN: Cisco Press, 2023.
+
+I. van Beijnum, *Internet Routing with BGP*, Kindle ed., Nov. 12, 2022, 269 pp.
+

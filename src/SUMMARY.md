@@ -12,6 +12,7 @@
 # IPv6
 - [IPv6](ipv6.md)
   - [IPv6 Hextext Boundaries](ipv6-hextet-boundaries.md)
+  - [IPv4 to IPV6 Migration Strategies.md](ipv4-to-ipv6-migration-strategies.md)
   
 # Subnetting
 - [with Fingers](subnet-with-fingers.md)
@@ -134,7 +135,8 @@
 - [iperf2](iperf2.md)
 - [Claude](claude.md)
 - [CML](cml.md)
-- [Tables](tables.md)
+  - [Alpine on CML](alpine-on-cml.md)
+- [Study Tables](study-tables.md)
 - [OS Architecture](os-architecture.md)
 - [Wiki.js, Duplicati, Traefik, Portainer](wikijs-duplicati-traefik-portainer.md)
 - [Windows 10 Physical to Virtual](windows-10-physical-to-virtual.md)
@@ -142,3 +144,7 @@
 - [FHRP](fhrp.md)
 - [BFD](bfd.md)
 - [LISP](lisp.md)
+
+# Jokes
+- [A Woman Calls TAC](joke-a-woman-calls-TAC.md)
+- [A Blue Team Housecall](joke-blue-team-housecall.md)

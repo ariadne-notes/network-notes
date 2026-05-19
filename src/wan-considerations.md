@@ -55,11 +55,12 @@
 * Relatively cheap.
 * Requires peering with the provider who carries the routes between sites.
 
-
 ## MPLS Layer 2 VPNs
 * Always more expensive.
 * Required if your App needs direct adjacency.
 * Required if you want to do your own routing (peer with just your own nodes).
+* **VPWS** Virtual private wire service is point-to-point.
+* **VPLS** Virtual Private LAN Service is Full-Mesh.
 
 # Ethernet 
 
@@ -116,3 +117,17 @@
 ## Modern
 * 5G can be 20/10 Gbps. It can upload a 20GB file in about 16 seconds.
 
+# Overlay Technologies
+
+## IPSec
+* **ISAKMP** Used to exchange keys
+  * **IKEv1:** Symmetric Encryption
+  * **IKEv2:** Asymmetric Encryption
+* **IPSEC ESP** Encryption of data
+* **IPsec AH:** Authentication only
+
+IPSec doesn't support routing protocols unless it's the outside is a GRE tunnel.
+
+## GETVPN
+* Good over ISP L2 networks to encrypt the traffic, just in case.
+* Doesn't change the outside IPs, does not make an overlay network.

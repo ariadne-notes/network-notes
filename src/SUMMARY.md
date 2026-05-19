@@ -128,7 +128,7 @@
 
 # Overlays
 - [IPSec with IKEv1](ipsec-ikev1.md)
-- [IPSec with IKEv2 and VTI(ipsec-ikev2-vti).md
+- [IPSec with IKEv2 and VTI](ipsec-ikev2-vti).md
 
 # PKI
 - [Certbot](certbot.md)

@@ -27,7 +27,7 @@ If a SONET reciever at the Line level counts a BIP, it returns it to sender. The
 
 It's been a while, the below might be wrong.
 
-```
+<pre>
 ┌────────────────────────────────────────────────── PATH ─────────────────────────────────────────────────┐
 │                                                                                                         │
 │   ┌─────────────── LINE ────────────────────┐            ┌────────────────── LINE ──────────────────┐   │
@@ -41,7 +41,7 @@ It's been a while, the below might be wrong.
     ▲      ▲            ▲       ▲     ▲       ▲            ▲      ▲     ▲       ▲            ▲        ▲    
     └──────┘            └───────┘     └───────┘            └──────┘     └───────┘            └────────┘    
     SECTION              SECTION       SECTION             SECTION       SECTION              SECTION      
-```
+</pre>
 
 ### C2 Byte
 

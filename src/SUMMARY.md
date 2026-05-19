@@ -67,7 +67,7 @@
   - [OSPF LSAs](ospf-lsas.md)
   - [OSPF Router LSA](ospf-router-lsa.md)
   - [OSPF LSA Captures](ospf-lsa-captures.md)
-  - [OSPF LSA Chart](ospf-lsa-chart.md)
+  - [OSPFv2 LSA Chart](ospfv2-lsa-chart.md)
   - [OSPFv2 LSA Default Routes](ospfv2-lsa-default-route.md)
 - [BGP](bgp.md)
   - [BGP Load Balancing](bgp-load-balancing.md)
@@ -82,7 +82,7 @@
 - [DMVPN](dmvpn.md)
   - [NHRP](nhrp.md)
 - [Policy Based Routing](policy-based-routing.md)
-- [WAN Considerations](wan-considerations.md)
+
 
 # Routing Features
 - [SSO](sso.md)
@@ -119,11 +119,13 @@
 # Transport and Physical
 - [Optical](optical.md)
 - [T1](t1.md)
+- [WAN Considerations](wan-considerations.md)
 - [G8032](g8032.md)
 - [Back to Back Frame Relay](back-to-back-frame-relay.md)
 - [STDM](stdm.md)
 - [UDP](udp.md)
 - [HTTP Codes](http-codes.md)
+
 
 # PKI
 - [Certbot](certbot.md)

@@ -70,18 +70,23 @@
   - [OSPF LSA Chart](ospf-lsa-chart.md)
   - [OSPFv2 LSA Default Routes](ospfv2-lsa-default-route.md)
 - [BGP](bgp.md)
+  - [BGP Load Balancing](bgp-load-balancing.md)
 - [EIGRP](eigrp.md)
   - [EIGRP Classic Metric](eigrp-classic-metric.md)
   - [EIGRP Wide Metric](eigrp-metric-wide.md)
 - [ISIS](isis.md)
 
+
+
 # Routing Strategies
+- [Route Redistribution](route-redistribution.md)
+  - [Route Redistribution with Tags](route-redistribution-with-tags.md)
 - [DMVPN](dmvpn.md)
   - [NHRP](nhrp.md)
 - [Policy Based Routing](policy-based-routing.md)
 
-
-
+# Routing Features
+- [SSO](sso.md)
 
 # Campus and Architecture
 - [Campus Architecture](campus-architecture.md)
@@ -127,7 +132,6 @@
 - [iperf2](iperf2.md)
 - [Claude](claude.md)
 - [CML](cml.md)
-
 - [Tables](tables.md)
 - [OS Architecture](os-architecture.md)
 - [Wiki.js, Duplicati, Traefik, Portainer](wikijs-duplicati-traefik-portainer.md)
@@ -135,5 +139,4 @@
 - [REST API Return Codes](rest-api-return-codes.md)
 - [FHRP](fhrp.md)
 - [BFD](bfd.md)
-- [Route Redistribution with Tags](route-redistribution-with-tags.md)
 - [LISP](lisp.md)

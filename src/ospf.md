@@ -236,9 +236,9 @@ Code   | Number | RFC Name         | Purpose                      | Description
 O      | 1      | Router-LSA       | interfaces on a router       | Flooded, Single Area, never crosses area boundary.
 O      | 2      | Network-LSA      | routers on a network         | Flooded, Single area, only sent by the DR.
 IA     | 3      | Summary-LSA      | networks in other areas      | ABRs send these, to describe, routes to networks
-E1, E2 | 4      | Summary-LSA      | next-hop to a ASBR           | ASBRs send these, to describe, routes to AS boundary routers.
+E1, E2 | 4      | Summary-LSA      | next-hop to a ASBR           | ABRs send these, to provide reachability for ASBRs.
 E1, E2 | 5      | AS-external-LSA  | routes to E1 or E2 networks  | ASBRs send these, to describe, routes to an AS.
-E1, E2 | 7      | NSSA Summaries   |                              | NSSA ASBRs send these, to describe, routes to an AS.
+N1, N2 | 7      | NSSA Summaries   | routes to N1 or N2 networks  | NSSA ASBRs send these, to describe, routes to an AS.
 
 ### Type 5 LSAs
 

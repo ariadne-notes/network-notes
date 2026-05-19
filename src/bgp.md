@@ -167,6 +167,7 @@ For route reflectors
 The origaning router puts its `Router_ID` here. If it sees this, it knows a loop as occured.
 
 ### CLUSTER_LIST
+* A route reflector (RR) and its clients are called a cluster.
 - For route reflectors
 - The sequence of `Router_IDs` through which the route has passed. If a router seeis its Router_ID a loop has occured.
 
@@ -222,9 +223,9 @@ Just because the route shows up in `show ip bgp` doesn't mean it will install. B
 * **Originator** - Route reflector peer.  Used to prevent loops between clients.
 
 ##### Three rules for route reflectors
-  - If the route is recieved from a non-client peer, reflect to clients only.
-  - If the route is recieved from a client peer, reflect to non-client peers, and client peers.
-  - If the route is recieved from an EBGP peer, reflect to all client and non-client peers.
+  - If the route is received from a non-client peer, reflect to clients only.
+  - If the route is received from a client peer, reflect to non-client peers, and client peers.
+  - If the route is received from an EBGP peer, reflect to all client and non-client peers.
 
 ##### Notes
 - Route reflectors can be clients of each other. This causes extra overhead.

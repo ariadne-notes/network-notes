@@ -76,20 +76,20 @@
   - [EIGRP Wide Metric](eigrp-metric-wide.md)
 - [ISIS](isis.md)
 
-
-
 # Routing Strategies
 - [Route Redistribution](route-redistribution.md)
   - [Route Redistribution with Tags](route-redistribution-with-tags.md)
 - [DMVPN](dmvpn.md)
   - [NHRP](nhrp.md)
 - [Policy Based Routing](policy-based-routing.md)
+- [WAN Considerations](wan-considerations.md)
 
 # Routing Features
 - [SSO](sso.md)
 
-# Campus and Architecture
-- [Campus Architecture](campus-architecture.md)
+# Enterprise Campus and Architecture
+- [Enterprise Campus Architecture](enterprise-campus-architecture.md)
+- [Enterprise Campus Modular Design](enterprise-campus-modular-design.md)
 - [SD-Access](sd-access.md)
 - [SD-WAN](sdwan.md)
 - [Cisco AAA](cisco-aaa.md)

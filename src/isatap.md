@@ -13,7 +13,7 @@
 Use v4 connectivity to emulate a NBMA network. Wrap the v6 packet inside v4.
 
 
-# One possible design, the routers perform ISATAP
+# The routers perform ISATAP
 <pre>
          ┌─ v6 only ─┐         ┌────────────  v4 only ───────────────┐         ┌─ v6 only ─┐         
          ▼           ▼         ▼                                     ▼         ▼           ▼         
@@ -28,7 +28,7 @@ Use v4 connectivity to emulate a NBMA network. Wrap the v6 packet inside v4.
                            └───────────┴───────────┘                                                 
 </pre>
 
-# Another possible design, the clients perform ISATAP
+# The clients perform ISATAP
 <pre>                                                                                                  
            ┌──────────────────────────────────  v4 only  ───────────────────────────────────┐          
            ▼                                                                                ▼          

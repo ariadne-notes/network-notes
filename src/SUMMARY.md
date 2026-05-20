@@ -143,11 +143,10 @@
 - [OS Architecture](os-architecture.md)
 - [Wiki.js, Duplicati, Traefik, Portainer](wikijs-duplicati-traefik-portainer.md)
 - [Windows 10 Physical to Virtual](windows-10-physical-to-virtual.md)
-- [REST API Return Codes](rest-api-return-codes.md)
 - [FHRP](fhrp.md)
 - [BFD](bfd.md)
 - [LISP](lisp.md)
 
 # Jokes
 - [A Woman Calls TAC](joke-a-woman-calls-TAC.md)
-- [A Blue Team Housecall](joke-blue-team-housecall.md)
+- [A Blue Team Housecall](joke-red-team-housecall.md)

@@ -9,16 +9,23 @@
 - [RFC1918 Dungeons](rfc1918-dungeons.md)
 - [Classful Networking](classful-networking.md)
 
-# IPv6
-- [IPv6](ipv6.md)
-  - [IPv6 Hextext Boundaries](ipv6-hextet-boundaries.md)
-  - [IPv4 to IPV6 Migration Strategies](ipv4-to-ipv6-migration-strategies.md)
-  - [ISATAP](isatap.md)
-  - [NAT64](nat64.md)
-  
 # Subnetting
 - [with Fingers](subnet-with-fingers.md)
 - [with the Box Method](subnet-with-the-box-method.md)
+
+
+# IPv6
+- [IPv6](ipv6.md)
+  - [IPv6 Hextext Boundaries](ipv6-hextet-boundaries.md)
+
+
+# IPv6 Transition Technology
+- [IPv4 to IPV6 Migration Strategies](ipv4-to-ipv6-migration-strategies.md)
+- [ISATAP](isatap.md)
+- [6RD](6rd.md)
+- [NAT64](nat64.md)
+  
+
 
 # Ethernet
 - [STP](stp.md)
@@ -97,7 +104,6 @@
 - [Cisco AAA](cisco-aaa.md)
 - [AAA and ISE](aaa-ise.md)
 - [Device Management](device-mgmt.md)
-- [OOB](oob.md)
 
 # Network Services
 - [ACLs](acls.md)
@@ -151,4 +157,4 @@
 
 # Jokes
 - [A Woman Calls TAC](joke-a-woman-calls-TAC.md)
-- [A Blue Team Housecall](joke-red-team-housecall.md)
+- [A Red Team Housecall](joke-red-team-housecall.md)

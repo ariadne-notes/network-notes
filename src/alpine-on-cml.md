@@ -12,7 +12,7 @@ ip route add default via 10.0.20.1
 ```
 cat > /etc/local.d/ipv6.start << 'EOF'
 #!/bin/sh
-ip addr add 2001:db8:1::64/64 dev eth0
+ip addr add 2001:db8:1::4/64 dev eth0
 sysctl -w net.ipv6.conf.eth0.accept_ra=1
 EOF
 

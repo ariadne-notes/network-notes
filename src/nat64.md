@@ -138,6 +138,6 @@ Total number of translations: 1
 # References
 [IP Addressing Configuration Guide, Cisco IOS XE 17.x - Stateful Network Address Translation 64 Cisco IOS XE 17 - Cisco](https://www.cisco.com/c/en/us/td/docs/routers/ios/config/17-x/ip-addressing/b-ip-addressing/m_iadnat-stateful-nat64.html)
 
-[RFC 2373: IP Version 6 Addressing Architecture](https://www.rfc-editor.org/rfc/rfc2373)
+[RFC 4291: IP Version 6 Addressing Architecture | RFC Editor](<https://www.rfc-editor.org/info/rfc4291/>)
 
 [RFC 2464: Transmission of IPv6 Packets over Ethernet Networks](https://www.rfc-editor.org/rfc/rfc2464)

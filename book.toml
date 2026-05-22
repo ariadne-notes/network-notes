@@ -4,6 +4,10 @@ description = "My notes for studying network things."
 authors = ["Ariadne"]
 language = "en"
 
+[preprocessor.mermaid]
+command = "mdbook-mermaid"
+
 [output.html]
 additional-css = ["theme/custom.css"]
+additional-js = ["mermaid.min.js", "mermaid-init.js"]
 git-repository-url = "https://github.com/ariadne-notes/networking"

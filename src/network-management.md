@@ -1,11 +1,3 @@
-# Terms
-* **NMS:** Network Monitoring System
-
-# SNMP
-* **The Device:** A router, switch or server
-* **The Agent:** Lives on the network device and collects the metrics, ready to export them in SNMP.
-* **NMS:** NMS polls Agents and goes "give me your metrics" then keeps the database and does the analysis.
-
 # FCAPS
 | Letter | Name | Notes |
 |---|----------------------------|-------------------------------------------------|

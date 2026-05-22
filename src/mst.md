@@ -141,7 +141,6 @@ Gi3/2            Root FWD 20000     128.15   P2p
 # Captures
 [MST-region-frame.pcap](./captures/switching/MST-region-frame.pcap)
 
-
 # References
 [Cisco - Understand the Multiple Spanning Tree Protocol (802.1s)](https://www.cisco.com/c/en/us/support/docs/lan-switching/spanning-tree-protocol/24248-147.html#toc-hId--1408391100)
 

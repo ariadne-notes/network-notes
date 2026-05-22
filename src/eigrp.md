@@ -41,7 +41,7 @@ R1 sees it has an reported distance less than the current distance, so installs 
 
 # Example with the EIGRP topology table
 
-<pre>
+```text
 R1# show ip eigrp topology 10.0.0.0/24
 EIGRP-IPv4 Topology Entry for AS(1)/ID(1.1.1.1) for 10.0.0.0/24
   State is Passive, Query origin flag is 1, 1 Successor(s), FD is 2100
@@ -53,7 +53,7 @@ P 10.0.0.0/24, 1 successors, FD is 2100                <--- Feasible Distance
                        +-------- Path Metric
         
                                                              (RD 2000 < FD 2100)
-</pre>
+```
 
 
 

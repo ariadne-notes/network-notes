@@ -102,15 +102,20 @@ puts [open "bootflash:name-of-bootstrap-file.cfg" w+] {
 
 1. Get the current IP
 
-`python -c "import socket; s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM); s.connect(('8.8.8.8', 80)); print(s.getsockname()[0]); s.close()"`
+```
+python -c "import socket; s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM); s.connect(('8.8.8.8', 80)); print(s.getsockname()[0]); s.close()"
+```
 
 1. Start the server with above IP
 
-`python -m http.server 8000 --bind 10.0.0.1`
+```
+python -m http.server 8000 --bind 10.0.0.1
+```
 
 1. Copy into cisco box
-
+```
 copy tftp://10.0.0.1:8000/<boot-strap>.cfg bootflash:/<bootstrap>.cfg
+```
 
 **controller-mode enable**
 

@@ -1,3 +1,5 @@
+## Theory
+
 # Terms
 * **DIA:** Direct Internet Access. What we usually have has residential customers. No real guarantee of service, but tends to be fast.
 * **SLA:** Service Level Agreement. Business Internet, especially, to connect sites together tends to have a SLA.
@@ -15,7 +17,7 @@
 # Marketing Terms
 * **Cisco SD-WAN Cloud OnRamp:** AKA, CoR. Edges can perform analytics to SaaS or IaaS offerings to select the best path, via jitter.
 
-## Validator
+# Validator
 Should be give a FQDN, so WAN edges have no problems finding it on connection to a DIA.
 
 FQDNs also mean we aren't putting a static IP into a config.
@@ -28,26 +30,26 @@ This device does the load balancing if multiple controllers are being used.
 
 The Validator has a permanent dTLS tunnel to all the controllers.
 
-## Controllers
+# Controllers
 * Keeps all the routes between sites, that are managed via the OMP protocol (like BGP, but proprietary)
 * Logical tunnel topologies (such as hub and spoke, regional, and partial mesh)
 * Service Chaining
 * Traffic Engineering
 * Segmentation per VPN 
 
-## WAN Edge
+# WAN Edge
 * Dataplane for a site
 * Has OMP, BGP, OSPF, EIGRP, ACLs, ARP, HA, and QoS.
 * Connects via dTLS to the controllers.
 * Connects via dTLS to other edges.
 
-## SD-WAN Policy
+# SD-WAN Policy
 Policies are further classified as
 
 * **Local Policy:** Programed on the edges. ACLs, QoS, routing, and AAA.
 * **Centralized Policy:** Route policy, before being sent to the edges, (Topology, VPN Membership, Application Aware Routing)
 
-## Application Aware Routing
+# Application Aware Routing
 * If two edges connect to each other over dTLS, BFD is run over the tunnel.
 * For AAR, or CoR, the edge will send HTTP probes and measure the jitter and/or loss.
 * The score for an app is the vQoS (Viptela Quality of Experience) from 0 to 10, 10 being best.
@@ -62,28 +64,27 @@ Policies are further classified as
 
 
 
-# sd-wan commands
-
-`show sdwan control local-properties`
-
-# DTLS Tunnels to SDWAN Manager and SDWAN Controllers
-`show sdwan control connections`
-
-`show sdwan control connection-history`
-
-# OMP
-`show sdwan omp peers`
-
-`show sdwan omp routes`
-
-`show sdwan omp tlocs`
-
-`show sdwan omp services`
-
-`show sdwan omp multicast-routes`
-
-# Validator Only
-`show orchestrator connections`
+## Commands
+```
+!
+! Control Setup
+!
+show sdwan control local-properties
+show sdwan control connections
+show sdwan control connection-history
+!
+! CMP
+!
+show sdwan omp peers
+show sdwan omp routes
+show sdwan omp tlocs
+show sdwan omp services
+show sdwan omp multicast-routes
+!
+! Validator
+!
+show orchestrator connections
+```
 
 # Initial Bringup
 

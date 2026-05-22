@@ -112,6 +112,7 @@
 - [SSH](ssh.md)
 - [AAA with FreeRadius and Univention UCS](aaa-freeradius-and-univention-ucs.md)
 - [SNMP](snmp.md)
+  - [SNMP Versions](snmp-versions.md)
 
 # Timing
 - [PTP](ptp.md)
@@ -139,9 +140,6 @@
 - [IPSec with IKEv1](ipsec-ikev1.md)
 - [IPSec with IKEv2 and VTI](ipsec-ikev2-vti).md
 
-# PKI
-- [Certbot](certbot.md)
-
 # Etc (stuff I haven't sorted)
 - [iperf2](iperf2.md)
 - [Claude](claude.md)
@@ -156,13 +154,13 @@
 - [LISP](lisp.md)
 - [Multihoming](multihoming.md)
 - [Network Management](network-management.md)
+- [Certbot](certbot.md)
 
 # Certification Stuff
 - [Cisco Certifications](cisco-certifications.md)
 
 # Other blogs
 - [Other Blogs](other-blogs.md)
-
 
 # Jokes
 - [A Woman Calls TAC](joke-a-woman-calls-TAC.md)

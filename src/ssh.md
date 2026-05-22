@@ -1,4 +1,4 @@
-# Basic SSH Config
+## Config
 
 ```
 ip domain-name <domain-here>

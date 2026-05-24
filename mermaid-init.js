@@ -1,0 +1,42 @@
+(() => {
+    const darkThemes = ['ayu', 'navy', 'coal'];
+    const lightThemes = ['light', 'rust'];
+
+    const classList = document.getElementsByTagName('html')[0].classList;
+
+    let lastThemeWasLight = true;
+    for (const cssClass of classList) {
+        if (darkThemes.includes(cssClass)) {
+            lastThemeWasLight = false;
+            break;
+        }
+    }
+
+    const theme = lastThemeWasLight ? 'default' : 'dark';
+    mermaid.initialize({ startOnLoad: false, theme });
+
+    document.querySelectorAll('pre.mermaid').forEach(function (el) {
+        var div = document.createElement('div');
+        div.className = 'mermaid';
+        div.textContent = el.textContent;
+        el.replaceWith(div);
+    });
+
+    mermaid.run();
+
+    for (const darkTheme of darkThemes) {
+        document.getElementById('mdbook-theme-' + darkTheme).addEventListener('click', () => {
+            if (lastThemeWasLight) {
+                window.location.reload();
+            }
+        });
+    }
+
+    for (const lightTheme of lightThemes) {
+        document.getElementById('mdbook-theme-' + lightTheme).addEventListener('click', () => {
+            if (!lastThemeWasLight) {
+                window.location.reload();
+            }
+        });
+    }
+})();

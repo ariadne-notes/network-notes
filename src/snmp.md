@@ -148,7 +148,6 @@ logging snmp-trap alerts
 logging snmp-trap critical
 ```
 
-:)
 
 # Refereces
 [Cisco - Consider SNMP](https://www.cisco.com/c/en/us/support/docs/ip/simple-network-management-protocol-snmp/9226-mibs-9226.html)

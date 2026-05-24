@@ -58,8 +58,6 @@ flowchart LR
     A[Detection] --> B[Classification] --> C[Start to Power] --> D[Normal Power Supply]
 ```
 
-:)
-
 # References
 [Power over Ethernet - Wikipedia](https://en.wikipedia.org/wiki/Power_over_Ethernet)
 

@@ -17,19 +17,15 @@
 - [with Fingers](subnet-with-fingers.md)
 - [with the Box Method](subnet-with-the-box-method.md)
 
-
 # IPv6
 - [IPv6](ipv6.md)
   - [IPv6 Hextext Boundaries](ipv6-hextet-boundaries.md)
-
 
 # IPv6 Transition Technology
 - [IPv4 to IPV6 Migration Strategies](ipv4-to-ipv6-migration-strategies.md)
 - [ISATAP](isatap.md)
 - [6RD](6rd.md)
 - [NAT64](nat64.md)
-  
-
 
 # Ethernet
 - [STP](stp.md)

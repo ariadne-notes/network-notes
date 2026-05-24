@@ -116,4 +116,4 @@ The C9000-L series, does not support Catalyst Center, and has lower stackwise Sp
 
 
 # References
-https://www.cisco.com/c/en/us/td/docs/solutions/CVD/Campus/cisco-campus-lan-wlan-design-guide.html
+[Design Zone - Campus LAN and Wireless LAN Solution Design Guide - Cisco](https://www.cisco.com/c/en/us/td/docs/solutions/CVD/Campus/cisco-campus-lan-wlan-design-guide.html)

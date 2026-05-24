@@ -19,3 +19,10 @@ The notes aren't for you six months from now, the notes are for you, six years f
 If take handwritten notes, OCR them into digitals. The AI is decent at this.
 
 If typing is painful consider a much nicer keyboard and something like [Dvorak](https://www.dvzine.org/zine/TheDvorakZine.pdf)
+
+# References
+[MIT - Notes and Notebooks - Mayfield Handbook of Technical and Scientific Writing](<https://web.mit.edu/course/21/21.guide/notebook.htm>)
+
+[Berkeley - Academic Skills Resource Library | Athletic Study Center](https://asc.berkeley.edu/resources/students/academic-support-resources/academic-skills-resource-library)
+
+[Harvard - Note-Taking – Academic Resource Center](https://academicresourcecenter.harvard.edu/2023/10/02/note-taking/)

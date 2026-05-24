@@ -5,11 +5,11 @@
 **Changing the equipment**
 * Set Request
 
-** Getting Outputs**
+**Getting Outputs**
 * Get Request
 * GetNext
 
-** Receiving Outputs**
+**Receiving Outputs**
 * Get Response
 * Trap
 

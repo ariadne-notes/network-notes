@@ -93,6 +93,7 @@
 - [DMVPN](dmvpn.md)
   - [NHRP](nhrp.md)
 - [Policy Based Routing](policy-based-routing.md)
+- [Multi-Homing](multi-homing.md)
 
 # Routing Features
 - [SSO](sso.md)
@@ -100,8 +101,6 @@
 # Enterprise Campus
 - [Enterprise Campus Architecture](enterprise-campus-architecture.md)
 - [Enterprise Campus Modular Design](enterprise-campus-modular-design.md)
-- [SD-Access](sd-access.md)
-- [SD-WAN](sdwan.md)
 - [Cisco AAA](cisco-aaa.md)
 - [AAA and ISE](aaa-ise.md)
 - [Device Management](device-mgmt.md)
@@ -115,6 +114,11 @@
 - [AAA with FreeRadius and Univention UCS](aaa-freeradius-and-univention-ucs.md)
 - [SNMP](snmp.md)
   - [SNMP Versions](snmp-versions.md)
+
+# Software Defined Networking
+- [OMP](omp.md)
+- [SD-WAN](sdwan.md)
+- [SD-Access](sd-access.md)
 
 # Timing
 - [PTP](ptp.md)
@@ -159,6 +163,7 @@
 - [Multihoming](multihoming.md)
 - [Network Management](network-management.md)
 - [Certbot](certbot.md)
+- [Power Over Ethernet](power-over-ethernet.md)
 
 # Certification Stuff
 - [Cisco Certifications](cisco-certifications.md)

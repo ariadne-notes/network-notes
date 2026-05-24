@@ -132,7 +132,7 @@
 - [Optical](optical.md)
 - [T1](t1.md)
 - [MLPPP over ATM](mlppp-over-atm.md)
-- [IRB On the ASR9K)(irb-on-the-asr9k.md)
+- [IRB On the ASR9K](irb-on-the-asr9k.md)
 - [WAN Considerations](wan-considerations.md)
 - [G8032](g8032.md)
 - [Back to Back Frame Relay](back-to-back-frame-relay.md)

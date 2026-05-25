@@ -23,3 +23,6 @@
 | Point to Point Subnet  | `/31` |
 | Loopback Subnet        | `/32` |
 | Wireless APs           |   -   |
+
+# References
+[IPv4 Interactive Map - bgp.tools](https://map.bgp.tools/)

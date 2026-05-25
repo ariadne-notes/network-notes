@@ -119,6 +119,7 @@
 # Software Defined Networking
 - [OMP](omp.md)
 - [SD-WAN](sdwan.md)
+  - [SD-WAN ZTP](sdwan-ztp.md)
 - [SD-Access](sd-access.md)
 
 # Timing
@@ -131,7 +132,12 @@
 
 # Automation
 - [Ansible Basics](ansible-basics.md)
-- [RESTCONF and NETCONF](restconf-and-netconf.md)
+- [RESTCONF](restconf.md)
+- [NETCONF](netconf.md)
+- [gRPC](grpc.md)
+- [gNMI](gNMI.md)
+- [YANG](yang.md)
+- [MDT](mdt.md)
 
 # Transport and Physical
 - [Optical](optical.md)

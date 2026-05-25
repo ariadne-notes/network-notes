@@ -1,0 +1,28 @@
+A Google Invention
+
+Part of the *OpenConfig* framework. [Google, Microsoft, ATT, and BT]
+
+* Getting Config
+* Setting Config
+* Asking for specific telemetry
+* Getting specific telemtry
+* Relies on gRPC
+
+> **replaces** SNMP
+
+# Setting an IPv4 Address
+
+This is done with NETCONF and a YANG model.
+
+```
+/interfaces/interface[name=g0/0/0/0]/subinterfaces/subinterface[index=0]/ipv4/addresses/address[ip=10.0.0.1]/config/
+  - ip: 10.0.0.1
+  - prefix-length: 24
+```
+
+# References
+[GitHub - openconfig/gnmi: gRPC Network Management Interface · GitHub](https://github.com/openconfig/gnmi)
+
+[OpenConfig - gRPC Network Management Interface (gNMI) specification](https://openconfig.net/docs/gnmi/gnmi-specification/)
+
+[Model-Driven Telemetry: Dial-In or Dial-Out ? | Telemetry | XRdocs](<https://xrdocs.io/telemetry/blogs/2017-01-20-model-driven-telemetry-dial-in-or-dial-out>)

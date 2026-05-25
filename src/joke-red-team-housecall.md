@@ -23,7 +23,9 @@ This makes its way around the Internet. I rewrote it for technical accuracy.
 > **... raw digital nudity.**
 >
 > "Do you ever get lag?"
+>
 > "What's lag?"
+>
 > "Is the network slow?"
 > "yeah sometimes Netflix buffers."
 >
@@ -31,15 +33,19 @@ This makes its way around the Internet. I rewrote it for technical accuracy.
 > I check the IPs and find they are located in several East European countries.
 >
 > "So your TV is on the wifi, huh?"
+>
 > "Yeah, but I never use the smart features, it's too slow"
+>
 > "Do you update it?"
+>
 > "Update what?"
-> "Update the software on the TV."
 >
-> I'm struggling to stay composed. I reframe.
+> ... I'm struggling to stay composed. I reframe.
 >
-> "Your network will be much faster if you just ... take the TV off the wifi. Your ... TV looks to be participating in a botnet"
+> "Update the software on the TV. Your network will be much faster if you just ... take the TV off the wifi. Your ... TV looks to be participating in a botnet."
+>
 > "Is that bad?"
+>
 > "It isn't good."
 >
 > I offered to segment the network and install pfSense. She said she "just wanted Spotify to stop cutting out."
@@ -51,6 +57,7 @@ This makes its way around the Internet. I rewrote it for technical accuracy.
 >
 > "The panopticon isn't metaphorical."
 > "Are you always this intense?"
+>
 > "No, only when the NSA is listening." ... Which is always.
 >
 > She offered coffee. I declined, caffeine raises your attack surface.

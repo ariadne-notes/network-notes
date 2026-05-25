@@ -14,7 +14,7 @@ Type 2 - Here is my attached network.
 
 **DR**
 
-```
+```console
 R1# show ip ospf database router 1.1.1.1
 
             OSPF Router with ID (1.1.1.1) (Process ID 1)
@@ -40,7 +40,7 @@ R1# show ip ospf database router 1.1.1.1
 
 **DROther**
 
-```
+```console
 R4#show ip ospf database router 4.4.4.4
 
             OSPF Router with ID (4.4.4.4) (Process ID 1)
@@ -70,7 +70,7 @@ R4#show ip ospf database router 4.4.4.4
 ## Type 2 - Network
 
 
-```
+```console
 R4# show ip ospf database network 
 
             OSPF Router with ID (4.4.4.4) (Process ID 1)

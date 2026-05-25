@@ -54,13 +54,13 @@ line vty 0 15
 
 This loads the `dc=` stuff into `$ldap_base`
 
-```
+```console
 eval $(ucr shell)
 ```
 
 RADIUS Network Admins
 
-```
+```console
 udm groups/group create \
   --position "cn=groups,$ldap_base" \
   --set name="RADIUS Network Admins" \
@@ -69,7 +69,7 @@ udm groups/group create \
 
 RADIUS Network Read Only
 
-```
+```console
 udm groups/group create \
   --position "cn=groups,$ldap_base" \
   --set name="RADIUS Network Read Only" \
@@ -78,7 +78,7 @@ udm groups/group create \
 
 ### LDAP - Verifying the groups
 
-```
+```console
 udm groups/group list --filter name="RADIUS Network Admins"
 
 udm groups/group list --filter name="RADIUS Network Read Only"
@@ -90,7 +90,7 @@ Users need to be added to this group directly.
 
 I am `ariadne` so that's my uid.
 
-```
+```console
 udm groups/group modify \
   --dn "cn=RADIUS Network Admins,cn=groups,$ldap_base" \
   --append users="uid=ariadne,cn=users,$ldap_base"
@@ -98,13 +98,13 @@ udm groups/group modify \
 
 ### Verify Users
 
-```
+```console
 udm users/user list --filter uid=ariadne | grep -i group
 ```
 
 ### FreeRADIUS Clients
 
-```
+```console
 cat >> /etc/freeradius/3.0/clients.conf << 'EOF'
 
 client internal_network {
@@ -117,7 +117,7 @@ EOF
 
 ### FreeRADIUS Cisco AV Pairs
 
-```
+```console
 eval $(ucr shell)
 
 cat >> /etc/freeradius/3.0/mods-config/files/authorize << EOF
@@ -137,25 +137,25 @@ EOF
 
 ## Testing on Cisco
 
-```
+```console
 test aaa group radius ariadne my-password legacy
 ```
 
 ## Testing On UCS
 
-```
+```console
 radtest <user-in-ldap> <ldap-password> <server-ip> 0 <FreeRADIUS-secret>
 ```
 
 ### Do packets arrive
 
-```
+```console
 tcpdump -i any -n udp port 1812
 ```
 
 ## Debugging FreeRADIUS
 
-```
+```console
 systemctl daemon-reload
 systemctl restart freeradius
 systemctl status freeradius
@@ -164,12 +164,12 @@ freeradius -X
 
 ## After it's working, RSYNC it.
 
-```
+```console
 rsync -av /etc/freeradius/3.0/clients.conf \
   root@ucs-2:/etc/freeradius/3.0/clients.conf
 ```
 
-```
+```console
 rsync -av /etc/freeradius/3.0/mods-config/files/authorize \
   root@ucs-2:/etc/freeradius/3.0/mods-config/files/authorize
 ```

@@ -50,7 +50,7 @@ If every customer was given an IP on the 10.0.0.0/24 network, the bits they woul
 
 ## Sample Config (from Cisco's PDF)
 
-```
+```console
 !
 ! This BR is reachable via the loopback.
 !

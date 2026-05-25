@@ -2,7 +2,7 @@
 
 Cisco switches provide three kinds of spanning tree modes.
 
-```
+```console
 switch(config)# spanning-tree mode ?
   mst         Multiple spanning tree mode
   pvst        Per-Vlan spanning tree mode
@@ -47,7 +47,7 @@ Industry liked what Cisco was doing with "per vlan" so MST merges that feature i
 
 From wireshark
 
-```
+```console
 Spanning Tree Protocol                                                                                  
     Protocol Identifier: Spanning Tree Protocol (0x0000)                                                
     Protocol Version Identifier: Multiple Spanning Tree (3)                                             
@@ -89,14 +89,14 @@ MST keeps track of a few things:
 
 ## Basic Config
 
-```
+```console
 spanning-tree mode mst
 ```
 
 
 ## More involved config
 
-```
+```console
 default spanning-tree mst configuration
 spanning-tree mst configuration
  name blue
@@ -105,7 +105,7 @@ spanning-tree mst configuration
 ```
 
 **Config Validation**
-```
+```console
 S21# show spanning-tree mst configuration 
 Name      [red]
 Revision  3     Instances configured 2
@@ -122,7 +122,7 @@ Instance  Vlans mapped
 - A switch `ff79` in a different MST region is the root for the CST.
 - Our regional root `c07f` is one hop away.
 
-```
+```console
 S32# show spanning-tree mst 
 
 ##### MST0    vlans mapped:   1-9,11-19,21-29,31-39,41-4094

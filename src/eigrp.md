@@ -127,7 +127,7 @@ To enable:
 
 In EIGRP these go under the interface, on the interface you want the summary to be sent out of.
 
-```
+```console
 ethernet 1
   ip summary-address eigrp 100 192.168.0.0/16
 ```
@@ -139,7 +139,7 @@ Name mode supports IPv6 inside a VRF.
 
 ### Minimum config
 
-```
+```console
 router eigrp EIGRP_100
  !
  address-family ipv4 unicast autonomous-system 100

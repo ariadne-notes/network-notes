@@ -19,7 +19,7 @@ ipv4 unicast vrf = BGP within vrfs for PE to CE connectivity
 #### Example
 
 
-```
+```console
 router bgp 100
  neighbor 3.3.3.3 remote-as 100  ! note the neighbor is the same AS, this is the PE
 !

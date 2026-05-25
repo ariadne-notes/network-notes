@@ -79,7 +79,7 @@ STP elects root and designated ports, aka RP, and DPs. It also moves STP ports i
 
 4 bits, goes in geometric sequence starting from 0 to 61440.
 
-```
+```console
 switch(config)# spanning-tree vlan 60 priority ?
 % Bridge Priority must be in increments of 4096.
 % Allowed values are: 
@@ -106,7 +106,7 @@ The root bridge BPDU gets stuff tack'd onto it. The root bridge advertises itsel
 
 Cost is the value of the link, towards the root bridge.
 
-```
+```plain
  ┌───────┐                                                                   
  │  SW1  │                                                                   
  └───┬───┘                                                                   
@@ -147,7 +147,7 @@ A unidirectional failure on a `root` or `alternate` port will cause spanning tre
 
 This is done per interface, and is pretty tedious.
 
-```
+```console
 switch(config)# interface Ethernet 1/1
 switch(config-if)# spanning-tree guard loop
 ```
@@ -186,7 +186,7 @@ The 802.1D committee wanted *two* learning states[^stp], one with and one withou
 
 [^stp]: *Interconnections* - Radia Perlman, page 67.
 
-```
+```plain
 ┌─────────────┐                                                     
 │     off     │                                                     
 └──────┬──────┘                                                     
@@ -213,7 +213,7 @@ The 802.1D committee wanted *two* learning states[^stp], one with and one withou
 #### BPDU Frame Format
 
 **Wireshark**
-```
+```console
 Spanning Tree Protocol
     Protocol Identifier: Spanning Tree Protocol (0x0000)
     Protocol Version Identifier: Spanning Tree (0)
@@ -256,7 +256,7 @@ Two bridges
 
 This is what the BPDU looks like on-the-wire
 
-```
+```plain
 ┌───────────────────────────────┬───────────────┬───────────────┐
 │                               │               │               │
 │          Protocol ID          │    Version    │   BPDU Type   │
@@ -349,7 +349,7 @@ Who is the root?
 
 Both bridges temporarily send BPDUs with themselves both set as root.
 
-```
+```plain
 ┌────────┐                                                                                       ┌────────┐
 │        │                                                                                       │        │
 │      1 │── 32768 / 1 / 52:54:00:4b:99:08 / 8001 ─────── 32768 / 1 / 52:54:00:e8:3a:ff / 8001 ──│ 1      │
@@ -369,7 +369,7 @@ Who is the root?
 
 Both bridges temporarily send BPDUs with themselves both set as root.
 
-```
+```plain
 ┌────────┐                                                                                       ┌────────┐
 │        │                                                                                       │        │
 │      1 │── 32768 / 1 / 52:54:00:4b:99:08 / 8001 ----------- 0 / 1 / 52:54:00:e8:3a:ff / 8001 ──│ 1      │
@@ -383,7 +383,7 @@ SW2 wins with `0`. SW2 has the lower bridge priority.
 
 `32768 / 1 / 52:54:00:4b:99:08 / 8001` > `0 / 1 / 52:54:00:e8:3a:ff`
 
-```
+```console
 !
 ! SW2
 !
@@ -395,7 +395,7 @@ spanning-tree vlan 1 priority 0
 
 Which ports block?
 
-```
+```plain
 ┌───────────┐                                                                                       ┌───────────────┐
 │           │                                                                                       │               │
 │      DP 1 │── 32768 / 1 / 52:54:00:4b:99:08 / 8001 ───────────────────────────────────────────────│ 1 RP          │
@@ -413,7 +413,7 @@ Which ports block?
 
 Which ports block?
 
-```
+```plain
 ┌───────────┐                                                                                       ┌───────────────┐
 │           │                                                                                       │               │
 │      DP 1 │── 32768 / 1 / 52:54:00:4b:99:08 / 8001 ───────────────────────────────────────────────│ 1 BLK         │
@@ -427,7 +427,7 @@ Which ports block?
 - SW2 gets three BPDUs, the best BPDU is on port 3, it has the lowest priority. `00`
 - SW2 sets the other two ports to BLK.
 
-```
+```console
 !
 ! SW1
 !
@@ -440,7 +440,7 @@ interface 3
 
 Which ports block?
 
-```
+```plain
 ┌───────────┐                                                                                       ┌───────────────┐ 
 │           │                                                                                       │               │ 
 │      DP 1 │── 32768 / 1 / 52:54:00:4b:99:08 / 8001 ──────────────────────────────────────Cost─4───│ 1 BLK         │ 
@@ -454,7 +454,7 @@ Which ports block?
 - SW2 gets three BPDUs, the best BPDU is on port 2, The local switch marked the received cost on that port as `1`
 - SW2 sets the other two ports to BLK.
 
-```
+```console
 !
 ! SW2
 !
@@ -469,7 +469,7 @@ interface 2
 - There is no root ID or bridge ID.
 - The TCN is sent out the RP.
 
-```
+```console
 Spanning Tree Protocol
     Protocol Identifier: Spanning Tree Protocol (0x0000)
     Protocol Version Identifier: Spanning Tree (0)
@@ -488,14 +488,14 @@ The default for Cisco is keeping a mac-address in CAM for 300 seconds (5 minutes
 
 Receiving a TCN sets this `max age` to the `forward delay` usually 15 seconds. This means any server that is not actively sending, will have it's traffic flooded onto that VLAN.
 
-```
+```console
 switch# show mac address-table aging-time 
 Global Aging Time:  300
 ```
 
 ##### Finding TCNs
 
-```
+```console
 switch# show spanning-tree vlan 20 detail | s Spanning
  VLAN0020 is executing the rstp compatible Spanning Tree protocol
   Bridge Identifier has priority 32768, sysid 20, address aabb.cc00.0100
@@ -512,7 +512,7 @@ switch# show spanning-tree vlan 20 detail | s Spanning
 
 ##### On the device
 
-```
+```console
 switch# show spanning-tree vlan 20 detail | i VLAN|transitions 
  VLAN0020 is executing the rstp compatible Spanning Tree protocol
  Port 2 (Ethernet0/1) of VLAN0020 is designated forwarding 
@@ -529,7 +529,7 @@ switch# show spanning-tree vlan 20 detail | i VLAN|transitions
 
 ##### In the logs
 
-```
+```console
 switch# show logging | i %LINK
 *Jul  8 04:22:24.660: %LINK-3-UPDOWN: Interface Ethernet0/0, changed state to up
 *Jul  8 04:22:24.702: %LINK-3-UPDOWN: Interface Ethernet0/1, changed state to up

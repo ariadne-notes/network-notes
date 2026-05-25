@@ -287,7 +287,7 @@ See results of DF election
 
 
 
-```
+```console
 FLAGS
  A - Accepting. This interface is accepting data
  F - Forwarding. Where to send multicast traffic
@@ -303,7 +303,7 @@ MAC addresses are 48 bits.
 
 The first 25 bits are always.
 
-```
+```plain
 0000 0001 . 0000 0000 . 0101 1110 . 0??? ????
        01 :        00 :        5E :
         ^                           ^
@@ -322,7 +322,7 @@ Mapping 232.10.10.10 → 01:00:5E:0A:0A:0A
 
 Copy the low order 23 bits directly from the v4 address.
 
-```
+```console
 
   232.10.10.10/8
   (in binary)
@@ -336,7 +336,7 @@ Copy the low order 23 bits directly from the v4 address.
 
 Ethernet Multicast MAC Address
 
-```
+```plain
           1 :         0 :        5E :        0A :       0A  :        0A
   0000 0001 . 0000 0000 . 0101 1110 . 0000 1010 . 0000 1010 . 0000 1010
   \__________________________________/|\______________________________/
@@ -355,7 +355,7 @@ v4 is 32 bits, minus those four bits that can never change `1110` to get 28 bits
 
 All these IPs share the same multicast L2 address.
 
-```
+```plain
 All 32 IPv4 addresses mapping to 01:00:5E:0A:0A:0A
 ══════════════════════════════════════════════════════════════════════════════
 Address           Octet 1    Octet 2    Octet 3    Octet 4
@@ -408,12 +408,12 @@ BPF - Capture all PIM, but not PIM hello messages.
 
 ### Sending Multicast
 
-```
+```console
 iperf --client 239.10.10.10 --udp --time 3600 --interval 1 --bandwidth 1pps --ttl 15 --len 1000
 ```
 
 ### Receiving Multicast
 
-```
+```console
 iperf --server --udp --bind 239.10.10.10 --interval 1
 ```

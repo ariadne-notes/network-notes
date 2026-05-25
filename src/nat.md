@@ -64,7 +64,7 @@ Packets to R3 will appear to be from `10.0.0.2`
            Inside ─────────┘    └─────── Outside
 </pre>
 
-```
+```console
 !
 ! R1
 !
@@ -98,7 +98,7 @@ ip route 0.0.0.0 0.0.0.0 10.0.0.2
 
 ## R2 Debugs during NAT
 
-```
+```console
 R2# debug ip nat 1
 IP NAT debugging is on for access list 1
 

@@ -54,7 +54,7 @@
 - The spoke router recovers the clocks from `0/0/0`
 - The spoke router uses that clock, to sync lines `0/0/1, 0/1/0, and `0/1/1`
 
-```
+```plain
         Hub Router                                                      Spoke Site Router      
                                                                                                
  <Reference Clock>                                                                             

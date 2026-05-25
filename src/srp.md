@@ -22,7 +22,7 @@ Side A Always connects to Side B.
 ## Example of a working connection.
 
 
-```
+```console
 router # show controller srp 4/0
 SRP4/0 - Side A (Outer RX, Inner TX)
 SECTION

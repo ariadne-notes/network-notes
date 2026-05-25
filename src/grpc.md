@@ -38,7 +38,7 @@ This defines the data structure to send.
 * Messages
 * end in `.proto`
 
-```
+```console
 message Person {
   string name = 1;
   int32 id = 2;

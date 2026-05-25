@@ -4,7 +4,7 @@ The default settings for port security **will not** age out learned mac addresse
 
 ## Config
 
-```
+```console
 interface GigabitEthernet0/0
  switchport access vlan 10
  switchport mode access
@@ -19,7 +19,7 @@ interface GigabitEthernet0/0
 
 
 This is the primary table for this feature. This table is used to populate the mac address table.
-```
+```console
 switch# show port-security address
                Secure Mac Address Table
 -----------------------------------------------------------------------------
@@ -31,7 +31,7 @@ Vlan    Mac Address       Type                          Ports   Remaining Age
 ```
 
 Scraping the mac-address table for things programmed in by the port security feature.
-```
+```console
 switch# show mac address-table secure 
           Mac Address Table
 -------------------------------------------
@@ -43,7 +43,7 @@ Vlan    Mac Address       Type        Ports
 
 Asking port security how many ports are currently controlled by the feature.
 
-```
+```console
 switch #show port-security 
 Secure Port  MaxSecureAddr  CurrentAddr  SecurityViolation  Security Action
                 (Count)       (Count)          (Count)

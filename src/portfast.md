@@ -12,7 +12,7 @@ PXE (booting from network) ports should always be portfast.
 ## Enable on all access ports
 
 
-```
+```console
 spanning-tree portfast default
 ```
 
@@ -20,6 +20,6 @@ spanning-tree portfast default
 
 Some trunk ports connect to servers. Portfast can be enabled on those too.
 
-```
+```console
 spanning-tree portfast trunk
 ```

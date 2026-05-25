@@ -1,6 +1,6 @@
 # Alpine on CML
 
-```
+```console
 USERNAME=cisco
 PASSWORD=cisco
 hostname pc-20
@@ -11,7 +11,7 @@ ip route add default via 10.0.20.1
 
 ## Setting Addresses after it's booted.
 
-```
+```console
 cat > /etc/local.d/ipv6.start << 'EOF'
 #!/bin/sh
 ip addr add 2001:db8:1::4/64 dev eth0
@@ -23,7 +23,7 @@ chmod +x /etc/local.d/ipv6.start
 
 ## Setting DNS
 
-```
+```console
 cat > /etc/local.d/dns.start << 'EOF'
 #!/bin/sh
 cat > /etc/resolv.conf << 'RESOLV'

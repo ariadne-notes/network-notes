@@ -15,7 +15,7 @@ This was done on a home lab running Debian 11. `tesseract` is my control-node.
 
 ##### Add Ansible to Sources list
 
-```
+```console
 $ echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu focal main" | sudo tee /etc/apt/sources.list.d/ansible.list
 $ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
 $ sudo apt update
@@ -23,7 +23,7 @@ $ sudo apt update
 
 ##### Install Ansible
 
-```
+```console
 $ sudo apt install ansible
 ```
 
@@ -31,7 +31,7 @@ $ sudo apt install ansible
 
 Do not put special characters (like -) into the group names. Hosts should be FQDNs.
 
-```
+```console
 ariadne@tesseract:~/ansible$ cat /etc/ansible/hosts 
 [proxmox]
 <hosts redacted>
@@ -44,7 +44,7 @@ ariadne@tesseract:~/ansible$ cat /etc/ansible/hosts
 
 [linux]
 <hosts redacted>
-```
+```console
 
 ##### Define Defaults, Modify ansible.cfg
 
@@ -55,14 +55,14 @@ ariadne@tesseract:/etc/ansible$ cat ansible.cfg
 [defaults]
 host_key_checking = False
 remote_user = ariadne
-```
+```console
 
 ##### Create a public SSH key to allow passwordless access
 
 I'm using an internal linux host called `tesseract`. It doesn't use a password, it's a home lab.
 ```
 ariadne@tesseract:~$ ssh-keygen -t rsa -b 4096 -C "ariadne@tesseract.haske.org"
-```
+```console
 
 ##### Write a playbook to copy the SSH keys
 
@@ -79,7 +79,7 @@ ariadne@tesseract:~/ansible$ cat copy_ssh_keys_test.yml
       user: ariadne
       state: present
       key: "{{ lookup(file, /home/ariadne/.ssh/id_rsa.pub) }}"
-```
+```console
 
 ##### Run it
 
@@ -139,7 +139,7 @@ hosts.redacted    : ok=2    changed=0    unreachable=0    failed=0    skipped=0 
 hosts.redacted    : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 hosts.redacted    : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 hosts.redacted    : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0     
-```
+```console
 
 ##### Write a Playbook to Upgrade Everything
 
@@ -155,7 +155,7 @@ ariadne@tesseract:~/ansible$ cat upgrade-everything.yml
         upgrade: yes
         update_cache: yes
         cache_valid_time: 86400 #One day
-```
+```console
 
 ##### Sources
 

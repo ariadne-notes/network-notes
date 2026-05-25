@@ -1,6 +1,6 @@
 # IPSec with IKEv1
 
-```
+```console
 crypto isakmp policy 10
  encryption aes
  hash sha256

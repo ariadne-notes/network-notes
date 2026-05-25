@@ -96,14 +96,14 @@ Soft reconfig is ancient, pre-RFC.
 
 These read left to right like a book. This prefix was most recently from AS `7018`.
 
-```
+```plain
 7018 701 15 i
             ^ this means IGP, and AS 15 has an IGP route for it like OSPF or EIGRP
 ```
 
 ### BGP Best Path Selection
 
-```
+```console
 - Higher Weigth                                       
 - Higher Local Preference                            
 - Locally Originated                                 (Network or Aggregate Command)
@@ -154,13 +154,13 @@ BGP can aggregate smaller prefixes into larger ones even if a smaller prefix com
 
 A router in AS 105 gets these prefixes from its peers.
 
-```
+```console
 192.168.0.0/24 (123 204)
 192.168.1.0/24 (123 205)
 ```
 
 If the administrator chooses, they can aggregate this, but lose path information.
-```
+```console
 192.168.0.0/23 (105) ATOMIC_AGGREGATE. 
 ```
 Downstream peers can not remove this tag

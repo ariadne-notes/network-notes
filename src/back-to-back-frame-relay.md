@@ -4,7 +4,7 @@ Back-to-Back frame relay is without a Frame Relay Hub, the encapsulation is fram
 
 Frame relay expects LMI by default, so to get this work, we need to disable keepalives.
 
-```
+```plain
              10.0.0.0/30
 ┌────┐DCE                  DTE┌────┐
 │ R1 ├────────────────────────│ R2 │
@@ -15,7 +15,7 @@ Frame relay expects LMI by default, so to get this work, we need to disable keep
 
 The DCE generates the clock.
 
-```
+```console
 !
 ! R1
 !
@@ -29,7 +29,7 @@ no shut
 
 ## R2
 
-```
+```console
 !
 ! R2
 !

@@ -11,7 +11,7 @@
 ### An Example Config
 
 I found a list of time servers [here.](https://gist.github.com/mutin-sa/eea1c396b1e610a2da1e5550d94b0453)
-```
+```console
 ntp server pool.ntp.org
 ntp server time.nist.gov
 ntp server time.cloudflare.com

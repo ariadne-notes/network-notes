@@ -40,7 +40,7 @@ IS-IS supports two metric styles relevant to MPLS-TE:
 ### Configuration
 
 Enable wide metrics:
-```
+```console
 metric-style wide
 ```
 

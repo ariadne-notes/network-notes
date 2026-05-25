@@ -81,7 +81,7 @@ Policies are further classified as
 
 ## Commands
 
-```
+```console
 !
 ! Control Setup
 !
@@ -107,7 +107,7 @@ show orchestrator connections
 
 ### Pasting in the bootstrap
 
-```
+```console
 tclsh
 puts [open "bootflash:name-of-bootstrap-file.cfg" w+] {
 <list of certs goes here>
@@ -121,18 +121,18 @@ puts [open "bootflash:name-of-bootstrap-file.cfg" w+] {
 
 1. Get the current IP
 
-```
+```console
 python -c "import socket; s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM); s.connect(('8.8.8.8', 80)); print(s.getsockname()[0]); s.close()"
 ```
 
 1. Start the server with above IP
 
-```
+```console
 python -m http.server 8000 --bind 10.0.0.1
 ```
 
 1. Copy into cisco box
-```
+```console
 copy tftp://10.0.0.1:8000/<boot-strap>.cfg bootflash:/<bootstrap>.cfg
 ```
 

@@ -55,7 +55,7 @@ These must not match
 Check with `debug ip ospf event`
 
 **Broadcast Network Multicast Packet to acknowledge multiple neighbors**
-```
+```console
 Ethernet II, Src: aa:bb:cc:00:4b:00 (aa:bb:cc:00:4b:00), Dst: IPv4mcast_05 (01:00:5e:00:00:05)
 Internet Protocol Version 4, Src: 10.0.0.6, Dst: 224.0.0.5
 Open Shortest Path First
@@ -105,7 +105,7 @@ The RFC calls this a "network vertex". We can also use the term DR.
 
 In the diagram (from the RFC), everything connects to N2, so problem solved.
 
-```
+```plain
                                     **FROM**
                 +---+      +---+
                 |RT3|      |RT4|              |RT3|RT4|RT5|RT6|N2 |
@@ -126,7 +126,7 @@ See [OSPF LSAs](./ospf-lsas.md) to see what the actual contents of the LSAs are.
 
 Forms full adjacencies.
 
-```
+```console
 R1# show ip ospf neighbor 
 
 Neighbor ID     Pri   State           Dead Time   Address         Interface
@@ -146,7 +146,7 @@ Neighbor ID     Pri   State           Dead Time   Address         Interface
 - Only forms full adjacencies with the DR, and BDR.
 - When it sends LSAs, sends them to the DR/BDR via 224.0.0.6.
 
-``` 
+```console
 R1# show ip ospf neighbor 
 
 Neighbor ID     Pri   State           Dead Time   Address         Interface
@@ -169,7 +169,7 @@ See [OSPF LSAs](./ospf-lsas.md) to see what the actual contents of the LSA.
 Each router can perform it's own SPT via [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm).
 
 LSAs are flooded throughout an area, all routers in the same area should have the same LSAs and same database.
-```
+```console
 R1# show ip ospf database database-summary  | s Area 0
 Area 0 database summary
   LSA Type      Count    Delete   Maxage
@@ -184,7 +184,7 @@ Area 0 database summary
   Subtotal      20       0        0
 ```
 
-```  
+```console
 R2# show ip ospf database database-summary | s Area 0
 Area 0 database summary
   LSA Type      Count    Delete   Maxage
@@ -211,7 +211,7 @@ The Router ID is what is used to build the SPT. It's very important it's both
 - Easy to identify the router
 
 
-```
+```plain
   +-------------------------+ Three fields to differentiate LSAs
   |         LS Age          |     - LS Type
   +-------------------------+     - Link State ID
@@ -254,7 +254,7 @@ N1, N2 | 7      | NSSA Summaries   | routes to N1 or N2 networks  | NSSA ASBRs s
 
 ### Type 5 LSAs
 
-```
+```plain
         0                   1                   2                   3
         0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
        +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -297,7 +297,7 @@ OSPF has two ways of originating a default route.
 
 Default OSPF is all links above 100Mbps are the same cost.
 
-```
+```console
 auto-cost reference-bandwidth 40,000
 ```
 
@@ -316,7 +316,7 @@ auto-cost reference-bandwidth 40,000
 [^NBMA]: RFC compliant (??) implementation. For actual nbma networks use `ip ospf network point-to-multipoint`.
 [^unicast]: The DR (which should be the HUB or bad things happen) needs to have static neighbor statements.
 
-```
+```plain
 Moy                         Standards Track                    [Page 13]
 
 RFC 2328                     OSPF Version 2                   April 1998
@@ -366,7 +366,7 @@ These will show up as a IA route in OSPF, and a route-to-null on the ABR.
 
 v4 example.
 
-```
+```console
 router ospf 1
  router-id 2.2.2.2
  area 1 range 10.0.0.0 255.255.224.0
@@ -374,7 +374,7 @@ router ospf 1
 
 v6 example.
 
-```
+```console
 router ospfv3 1
  !
  address-family ipv6 unicast
@@ -392,7 +392,7 @@ The area command is now a route-filter.
 
 v4 example.
 
-```
+```console
 router ospf 1
  router-id 2.2.2.2
  area 1 range 10.0.0.0 255.255.224.0 not-advertise
@@ -400,7 +400,7 @@ router ospf 1
 
 v6 example.
 
-```
+```console
 router ospfv3 1
  !
  address-family ipv6 unicast
@@ -415,7 +415,7 @@ These are a bit harder to use, `in` and `out` are **inbound** and **outbound** t
 
 For this topology
 
-```
+```console
              Area 0                               Area 1               
                                                                
                                  |           10.0.10.0/24            
@@ -433,7 +433,7 @@ For this topology
 
 v4
 
-```
+```console
 ip prefix-list PREFIX_LIST_LOOPBACK_v4 seq 10 deny 1.1.1.1/32
 ip prefix-list PREFIX_LIST_LOOPBACK_v4 seq 20 deny 2.2.2.2/32
 ip prefix-list PREFIX_LIST_LOOPBACK_v4 seq 30 deny 3.3.3.3/32
@@ -446,7 +446,7 @@ router ospf 1
 v6
 
 
-```
+```console
 !
 ipv6 prefix-list PREFIX_LIST_v6 seq 10 deny FD::1/128
 ipv6 prefix-list PREFIX_LIST_v6 seq 20 deny FD::3/128

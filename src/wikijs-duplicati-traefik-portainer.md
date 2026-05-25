@@ -1,6 +1,6 @@
 # Wiki.js, Duplicati, Traefik, Portainer
 
-```
+```console
 #
 # This is the config for portainer, and the reverse proxy, traefik
 #

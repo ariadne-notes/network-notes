@@ -25,7 +25,7 @@
 
 ## Packet Headers
 
-```
+```console
 Spanning Tree Protocol
     Protocol Identifier: Spanning Tree Protocol (0x0000)
     Protocol Version Identifier: Rapid Spanning Tree (2)
@@ -66,7 +66,7 @@ No BPDUs being received? Wait for the forward delay, transition port to forwardi
 
 ## Fastest Scenario, the would-be DP is already transmitting.
 
-```
+```plain
 ┌─────────┐                      ┌─────────┐
 │         │   Full-Duplex Link   │         │
 │   SW1   ├──────────────────────┤   SW2   │

@@ -8,7 +8,7 @@ Is usually the fallback.
 
 ## Basic Config
 
-```
+```console
 !
 ! The Radius Server
 !
@@ -34,7 +34,7 @@ AAA servers are sensitive to what IP is making the request. To make it easier, p
 ## Debugs
 
 
-```
+```console
 debug aaa authentication
 debug radius authentication
 debug tacacs authentication

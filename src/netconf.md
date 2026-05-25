@@ -1,6 +1,6 @@
 # NETCONF
 
-```
+```console
 conf t
 aaa new-model
 aaa authentication login default local
@@ -14,7 +14,7 @@ netconf-yang
 
 ## Validate
 
-```
+```console
 restconf-router#show netconf-yang status 
 netconf-yang: enabled
 netconf-yang ssh port: 830
@@ -27,27 +27,27 @@ netconf-yang candidate-datastore: disabled
 I performed this lab inside a linux virtual environment.
 
 1. Load a python virtual environment
-```
+```console
 python3 -m venv ~/netconf-lab
 ```
 
 1. Activate it
-```
+```console
 source ~/netconf-lab/bin/activate
 ```
 
 1. Install ncclient
-```
+```console
 pip install ncclient
 ```
 
 1. Enter the python shell
-```
+```console
 python
 ```
 
 1. Connect to device:
-```
+```console
 >>> conn = manager.connect(
     host="192.168.52.199",
     port=830,
@@ -59,7 +59,7 @@ python
 ```
 
 1. Paste in a payload, follow the XML
-```
+```console
 >>> payload = """
 <config>
   <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">

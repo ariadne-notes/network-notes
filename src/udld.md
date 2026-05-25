@@ -23,20 +23,20 @@ From Cisco:
 ## Global
 
 
-```
+```console
 udld enable
 ```
 
 ## Per Interface
 
-```
+```console
 interface 1
   udld enable
 ```
 
 ## Verification
 
-```
+```console
 sw1# show udld neighbors 
 Port     Device Name   Device ID     Port ID    Neighbor State
 ----     -----------   ---------     -------    --------------

@@ -25,7 +25,7 @@ There are lots of requirements to get this to work.
 
 
 This happens if the host is `off-link` for the router. The router will see the arp, but also filter it.
-```
+```console
 *May  4 20:39:31.619: IP ARP req filtered src 192.168.100.100 5254.00b7.f21b, dst 192.168.23.2 0000.0000.0000 wrong cable, interface GigabitEthernet1 tableid 0
 *May  4 20:39:32.675: IP ARP req filtered src 192.168.100.100 5254.00b7.f21b, dst 192.168.23.2 0000.0000.0000 wrong cable, interface GigabitEthernet1 tableid 0
 ```
@@ -33,7 +33,7 @@ This happens if the host is `off-link` for the router. The router will see the a
 ## Verification
 
 
-```
+```console
 R1# show ip traffic | i proxy
         0 proxy name requests, 0 where-is requests, 0 other
   Sent: 0 address requests, 0 address replies (0 proxy)

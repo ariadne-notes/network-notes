@@ -272,7 +272,7 @@ I followed [this guide](https://woshub.com/how-to-repair-uefi-bootloader-in-wind
    This is my lab system.
 
 
-   ```
+   ```console
    DISKPART> list partition 
 
       Partition ###   Type            Size        Offset

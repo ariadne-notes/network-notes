@@ -5,7 +5,7 @@ RESTCONF uses http to send command operations to network equipment.
 ## Config
 
 
-```
+```console
 conf t
 aaa new-model
 aaa authentication login default local
@@ -24,7 +24,7 @@ restconf
 
 RESTCONF relies on DMI and nginx
 
-```
+```console
 restconf-router# show platform software yang-management process
 confd            : Running    
 nesd             : Running    
@@ -44,7 +44,7 @@ This is done from the linux commandline via curl
 
 `--insecure` is added because Cisco generates it's own self-signed certificates.
 
-```
+```console
 ariadne@tesseract:~$ curl --insecure --user admin:cisco123 \
    -H "Accept: application/yang-data+json" \
    https://192.168.52.199/restconf/data/Cisco-IOS-XE-native:native/interface/Loopback=0
@@ -70,7 +70,7 @@ ariadne@tesseract:~$ curl --insecure --user admin:cisco123 \
 
 More command line, just with a PATCH message.
 
-```
+```console
 ariadne@tesseract:~$ curl --insecure --user admin:cisco123 \
    -X PATCH \
    -H "Accept: application/yang-data+json" \

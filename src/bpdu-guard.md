@@ -6,7 +6,7 @@
 
 The global command only affects ports that have portfast already turned on, i.e. this is an edge feature.
 
-```
+```console
 switch(config)# spanning-tree portfast bpduguard default
 ```
 
@@ -14,7 +14,7 @@ switch(config)# spanning-tree portfast bpduguard default
 
 #### Seeing `err-disabled` status
 
-```
+```console
 switch# show int status
 
 Port      Name               Status       Vlan       Duplex  Speed Type 
@@ -26,13 +26,13 @@ Et3/1                        connected    1            auto   auto unknown
 
 #### Turning on automated recovery
 
-```
+```console
 switch(config)# errdisable recovery cause bpduguard
 ```
 
 #### Verify
 
-```
+```console
 switch# show errdisable recovery 
 ErrDisable Reason            Timer Status
 -----------------            --------------

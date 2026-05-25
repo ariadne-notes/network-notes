@@ -20,7 +20,7 @@ Someone configures SW2 to be the root by making the switch priority 0.
 
 This can be prevented with this config. Root guard goes onto DPs.
 
-```
+```console
 !
 ! SW1
 !
@@ -31,7 +31,7 @@ interface 1
 ## Verification
 
 
-```
+```console
 sw1# show spanning-tree 
 
 VLAN0001
@@ -54,6 +54,6 @@ Gi0/2               Desg BKN*4         128.3    P2p *ROOT_Inc
 
 ## Logs
 
-```
+```console
 *May  3 20:14:45.169: %SPANTREE-2-ROOTGUARD_BLOCK: Root guard blocking port GigabitEthernet0/0 on VLAN0001.  
 ```

@@ -11,7 +11,7 @@ Route tags appear on-the-wire and can be read by other routers.
 
 In this example, EIGRP becomes a Type-5 OSPF update, with a route-tag of 100. If we look for these tags can exclude them in redistribution updates.
 
-```
+```console
 route-map ospf-into-eigrp deny 10
  description previously tagged EIGRP traffic
  match tag 100

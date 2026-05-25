@@ -1,0 +1,4 @@
+disabled-rules = ["MD012", "MD013","MD033"]
+# MD012 - multiple consecutive blank lines, Ascii art 
+# MD013 - 80 character line length
+# MD033 - HTML Tags being used ... <pre> for ASCII art

@@ -91,7 +91,7 @@ I'm using cloudflare with a domain I own, but there is a good sized list of [sup
 1. Get the certificates
 
 
-   ```
+   ```console
    sudo certbot certonly \
      --dns-cloudflare \
      --dns-cloudflare-credentials /opt/certbot/cloudflare.key \

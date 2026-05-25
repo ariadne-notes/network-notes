@@ -6,7 +6,7 @@ I learned this protocol using IOS-XR.
 
 ### BFD Async without Echo
 
-```
+```plain
           Peer-A to Peer-B, lets agree to use BFD.
           
           Peer-A, I see your control packets.
@@ -28,7 +28,7 @@ I learned this protocol using IOS-XR.
 ### BFD Async with Echo
 
 The packets never leave the data plane, and never touches the control plane of Peer-A or Peer-B.
-```
+```console
 
            L3 SRC A
            L3 DST A
@@ -68,7 +68,7 @@ BFD Payload is sent as SRC UDP 3785  --> Destination 3785
 
 Courtesy of the RFC
 
-```
+```plain
 RFC 5880           Bidirectional Forwarding Detection          June 2010
 
 (removed) 
@@ -110,7 +110,7 @@ DOWN│    │ INIT │--------------------->│  UP  │    │INIT, UP
 
 ### IOS-XR Commands
 
-```
+```console
 multipath include location 0/1/CPU0
 bundle coexistence bob-blb logical
 show tech-support routing bfd file
@@ -120,7 +120,7 @@ show tech-support routing bfd file
 
 #####  Take the session down if latency grows to 150ms for a single echo packet.
 
-```
+```console
 bfd fast detect 
 bfd multiplier 50
 echo latency detect
@@ -128,7 +128,7 @@ echo latency detect
 
 ##### Take the session down if latency grows to 300ms for a single echo packet.
 
-```
+```console
 bfd fast detect 
 bfd multiplier 50
 bfd echo latency detect percentage 200
@@ -136,7 +136,7 @@ bfd echo latency detect percentage 200
 
 ##### Take the session down if the latency grows to 150ms for 3 consequitive echo packets
 
-```
+```console
 bfd fast detect
 bfd multiplier 50
 bfd echo latency detect percentage 100 count 3
@@ -144,7 +144,7 @@ bfd echo latency detect percentage 100 count 3
 
 #### Disable echo mode
 
-```
+```console
 bfd 
 interface g0/0/0/0
  echo disable
@@ -154,7 +154,7 @@ interface g0/0/0/0
 
 `192.168.100.1 <-> 192.168.100.2`
 
-```
+```console
 !
 ! Config for 192.168.100.1
 !
@@ -183,7 +183,7 @@ interface TenGig <>
 
 ###### A Config
 
-```
+```console
 ip rsvp signalling bfd hello
 !
 ! this very dangerous because CPU load will affect processing of BFD control packets

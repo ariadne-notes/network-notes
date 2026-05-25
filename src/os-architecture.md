@@ -78,7 +78,7 @@ A single-thread process has a program counter that says "go here to read the nex
 
 Copying from storage into dram, into cache. Only stuff in L1 cache can be executed.
 
-```
+```console
            0.5 ns - CPU L1 dCACHE reference
            1   ns - speed-of-light (a photon) travel a 1 ft (30.5cm) distance
            5   ns - CPU L1 iCACHE Branch mispredict

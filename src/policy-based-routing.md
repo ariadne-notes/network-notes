@@ -9,7 +9,7 @@ Verify with [Flexible Netflow](./flexible-netflow.md).
 
 A host is doing a speedtest, with iperf. I want to match that traffic, and route it a *longer* way.
 
-```
+```console
 ip access-list extended AL_IPERF_TO_IPERF
   10 permit udp host 10.0.100.100 eq 2000 host 10.0.200.200
 !
@@ -27,7 +27,7 @@ interface GigabitEthernet1
 - Destination Routing says Take Gig3
 - PBR says take Gig2
 
-```
+```console
 R2# show ip route 10.0.200.200
 Routing entry for 10.0.200.0/24
   Known via "ospf 1", distance 110, metric 2, type intra area

@@ -8,13 +8,13 @@ I like this test design for a few reasons.
 
 ### Server
 
-```
+```console
 iperf --server --port 2000 --interval 5
 ```
 
 ### Client
 
-```
+```console
 iperf --port 2000 --client 10.0.100.100 --reverse --time 3600 --interval 5 --udp --bandwidth 5pps  --len 1000
 ```
 
@@ -23,12 +23,12 @@ iperf --port 2000 --client 10.0.100.100 --reverse --time 3600 --interval 5 --udp
 
 ### Source
 
-```
+```console
 iperf --server --udp --bind 239.10.10.10 --interval 1
 ```
 
 ### Receiver
 
-```
+```console
 iperf --client 239.10.10.10 --udp --time 3600 --interval 1 --bandwidth 1pps --ttl 15 --len 1000
 ```

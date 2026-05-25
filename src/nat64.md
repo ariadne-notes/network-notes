@@ -24,7 +24,7 @@ sequenceDiagram
 
 ## Config
 
-```
+```console
 ipv6 unicast-routing
 !
 ! Define NAT64 Prefix
@@ -64,7 +64,7 @@ apk add unbound
 apk add bind-tools
 rc-update add unbound default
 
-```
+```console
 DNS64:~# cat /etc/unbound/unbound.conf 
 server:
     interface: 0.0.0.0
@@ -89,14 +89,14 @@ forward-zone:
 ## DNS4
 
 Installing Apps
-```
+```console
 apk update
 apk add unbound
 apk add bind-tools
 rc-update add unbound default
 ```
 
-```
+```console
 DNS4:~$ cat /etc/unbound/unbound.conf
 server:
     interface: 0.0.0.0
@@ -114,7 +114,7 @@ server:
 
 
 
-```
+```console
 R1#show nat64 translations 
 
 Proto  Original IPv4         Translated IPv4

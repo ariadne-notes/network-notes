@@ -44,27 +44,27 @@
 
 **1. Find the next-hop for the destination prefix**
 
-```
+```console
 show ip route 3.3.3.4
  * 10.1.2.1, from 10.1.2.1 via Eth0/0
 ```
 
 **2. Confirm the LDP neighbor behind that next-hop**
-```
+```console
 show mpls ldp neighbor 10.1.2.1
  * peer LDP ident 3.3.3.3; Local LDP ident 2.2.2.2
 ```
 
 **3. Check what label that peer advertised for the prefix**
 
-```
+```console
 show mpls ldp binding 3.3.3.4 255.255.255.255
  * remote binding: lsr: 3.3.3.3, label: imp-null
 ```
 
 **4. Verify the resulting LFIB entry**
 
-```
+```console
 show mpls forwarding 3.3.3.4
 * Local 20, Outgoing Pop, Prefix 3.3.3.3/32, Outgoing Int E0/0, Nexthop 10.1.2.1
 ```

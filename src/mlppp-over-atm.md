@@ -2,7 +2,7 @@
 
 One of the more involved things I've built to find a bug.
 
-```
+```plain
         ┌──────────────────────────────────────────────────────────────────────────────────────┐                                         
         │                                      MLPPP                                           │                                         
         ▼                                                                                      ▼ ┌─────────────────────────              
@@ -50,7 +50,7 @@ One of the more involved things I've built to find a bug.
 
 #### CPE
 
-```
+```console
 !
 hostname CPE-800
 !
@@ -92,7 +92,7 @@ ip route 0.0.0.0 0.0.0.0 192.168.0.1
 
 #### DSLAM
 
-```
+```console
 !
 version 12.2
 !
@@ -141,7 +141,7 @@ interface ATM1/3
 
 #### LS1010
 
-```
+```console
 !
 version 12.1
 !
@@ -162,7 +162,7 @@ end
 
 #### LAC
 
-```
+```console
 !
 !
 hostname LAC
@@ -221,7 +221,7 @@ interface Virtual-Template1
 
 #### LNS
 
-```
+```console
 !
 hostname LNS
 !
@@ -336,7 +336,7 @@ ip classless
 
 #### 7200-P
 
-```
+```console
 !
 hostname 7200-P
 !
@@ -393,7 +393,7 @@ gatekeeper
 
 #### Other 10k
 
-```
+```console
 Other_10k# show run
 !
 hostname Other_10k
@@ -475,7 +475,7 @@ control-plane
 
 #### 3900 - Pagent Box
 
-```
+```console
 pagent #show run
 !
 ip cef

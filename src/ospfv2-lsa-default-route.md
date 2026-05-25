@@ -23,7 +23,7 @@
 
 ## IPv4 - Type 3
 
-```
+```console
 R2# show ip ospf database summary 0.0.0.0 self-originate 
 
             OSPF Router with ID (2.2.2.2) (Process ID 1)
@@ -72,7 +72,7 @@ R2# show ip ospf database summary 0.0.0.0 self-originate
 
 ## IPv4 - Type 5
 
-```
+```console
 R2# show ip ospf database external 0.0.0.0 self-originate 
 
             OSPF Router with ID (2.2.2.2) (Process ID 1)
@@ -97,7 +97,7 @@ R2# show ip ospf database external 0.0.0.0 self-originate
 
 ## IPv4 - Type 7
 
-```
+```console
 R2# show ip ospf database nssa-external 0.0.0.0 self-originate
 
             OSPF Router with ID (2.2.2.2) (Process ID 1)

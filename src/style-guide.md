@@ -33,7 +33,7 @@ term B
 
 ## Footnote
 
-```
+```console
 This is an example of a footnote[^note].
 
 [^note]: This text is the contents of the footnote, which will be rendered

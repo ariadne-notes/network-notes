@@ -1,6 +1,6 @@
 # MSDP
 
-```
+```plain
 MSDP [Multicast Source Discovery Protocol] - Connecting PIM Sparse-Mode Domains
 
 RFC 4611               MSDP Deployment Scenarios             # August 2006
@@ -50,7 +50,7 @@ option and common.
 
 ## MSDP Configuration Example
 
-```
+```console
 !
 ! RP1
 !
@@ -66,7 +66,7 @@ ip msdp originator-id loopback 1
 ip pim rp-address 10.0.0.1
 ```
 
-```
+```console
 !
 ! RP2
 !

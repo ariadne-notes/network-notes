@@ -9,7 +9,7 @@ Flexible Netflow needs four things to work:
 
 ### IOS-XE
 
-```
+```console
 flow record FLOW_RECORD_IPV4
  match ipv4 protocol
  match ipv4 source address
@@ -45,7 +45,7 @@ interface GigabitEthernet1
 
 ### IOS-XR
 
-```
+```console
 flow exporter-map EXPORTER_MAP_1
 version v9
 options interface-table
@@ -72,7 +72,7 @@ interface ten 1/1
 
 ### Lab validations
 
-```
+```console
 R1# show flow monitor FLOW_MONITOR_IPV4 statistics 
   Cache type:                               Normal (Platform cache)
   Cache size:                               200000

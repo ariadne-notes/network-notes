@@ -3,7 +3,7 @@
 ## Minimum config
 
 
-```
+```console
 ip dhcp snooping vlan 10
 ip arp inspection vlan 10
 ip arp inspection validate src-mac dst-mac ip 
@@ -19,7 +19,7 @@ interface GigabitEthernet0/1
 ## Validation
 
 
-```
+```console
 access-1# show ip dhcp snooping binding 
 MacAddress          IpAddress        Lease(sec)  Type           VLAN  Interface
 ------------------  ---------------  ----------  -------------  ----  --------------------

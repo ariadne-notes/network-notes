@@ -1,7 +1,7 @@
 # SPAN, RSPAN, ERSPAN
 
 **Local**
-```
+```console
 monitor session 1 source interface GigabitEthernet1/0/1 both
 monitor session 1 destination interface GigabitEthernet1/0/2
 ```
@@ -14,7 +14,7 @@ monitor session 1 destination interface GigabitEthernet1/0/2
 - If the source is a trunk port, you can use the `filter` keyword to select specific vlans.
 
 **Source Switch**
-```
+```console
 vlan 3000
  remote-span
 monitor session 1 source interface GigabitEthernet1/0/1 both
@@ -22,7 +22,7 @@ monitor session 1 destination remote vlan 3000
 ```
 
 **Destination switch**
-```
+```console
 vlan 3000
  remote-span
 monitor session 1 source remote vlan 3000
@@ -42,7 +42,7 @@ These do not support QoS.
 
 
 **Source switch**
-```
+```console
 monitor session 1 type erspan-source
  !
  ! Could also put a vlan here
@@ -56,7 +56,7 @@ monitor session 1 type erspan-source
 ```
 
 **Destination switch**
-```
+```console
 monitor session 1 type erspan-destination
  destination interface Gi2
  source

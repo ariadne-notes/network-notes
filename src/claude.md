@@ -2,7 +2,7 @@
 
 I feed this into claude most of the time to get nice outputs to copy into gear for CML.
 
-```
+```console
 # Default config
 * enable on top
 * conf t underneath

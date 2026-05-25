@@ -4,20 +4,20 @@ This was performed on an C8000v, running 17.13.1a
 
 1. A simple ACL that matches based on ICMP.
 
-```
+```console
 ip access-list extended ACL_ICMP_UNKNOWN
  permit icmp any any
 ```
 
 2. Make class-map to use the ACL.
-```
+```console
 class-map CLASS_MAP_ICMP_UNKNOWN
  match access-group name ACL_ICMP_UNKNOWN
 ```
 
 3. Make a policy map that uses the above class-maps
 
-```
+```console
 policy-map POLICY_MAP_COPP
  class CLASS_MAP_ICMP_UNKNOWN
   police cir 10000 conform-action transmit  exceed-action drop
@@ -25,14 +25,14 @@ policy-map POLICY_MAP_COPP
 ```
 
 4. Apply it to the control plane.
-```
+```console
 control-plane
  service-policy input COPP-POLICY-MAP
 ```
 
 5. Validate
 
-```
+```console
 router# show policy-map control-plane input 
  Control Plane 
 
@@ -66,18 +66,18 @@ router# show policy-map control-plane input
 This uses python3, scapy, and sendpfast, to send icmp packets with random sources.
 
 1. Install sendpfast
-```
+```console
 sudo apt install tcpreplay
 ```
 
 2. Start a python virtual environment.
-```
+```console
 python3 -m venv venv
 source venv/bin/activate
 ```
 
 3. Install scapy inside it.
-```
+```console
 pip install scapy
 ```
 
@@ -86,7 +86,7 @@ pip install scapy
 `dst`
 `iface`
 
-```
+```console
 cat > flood.py << 'EOF'
 from scapy.all import *
 import random
@@ -105,11 +105,11 @@ EOF
 ```
 
 5. In a different terminal run something like this to see the packets leaving the interface.
-```
+```console
 sudo tcpdump -i ens18 icmp -n
 ```
 
 6. This requires raw sockets to run.
-```
+```console
 sudo venv/bin/python3 flood.py
 ```

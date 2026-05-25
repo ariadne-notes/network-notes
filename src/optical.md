@@ -80,7 +80,7 @@ This table lists common values for the C2 byte:
 | FF         | Alarm Indication Signal (AIS).                                  |
 
 An Example:
-```
+```console
 Framing: SONET
 SPE Scrambling: Enabled
 C2 State: Stable   C2_rx = 0xCF (207)   C2_tx = 0x16 (22) / Scrambling Derived
@@ -102,7 +102,7 @@ Sonet YELLOW is RDI (Remote Defect indication)
 
 ### Packet Over Sonet
 
-```
+```console
 Document: Troubleshooting Bit Error on SONET Links
 URL: http://www.cisco.com/en/US/tech/tk482/tk607/technologies_tech_note09186a0080094a79.shtml
 Section: When Do Particular BIP Errors Occur?
@@ -148,7 +148,7 @@ This is used for fiber rings, its where the destination nodes pulls the info fro
 
 Like taken from a standards document someplace
 
-```
+```console
 Spatial Reuse Protocol (SRP) is a media-independent MAC layer protocol that operates over two counterrotating
 fiber-optic rings. The dual rings provide survivability of data in case of a failed node or a break in
 connecting cables by rerouting the data path over the alternate ring. SRP provides a more efficient use of
@@ -169,7 +169,7 @@ Side A Always connects to Side B.
 
 Example of a working connection.
 
-```
+```console
 Node2# show controller srp 4/0
 SRP4/0 - Side A (Outer RX, Inner TX)
 SECTION

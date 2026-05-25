@@ -18,7 +18,7 @@ A gRPC based protocol to do the following:
 
 This is done with NETCONF and a YANG model.
 
-```
+```console
 /interfaces/interface[name=g0/0/0/0]/subinterfaces/subinterface[index=0]/ipv4/addresses/address[ip=10.0.0.1]/config/
   - ip: 10.0.0.1
   - prefix-length: 24

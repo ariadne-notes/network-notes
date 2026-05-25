@@ -28,7 +28,7 @@
 
 On the device, I run a normal command, and look at the outputs:
 
-```
+```console
 switch # show processes cpu | i util
 CPU utilization for five seconds: 20%/0%; one minute: 21%; five minutes: 20%
 ```
@@ -115,13 +115,13 @@ graph TD
 ### Configs
 
 **SNMP v2**
-```
+```console
 snmp-server community SSG_PROMETHEUS ro
 ```
 
 **SNMPv3**
 
-```
+```console
 snmp-server group SSG_PROMETHEUS v3 priv
 snmp-server user ciscosnmp SSG_PROMETHEUS v3 auth sha auth-password-goes-here priv aes 128 encryption-password-goes-here
 ```
@@ -131,16 +131,16 @@ snmp-server user ciscosnmp SSG_PROMETHEUS v3 auth sha auth-password-goes-here pr
 These are performed on a linux host. This is `apt install snmp` on Debian.
 
 **SNMPv2**
-```
+```console
 snmpwalk -v2c -c <community> <host> 1.3.6.1.4.1.9.9.109.1.1.1.1.7
 ```
 
 **SNMPv3**
-```
+```console
 snmpwalk -v3 -l authPriv -u <user> -a SHA -A  <auth-password> -x AES -X <encryption-password> <host> 1.3.6.1.4.1.9.9.109.1.1.1.1.7
 ```
 
-```
+```console
 ariadne@tesseract:~$ snmpwalk -v3 -l authPriv -u ciscosnmp -a SHA -A <removed> -x AES -X <removed> <host> 1.3.6.1.4.1.9.9.109.1.1.1.1.7
 iso.3.6.1.4.1.9.9.109.1.1.1.1.7.1 = Gauge32: 20
 ```
@@ -148,7 +148,7 @@ iso.3.6.1.4.1.9.9.109.1.1.1.1.7.1 = Gauge32: 20
 
 ## Trap Severity
 
-```
+```console
 snmp-server enable traps syslog
 logging snmp-trap emergencies
 logging snmp-trap alerts

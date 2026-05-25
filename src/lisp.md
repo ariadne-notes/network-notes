@@ -2,7 +2,7 @@
 
 A very basic setup, that assumes a working underlay. I implemented this on my home lab of c7200s in GNS3 running `15.2(4)S7`. My underlay was IS-IS to router loopbacks.
 
-```
+```console
 Site 1 EIDs - 192.168.100.0/24
 Site 2 EIDs - 192.168.101.0/24
 
@@ -16,7 +16,7 @@ xTR for Site 2 - Lo0 19.19.19.19
 
 ##### config
 
-```
+```console
 R18# show run | s lisp
 router lisp
  database-mapping 192.168.100.0/24 18.18.18.18 priority 1 weight 50
@@ -30,7 +30,7 @@ router lisp
 ##### verify
 
 
-```
+```console
 R18# show ip lisp map-cache 
 LISP IPv4 Mapping Cache for EID-table default (IID 0), 2 entries
 
@@ -46,7 +46,7 @@ LISP IPv4 Mapping Cache for EID-table default (IID 0), 2 entries
 
 ##### config
 
-```
+```console
 R19# show run | s lisp
 router lisp
  database-mapping 192.168.101.0/24 19.19.19.19 priority 1 weight 50
@@ -59,7 +59,7 @@ router lisp
 
 ##### verify
 
-```
+```console
 R19#show ip lisp map-cache 
 LISP IPv4 Mapping Cache for EID-table default (IID 0), 2 entries
 
@@ -75,7 +75,7 @@ LISP IPv4 Mapping Cache for EID-table default (IID 0), 2 entries
 
 ###### config
 
-```
+```console
 R16# show run | s lisp
 router lisp
  site 1
@@ -95,7 +95,7 @@ router lisp
 
 ##### verify
 
-```
+```console
 R16# show lisp site name 1
 Site name: 1
 Allowed configured locators: any
@@ -143,7 +143,7 @@ Allowed EID-prefixes:
 
 [Capture is here](https://github.com/ariadne-notes/networking/blob/main/packet-captures/lisp/lisp-icmp-ping.pcapng)
 
-```
+```plain
 Frame 4156: 134 bytes on wire (1072 bits), 134 bytes captured (1072 bits) on interface -, id 0
 Ethernet II, Src: ca:17:30:54:00:08 (ca:17:30:54:00:08), Dst: ca:1a:39:b0:00:08 (ca:1a:39:b0:00:08)
 Internet Protocol Version 4, Src: 10.0.0.24, Dst: 19.19.19.19
@@ -207,7 +207,7 @@ Internet Control Message Protocol
 
 ### Lisp Packet in the RFC
 
-```
+```plain
 Farinacci, et al.             Experimental                     [Page 15]
 
  

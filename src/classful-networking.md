@@ -41,7 +41,7 @@ My personal favorite is `8.8.8.8/32` [Google DNS](https://en.wikipedia.org/wiki/
 
 ### RFC 791
 
-```
+```console
 Internet Protocol
 Specification
 

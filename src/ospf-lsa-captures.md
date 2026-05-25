@@ -1,6 +1,6 @@
 # OSPF LSA Captures
 
-```
+```console
 R1# show ip ospf database router 1.1.1.1
 
             OSPF Router with ID (1.1.1.1) (Process ID 1)
@@ -27,7 +27,7 @@ R1# show ip ospf database router 1.1.1.1
 ## From a DROther
 
 
-```
+```console
 R4#show ip ospf database router 4.4.4.4
 
             OSPF Router with ID (4.4.4.4) (Process ID 1)

@@ -2,7 +2,7 @@
 
 ## Config
 
-```
+```console
 ip domain-name <domain-here>
 !
 crypto key generate rsa modulus 4096

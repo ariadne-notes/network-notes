@@ -57,6 +57,7 @@ These must not match
 Check with `debug ip ospf event`
 
 **Broadcast Network Multicast Packet to acknowledge multiple neighbors**
+
 ```console
 Ethernet II, Src: aa:bb:cc:00:4b:00 (aa:bb:cc:00:4b:00), Dst: IPv4mcast_05 (01:00:5e:00:00:05)
 Internet Protocol Version 4, Src: 10.0.0.6, Dst: 224.0.0.5
@@ -171,6 +172,7 @@ See [OSPF LSAs](./ospf-lsas.md) to see what the actual contents of the LSA.
 Each router can perform it's own SPT via [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm).
 
 LSAs are flooded throughout an area, all routers in the same area should have the same LSAs and same database.
+
 ```console
 R1# show ip ospf database database-summary  | s Area 0
 Area 0 database summary

@@ -105,6 +105,7 @@ spanning-tree mst configuration
 ```
 
 **Config Validation**
+
 ```console
 S21# show spanning-tree mst configuration 
 Name      [red]

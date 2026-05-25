@@ -37,11 +37,13 @@ A unidirectional failure will always result in one side not getting information.
 If a port was receiving BPBUs and suddenly it stops, don't change the STP,
 
 **Default**
+
 ```console
 spanning-tree loopguard default
 ```
 
 **Per port**
+
 ```console
 interface 1
   spanning-tree guard loop

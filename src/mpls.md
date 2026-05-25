@@ -50,6 +50,7 @@ show ip route 3.3.3.4
 ```
 
 **2. Confirm the LDP neighbor behind that next-hop**
+
 ```console
 show mpls ldp neighbor 10.1.2.1
  * peer LDP ident 3.3.3.3; Local LDP ident 2.2.2.2

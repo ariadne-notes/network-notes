@@ -80,6 +80,7 @@ This table lists common values for the C2 byte:
 | FF         | Alarm Indication Signal (AIS).                                  |
 
 An Example:
+
 ```console
 Framing: SONET
 SPE Scrambling: Enabled

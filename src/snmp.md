@@ -115,6 +115,7 @@ graph TD
 ### Configs
 
 **SNMP v2**
+
 ```console
 snmp-server community SSG_PROMETHEUS ro
 ```
@@ -131,11 +132,13 @@ snmp-server user ciscosnmp SSG_PROMETHEUS v3 auth sha auth-password-goes-here pr
 These are performed on a linux host. This is `apt install snmp` on Debian.
 
 **SNMPv2**
+
 ```console
 snmpwalk -v2c -c <community> <host> 1.3.6.1.4.1.9.9.109.1.1.1.1.7
 ```
 
 **SNMPv3**
+
 ```console
 snmpwalk -v3 -l authPriv -u <user> -a SHA -A  <auth-password> -x AES -X <encryption-password> <host> 1.3.6.1.4.1.9.9.109.1.1.1.1.7
 ```
@@ -160,4 +163,4 @@ logging snmp-trap critical
 
 [Cisco - Consider SNMP](https://www.cisco.com/c/en/us/support/docs/ip/simple-network-management-protocol-snmp/9226-mibs-9226.html)
 
-[How to find the MIB for Cisco Devices - Github](https://github.com/cisco/cisco-mibs#book-usage-guidelines)
+[How to find the MIB for Cisco Devices - GitHub](https://github.com/cisco/cisco-mibs#book-usage-guidelines)

@@ -1,6 +1,6 @@
 # RESTCONF
 
-RESTCONF uses http to send command operations to network equipment.
+RESTCONF uses HTTP to send command operations to network equipment.
 
 ## Config
 

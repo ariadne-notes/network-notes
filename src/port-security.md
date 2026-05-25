@@ -19,6 +19,7 @@ interface GigabitEthernet0/0
 
 
 This is the primary table for this feature. This table is used to populate the mac address table.
+
 ```console
 switch# show port-security address
                Secure Mac Address Table
@@ -31,6 +32,7 @@ Vlan    Mac Address       Type                          Ports   Remaining Age
 ```
 
 Scraping the mac-address table for things programmed in by the port security feature.
+
 ```console
 switch# show mac address-table secure 
           Mac Address Table

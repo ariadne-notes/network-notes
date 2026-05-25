@@ -53,6 +53,7 @@ R4#show ip ospf database router 4.4.4.4
 ```
 
 **DR Describing the network
+
 ```console
 R4# show ip ospf database network 
 

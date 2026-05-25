@@ -119,6 +119,7 @@ These read left to right like a book. This prefix was most recently from AS `701
   - Prefer path with shorter cluster length
   - Prefer path from lowest neighbor address
 ```
+
 [Cisco - Select BGP Best Path Algorithm](https://www.cisco.com/c/en/us/support/docs/ip/border-gateway-protocol-bgp/13753-25.html)
 
 
@@ -163,9 +164,11 @@ A router in AS 105 gets these prefixes from its peers.
 ```
 
 If the administrator chooses, they can aggregate this, but lose path information.
+
 ```console
 192.168.0.0/23 (105) ATOMIC_AGGREGATE. 
 ```
+
 Downstream peers can not remove this tag
 
 ### AGGREGATOR

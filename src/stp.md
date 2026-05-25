@@ -213,6 +213,7 @@ The 802.1D committee wanted *two* learning states[^stp], one with and one withou
 #### BPDU Frame Format
 
 **Wireshark**
+
 ```console
 Spanning Tree Protocol
     Protocol Identifier: Spanning Tree Protocol (0x0000)

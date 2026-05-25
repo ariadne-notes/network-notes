@@ -37,7 +37,7 @@ This way, the customer gets dual stack without the ISP needing to upgrade a lega
 # The four things Required to setup
 * **IPv4 Common Prefix:** - The high order bits every CE has in common for their v4 deployments.
 
-If every customer was given an IP on the 10.0.0.0/24 network, the bits they would have in common is /24.
+If every customer was given an IP on the 10.0.0.0/24 network, the bits they would have in common is `/24`.
 
 * **6RD Prefix:** The v6 bits for the 6rd domain.
 * **6RD PrefixLen:** The length of the prefix for the 6rd domain.

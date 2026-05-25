@@ -6,8 +6,8 @@
 # Studying
 - [How to Study](how-to-study.md)
 - [How to Take Notes](how-to-take-notes.md)
-- [How to Make a Blog Like This](make-a-blog-like-this.md)
-- [Evaluating AI](evaluating-ai.md)
+- [How to Make a Blog Like This](how-to-make-a-blog-like-this.md)
+- [How to Evaluate AI](how-to-evaluate-ai.md)
 
 # IPv4
 - [IPv4 Packet Header](ipv4-packet-header.md)

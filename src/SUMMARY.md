@@ -164,6 +164,7 @@
 - [Network Management](network-management.md)
 - [Certbot](certbot.md)
 - [Power Over Ethernet](power-over-ethernet.md)
+- [Wake on LAN](wake-on-lan.md)
 
 # Certification Stuff
 - [Cisco Certifications](cisco-certifications.md)

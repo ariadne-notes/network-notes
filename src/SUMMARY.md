@@ -185,10 +185,7 @@
 
 # Other blogs
 - [Other Blogs](other-blogs.md)
-
 ---
 [Style Guide](style-guide.md)
-
-# Jokes
 [A Woman Calls TAC](joke-a-woman-calls-TAC.md)
 [A Red Team Housecall](joke-red-team-housecall.md)

@@ -2,27 +2,27 @@ OSPF is protocol 89.
 
 # Terms
 
-* **IFF:** If and only if
-* **LSA:** Link State Advertisement
-* **LSDB:** Link-state Database
-* **OSPF Process ID:** Just where the databases live. Not transmitted. Allows multiple OSPF processes.
-* **DR:** Designated Router. The network vertex for a broadcast or NBMA network. Used to simplify the number of FULL adjacencies.
-* **Advertising Router:** The router that created the LSA. The value in this field is the RID.
-* **RID:** Router ID. A unique 32-bit number to identify the router in a graph. Doesn't have to be an IP-the-box, but is usually a loopback.
-* **The Update Rule:** A router can only modify an LSA, iff it's RID is inside the "Advertising Router" field.
-* **LS Sequence:** Higher sequence numbers are newer LSAs. The first sequence number in any LSA is 8000000.
-* **LS Checksum:** Used to ensure the LSA was transmitted without corruption. Everything is checked **except** LS Age.
-* **LS Age:** LSAs time out in an hour, and are refreshed every 30 minutes. LSA Age increments when they go through routers.
+* **IFF** -- If and only if
+* **LSA** --Link State Advertisement
+* **LSDB** --Link-state Database
+* **OSPF Process ID** -- Just where the databases live. Not transmitted. Allows multiple OSPF processes.
+* **DR** Designated Router -- The network vertex for a broadcast or NBMA network. Used to simplify the number of FULL adjacencies.
+* **Advertising Router** -- The router that created the LSA. The value in this field is the RID.
+* **RID** -- Router ID. A unique 32-bit number to identify the router in a graph. Doesn't have to be an IP-the-box, but is usually a loopback.
+* **The Update Rule** -- A router can only modify an LSA, iff it's RID is inside the "Advertising Router" field.
+* **LS Sequence** -- Higher sequence numbers are newer LSAs. The first sequence number in any LSA is 8000000.
+* **LS Checksum** -- Used to ensure the LSA was transmitted without corruption. Everything is checked **except** LS Age.
+* **LS Age** -- LSAs time out in an hour, and are refreshed every 30 minutes. LSA Age increments when they go through routers.
 
 # Packet Types
 
 | Type | Name | Purpose |
 |------|------|---------|
-| 1 | Hello                             | OSPF puts the neighbor ID into it's hello messages. |
-| 2 | Database Description (DBD/DDP)    | Used to sync a new neighbor rapidly. Large update packet, to transfer the LSDB in bulk. Contains lots of LSAs. |
-| 3 | Link-State Request (LSR)          | The router wants a specific LSA.   |
-| 4 | Link-State Update (LSU)           | The neighbor sends a specific LSA. |
-| 5 | Link-State Acknowledgment (LSAck) | To confirm a device got the intended LSAs, it transmits the exact same LSAs back to the receiver. |
+| 1 | **Hello**                             | OSPF puts the neighbor ID into it's hello messages. |
+| 2 | **Database Description (DBD/DDP)**    | Used to sync a new neighbor rapidly. Large update packet, to transfer the LSDB in bulk. Contains lots of LSAs. |
+| 3 | **Link-State Request (LSR)**          | The router wants a specific LSA.   |
+| 4 | **Link-State Update (LSU)**           | The neighbor sends a specific LSA. |
+| 5 | **Link-State Acknowledgment (LSAck)** | To confirm a device got the intended LSAs, it transmits the exact same LSAs back to the receiver. |
 
 These can be thought of as the five steps.
 

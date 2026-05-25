@@ -24,5 +24,3 @@ This is done with NETCONF and a YANG model.
 [GitHub - openconfig/gnmi: gRPC Network Management Interface · GitHub](https://github.com/openconfig/gnmi)
 
 [OpenConfig - gRPC Network Management Interface (gNMI) specification](https://openconfig.net/docs/gnmi/gnmi-specification/)
-
-[Model-Driven Telemetry: Dial-In or Dial-Out ? | Telemetry | XRdocs](<https://xrdocs.io/telemetry/blogs/2017-01-20-model-driven-telemetry-dial-in-or-dial-out>)

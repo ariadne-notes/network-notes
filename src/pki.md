@@ -1,1 +1,0 @@
-* **PEM** Privacy Enhanced Mail. Base64-encoded DER, ASCII wrapped (so it can be represented as text)

@@ -18,6 +18,7 @@
 # Subnetting
 - [with Fingers](subnet-with-fingers.md)
 - [with the Box Method](subnet-with-the-box-method.md)
+- [with Binary](subnet-with-binary.md)
 
 # IPv6
 - [IPv6](ipv6.md)
@@ -97,10 +98,17 @@
 # Routing Strategies
 - [Route Redistribution](route-redistribution.md)
   - [Route Redistribution with Tags](route-redistribution-with-tags.md)
+  - [Route Maps](route-maps.md)
 - [DMVPN](dmvpn.md)
   - [NHRP](nhrp.md)
 - [Policy Based Routing](policy-based-routing.md)
 - [Multi-Homing](multi-homing.md)
+
+# DDoS Prevention
+- [uRPF](urpf.md)
+
+# Best Practices
+- [Out Of Band Management](oob.md)
 
 # Routing Features
 - [SSO](sso.md)
@@ -110,7 +118,6 @@
 - [Enterprise Campus Modular Design](enterprise-campus-modular-design.md)
 - [Cisco AAA](cisco-aaa.md)
 - [AAA and ISE](aaa-ise.md)
-- [Device Management](device-mgmt.md)
 - [Clouds](clouds.md)
 
 # Network Services
@@ -118,6 +125,7 @@
 - [CoPP with ACLs and Object Groups](copp-with-acls-and-object-groups.md)
 - [NAT](nat.md)
 - [SSH](ssh.md)
+- [NTP](ntp.md)
 - [AAA with FreeRadius and Univention UCS](aaa-freeradius-and-univention-ucs.md)
 - [SNMP](snmp.md)
   - [SNMP Versions](snmp-versions.md)
@@ -141,7 +149,7 @@
 - [RESTCONF](restconf.md)
 - [NETCONF](netconf.md)
 - [gRPC](grpc.md)
-- [gNMI](gNMI.md)
+- [gNMI](gnmi.md)
 - [YANG](yang.md)
 - [MDT](mdt.md)
 

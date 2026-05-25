@@ -1,7 +1,7 @@
-- [Author](author.md)
-- [License](license.md)
+[Author](author.md)
+[License](license.md)
 
-----
+---
 
 # Studying
 - [How to Study](how-to-study.md)
@@ -186,6 +186,9 @@
 # Other blogs
 - [Other Blogs](other-blogs.md)
 
+---
+[Style Guide](style-guide.md)
+
 # Jokes
-- [A Woman Calls TAC](joke-a-woman-calls-TAC.md)
-- [A Red Team Housecall](joke-red-team-housecall.md)
+[A Woman Calls TAC](joke-a-woman-calls-TAC.md)
+[A Red Team Housecall](joke-red-team-housecall.md)

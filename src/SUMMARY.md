@@ -1,12 +1,13 @@
 - [Author](author.md)
 - [License](license.md)
-- [Make a Blog Like This](make-a-blog-like-this.md)
 
 ----
 
 # Studying
 - [How to Study](how-to-study.md)
 - [How to Take Notes](how-to-take-notes.md)
+- [How to Make a Blog Like This](make-a-blog-like-this.md)
+- [Evaluating AI](evaluating-ai.md)
 
 # IPv4
 - [IPv4 Packet Header](ipv4-packet-header.md)
@@ -165,6 +166,7 @@
 - [Certbot](certbot.md)
 - [Power Over Ethernet](power-over-ethernet.md)
 - [Wake on LAN](wake-on-lan.md)
+- [Mermaid](mermaid.md)
 
 # Certification Stuff
 - [Cisco Certifications](cisco-certifications.md)

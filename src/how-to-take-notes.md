@@ -1,4 +1,4 @@
-# Myths
+# How To Take Notes
 
 ### I don't need to take notes. I can remember everything just fine.
 
@@ -20,7 +20,8 @@ If take handwritten notes, OCR them into digitals. The AI is decent at this.
 
 If typing is painful consider a much nicer keyboard and something like [Dvorak](https://www.dvzine.org/zine/TheDvorakZine.pdf)
 
-# References
+**References**
+
 [MIT - Notes and Notebooks - Mayfield Handbook of Technical and Scientific Writing](<https://web.mit.edu/course/21/21.guide/notebook.htm>)
 
 [Berkeley - Academic Skills Resource Library | Athletic Study Center](https://asc.berkeley.edu/resources/students/academic-support-resources/academic-skills-resource-library)

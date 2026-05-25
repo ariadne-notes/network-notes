@@ -1,3 +1,5 @@
+# How to evaluate AI
+
 All exchanges involve tokens. For that reason, it's vitally important to understand what tokens preceded yours.
 
 Enter this, with no other input, into a new conversation.

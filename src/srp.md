@@ -14,8 +14,8 @@ Spatial Reuse Protocol (SRP) is a media-independent MAC layer protocol that oper
 
 RPR - Resilient Packet Ring - 802.17
 
-* **Steering:**  Nodes are told the affected node is down and don't include it.
-* **Wrapping:**  The node closest to the break route the traffic on the other direction of the ring.
+- **Steering:**  Nodes are told the affected node is down and don't include it.
+- **Wrapping:**  The node closest to the break route the traffic on the other direction of the ring.
 
 Side A Always connects to Side B.
 

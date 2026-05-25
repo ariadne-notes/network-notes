@@ -1,27 +1,27 @@
 # SNMP
 
-* **NMS:** Network Monitoring System
+- **NMS:** Network Monitoring System
 
-* **[SNMP](https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol):** Simple Network Management Protocol. a protocol to exchange network device statistics.
+- **[SNMP](https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol):** Simple Network Management Protocol. a protocol to exchange network device statistics.
 
-* **Device Statistics:** ... uptime, packets sent, packets received, packets dropped, memory used, CPU used, temperature, fan-speed.
+- **Device Statistics:** ... uptime, packets sent, packets received, packets dropped, memory used, CPU used, temperature, fan-speed.
 
-* **The Device:** A router, switch, or server.
+- **The Device:** A router, switch, or server.
 
-* **The Agent:** Lives on the network device and collecting and storing metrics in a MIB, reading to send them with SNMP.
+- **The Agent:** Lives on the network device and collecting and storing metrics in a MIB, reading to send them with SNMP.
 
-* **[MIB](https://en.wikipedia.org/wiki/Management_information_base):** Management Information Base. An on-device database. This is how the SNMP agent stores its information.
+- **[MIB](https://en.wikipedia.org/wiki/Management_information_base):** Management Information Base. An on-device database. This is how the SNMP agent stores its information.
 
-* **[ITU](https://en.wikipedia.org/wiki/International_Telecommunication_Union):** International Telecommunication Union. A UN agency responsible for international telecommunications.
+- **[ITU](https://en.wikipedia.org/wiki/International_Telecommunication_Union):** International Telecommunication Union. A UN agency responsible for international telecommunications.
 
-* **OID Tree** An ITU, [X.660](https://www.itu.int/rec/T-REC-X.660-201107-I/en) standardized tree.
+- **OID Tree** An ITU, [X.660](https://www.itu.int/rec/T-REC-X.660-201107-I/en) standardized tree.
 
 
-* **[OID](https://en.wikipedia.org/wiki/Object_identifier):** Object identifier. A node on an OID tree.
+- **[OID](https://en.wikipedia.org/wiki/Object_identifier):** Object identifier. A node on an OID tree.
 
-* **[IETF MIB](https://en.wikipedia.org/wiki/Management_information_base#IETF_maintained):** A standard MIB, defined by the IETF. These aren't very popular.
+- **[IETF MIB](https://en.wikipedia.org/wiki/Management_information_base#IETF_maintained):** A standard MIB, defined by the IETF. These aren't very popular.
 
-* **Vendor MIB:** In contrast to the IETF MIDs, vendors can create their own MIBs, attached to the OID tree.
+- **Vendor MIB:** In contrast to the IETF MIDs, vendors can create their own MIBs, attached to the OID tree.
 
 ## Finding used CPU time
 
@@ -35,10 +35,10 @@ CPU utilization for five seconds: 20%/0%; one minute: 21%; five minutes: 20%
 
 So I want to figure out how to get the switch to report the first value "20" for "CPU used in the last 5 seconds."
 
-* What MIB does a C3560CX support?
-* I find the formal specification for the MIB somewhere on the vendor website: `CISCO-PROCESS-MIB (109)`
-* Looking at the [OID tree first](https://github.com/cisco/cisco-mibs/blob/main/oid/CISCO-PROCESS-MIB.oid) I identify a possible leaf: `cpmCPUTotal1minRev via 1.3.6.1.4.1.9.9.109.1.1.1.1.7`
-* Looking at the [MIB](https://github.com/cisco/cisco-mibs/blob/main/v2/CISCO-PROCESS-MIB.my) itself, I make sure it's a supported OID, by searching for `cpmCPUTotal1minRev`
+- What MIB does a C3560CX support?
+- I find the formal specification for the MIB somewhere on the vendor website: `CISCO-PROCESS-MIB (109)`
+- Looking at the [OID tree first](https://github.com/cisco/cisco-mibs/blob/main/oid/CISCO-PROCESS-MIB.oid) I identify a possible leaf: `cpmCPUTotal1minRev via 1.3.6.1.4.1.9.9.109.1.1.1.1.7`
+- Looking at the [MIB](https://github.com/cisco/cisco-mibs/blob/main/v2/CISCO-PROCESS-MIB.my) itself, I make sure it's a supported OID, by searching for `cpmCPUTotal1minRev`
 
 I find this...
 

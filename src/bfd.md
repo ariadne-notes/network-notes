@@ -100,11 +100,11 @@ DOWN│    │ INIT │--------------------->│  UP  │    │INIT, UP
          └──────┘                      └──────┘              
 ```
 
-* **Async** - If the other side doesn't recieve the packets, it's declared down.
+- **Async** - If the other side doesn't recieve the packets, it's declared down.
 
-* **BOB** - BFD over Bundle
+- **BOB** - BFD over Bundle
 
-* **BLB** - BFD over Logical Bundle - (VLANS, Sub-interfaces). This requires multipath to be enabled. Multipath doesn't inject BFD packets into the HP queue.
+- **BLB** - BFD over Logical Bundle - (VLANS, Sub-interfaces). This requires multipath to be enabled. Multipath doesn't inject BFD packets into the HP queue.
 
 
 

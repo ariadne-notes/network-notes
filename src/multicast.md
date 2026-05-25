@@ -1,26 +1,26 @@
 # Multicast
 
-* **Multicast:** A one-to-many service using UDP packets destined to group IP address. Hosts subscribe to the group, routers replicate for the group.
-* **IGMP:** Internet Group Management Protocol. A host uses IGMP to request a multicast stream. Switches see it (for snooping), and the FHR uses this to build the MDT.
-* **PIM:** Protocol Independent Multicast. Multicast capable routers communicate to each over via PIM.
-* **IIF:** Incoming Interface, AKA, the RPL interface. Part of the MDT.
-* **OIL:** Outgoing Interface List, part of the MDT.
-* **MDT:** Multicast Distribution Tree. The full set of links participating in multicast, via PIM, IGMP, including IILs, and OILs.
-* **RP:** Rendezvous Point. A router designated as the root of a shared tree.
-* **(*,G):** Star comma Gee. AKA, a shared tree. These require a RP. Called Star comma Gee, because typing "show ip mroute" ... this is what shows up.
-* **(S,G):** Ess comma Gee. AKA a source tree. These do not require a RP.
-* **Source Tree:** AKA, SPT, or shortest path tree. SPT is best tree.
-* **RPT:** Rendezvous Point Tree, this is a *,G that points towards the RP.
-* **ASM:** Any Source Multicast. The host only knows the group it wants to receive (239.10.10.10).
-* **SSM:** Source Specific multicast. The host already knows the source, and group address (10.0.0.1, 232.10.10.10).
-* **Upstream:** Towards the source.
-* **Downstream:** Towards group members.
-* **FHR:** First hop router. This router receives a multicast stream.
-* **LHR:** Last Hop router receives IGMP messages from receivers, which are translated into PIM join messages.
-* **MRIB:** The multicast routing table. Shows RPTs, SPTs, RPFIs, OILs, and IILs.
-* **MFIB:** The forwarding table. This is used for programming the hardware.
-* **RIB:** Routing Information Base
-* **DF:** Designated Forwarder. Used in PIDIR-PIM.
+- **Multicast:** A one-to-many service using UDP packets destined to group IP address. Hosts subscribe to the group, routers replicate for the group.
+- **IGMP:** Internet Group Management Protocol. A host uses IGMP to request a multicast stream. Switches see it (for snooping), and the FHR uses this to build the MDT.
+- **PIM:** Protocol Independent Multicast. Multicast capable routers communicate to each over via PIM.
+- **IIF:** Incoming Interface, AKA, the RPL interface. Part of the MDT.
+- **OIL:** Outgoing Interface List, part of the MDT.
+- **MDT:** Multicast Distribution Tree. The full set of links participating in multicast, via PIM, IGMP, including IILs, and OILs.
+- **RP:** Rendezvous Point. A router designated as the root of a shared tree.
+- **(*,G):** Star comma Gee. AKA, a shared tree. These require a RP. Called Star comma Gee, because typing "show ip mroute" ... this is what shows up.
+- **(S,G):** Ess comma Gee. AKA a source tree. These do not require a RP.
+- **Source Tree:** AKA, SPT, or shortest path tree. SPT is best tree.
+- **RPT:** Rendezvous Point Tree, this is a *,G that points towards the RP.
+- **ASM:** Any Source Multicast. The host only knows the group it wants to receive (239.10.10.10).
+- **SSM:** Source Specific multicast. The host already knows the source, and group address (10.0.0.1, 232.10.10.10).
+- **Upstream:** Towards the source.
+- **Downstream:** Towards group members.
+- **FHR:** First hop router. This router receives a multicast stream.
+- **LHR:** Last Hop router receives IGMP messages from receivers, which are translated into PIM join messages.
+- **MRIB:** The multicast routing table. Shows RPTs, SPTs, RPFIs, OILs, and IILs.
+- **MFIB:** The forwarding table. This is used for programming the hardware.
+- **RIB:** Routing Information Base
+- **DF:** Designated Forwarder. Used in PIDIR-PIM.
 
 ## Harder Terms
 

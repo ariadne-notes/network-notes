@@ -66,7 +66,7 @@ show mpls ldp binding 3.3.3.4 255.255.255.255
 
 ```console
 show mpls forwarding 3.3.3.4
-* Local 20, Outgoing Pop, Prefix 3.3.3.3/32, Outgoing Int E0/0, Nexthop 10.1.2.1
+- Local 20, Outgoing Pop, Prefix 3.3.3.3/32, Outgoing Int E0/0, Nexthop 10.1.2.1
 ```
 
 

@@ -1,14 +1,14 @@
 # ISATAP
 
-* Packet-in-packet technology
-* Mostly historical
-* Used within one site, **not** an Internet Tech.
-* "v6 islands within a v4 ocean"
-* Treats the v4 network as NBMA.
-* ISATAP devices must be dual stacked.
-* Adds 20-bytes of overhead.
-* Works as long as v4 routing works.
-* Stateless.
+- Packet-in-packet technology
+- Mostly historical
+- Used within one site, **not** an Internet Tech.
+- "v6 islands within a v4 ocean"
+- Treats the v4 network as NBMA.
+- ISATAP devices must be dual stacked.
+- Adds 20-bytes of overhead.
+- Works as long as v4 routing works.
+- Stateless.
 
 ## Theory
 
@@ -72,10 +72,10 @@ If a router sees a v6 destination that looks like this, it's an ISATAP packet.
 
 ## Terms
 
-* **PRL:** Potential Router List. Routers that could perform ISATAP.
-* **ISATAP Interface:** The dual-stack interface, with the above v6 IP on it.
-* **ISATAP v4 Address:** The NBMA address. How to reach this device via ISATAP
-* **ISATAP v6 Address:** The end-to-end v6 address, it **must** embed the v4 address.
+- **PRL:** Potential Router List. Routers that could perform ISATAP.
+- **ISATAP Interface:** The dual-stack interface, with the above v6 IP on it.
+- **ISATAP v4 Address:** The NBMA address. How to reach this device via ISATAP
+- **ISATAP v6 Address:** The end-to-end v6 address, it **must** embed the v4 address.
 
 ## References
 

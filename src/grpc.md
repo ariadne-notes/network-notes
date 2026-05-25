@@ -2,9 +2,9 @@
 
 A Google Invention.
 
-* Uses HTTP/2 as transport.
-* Client - Server Oriented.
-* gRPC clients talk to gRPC servers.
+- Uses HTTP/2 as transport.
+- Client - Server Oriented.
+- gRPC clients talk to gRPC servers.
 
 Programs can do remote function calls on other servers.
 
@@ -33,10 +33,10 @@ flowchart LR
 ## Protocol Buffers
 
 This defines the data structure to send.
-* Small local records
+- Small local records
 
-* Messages
-* end in `.proto`
+- Messages
+- end in `.proto`
 
 ```console
 message Person {

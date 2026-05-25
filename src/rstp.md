@@ -1,27 +1,27 @@
 # RSTP
 
-* **Discarding:** ports are on, but not forwarding data traffic. Might be receiving BPDUs. STP states: Disabled, blocking and listening.
+- **Discarding:** ports are on, but not forwarding data traffic. Might be receiving BPDUs. STP states: Disabled, blocking and listening.
 
 
-* **Learning:** ports are on, the switch is building the CAM table. The only forwarding is control traffic.
+- **Learning:** ports are on, the switch is building the CAM table. The only forwarding is control traffic.
 
-* **Forwarding:** ports pass data and control traffic.
+- **Forwarding:** ports pass data and control traffic.
 
-* **Root port:** AKA RP. A VLAN has one RP.
+- **Root port:** AKA RP. A VLAN has one RP.
 
-* **Designated port:** AKA DP. Each link can have only one DP.
+- **Designated port:** AKA DP. Each link can have only one DP.
 
-* **Backup port:** A network port that provides link redundancy toward the shared segment within the same collision domain, which is typically a network hub.
+- **Backup port:** A network port that provides link redundancy toward the shared segment within the same collision domain, which is typically a network hub.
 
-* **Edge ports:** are edge of the STP topology, meant for hosts. Edge ports have portfast turned on.
+- **Edge ports:** are edge of the STP topology, meant for hosts. Edge ports have portfast turned on.
 
-* **Non-Edge ports:** have received a BPDUs. Could be attached to switches.
+- **Non-Edge ports:** have received a BPDUs. Could be attached to switches.
 
-* **Point-to-point ports:** connect to other RSTP switches with full duplex.
+- **Point-to-point ports:** connect to other RSTP switches with full duplex.
 
-* **Propose bit:** Added in 802.1w, the switch that compares BPDUs and sees it has the superior BPDU sets the `Propose` and `DP` bits.
+- **Propose bit:** Added in 802.1w, the switch that compares BPDUs and sees it has the superior BPDU sets the `Propose` and `DP` bits.
 
-* **Agree Bit:** Tells the other side, "yeah, I agree" the other side immediately moves into forwarding.
+- **Agree Bit:** Tells the other side, "yeah, I agree" the other side immediately moves into forwarding.
 
 ## Packet Headers
 

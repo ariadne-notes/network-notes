@@ -136,11 +136,11 @@ B3: B3 can detect up to eight parity errors in the entire SPE. This number produ
 G709 is an optical specification that is specifcially designed for FEC (Forward Error correction)
 	It uses Reed-Solomon to produce redundant information that can be used to rebuild the frame.
 
-* **OTU** - Optical channel Transport Unit
+- **OTU** - Optical channel Transport Unit
 
-* **ODU** - Optical channel Data Unit
+- **ODU** - Optical channel Data Unit
 
-* **OPU** - OPtical channel Payload Unit
+- **OPU** - OPtical channel Payload Unit
 
 ## SRP - Spatial Reuse protocol
 
@@ -162,8 +162,8 @@ direction on the alternate ring, ensuring that the data takes the shortest path 
 
 802.17
 
-* **Steering** - Nodes are told the affected node is down and don't include it.
-* **Wrapping** - The node closest to the break route the traffic on the other direction of the ring.
+- **Steering** - Nodes are told the affected node is down and don't include it.
+- **Wrapping** - The node closest to the break route the traffic on the other direction of the ring.
 
 Side A Always connects to Side B.
 

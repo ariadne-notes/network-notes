@@ -2,21 +2,21 @@
 
 ## EIGRP Terminology
 
-* **Successor route:** The current best path, with the smallest metric. The "successful" route.
+- **Successor route:** The current best path, with the smallest metric. The "successful" route.
 
-* **Successor:** The first next-hop router for the successor route.
+- **Successor:** The first next-hop router for the successor route.
 
-* **Feasible distance (FD):** Lowest metric to reach a subnet. The sum of the RD + local cost.
+- **Feasible distance (FD):** Lowest metric to reach a subnet. The sum of the RD + local cost.
 
-* **Reported distance (RD):** The metric inside a route update from another router. The sending router included it's FD, which becomes out RD.
+- **Reported distance (RD):** The metric inside a route update from another router. The sending router included it's FD, which becomes out RD.
 
-* **Feasibility condition:** If another path is *actually a backup*, the RD will be less than the current FD.
+- **Feasibility condition:** If another path is *actually a backup*, the RD will be less than the current FD.
 
-* **Feasible successor:** A route that satisfies the feasibility condition and is maintained as a backup route.
+- **Feasible successor:** A route that satisfies the feasibility condition and is maintained as a backup route.
 
-* **Split Horizon:** Never advertise a network, out the same interface it was learned on.
+- **Split Horizon:** Never advertise a network, out the same interface it was learned on.
 
-* **Poison Reverse:** If you must advertise a network out the same interface it was received on, advertise the delay as infinity.
+- **Poison Reverse:** If you must advertise a network out the same interface it was received on, advertise the delay as infinity.
 
 ## Feasible Successor Algo
 
@@ -274,13 +274,13 @@ D        2.2.2.2 [90/3398] via 10.12.1.2, 00:00:04, GigabitEthernet0/1
 ## Network Parser
 
 
-* The CLI parser is converting the IP into binary, then comparing it to the wild mask.
-* The CLI parser will only save the matched bits of the IP.
-* The CLI parser will not save the zeroth network, anything starting with 0.
-* The CLI parser will only save the matched bits of an IP if if finds bits that are "on"
-* Using the "all" mask of 255.255.255.255 creates this statement 'network 0.0.0.0' and matches everything.
-* Using the "unique-ip" mask of 0.0.0.0 means "match this single address"
-* The wildcard mask only accepts contiguous numbers "Discontiguous mask is not supported."
+- The CLI parser is converting the IP into binary, then comparing it to the wild mask.
+- The CLI parser will only save the matched bits of the IP.
+- The CLI parser will not save the zeroth network, anything starting with 0.
+- The CLI parser will only save the matched bits of an IP if if finds bits that are "on"
+- Using the "all" mask of 255.255.255.255 creates this statement 'network 0.0.0.0' and matches everything.
+- Using the "unique-ip" mask of 0.0.0.0 means "match this single address"
+- The wildcard mask only accepts contiguous numbers "Discontiguous mask is not supported."
 
 192.0.2.5 127.255.255.255 - becomes 128.0.0.0, the rest of the bits get dropped.
 

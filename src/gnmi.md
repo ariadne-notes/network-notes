@@ -6,10 +6,10 @@ Part of the *OpenConfig* framework. [Google, Microsoft, ATT, and BT]
 
 A gRPC based protocol to do the following:
 
-* Get Config
-* Set Config
-* Ask for specific telemetry
-* Get specific telemetry
+- Get Config
+- Set Config
+- Ask for specific telemetry
+- Get specific telemetry
 
 > **replaces** SNMP
 

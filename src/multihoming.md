@@ -1,10 +1,10 @@
 # Multihoming
 
-* **Multihomed:** - A network with more than one transit provider.
-* **Multi-Attached:** - More than one L3 connection to the same ISP.
-* **PI Addresses:** - IP addresses not owned by the ISP.
-* **PA Addresses:** - Provider Aggregatable. You might have permission to use a /24, but it comes from a much larger /18.
-* **Asymmetric Flow:** - Egress traffic and Ingress traffic are via different ISPs.
+- **Multihomed:** - A network with more than one transit provider.
+- **Multi-Attached:** - More than one L3 connection to the same ISP.
+- **PI Addresses:** - IP addresses not owned by the ISP.
+- **PA Addresses:** - Provider Aggregatable. You might have permission to use a /24, but it comes from a much larger /18.
+- **Asymmetric Flow:** - Egress traffic and Ingress traffic are via different ISPs.
 
 ## BGP Multihoming
 
@@ -14,7 +14,7 @@ To have BGP multi-homing, a v4 site with PI addressing needs at least a /24 pref
 
 ## BGP Filtering
 
-* Filter outbound prefixes to match networks you have. Do not re-advertise the full table, back out.
+- Filter outbound prefixes to match networks you have. Do not re-advertise the full table, back out.
 
 
 ## References

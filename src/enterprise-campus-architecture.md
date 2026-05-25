@@ -108,19 +108,19 @@ The C9000-L series, does not support Catalyst Center, and has lower stackwise Sp
 
 ## Campus LAN Best Practices - High Availability
 
-* **SSO:** Stateful Switch Over, used to sync RPs in modular switches.
+- **SSO:** Stateful Switch Over, used to sync RPs in modular switches.
 
-* **NSF:** Non-Stop Forwarding allows graceful restarting of a L3 protocol. Allows the data-plane to continue while the new RP
+- **NSF:** Non-Stop Forwarding allows graceful restarting of a L3 protocol. Allows the data-plane to continue while the new RP
 
-* **MLS:** Multi-layer Switch.
+- **MLS:** Multi-layer Switch.
 
-* **StackWise:** Older tech, to combine switches together. Up to 8 switches can be stacked. They operate as one switch.
+- **StackWise:** Older tech, to combine switches together. Up to 8 switches can be stacked. They operate as one switch.
 
-* **StackWise Virtual:** Two MLS devices, are combined to become one logical device.
+- **StackWise Virtual:** Two MLS devices, are combined to become one logical device.
 
-* **StackWise Virtual Link:** The control/data path between the two switches. Should be two links minimum.
+- **StackWise Virtual Link:** The control/data path between the two switches. Should be two links minimum.
 
-* **GIR:** Graceful Insertion or Removal. Influencing paths by changing route-metrics or adjusting FHRP priorities.
+- **GIR:** Graceful Insertion or Removal. Influencing paths by changing route-metrics or adjusting FHRP priorities.
 
 
 

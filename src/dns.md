@@ -2,8 +2,8 @@
 
 DNS uses TCP and UDP.
 
-* UDP, for user queries
-* TCP, to do zone transfers (how DNS replicates it's records to other DNS boxes)
+- UDP, for user queries
+- TCP, to do zone transfers (how DNS replicates it's records to other DNS boxes)
 
 ## DNS Resource Records
 

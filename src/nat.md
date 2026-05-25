@@ -2,8 +2,8 @@
 
 We specify an `inside` and `outside` network, so we can do one or both transforms.
 
-* **Source** NAT, where we modify the SA (Source address)
-* **Destination** NAT, where we modify the DA (Destination Address)
+- **Source** NAT, where we modify the SA (Source address)
+- **Destination** NAT, where we modify the DA (Destination Address)
 
 <pre>
          Inside   Outside

@@ -2,29 +2,29 @@
 
 ## SNMPv1
 
-* Cleartext
-* Uses a community string for a basic password
+- Cleartext
+- Uses a community string for a basic password
 
 **Changing the equipment**
-* Set Request
+- Set Request
 
 **Getting Outputs**
-* Get Request
-* GetNext
+- Get Request
+- GetNext
 
 **Receiving Outputs**
-* Get Response
-* Trap
+- Get Response
+- Trap
 
 ## SNMPv2
 
-* Cleartext
-* Uses a community string for a basic password
+- Cleartext
+- Uses a community string for a basic password
 
 **New Message types**
 
-* Get Bulk (get lots of things)
-* Inform Request (acknowledge this bad thing happening)
+- Get Bulk (get lots of things)
+- Inform Request (acknowledge this bad thing happening)
 
 
 ## SNMPv3

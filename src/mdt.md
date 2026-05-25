@@ -1,7 +1,7 @@
 # MDT
 
-* Can be ordinary TCP.
-* Can also use gRPC, to add TLS.
+- Can be ordinary TCP.
+- Can also use gRPC, to add TLS.
 
 ## TCP Dial-out
 

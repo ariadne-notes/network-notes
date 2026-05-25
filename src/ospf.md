@@ -5,17 +5,17 @@ OSPF is protocol 89.
 ## Terms
 
 
-* **IFF** -- If and only if
-* **LSA** --Link State Advertisement
-* **LSDB** --Link-state Database
-* **OSPF Process ID** -- Just where the databases live. Not transmitted. Allows multiple OSPF processes.
-* **DR** Designated Router -- The network vertex for a broadcast or NBMA network. Used to simplify the number of FULL adjacencies.
-* **Advertising Router** -- The router that created the LSA. The value in this field is the RID.
-* **RID** -- Router ID. A unique 32-bit number to identify the router in a graph. Doesn't have to be an IP-the-box, but is usually a loopback.
-* **The Update Rule** -- A router can only modify an LSA, iff it's RID is inside the "Advertising Router" field.
-* **LS Sequence** -- Higher sequence numbers are newer LSAs. The first sequence number in any LSA is 8000000.
-* **LS Checksum** -- Used to ensure the LSA was transmitted without corruption. Everything is checked **except** LS Age.
-* **LS Age** -- LSAs time out in an hour, and are refreshed every 30 minutes. LSA Age increments when they go through routers.
+- **IFF** -- If and only if
+- **LSA** --Link State Advertisement
+- **LSDB** --Link-state Database
+- **OSPF Process ID** -- Just where the databases live. Not transmitted. Allows multiple OSPF processes.
+- **DR** Designated Router -- The network vertex for a broadcast or NBMA network. Used to simplify the number of FULL adjacencies.
+- **Advertising Router** -- The router that created the LSA. The value in this field is the RID.
+- **RID** -- Router ID. A unique 32-bit number to identify the router in a graph. Doesn't have to be an IP-the-box, but is usually a loopback.
+- **The Update Rule** -- A router can only modify an LSA, iff it's RID is inside the "Advertising Router" field.
+- **LS Sequence** -- Higher sequence numbers are newer LSAs. The first sequence number in any LSA is 8000000.
+- **LS Checksum** -- Used to ensure the LSA was transmitted without corruption. Everything is checked **except** LS Age.
+- **LS Age** -- LSAs time out in an hour, and are refreshed every 30 minutes. LSA Age increments when they go through routers.
 
 ## Packet Types
 
@@ -99,9 +99,9 @@ To mitigate the scaling problem, on broadcast segments OSPF elects a DR, and BDR
 
 The RFC calls this a "network vertex". We can also use the term DR.
 
-* All routers listen for hello on 224.0.0.5
-* DR floods LSAs to the routers with 224.0.0.5
-* DROTHER talks to the DR/BDR on 224.0.0.6
+- All routers listen for hello on 224.0.0.5
+- DR floods LSAs to the routers with 224.0.0.5
+- DROTHER talks to the DR/BDR on 224.0.0.6
 
 In the diagram (from the RFC), everything connects to N2, so problem solved.
 
@@ -137,7 +137,7 @@ Neighbor ID     Pri   State           Dead Time   Address         Interface
 6.6.6.6           1   FULL/DROTHER    00:00:31    10.0.0.6        Ethernet0/0
 ```
 
-* First router online on the segment is the DR.
+- First router online on the segment is the DR.
 
 
 
@@ -463,13 +463,13 @@ router ospfv3 1
 
 #### No external network connections
 
-* **Stub:** From the RFC, these don't have LSA-5 in them, so no external routes. A stub gets a default injected.
-* **Totally Stubby:** A Cisco area, This blocks LSA-3, LSA-4, and LSA-5. The only injected LSA is a LSA-3 from the ABR for the default.
+- **Stub:** From the RFC, these don't have LSA-5 in them, so no external routes. A stub gets a default injected.
+- **Totally Stubby:** A Cisco area, This blocks LSA-3, LSA-4, and LSA-5. The only injected LSA is a LSA-3 from the ABR for the default.
 
 #### External Network connections
 
-* **NSSA:** From the RFC, this is a stub area with an ASBR. The LSAs within the area are LSA-7, and they get converted to LSA-5 by the ASBR.
-* **Totally Stubby NSSA:**, same as above, used to connect an external network, a default is injected as a LSA-3.
+- **NSSA:** From the RFC, this is a stub area with an ASBR. The LSAs within the area are LSA-7, and they get converted to LSA-5 by the ASBR.
+- **Totally Stubby NSSA:**, same as above, used to connect an external network, a default is injected as a LSA-3.
 
 
 ### Sham Link
@@ -483,8 +483,8 @@ When they turn on their private OSPF peering, all the traffic between these two 
 **The Solution: Sham Links**
 
 Sham links are needed because the routes provided by an L3VPN are `O IA`. When the OSPF backdoor link comes up it will be preferred for two reasons:
-* OSPF has a lower AD than BGP.
-* `O` routes are prefered over `O IA`
+- OSPF has a lower AD than BGP.
+- `O` routes are prefered over `O IA`
 
 A sham link makes two PE routers at different sites in the same customer VRF form an intra-area connection.
 

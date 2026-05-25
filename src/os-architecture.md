@@ -9,11 +9,11 @@ IO goes from controller - local buffer - CPU
 #### Interrupts
 
 Hardware interrupts
-* A buffer has been filled
+- A buffer has been filled
 
 Traps or exceptions are software generated interrupts
-* User requests
-* Errors
+- User requests
+- Errors
 
 Most operating systems are interrupt driven.
 
@@ -22,18 +22,18 @@ Most operating systems are interrupt driven.
 
 ### Main Memory (DRAM)
 
-* Random Access
-* Lost with power outage (volatile)
+- Random Access
+- Lost with power outage (volatile)
 
 ### Secondary Storage
 
-* Larger
-* Not lost with power outage (non-volatile)
+- Larger
+- Not lost with power outage (non-volatile)
 
 ### Caching
 
 Copying data from secondary storage to main memory
-* Faster
+- Faster
 
 Storage Hierarchy
 Registers > cache > main memory (dram) > solid-state disks > spinning disks > optical disks > magnetic tapes.
@@ -45,8 +45,8 @@ When done, the IO controller sends an interrupt.
 
 ## Processing
 
-* **Asymmetric** - each processor does a specific task.
-* **Symmetric** - each processor performs all tasks.
+- **Asymmetric** - each processor does a specific task.
+- **Symmetric** - each processor performs all tasks.
 
 ## Multithreading
 
@@ -62,9 +62,9 @@ Kernel mode is also called privileged.
 
 System calls are how user mode apps interact with the kernel.
 APIs are provided facilities to access the kernel without using system calls (which may not be allowed)
-* Win32 for Windows
-* POSIX API (Unix, Linux, Mac OS X)
-* Java API for Java Virtual Machine (JVM)
+- Win32 for Windows
+- POSIX API (Unix, Linux, Mac OS X)
+- Java API for Java Virtual Machine (JVM)
 
 ## Load Averages
 
@@ -119,38 +119,38 @@ Write easy to understand code, planning on future debugging.
 
 ## Message Passing (modern)
 
-* Puts messages into a shared queue, gives it a number, tell the other app "Go read this message"
+- Puts messages into a shared queue, gives it a number, tell the other app "Go read this message"
 
 ## Shared Memory (ancient)
 
-* Applications can just overwrite each others data.
+- Applications can just overwrite each others data.
 
 ## Scheduling
 
-* **FCFS** - First come First Served. Not really used anymore
-* **SJF** - Shortest Job first, kind-of how QoS works.
-* **Priority** - Give processes an integer, rank them.
-* **RR** - Round Robin, using time quantum, called q like 10-100 milliseconds
-* **CFS** - *Completely Fair Scheduler
+- **FCFS** - First come First Served. Not really used anymore
+- **SJF** - Shortest Job first, kind-of how QoS works.
+- **Priority** - Give processes an integer, rank them.
+- **RR** - Round Robin, using time quantum, called q like 10-100 milliseconds
+- **CFS** - *Completely Fair Scheduler
   * Involved, emulates time-slices
   * N tasks, each task gets 1/N time.
 
 
 ### Multilevel Queue - Done in Linux
 
-* Foreground, Background
+- Foreground, Background
   * Foreground gets 80% as RR
 
-* Background
+- Background
   * FCFS
   
 ## Process Environment
 
-* Argument vector - the command line arguments used to invoke the running program
-* Environment vector - the list of "NAME=VALUE" pairs
+- Argument vector - the command line arguments used to invoke the running program
+- Environment vector - the list of "NAME=VALUE" pairs
 
 
 ## Static and Dynamic Linking
 
-* **Static** - the library functions are embedded in the executable.
-* **Dynamic** - the library functions are at a place in memory, and shared.
+- **Static** - the library functions are embedded in the executable.
+- **Dynamic** - the library functions are at a place in memory, and shared.

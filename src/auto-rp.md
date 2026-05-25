@@ -4,8 +4,8 @@ Cisco devices can announce their willingness to be an RP, via `cisco-rp-announce
 
 A different service, a mapping agent, will read these messages, pick a winner, then advertise that out via `cisco-rp-discovery`
 
-* 5.5.5.5, Candidate RP.
-* 4.4.4.4, mapping agent.
+- 5.5.5.5, Candidate RP.
+- 4.4.4.4, mapping agent.
 
 <pre>
 R4# show ip pim autorp

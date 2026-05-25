@@ -4,26 +4,26 @@
 
 ## Terms
 
-* **NMI:** Network Management Interface. Dedicated Interface used exclusively for Administrative Access.
-* **In-Band:** The network for normal and routine traffic.
-* **OOB:** Out-of-Band. A secondary network, not the routine path.
-* **NMI Network:** A OOB network that aggregates NMIs.
-* **Jump Server:** A special node approved to access in-band equipment.
-* **Zero Trust:** Assuming the network is alredy compromised.
-* **Remote Hands:** An on-site person, who can physicallly touch the equipment to plug and unplug cables.
-* **VRF:** Virtual Route Forwarding. A different routing table, not the global table.
-* **Segmentation:** Splitting the network into an in-band, and OOB network via VRFs.
+- **NMI:** Network Management Interface. Dedicated Interface used exclusively for Administrative Access.
+- **In-Band:** The network for normal and routine traffic.
+- **OOB:** Out-of-Band. A secondary network, not the routine path.
+- **NMI Network:** A OOB network that aggregates NMIs.
+- **Jump Server:** A special node approved to access in-band equipment.
+- **Zero Trust:** Assuming the network is alredy compromised.
+- **Remote Hands:** An on-site person, who can physicallly touch the equipment to plug and unplug cables.
+- **VRF:** Virtual Route Forwarding. A different routing table, not the global table.
+- **Segmentation:** Splitting the network into an in-band, and OOB network via VRFs.
 
 ## In-Band Access Examples
 
-* Internet
-* Company Network
+- Internet
+- Company Network
 
 ## Out-of-Band Examples
 
-* NMI network accessible via VPN only to Network Admins.
-* NMI Accessible via Jump Server.
-* NMI Accessible via Remote Hands.
+- NMI network accessible via VPN only to Network Admins.
+- NMI Accessible via Jump Server.
+- NMI Accessible via Remote Hands.
 
 
 

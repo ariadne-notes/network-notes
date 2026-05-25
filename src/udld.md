@@ -2,13 +2,13 @@
 
 This is the more common way to prevent ULD Failures, enabling ULD.
 
-* **ULD:** Unidirectional Link Detection.
+- **ULD:** Unidirectional Link Detection.
 
 This feature has two modes:
 
-* **Normal:** Detect a fiber port that's miss-cabled. Maybe port 1 and port 2 (four fibers total) got mixed up.
+- **Normal:** Detect a fiber port that's miss-cabled. Maybe port 1 and port 2 (four fibers total) got mixed up.
 
-* **Aggressive:** Detect one way traffic on both fiber, and twisted pair.
+- **Aggressive:** Detect one way traffic on both fiber, and twisted pair.
 
 From Cisco:
 - On fiber-optic or twisted-pair links, one of the ports cannot send or receive traffic.

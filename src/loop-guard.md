@@ -5,7 +5,7 @@
 
 ## Terms
 
-* **Unidirectional Link.** A failure where one side of a fiber pair is broken.
+- **Unidirectional Link.** A failure where one side of a fiber pair is broken.
 
 A unidirectional failure will always result in one side not getting information.
 - SW1 sends BPDUs

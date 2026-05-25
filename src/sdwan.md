@@ -4,23 +4,23 @@
 
 ## Terms
 
-* **DIA:** Direct Internet Access. What we usually have has residential customers. No real guarantee of service, but tends to be fast.
-* **SLA:** Service Level Agreement. Business Internet, especially, to connect sites together tends to have a SLA.
-* **MPLS:** A kind of VPN service provided by an ISP, to connect business sites together. Comes with a SLA. More expensive than DIA.
-* **BFD:** Bidirectional Forwarding Detection
+- **DIA:** Direct Internet Access. What we usually have has residential customers. No real guarantee of service, but tends to be fast.
+- **SLA:** Service Level Agreement. Business Internet, especially, to connect sites together tends to have a SLA.
+- **MPLS:** A kind of VPN service provided by an ISP, to connect business sites together. Comes with a SLA. More expensive than DIA.
+- **BFD:** Bidirectional Forwarding Detection
 
 ## Devices
 
 
-* **Manager:** AKA vManage, AKA, the NMS. What a human interacts with, the GUI
-* **Validator:** AKA vBond. Initial Authentication and provisioning, (Cisco calls this orchestration) Responsible for NAT traversal.
-* **Controller:** AKA vSmart. Holds the current state of the network, (routes and data policy) maintains active connections to the edges and programs them.
-* **WAN Edge:** AKA vEdge. What gets programmed. Provides data-plane between sites, via circuits like DIA, or MPLs.
-* **vEDGE:** Old hardware-based Viptela gear, pre-Cisco acquisition. Unfavored.
+- **Manager:** AKA vManage, AKA, the NMS. What a human interacts with, the GUI
+- **Validator:** AKA vBond. Initial Authentication and provisioning, (Cisco calls this orchestration) Responsible for NAT traversal.
+- **Controller:** AKA vSmart. Holds the current state of the network, (routes and data policy) maintains active connections to the edges and programs them.
+- **WAN Edge:** AKA vEdge. What gets programmed. Provides data-plane between sites, via circuits like DIA, or MPLs.
+- **vEDGE:** Old hardware-based Viptela gear, pre-Cisco acquisition. Unfavored.
 
 ## Marketing Terms
 
-* **Cisco SD-WAN Cloud OnRamp:** AKA, CoR. Edges can perform analytics to SaaS or IaaS offerings to select the best path, via jitter.
+- **Cisco SD-WAN Cloud OnRamp:** AKA, CoR. Edges can perform analytics to SaaS or IaaS offerings to select the best path, via jitter.
 
 ## Validator
 
@@ -38,35 +38,35 @@ The Validator has a permanent dTLS tunnel to all the controllers.
 
 ## Controllers
 
-* Keeps all the routes between sites, that are managed via the OMP protocol (like BGP, but proprietary)
-* Logical tunnel topologies (such as hub and spoke, regional, and partial mesh)
-* Service Chaining
-* Traffic Engineering
-* Segmentation per VPN
+- Keeps all the routes between sites, that are managed via the OMP protocol (like BGP, but proprietary)
+- Logical tunnel topologies (such as hub and spoke, regional, and partial mesh)
+- Service Chaining
+- Traffic Engineering
+- Segmentation per VPN
 
 
 ## WAN Edge
 
-* Dataplane for a site
-* Has OMP, BGP, OSPF, EIGRP, ACLs, ARP, HA, and QoS.
-* Connects via dTLS to the controllers.
-* Connects via dTLS to other edges.
+- Dataplane for a site
+- Has OMP, BGP, OSPF, EIGRP, ACLs, ARP, HA, and QoS.
+- Connects via dTLS to the controllers.
+- Connects via dTLS to other edges.
 
 ## SD-WAN Policy
 
 Policies are further classified as
 
-* **Local Policy:** Programed on the edges. ACLs, QoS, routing, and AAA.
-* **Centralized Policy:** Route policy, before being sent to the edges, (Topology, VPN Membership, Application Aware Routing)
+- **Local Policy:** Programed on the edges. ACLs, QoS, routing, and AAA.
+- **Centralized Policy:** Route policy, before being sent to the edges, (Topology, VPN Membership, Application Aware Routing)
 
 ## Application Aware Routing
 
-* **FEC:** Forward Error Correction. For every four packets, send a parity packet. It can help rebuild a lost packet.
-* **Packet Duplication:** Send twice as much data via two tunnels. The receiving vEdge router can reconstruct it.
-* **TCP Optimization and Session Persistence:** For high-latency links like satellite, open one TCP session, proxy it, and reuse it.
-* **Data Redundancy Elimination:** DRE. Modern compression to get more bandwidth from WAN links.
-* For AAR, or CoR, the edge will send HTTP probes and measure the jitter and/or loss.
-* The score for an app is the vQoS (Viptela Quality of Experience) from 0 to 10, 10 being best.
+- **FEC:** Forward Error Correction. For every four packets, send a parity packet. It can help rebuild a lost packet.
+- **Packet Duplication:** Send twice as much data via two tunnels. The receiving vEdge router can reconstruct it.
+- **TCP Optimization and Session Persistence:** For high-latency links like satellite, open one TCP session, proxy it, and reuse it.
+- **Data Redundancy Elimination:** DRE. Modern compression to get more bandwidth from WAN links.
+- For AAR, or CoR, the edge will send HTTP probes and measure the jitter and/or loss.
+- The score for an app is the vQoS (Viptela Quality of Experience) from 0 to 10, 10 being best.
 
 ## VPNs
 

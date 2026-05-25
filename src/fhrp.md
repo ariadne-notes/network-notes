@@ -8,9 +8,9 @@
 
 ### Terms
 
-* **GLBP** - Gateway Load Balancing Protocol.
-* **AVG** - Active Virtual Gateway. The AVG response to ARP requests, with the same IP, but different MAC addresses to load balance for GLBP.
-* **AVF** - Active Virtual Forwarder. A router in a GLBP group that is forwarding packets. All AVFs have their own mac, and are responsible for forwarding traffic destined towards that MAC.
+- **GLBP** - Gateway Load Balancing Protocol.
+- **AVG** - Active Virtual Gateway. The AVG response to ARP requests, with the same IP, but different MAC addresses to load balance for GLBP.
+- **AVF** - Active Virtual Forwarder. A router in a GLBP group that is forwarding packets. All AVFs have their own mac, and are responsible for forwarding traffic destined towards that MAC.
 
 - Cisco proprietary
 - 224.0.0.102

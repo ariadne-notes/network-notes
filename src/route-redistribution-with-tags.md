@@ -1,7 +1,7 @@
 # Route Redistribution with Tags
 
-* Tag EIGRP as 100
-* TAG OSPF as 1
+- Tag EIGRP as 100
+- TAG OSPF as 1
 
 - Route maps should take the form DENY -> PERMIT.
 - Routes are tagged when they are advertised.

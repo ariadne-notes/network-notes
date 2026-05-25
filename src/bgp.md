@@ -7,17 +7,17 @@
 
 ### Private Numbers
 
-* 64,512 – 65,534
+- 64,512 – 65,534
 
-* 4,200,000,000 – 4,294,967,294
+- 4,200,000,000 – 4,294,967,294
 
 ## Requesting an ASN
 
 
 IANA asks for the following things.
-* Proof of a publicly allocated network range
-* Proof that Internet connectivity is provided through multiple connections
-* Need for a unique routing policy from providers
+- Proof of a publicly allocated network range
+- Proof that Internet connectivity is provided through multiple connections
+- Need for a unique routing policy from providers
 
 ## BGP Path Attributes
 
@@ -188,7 +188,7 @@ The origaning router puts its `Router_ID` here. If it sees this, it knows a loop
 
 ### CLUSTER_LIST
 
-* A route reflector (RR) and its clients are called a cluster.
+- A route reflector (RR) and its clients are called a cluster.
 - For route reflectors
 - The sequence of `Router_IDs` through which the route has passed. If a router seeis its Router_ID a loop has occured.
 
@@ -231,12 +231,12 @@ This makes it so other iBGP routers don't need reachability information for the 
 
 #### BGP Finite State Machine
 
-* **Idle** -  check the config
-* **Connect** -  TCP is probably broken
-* **Active** -  Listening for TCP
-* **OpenSent**
-* **OpenConfirm**
-* **Established**
+- **Idle** -  check the config
+- **Connect** -  TCP is probably broken
+- **Active** -  Listening for TCP
+- **OpenSent**
+- **OpenConfirm**
+- **Established**
 
 #### Fixing next-hop issues
 
@@ -251,8 +251,8 @@ Just because the route shows up in `show ip bgp` doesn't mean it will install. B
 
 ##### Terms
 
-* **Cluster List** - Router ID of the route Reflector. Used to prevent loops between RRs.
-* **Originator** - Route reflector peer.  Used to prevent loops between clients.
+- **Cluster List** - Router ID of the route Reflector. Used to prevent loops between RRs.
+- **Originator** - Route reflector peer.  Used to prevent loops between clients.
 
 ##### Three rules for route reflectors
 

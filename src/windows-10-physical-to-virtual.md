@@ -24,12 +24,12 @@ I just need to get the "data" onto the [VM.](https://en.wikipedia.org/wiki/Virtu
 
 A lot of this is to enable a clean "recovery" of the OS once it's copied over. My copy of Windows 10 relies on:
 
-* [FAT32](https://en.wikipedia.org/wiki/File_Allocation_Table#FAT32)
-* [NTFS](https://en.wikipedia.org/wiki/NTFS) - This filesystem should really only be checked using Microsoft's own tools.
-* **BCD -** Boot Configuraiton Data
-* [GPT](https://en.wikipedia.org/wiki/GUID_Partition_Table)
-* [EFI](https://en.wikipedia.org/wiki/EFI_system_partition)
-* [MSR](https://en.wikipedia.org/wiki/Microsoft_Reserved_Partition)
+- [FAT32](https://en.wikipedia.org/wiki/File_Allocation_Table#FAT32)
+- [NTFS](https://en.wikipedia.org/wiki/NTFS) - This filesystem should really only be checked using Microsoft's own tools.
+- **BCD -** Boot Configuraiton Data
+- [GPT](https://en.wikipedia.org/wiki/GUID_Partition_Table)
+- [EFI](https://en.wikipedia.org/wiki/EFI_system_partition)
+- [MSR](https://en.wikipedia.org/wiki/Microsoft_Reserved_Partition)
 
 ## Dataloss
 

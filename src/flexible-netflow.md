@@ -2,10 +2,10 @@
 
 Flexible Netflow needs four things to work:
 
-* Records
-* Exporters
-* Monitors
-* Interfaces
+- Records
+- Exporters
+- Monitors
+- Interfaces
 
 ### IOS-XE
 

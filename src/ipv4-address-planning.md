@@ -6,15 +6,15 @@
 
 ## Example standards
 
-* Statically assign network infrastructure
-* User devices are DHCP.
-* `.1` is the default gateway
-* Third Octet: The vlan ID. `10.0.150.0/24` is vlan 150.
-* Forth Octet: Address Assignment type. 1 to 99 are static IPs, 100-200 are DHCP.
+- Statically assign network infrastructure
+- User devices are DHCP.
+- `.1` is the default gateway
+- Third Octet: The vlan ID. `10.0.150.0/24` is vlan 150.
+- Forth Octet: Address Assignment type. 1 to 99 are static IPs, 100-200 are DHCP.
 
 ## Best Practices
 
-* Address internal hosts with RFC1918 addresses.
+- Address internal hosts with RFC1918 addresses.
 
 ### Recommended Networks
 

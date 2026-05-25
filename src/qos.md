@@ -1,22 +1,22 @@
 # QoS
 
-* **FIFO:** First in, First out. The default behavior of an network node processing IP traffic.
-* **Differentiated Services:** AKA, DiffServ. Giving packet flows different levels of network service, based on classification.
-* **Integrated Services:** AKA, IntServ. Packet flows explicitly reserve bandwidth along a path, via admission control.
-* **RSVP:** Resource Reservation Protocol. Uses Admission control to make explicit QoS reservations on each device in the path.
-* **Marking:** Changing the DSCP bits in the IP header field to put an IP flow into a specific traffic class.
-* **DSCP:** Differentiated Services Code Point. The marking of an IP packet that allows DiffServ
-* **PHB:** Per Hop Behavior. What a node should or shouldn't do with marked traffic.
-* **Queuing:** Holding a packet in memory, delaying transmission. Queuing is always expensive.
-* **LLQ:** Low latency queuing. Describes queue behavior for the EF PHB: never drop, never delay, send immediately, police aggressively.
-* **EF:** Expedited Forwarding. The highest tier of service for network data, that isn't control traffic.
-* **Control Traffic:** CS6. CS6 traffic is used to share topology information, eg. (OSPF, IS-IS, BGP)
-* **CAR:** Committed Access Rate. The agreed rate a traffic source will flow at, or violate it's SLA.
-* **SLA:** Service Level Agreement. SLAs are business agreements about data servicing requirements.
-* **WFQ:** Weighted Fair Queuing. The default strategy on links under 2Mbps. Sorts traffic into high bw and low bw classes.
-* **CBWFQ:** Class Based Weighted Fair Queuing, AKA, Modular QoS: multiple queues, bandwidth limits, and access to different kinds of queues, like LLQ.
-* **MQC:** Modular QoS CLI.
-* **PQ:** Priority Queue. A queue that is served first, even if other queues have been waiting longer.
+- **FIFO:** First in, First out. The default behavior of an network node processing IP traffic.
+- **Differentiated Services:** AKA, DiffServ. Giving packet flows different levels of network service, based on classification.
+- **Integrated Services:** AKA, IntServ. Packet flows explicitly reserve bandwidth along a path, via admission control.
+- **RSVP:** Resource Reservation Protocol. Uses Admission control to make explicit QoS reservations on each device in the path.
+- **Marking:** Changing the DSCP bits in the IP header field to put an IP flow into a specific traffic class.
+- **DSCP:** Differentiated Services Code Point. The marking of an IP packet that allows DiffServ
+- **PHB:** Per Hop Behavior. What a node should or shouldn't do with marked traffic.
+- **Queuing:** Holding a packet in memory, delaying transmission. Queuing is always expensive.
+- **LLQ:** Low latency queuing. Describes queue behavior for the EF PHB: never drop, never delay, send immediately, police aggressively.
+- **EF:** Expedited Forwarding. The highest tier of service for network data, that isn't control traffic.
+- **Control Traffic:** CS6. CS6 traffic is used to share topology information, eg. (OSPF, IS-IS, BGP)
+- **CAR:** Committed Access Rate. The agreed rate a traffic source will flow at, or violate it's SLA.
+- **SLA:** Service Level Agreement. SLAs are business agreements about data servicing requirements.
+- **WFQ:** Weighted Fair Queuing. The default strategy on links under 2Mbps. Sorts traffic into high bw and low bw classes.
+- **CBWFQ:** Class Based Weighted Fair Queuing, AKA, Modular QoS: multiple queues, bandwidth limits, and access to different kinds of queues, like LLQ.
+- **MQC:** Modular QoS CLI.
+- **PQ:** Priority Queue. A queue that is served first, even if other queues have been waiting longer.
 
 
 ### Type of Service

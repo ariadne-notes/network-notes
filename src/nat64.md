@@ -1,8 +1,8 @@
 # NAT64
 
-* Requires a DNS64 Server to translate an A record to a synthetic AAAA record.
-* Requires a Upstream DNS to respond with an A record, to the DNS64 server.
-* Requires a "Stateful Prefix"
+- Requires a DNS64 Server to translate an A record to a synthetic AAAA record.
+- Requires a Upstream DNS to respond with an A record, to the DNS64 server.
+- Requires a "Stateful Prefix"
 
 ```mermaid
 sequenceDiagram

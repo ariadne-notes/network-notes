@@ -90,6 +90,9 @@
 # Multicast
 
 - [Multicast](multicast.md)
+  - [PIM Dense](pim-dense.md)
+  - [PIM Sparse](pim-sparse.md)
+  - [BIDIR-PIM](bidir-pim.md)
   - [Auto-RP](auto-rp.md)
   - [MSDP](msdp.md)
 
@@ -110,6 +113,8 @@
 # BGP
 
 - [BGP](bgp.md)
+  - [BGP Confederations](bgp-confederations.md)
+  - [BGP Route Reflectors](bgp-route-reflectors.md)
   - [BGP Tuning](bgp-tuning.md)
   - [BGP Load Balancing](bgp-load-balancing.md)
 
@@ -181,9 +186,13 @@
 - [YANG](yang.md)
 - [MDT](mdt.md)
 
-# Transport and Physical
+# Layer 1
 
-- [Optical](optical.md)
+- [SONET](sonet.md)
+  - [SONET C2 Byte](sonet-c2-byte.md
+- [G.709](g709.md)
+- [RPR - Resilient Packet Ring](rpr.md)
+- [SRP - Spatial Reuse protocol](srp.md)
 - [T1](t1.md)
 - [SRP](srp.md)
 - [MLPPP over ATM](mlppp-over-atm.md)

@@ -1,4 +1,4 @@
-# Optical
+# SONET
 
 ## Terms
 
@@ -48,47 +48,6 @@ It's been a while, the below might be wrong.
 
 </pre>
 
-### C2 Byte
-
-C2 Defines the SONET payload
-
-An old note, probably from a standard document.
-
-    The SONET standard defines the C2 byte as the path signal label. The purpose of this byte
-    is to communicate the payload type that the SONET Framing OverHead (FOH) encapsulates.
-    The C2 byte functions similar to Ethertype and Logical Link Control (LLC)/Subnetwork
-    Access Protocol (SNAP) header fields on an Ethernet network. The C2 byte allows a single
-    interface to transport multiple payload types simultaneously.
-
-This table lists common values for the C2 byte:
-
-| Hex Value  | SONET Payload Contents                                          |
-| ---------- | --------------------------------------------------------------- |
-| 00         | Unequipped.                                                     |
-| 01         | Equipped - non-specific payload.                                |
-| 02         | Virtual Tributaries (VTs) inside (default).                     |
-| 03         | VTs in locked mode (no longer supported).                       |
-| 04         | Asynchronous DS3 mapping.                                       |
-| 12         | Asynchronous DS-4NA mapping.                                    |
-| 13         | Asynchronous Transfer Mode (ATM) cell mapping.                  |
-| 14         | Distributed Queue Dual Bus (DQDB) cell mapping.                 |
-| 15         | Asynchronous Fiber Distributed Data Interface (FDDI) mapping.   |
-| 16         | IP inside Point-to-Point Protocol (PPP) with scrambling.        |
-| CF         | IP inside PPP without scrambling.                               |
-| E1- FC     | Payload Defect Indicator (PDI).                                 |
-| FE         | Test signal mapping (see ITU Rec. G.707).                       |
-| FF         | Alarm Indication Signal (AIS).                                  |
-
-An Example:
-
-```console
-Framing: SONET
-SPE Scrambling: Enabled
-C2 State: Stable   C2_rx = 0xCF (207)   C2_tx = 0x16 (22) / Scrambling Derived
-S1S0(tx): 0x0  S1S0(rx): 0x2 / Framing Derived
-```
-
-
 Monitoring at each Network Element is usually helpful
 
 
@@ -101,7 +60,7 @@ POS - Spawned interface from SONET controller.
 
 Sonet YELLOW is RDI (Remote Defect indication)
 
-### Packet Over Sonet
+## Packet Over Sonet
 
 ```console
 Document: Troubleshooting Bit Error on SONET Links
@@ -117,31 +76,19 @@ B2: B2 can detect a far higher number of errors per frame. The exact number incr
 B3: B3 can detect up to eight parity errors in the entire SPE. This number produces acceptable resolution for a channelized interface because, (for example) each STS-1 in an STS-3 has a path overhead and B3 byte. However, this number produces poor resolution over concatenated payloads in which a single set of path overhead must cover a relatively large payload frame.
 ```
 
-#### Packet over SONET commands
+## Packet over SONET commands
 
-#### Displays information about the automatic protection switching feature
+## Displays information about the automatic protection switching feature
 
 `show aps`
 
-#### Displays information about the hardware
+## Displays information about the hardware
 
 `show controller sonet slot/port-adapter/port`
 
-#### Displays information about the interface
+## Displays information about the interface
 
 `show controllers pos`
-
-
-## G709
-
-G709 is an optical specification that is specifcially designed for FEC (Forward Error correction)
-	It uses Reed-Solomon to produce redundant information that can be used to rebuild the frame.
-
-- **OTU** - Optical channel Transport Unit
-
-- **ODU** - Optical channel Data Unit
-
-- **OPU** - OPtical channel Payload Unit
 
 ## SRP - Spatial Reuse protocol
 
@@ -225,6 +172,6 @@ IPS BER thresholds(B3):   SF = 10e-3  SD = 10e-6
 TCA thresholds:           B1 = 10e-6  B2 = 10e-6  B3 = 10e-6
 ```
 
-#### References
+## References
 
 [SONET Primer](https://www.cisco.com/c/en/us/td/docs/optical/15000r5_0/planning/guide/r50engpl/r50appb.pdf)

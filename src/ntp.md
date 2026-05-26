@@ -1,14 +1,14 @@
 # NTP
 
-#### Server Only - Based on Internal Clock
+## Server Only - Based on Internal Clock
 
 `ntp master <stramum>`
 
-#### Client/Server - Based on other NTP clocks and stratum
+## Client/Server - Based on other NTP clocks and stratum
 
 `ntp server <address|hostname>`
 
-### An Example Config
+## Config
 
 I found a list of time servers [here.](https://gist.github.com/mutin-sa/eea1c396b1e610a2da1e5550d94b0453)
 

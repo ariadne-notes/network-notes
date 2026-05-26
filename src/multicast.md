@@ -1,5 +1,7 @@
 # Multicast
 
+## Terms
+
 - **Multicast:** A one-to-many service using UDP packets destined to group IP address. Hosts subscribe to the group, routers replicate for the group.
 - **IGMP:** Internet Group Management Protocol. A host uses IGMP to request a multicast stream. Switches see it (for snooping), and the FHR uses this to build the MDT.
 - **PIM:** Protocol Independent Multicast. Multicast capable routers communicate to each over via PIM.
@@ -22,10 +24,7 @@
 - **RIB:** Routing Information Base
 - **DF:** Designated Forwarder. Used in PIDIR-PIM.
 
-## Harder Terms
-
-
-### RPF - Reverse Path Forwarding
+## RPF - Reverse Path Forwarding
 
 PIM is protocol independent, in the sense, that if a stream turns on, it must have a source, so it takes the form (10.0.0.1, 239.1.1.1), a (S,G).
 
@@ -38,7 +37,6 @@ Tracing the traffic back to the source this way is called "reverse path forwardi
 The PIM neighbor on the RPF is called the RPF neighbor.
 
 Any multi-cast traffic from any given source, not received on the RPF is discarded. This prevents loops.
-
 
 ## Shared Trees
 
@@ -115,7 +113,6 @@ mDNS               | 224.0.0.251
 
 ## PIM
 
-
 PIM Mode             | Full Name             | How it works
 ---------------------|-----------------------|------------------------------------------------------
 PIM-DM               | Dense Mode            | No RP. Floods everywhere, routers send prune messages to un-join. Assumes everyone wants the traffic.
@@ -140,95 +137,6 @@ PIM-SSM              | Source Specific       | No RP. Receiver specifies both so
  10   | DF election                | 224.0.0.13 (all PIM routers)      | Bidir-PIM only. Elects a Designated Forwarder per link to forward traffic toward the RP.
 
 
-
-
-
-
-## Dense
-
-Based on RFC 3973 Protocol Independent Multicast Dense Mode (PIM-DM)
-
-- Push Model
-  - Good for when every subnet probably wants this traffic
-- No PIM DR
-  - All FHR forward multicast traffic
-    - Multicast traffic is flooded out every interface that isn't the RPF.
-- Eventually builds a SPT after prunes
-- IGMP joins turn into graft messages
-- Prunes last 3 minutes
-  - Flood and Prune
-  - Routers with no Receivers or duplicate S,G traffic prune.
-  - `224.0.0.13` to find neighbors
-  - Receivers prune back
-  - Router attached to LAN listens for multicast control plane.
-     - Receives source traffic
-       - Insert (*,G) and (S,G) into mrib
-       - Incoming traffic is attached to IIL
-       - OIL is all other interfaces
-       - Flood to OIL
-       - PIM dense always uses SPT.
-- Prune occurs
-  - Traffic flows stop, but (S,G) remains in table
-  - Multicast fails RPF
-  - No downstream neighbor or reciever
-  - Downstream sent prune
-  - LAN Prune override exception
-- After pruning
-
-  - Flood again, prune back, flood again, prune back
-  
-## PIM Sparse
-
-Based on [RFC4601](https://www.rfc-editor.org/rfc/rfc4601) - Protocol Independent Multicast Sparse Mode (PIM-SM)
-
-- Explicit joins everywhere. No flooding.
-- LHR, sends a PIM-Join towards the RP, building a (*,G).
-- Phased
-  - 1. [The RPT tree](https://www.rfc-editor.org/rfc/rfc4601#section-3.1)
-    - Receivers sending their (*,G) messages towards the RP.
-    - FHR encapsulates the multicast traffic directly towards the RP.
-    - PIM-Register
-    - RP de-encapsulates the traffic, sending it down the RPT.
-  - 2. [Register Stop](https://www.rfc-editor.org/rfc/rfc4601#section-3.2)
-    - The RP sends a (S,G) towards the source.
-    - When multicast packets start showing up, without encapsulation, the RP sends a Register-Stop.
-  - 3. [SPT tree](https://www.rfc-editor.org/rfc/rfc4601#section-3.3)
-    - LHR requests a (S,G) entry towards it's upstream, until it's joined to the (S,G) tree.
-    - When the LHR starts getting two copies of the traffic, it sends a (S,G,rpt) prune message, towards the RP. (A prune specific to the RPT)
-- If two LHRs exist, and duplicate traffic is detected a PIM elections happens.
-  - These Asserts are every 3 minutes.
-  - RPTbit, 0 is preferred and means "has (S,G) tree"
-    - Metric Preference (Administrative Distance)
-      - Metric
-        - IP address of subnet interface.
-- Specify the tunnel, for the pim-register messages on Cisco via `ip pim register-source loopback 0`
-- The tunnel interface encapsulates the entire multicast packet, which adds 28 bytes of overhead. Packets close to the MTU will be silently dropped on IOS-XE.
-
-[PIM-SM-register-register-stop-prune.pcap](https://github.com/user/repo/raw/main/captures/multicast/PIM-SM-register-register-stop-prune.pcap)
-  
-  
-
-a DR is elected by highest priority, or highest IP in the subnet.
-
-  - DR sends the PIM join upstream.
-
-The RP always gets the stream, even if it has no receivers to forward it to.
-
-## BIDIR-PIM
-
-
-Based on RFC 4601 - Bidirectional Protocol Independent Multicast (BIDIR-PIM)
-
-- Superset of PIM-SM
-- No (S,G) entries
-- Traffic can flow up and down the same tree.
-- Still needs RPs
-  - RP must be dedicated to BIDIR-PIM.
-- Each bidirectional link has a DF election.
-  - Ingress packets on any PIM interface can be forwarded downstream onto DF links.
-    - No DF links, no forwarding.
-  - Ingress packets to a DF can be forwarded upstream via the RPF towards the RPA.
-  
 ## MSDP
 
 - RPs register to each other, in different multicast domains.
@@ -241,7 +149,7 @@ Based on RFC 4601 - Bidirectional Protocol Independent Multicast (BIDIR-PIM)
 `show ip msdp sa-cache`
 
 
-#### Shared-Tree (*,G)
+## Shared-Tree (*,G)
 
 - Shared trees are essential for multiple senders to the same group
 - A single tree is built for each group, regardless of source
@@ -253,7 +161,7 @@ Based on RFC 4601 - Bidirectional Protocol Independent Multicast (BIDIR-PIM)
 - Source trees are better distributed, hence they are more robust
 - RP Selection is a hassle
 
-#### Source Based Multicast (S,G)
+## Source Based Multicast (S,G)
 
 - PIM dense uses a separate tree for each multicast source and destination group.
 - Groups do not share trees.
@@ -336,7 +244,7 @@ Copy the low order 23 bits directly from the v4 address.
    
 ```
 
-### Building the L2 Address
+## Building the L2 Address
 
 
 Ethernet Multicast MAC Address
@@ -352,7 +260,7 @@ Ethernet Multicast MAC Address
                                       └─  Multicast requires this bit be 0
 ```        
 
-### Quirks and Tech Debt
+## Quirks and Tech Debt
 
 
 Because we copied only 23 bits, vs 28 bits, we have 5 bits of overlap.
@@ -408,19 +316,6 @@ Address           Octet 1    Octet 2    Octet 3    Octet 4
 ## Lab Stuff
 
 
-
 BPF - Capture all PIM, but not PIM hello messages.
 
 `ip proto 103 and not ether[34] == 0x20`
-
-### Sending Multicast
-
-```console
-iperf --client 239.10.10.10 --udp --time 3600 --interval 1 --bandwidth 1pps --ttl 15 --len 1000
-```
-
-### Receiving Multicast
-
-```console
-iperf --server --udp --bind 239.10.10.10 --interval 1
-```

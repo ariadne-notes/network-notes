@@ -1,4 +1,4 @@
-# SRP
+# SRP - Spatial Reuse protocol
 
 SRP - Spatial Reuse protocol. This is used for fiber rings, its where the destination nodes pulls the info from the ring so it doesn't loop endlessly.
 
@@ -19,9 +19,7 @@ RPR - Resilient Packet Ring - 802.17
 
 Side A Always connects to Side B.
 
-## Example of a working connection
-
-
+## Example
 
 ```console
 router # show controller srp 4/0

@@ -20,7 +20,7 @@
                       TTL:    Time to Live, 8 bits
 </pre>
 
-#### MPLS Control Plane
+## MPLS Control Plane
 
 | Table                                | Short Form | Notes |  Command |
 | ------------------------------------ | ---- | ------------------------ | ------------------------- |
@@ -33,14 +33,14 @@
 
 **Outgoing label** - What the LSP does next.
 
-#### Null Labels
+## Null Labels
 
 `[3] Implicit` Pop the label. Implicit because the label is missing.
 
 `[0] Explicit` Keep the label, but the destination must pop it. Used for MPLS QoS.
 
 
-### Steps to build the LFIB
+## Steps to build the LFIB
 
 **1. Find the next-hop for the destination prefix**
 
@@ -70,9 +70,7 @@ show mpls forwarding 3.3.3.4
 - Local 20, Outgoing Pop, Prefix 3.3.3.3/32, Outgoing Int E0/0, Nexthop 10.1.2.1
 ```
 
-
 ## Testing Pseudowires
-
 
 You can test MPLS pseduowire labels by doing labeled pings.
 

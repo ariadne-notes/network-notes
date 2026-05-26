@@ -499,7 +499,6 @@ From [OSPF Sham-Link Support for MPLS VPN - Cisco](https://www.cisco.com/c/en/us
 
 > Before you create a sham-link between PE routers in an MPLS VPN, you must:
 >
-
 > * Configure a new interface with a /32 address on the remote PE so that OSPF packets can be sent over the VPN backbone to the remote end of the sham-link. The /32 address must meet the following criteria:
 >   * Belong to a VRF
 >   * Not be advertised by OSPF
@@ -509,4 +508,4 @@ From [OSPF Sham-Link Support for MPLS VPN - Cisco](https://www.cisco.com/c/en/us
 ## References
 
 
-https://datatracker.ietf.org/doc/html/rfc2328
+[RFC 2328 - OSPF](https://datatracker.ietf.org/doc/html/rfc2328)

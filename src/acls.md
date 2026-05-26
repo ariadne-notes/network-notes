@@ -39,4 +39,4 @@ access-list 10 permit 10.0.0.3
 
 ## References
 
-https://www.cisco.com/c/en/us/support/docs/ip/access-lists/26448-ACLsamples.html
+[Cisco - ACL Examples](https://www.cisco.com/c/en/us/support/docs/ip/access-lists/26448-ACLsamples.html)

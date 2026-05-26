@@ -92,4 +92,4 @@ No BPDUs being received? Wait for the forward delay, transition port to forwardi
 ## References
 
 
-https://www.cisco.com/c/en/us/support/docs/lan-switching/spanning-tree-protocol/24062-146.html
+[Cisco - Spanning Tree Protocol](https://www.cisco.com/c/en/us/support/docs/lan-switching/spanning-tree-protocol/24062-146.html)

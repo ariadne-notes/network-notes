@@ -164,5 +164,5 @@ ariadne@tesseract:~/ansible$ cat upgrade-everything.yml
 
 #### Sources
 
-https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html#installing-ansible-on-debian
-https://docs.ansible.com/ansible/latest/inventory_guide/connection_details.html
+[Ansible Docs - Installing on Debian](https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html#installing-ansible-on-debian)
+[Ansible Docs - Connection Details](https://docs.ansible.com/ansible/latest/inventory_guide/connection_details.html)

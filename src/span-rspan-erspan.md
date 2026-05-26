@@ -76,8 +76,8 @@ monitor session 1 type erspan-destination
 
 ## References
 
-https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9300/software/release/17-12/configuration_guide/nmgmt/b_1712_nmgmt_9300_cg/configuring_span_and_rspan.html
+[Cisco - Configuring SPAN and RSPAN](https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9300/software/release/17-12/configuration_guide/nmgmt/b_1712_nmgmt_9300_cg/configuring_span_and_rspan.html)
 
-https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9300/software/release/17-12/configuration_guide/nmgmt/b_1712_nmgmt_9300_cg/configuring_erspan.html
+[Cisco - Configuring ERSPAN](https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9300/software/release/17-12/configuration_guide/nmgmt/b_1712_nmgmt_9300_cg/configuring_erspan.html)
 
-https://www.cisco.com/c/en/us/td/docs/iosxr/cisco8000/traffic-mirroring/b-traffic-mirroring-configuration-guide-cisco8k/erspan-overview/restrictions-for-erspan.html
+[Cisco - ERSPAN Restrictions (IOS XR)](https://www.cisco.com/c/en/us/td/docs/iosxr/cisco8000/traffic-mirroring/b-traffic-mirroring-configuration-guide-cisco8k/erspan-overview/restrictions-for-erspan.html)

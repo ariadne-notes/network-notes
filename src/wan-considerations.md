@@ -1,21 +1,24 @@
 # WAN Considerations
 
-- **DIA:** Direct Internet Access. This is what we hawe at home, a "connection to the Internet." Many (especially older) WAN technologies are point-to-point.
+DIA
+  : Direct Internet Access.
+  : Ordinary connection to the Internet.
 
-## [Leased Lines]
+## Leased Lines
 
-- Point-to-point
+- Point-to-point.
 - Logically "a wire" between two sites.
 - ISP makes the wire look continuous.
-- Usually based on T-Carrier, or OCx technology.
-- Usually takes months to provision.
-- Usually older tech
-- Usually very private (only the ISP can see the data)
+- Usually .
+  - Based on T-Carrier, or OCx technology.
+  - Takes months to provision.
+  - Older tech.
+  - Very private (only the ISP can see the data)
 - Sometimes requires construction to provision.
 - Always more expensive, but reliable and dedicated bandwidth.
 - Gets more expensive with a SLA.
 
-## [T-Carrier]
+## T-Carrier
 
 - Leased line.
 - Invented in the 1950s, used to link telephone central offices and transport telephone calls.

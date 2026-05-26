@@ -7,6 +7,9 @@ Term A
 Term B
   : This is a definition of term B.
   : This has more than one definition.
+  
+OSI Term: Does this work?
+  : I wonder if it does.
 
 **A** - This is about A.
 

@@ -12,7 +12,7 @@ switch(config)# spanning-tree portfast bpduguard default
 
 ... should be set so access ports go `errdisable` when a rogue switch is connected and require an operator to correct.
 
-#### Seeing `err-disabled` status
+## Seeing `err-disabled` status
 
 ```console
 switch# show int status
@@ -24,13 +24,13 @@ Et3/0                        connected    trunk        auto   auto unknown
 Et3/1                        connected    1            auto   auto unknown
 ```
 
-#### Turning on automated recovery
+## Turning on automated recovery
 
 ```console
 switch(config)# errdisable recovery cause bpduguard
 ```
 
-#### Verify
+## Verify
 
 ```console
 switch# show errdisable recovery 

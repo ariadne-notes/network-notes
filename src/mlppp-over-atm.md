@@ -48,7 +48,7 @@ One of the more involved things I've built to find a bug.
                                                                                                                20.1.1.2/32               
 ```
 
-#### CPE
+## CPE
 
 ```console
 !
@@ -90,7 +90,7 @@ ip route 0.0.0.0 0.0.0.0 192.168.0.1
 ```
 
 
-#### DSLAM
+## DSLAM
 
 ```console
 !
@@ -139,7 +139,7 @@ interface ATM1/3
 !
 ```
 
-#### LS1010
+## LS1010
 
 ```console
 !
@@ -160,7 +160,7 @@ interface ATM0/0/1
 end
 ```
 
-#### LAC
+## LAC
 
 ```console
 !
@@ -219,7 +219,7 @@ interface Virtual-Template1
 !         
 ```
 
-#### LNS
+## LNS
 
 ```console
 !
@@ -334,7 +334,7 @@ ip classless
 ```
 
 
-#### 7200-P
+## 7200-P
 
 ```console
 !
@@ -391,7 +391,7 @@ gatekeeper
 !
 ```
 
-#### Other 10k
+## Other 10k
 
 ```console
 Other_10k# show run
@@ -472,8 +472,7 @@ control-plane
 !
 ```
 
-
-#### 3900 - Pagent Box
+## 3900 - Pagent Box
 
 ```console
 pagent #show run

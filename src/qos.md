@@ -19,7 +19,7 @@
 - **PQ:** Priority Queue. A queue that is served first, even if other queues have been waiting longer.
 
 
-### Type of Service
+## Type of Service
 
 How these 8 bits get used has changed over the years.
 
@@ -52,7 +52,16 @@ How these 8 bits get used has changed over the years.
                   └───────────┴───┘
 </pre>
 
-### Assured Forwarding
+### PHB - Per Hop Behaviors
+
+| PHB | Name | Description |
+|--------|-----------------------|---|
+| **CS** | Class Selector        | CS0 to CS7, backward compatible with IP Precedence |
+| **AF** | Assured Forwarding    | Modern Queuing and congestion avoidance |
+| **EF** | Expedited Forwarding  | Lossless and LLQ |
+
+
+## Assured Forwarding
 
 [Assured Forwarding PHB Group](https://datatracker.ietf.org/doc/html/rfc2597)
 
@@ -96,7 +105,7 @@ Yields the following formula.
 
 DSCP = 8 (class) + 2 (drop)
 
-### QoS Consequences
+## QoS Consequences
 
 LAN QoS with voice (buffer management)
 
@@ -105,28 +114,14 @@ LAN QoS with voice (buffer management)
  * VoIP QoS cannot be fixed by adding bandwidth. You simply cannot drop these
  * packets.
 
-
-#### QoS Commands
+## QoS Commands
 
 | Command | Description |
 | ------------------------------------ | ------------------------------------------------------------------------- |
 | `show mls qos interface f0/0`        | shows if the interface trusts the markings                                |
 | `mls qos trust device cisco-phone`   | trusts the phone on the attached port. Uses CDP to verify its a phone     |
 
-
-### PHB - Per Hop Behaviors
-
-| PHB | Name | Description |
-|--------|-----------------------|---|
-| **CS** | Class Selector        | CS0 to CS7, backward compatible with IP Precedence |
-| **AF** | Assured Forwarding    | Modern Queuing and congestion avoidance |
-| **EF** | Expedited Forwarding  | Lossless and LLQ |
-
-
-</pre>
-
-### RFC 4594 — DiffServ Service Classes
-
+## RFC 4594 — DiffServ Service Classes
 
 | Service Class         | PHB  | DSCP     | Flow type        | Queue Strategy             |                                           |
 |-----------------------|------|----------|------------------|----------------------------|-------------------------------------------|

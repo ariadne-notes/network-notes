@@ -1,12 +1,12 @@
 # OS Architecture
 
-#### IO Pathways
+## IO Pathways
 
 Device controller tells the CPU it's done (put data into a buffer) by sending an interrupt.
 
 IO goes from controller - local buffer - CPU
 
-#### Interrupts
+## Interrupts
 
 Hardware interrupts
 
@@ -51,12 +51,12 @@ When done, the IO controller sends an interrupt.
 - **Asymmetric** - each processor does a specific task.
 - **Symmetric** - each processor performs all tasks.
 
-## Multithreading
+### Multithreading
 
 
 While one thread is asking for memory, execute the other thread. Go back and forth.
 
-## Dual Mode
+### Dual Mode
 
 User mode and Kernel mode, with a mode bit.
 Kernel mode is also called privileged.
@@ -74,7 +74,7 @@ APIs are provided facilities to access the kernel without using system calls (wh
 
 Windows will show a percentage of CPU. Linux systems instead show the number of processes waiting to acces the CPU. It can get to double digits.
 
-## Threading
+### Threading
 
 A single-thread process has a program counter that says "go here to read the next instruction please"
 
@@ -121,15 +121,15 @@ Write easy to understand code, planning on future debugging.
 
 ## Communications Models
 
-## Message Passing (modern)
+### Message Passing (modern)
 
 - Puts messages into a shared queue, gives it a number, tell the other app "Go read this message"
 
-## Shared Memory (ancient)
+### Shared Memory (ancient)
 
 - Applications can just overwrite each others data.
 
-## Scheduling
+### Scheduling
 
 - **FCFS** - First come First Served. Not really used anymore
 - **SJF** - Shortest Job first, kind-of how QoS works.
@@ -138,7 +138,6 @@ Write easy to understand code, planning on future debugging.
 - **CFS** - *Completely Fair Scheduler
   * Involved, emulates time-slices
   * N tasks, each task gets 1/N time.
-
 
 ### Multilevel Queue - Done in Linux
 
@@ -152,7 +151,6 @@ Write easy to understand code, planning on future debugging.
 
 - Argument vector - the command line arguments used to invoke the running program
 - Environment vector - the list of "NAME=VALUE" pairs
-
 
 ## Static and Dynamic Linking
 

@@ -11,10 +11,9 @@ xTR for Site 2 - Lo0 19.19.19.19
 ```
 
 
-#### Site 1 - xTR
+## Site 1 - xTR
 
-
-#### config
+### Config
 
 ```console
 R18# show run | s lisp
@@ -27,7 +26,7 @@ router lisp
  exit
 ```
 
-#### verify
+#### Verify
 
 
 ```console
@@ -41,10 +40,10 @@ LISP IPv4 Mapping Cache for EID-table default (IID 0), 2 entries
 19.19.19.19  00:10:08  up           1/50 
 ```
 
-#### Site 2 - xTR
+## Site 2 - xTR
 
 
-#### config
+### Config
 
 ```console
 R19# show run | s lisp
@@ -57,10 +56,10 @@ router lisp
  exit
 ```
 
-#### verify
+### Verify
 
 ```console
-R19#show ip lisp map-cache 
+R19# show ip lisp map-cache 
 LISP IPv4 Mapping Cache for EID-table default (IID 0), 2 entries
 
 0.0.0.0/0, uptime: 00:11:50, expires: never, via static send map-request
@@ -70,10 +69,10 @@ LISP IPv4 Mapping Cache for EID-table default (IID 0), 2 entries
   18.18.18.18  00:11:29  up           1/50
 ```
 
-#### MS/MR
+## MS/MR
 
 
-#### config
+### Config
 
 ```console
 R16# show run | s lisp
@@ -93,7 +92,7 @@ router lisp
  exit
 ```
 
-#### verify
+### Verify
 
 ```console
 R16# show lisp site name 1
@@ -139,7 +138,7 @@ Allowed EID-prefixes:
       19.19.19.19  yes    up           1/50 
 ```
 
-#### A Packet (an ICMP Request)
+## A Packet (an ICMP Request)
 
 [Capture is here](https://github.com/ariadne-notes/networking/blob/main/packet-captures/lisp/lisp-icmp-ping.pcapng)
 
@@ -205,7 +204,7 @@ Internet Control Message Protocol
 0020  28 29 2a 2b 2c 2d 2e 2f 30 31 32 33 34 35 36 37   ()*+,-./01234567
 ```
 
-### Lisp Packet in the RFC
+## Lisp Packet in the RFC
 
 ```plain
 Farinacci, et al.             Experimental                     [Page 15]
@@ -306,7 +305,6 @@ RFC 6830                          LISP                      # January 2013
        +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 ```
 
-
-### Sources
+## References
 
 [LISP Fundamentals and Troubleshooting Basics - Cisco](https://community.cisco.com/t5/networking-knowledge-base/lisp-fundamentals-and-troubleshooting-basics/ta-p/3155439)

@@ -1,29 +1,38 @@
 # How To Take Notes
 
-### I don't need to take notes. I can remember everything just fine
+## I don't need to take notes. I can remember everything just fine
 
+Note down what you will not remember.
+ 
+- Bit counts
+- Packet headers
+- Tiny specific interactions
 
-Practice recording details. Bit counts, packet headers, the tiny specific interactions.
+You can find these details via
 
-Could be: Reading whitepapers, reading RFCs, reading forum posts, doing labs, collecting outputs, collecting packets, collecting debugs.
+- Reading white-papers
+- Reading RFCs
+- Reading forum posts
+- Doing labs
+- Finding  outputs
+- Collecting packets
+- collecting debugs
 
-### I don't look at my notes after I take them
+## I don't look at my notes after I take them
 
-
-Don't take notes on stuff you'll remember, take notes on stuff you'll forget.
+Don't take notes on stuff you'll remember, *take notes on stuff you'll forget.*
 
 Learn what kinds of details you forget.
 
 The notes aren't for you six months from now, the notes are for you, six years from now.
 
-### I can't take notes digitally, I need to write them out
+## I can't take notes digitally, I need to write them out
 
-
-If take handwritten notes, OCR them into digitals. The AI is decent at this.
+You can take handwritten notes, just OCR them into digitals. The AI is decent at this.
 
 If typing is painful consider a much nicer keyboard and something like [Dvorak](https://www.dvzine.org/zine/TheDvorakZine.pdf)
 
-**References**
+## References
 
 [MIT - Notes and Notebooks - Mayfield Handbook of Technical and Scientific Writing](<https://web.mit.edu/course/21/21.guide/notebook.htm>)
 

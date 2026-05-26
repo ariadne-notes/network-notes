@@ -1,12 +1,29 @@
 # BFD
 
+## Terms
+
+- **Echo** - Test the dataplane.
+
+- **BOB** - BFD over Bundle.
+
+- **BLB** - BFD over Logical Bundle - (VLANS, Sub-interfaces). 
+  - This requires multipath to be enabled. 
+  - Multipath doesn't inject BFD packets into the HP queue.
 
 
-### BFD Async without Echo
+## Ports
+
+BFD is UDP, to an application on the network device
+
+BFD Control is sent as SRC UDP 49512 --> Destination 3784
+
+BFD Payload is sent as SRC UDP 3785  --> Destination 3785
+
+## BFD Async without Echo
 
 - Control plane oriented
 
-Please respond to this packet with the control plane of the far device.
+"Please respond to this packet with the control plane of the far device."
 
 ```plain
           Peer-A to Peer-B, lets agree to use BFD.
@@ -24,11 +41,11 @@ Please respond to this packet with the control plane of the far device.
 └───────┘ ◄────────────────────────────── └───────┘
 ```
 
-### BFD Async with Echo
+## BFD Async with Echo
 
 - Data plane oriented
 
-Just loop the BFD packets back onto the link, please.
+"Just loop the BFD packets back onto the link, please."
 
 The packets never leave the data plane, and never touches the control plane of Peer-A or Peer-B.
 
@@ -59,16 +76,8 @@ The packets never leave the data plane, and never touches the control plane of P
 └───────┘                                   └───────┘ 
 ```
 
-## Ports
 
-BFD is UDP, to an application on the network device
-
-BFD Control is sent as SRC UDP 49512 --> Destination 3784
-
-BFD Payload is sent as SRC UDP 3785  --> Destination 3785
-
-
-#### BFD State Machine
+## BFD State Machine
 
 Courtesy of the RFC
 
@@ -104,15 +113,10 @@ DOWN│    │ INIT │--------------------->│  UP  │    │INIT, UP
          └──────┘                      └──────┘              
 ```
 
-- **Async** - If the other side doesn't receive the packets, it's declared down.
 
-- **BOB** - BFD over Bundle
+## IOS-XR Commands
 
-- **BLB** - BFD over Logical Bundle - (VLANS, Sub-interfaces). This requires multipath to be enabled. Multipath doesn't inject BFD packets into the HP queue.
-
-
-
-### IOS-XR Commands
+### Multipath
 
 ```console
 multipath include location 0/1/CPU0
@@ -120,10 +124,7 @@ bundle coexistence bob-blb logical
 show tech-support routing bfd file
 ```
 
-## IOS-XR Examples
-
-#### Take the session down if latency grows to 150ms for a single echo packet
-
+### Take the session down if latency grows to 150ms for a single echo packet
 
 ```console
 bfd fast detect 
@@ -131,8 +132,7 @@ bfd multiplier 50
 echo latency detect
 ```
 
-#### Take the session down if latency grows to 300ms for a single echo packet
-
+### Take the session down if latency grows to 300ms for a single echo packet
 
 ```console
 bfd fast detect 
@@ -140,7 +140,7 @@ bfd multiplier 50
 bfd echo latency detect percentage 200
 ```
 
-#### Take the session down if the latency grows to 150ms for 3 consequitive echo packets
+### Take the session down if the latency grows to 150ms for 3 consequitive echo packets
 
 ```console
 bfd fast detect
@@ -148,7 +148,7 @@ bfd multiplier 50
 bfd echo latency detect percentage 100 count 3
 ```
 
-#### Disable echo mode
+### Disable echo mode
 
 ```console
 bfd 
@@ -156,7 +156,7 @@ interface g0/0/0/0
  echo disable
 ```
 
-#### Protecting the BFD data-plane packets from QoS
+### Protecting the BFD data-plane packets from QoS
 
 `192.168.100.1 <-> 192.168.100.2`
 
@@ -187,7 +187,7 @@ interface TenGig <>
 
 ## Enabling BFD on RSVP (IOS)
 
-#### A Config
+### A Config
 
 ```console
 ip rsvp signalling bfd hello
@@ -199,7 +199,7 @@ int f0/0.45
  bfd interval 50 min_rx 50 multiplier 3
 ```
 
-#### Verification
+### Verification
 
 
 `show ip rsvp hello bfd nbr`

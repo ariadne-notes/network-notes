@@ -2,7 +2,6 @@
 
 ## Terms
 
-
 - **Bridge:** A device that participates in the spanning tree algorithm.
 
 - **Root Bridge:** The bridge that wins the STP election.
@@ -30,8 +29,6 @@
 
 ## How STP makes a loop free topology
 
-
-
 STP elects root and designated ports, aka RP, and DPs. It also moves STP ports into Blocking.
 
 - A bridge can only have one RP.
@@ -55,10 +52,7 @@ STP elects root and designated ports, aka RP, and DPs. It also moves STP ports i
 1. Non-root bridge starts STP elections on all other ports, by sending BPDUs. It takes the cost inside the received BPDU, and adds it's port cost.
 1. If a DP gets a BDPU, STP blocks the port if the received BPDU is better.
 
-
-
 ## Port Selection Algo
-
 
 - All choices are made based on the received BPDU.
 - Modifications are made on the upstream switch.
@@ -76,7 +70,6 @@ STP elects root and designated ports, aka RP, and DPs. It also moves STP ports i
 
 ## Device Priority
 
-
 4 bits, goes in geometric sequence starting from 0 to 61440.
 
 ```console
@@ -87,10 +80,7 @@ switch(config)# spanning-tree vlan 60 priority ?
   32768 36864 40960 45056 49152 53248 57344 61440
 ```
 
-
-
 ## Root bridges election in Spanning Tree
-
 
 Two bridges send each other BPDUs, they compare bridge IDs to see who will keep sending BPDUs
 
@@ -99,7 +89,6 @@ The bridge with the lower ID (priority + mac address) wins. The non-root-bridge 
 The default for priority is `32768` or `0x80` on the wire. Because the 802.1D committee exists, the priority is this, plus the vlan ID.
 
 **Always** configure a root bridge, or the *oldest device* with probably the *lowest mac address* wins the root bridge election.
-
 
 ## Path Cost
 
@@ -139,8 +128,6 @@ For end Hosts
 ## Loop Prevention
 
 Best practice is to set the root to `0` and the secondary to `4096`.
-
-
 
 ### STP Loop Guard
 
@@ -211,7 +198,7 @@ The 802.1D committee wanted *two* learning states[^stp], one with and one withou
 └─────────────┘                                                     
 ```
 
-#### BPDU Frame Format
+## BPDU Frame Format
 
 **Wireshark**
 
@@ -254,8 +241,6 @@ Two bridges
 - Forward Hello Time
 - Forward Delay
 - Port Identifier
-
-
 
 This is what the BPDU looks like on-the-wire
 
@@ -393,7 +378,6 @@ SW2 wins with `0`. SW2 has the lower bridge priority.
 spanning-tree vlan 1 priority 0
 ```
 
-
 ## Port Blocking, Port Default
 
 Which ports block?
@@ -438,7 +422,6 @@ interface 3
  spanning-tree vlan 1 port-priority 0
 ```
 
-
 ## Port Blocking, Cost?
 
 Which ports block?
@@ -465,7 +448,6 @@ interface 2
  spanning-tree vlan 1 cost 1
 ```
 
-
 ## Topology Change Notifications (TCNs)
 
 - A TCN is a kind of BPDU message.
@@ -486,7 +468,6 @@ Spanning Tree Protocol
 1. All bridges see TC, and set their max-age to 15 seconds.
 1. Root bridge stops sending TCs.
 
-
 The default for Cisco is keeping a mac-address in CAM for 300 seconds (5 minutes)
 
 Receiving a TCN sets this `max age` to the `forward delay` usually 15 seconds. This means any server that is not actively sending, will have it's traffic flooded onto that VLAN.
@@ -496,7 +477,7 @@ switch# show mac address-table aging-time
 Global Aging Time:  300
 ```
 
-#### Finding TCNs
+## Finding TCNs
 
 ```console
 switch# show spanning-tree vlan 20 detail | s Spanning
@@ -513,7 +494,7 @@ switch# show spanning-tree vlan 20 detail | s Spanning
   Timers: hello 0, topology change 0, notification 0, aging 300
 ```
 
-#### On the device
+### On the device
 
 ```console
 switch# show spanning-tree vlan 20 detail | i VLAN|transitions 
@@ -530,7 +511,7 @@ switch# show spanning-tree vlan 20 detail | i VLAN|transitions
    Number of transitions to forwarding state: 2
 ```
 
-#### In the logs
+### In the logs
 
 ```console
 switch# show logging | i %LINK

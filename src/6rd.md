@@ -78,8 +78,6 @@ Interface Tunnel0:
  General Prefix: 2011:1001:1
 ```
 
-
-
 ## References
 
 [RFC 3056: Connection of IPv6 Domains via IPv4 Clouds | RFC Editor](https://www.rfc-editor.org/info/rfc3056/)

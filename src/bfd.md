@@ -1,10 +1,12 @@
 # BFD
 
-I learned this protocol using IOS-XR.
 
-**Async, no echo** - Please respond to this packet with the control plane of the far device.
 
 ### BFD Async without Echo
+
+- Control plane oriented
+
+Please respond to this packet with the control plane of the far device.
 
 ```plain
           Peer-A to Peer-B, lets agree to use BFD.
@@ -20,12 +22,13 @@ I learned this protocol using IOS-XR.
 ┌───────┐ ──────────────────────────────► ┌───────┐
 │Peer-A │                                 │Peer-B │
 └───────┘ ◄────────────────────────────── └───────┘
-
 ```
 
-**Async, with echo** - Just loop the BFD packets back onto the link, please.
-
 ### BFD Async with Echo
+
+- Data plane oriented
+
+Just loop the BFD packets back onto the link, please.
 
 The packets never leave the data plane, and never touches the control plane of Peer-A or Peer-B.
 
@@ -101,7 +104,7 @@ DOWN│    │ INIT │--------------------->│  UP  │    │INIT, UP
          └──────┘                      └──────┘              
 ```
 
-- **Async** - If the other side doesn't recieve the packets, it's declared down.
+- **Async** - If the other side doesn't receive the packets, it's declared down.
 
 - **BOB** - BFD over Bundle
 

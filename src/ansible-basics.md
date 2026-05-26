@@ -16,15 +16,15 @@ This was done on a home lab running Debian 11. `tesseract` is my control-node.
 #### Add Ansible to Sources list
 
 ```console
-$ echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu focal main" | sudo tee /etc/apt/sources.list.d/ansible.list
-$ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
-$ sudo apt update
+echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu focal main" | sudo tee /etc/apt/sources.list.d/ansible.list
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
+sudo apt update
 ```
 
 #### Install Ansible
 
 ```console
-$ sudo apt install ansible
+sudo apt install ansible
 ```
 
 #### Define hosts, Create Host file
@@ -50,7 +50,8 @@ ariadne@tesseract:~/ansible$ cat /etc/ansible/hosts
 
 ```console
 ariadne@tesseract:/etc/ansible$ cat ansible.cfg 
-# [output omitted]
+
+[output omitted]
 
 [defaults]
 host_key_checking = False
@@ -165,4 +166,5 @@ ariadne@tesseract:~/ansible$ cat upgrade-everything.yml
 #### Sources
 
 [Ansible Docs - Installing on Debian](https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html#installing-ansible-on-debian)
+
 [Ansible Docs - Connection Details](https://docs.ansible.com/ansible/latest/inventory_guide/connection_details.html)

@@ -200,7 +200,7 @@
 - [IPSec with IKEv1](ipsec-ikev1.md)
 - [IPSec with IKEv2 and VTI](ipsec-ikev2-vti).md
 
-# Etc (stuff I haven't sorted)
+# Etc (Stuff I Haven't Sorted)
 
 - [iperf2](iperf2.md)
 - [Claude](claude.md)
@@ -223,7 +223,7 @@
 
 - [Cisco Certifications](cisco-certifications.md)
 
-# Other blogs
+# Other Blogs
 
 - [Other Blogs](other-blogs.md)
 

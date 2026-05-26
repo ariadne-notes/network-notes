@@ -155,10 +155,10 @@ router eigrp EIGRP_100
 ### Using the old config, then having the box convert it for you
 
 
-<pre>
+```console
 router eigrp 1
   eigrp upgrade-cli EIGRP_1
-</pre>
+```
 
 ### RIB Scaling
 
@@ -167,12 +167,12 @@ The Cisco RIB can only hold values that are unsigned 4 bytes. The EIGRP named me
 
 This is done automatically (and why the topology values don't match "show ip route". In the event you need to modify it, here it is.
 
-<pre>
+```console
 router eigrp EIGRP_100
   address-family ipv4 unicast autonomous-system 100
     topology base
       metric rib-scale 100
-</pre>
+```
 
 
 ## Variance
@@ -186,7 +186,7 @@ The lowest RIB FD is 433.
 
 With a variance of two, only two interfaces get added to the RIB.
 
-<pre>
+```console
 R1# show ip protocols | i eigrp|variance
 Routing Protocol is "eigrp 100"
       Maximum metric variance 2
@@ -207,18 +207,16 @@ interface GigabitEthernet0/6
 interface GigabitEthernet0/7
  delay 7
 
-
 R1# show ip route
 
-
-[output omitted]q
+[output omitted]
 !
 ! sorted to look pretty and be in order
 !
 D        2.2.2.2 [90/433] via 10.12.1.2, 00:02:35, GigabitEthernet0/1
                  [90/729] via 10.12.2.2, 00:02:35, GigabitEthernet0/2
 
-</pre>
+```
 
 
 ### Longer Delays
@@ -229,7 +227,7 @@ The lowest FD is 3398.
 
 With a variance of two, all seven interfaces get programmed.
 
-<pre>
+```console
 R1# show ip protocols | i eigrp|variance
 Routing Protocol is "eigrp 100"
       Maximum metric variance 2
@@ -252,9 +250,7 @@ interface GigabitEthernet0/6
 interface GigabitEthernet0/7
  delay 17
 
-
 R1# show ip route
-
 
 [output omitted]
 !
@@ -267,7 +263,7 @@ D        2.2.2.2 [90/3398] via 10.12.1.2, 00:00:04, GigabitEthernet0/1
                  [90/4584] via 10.12.5.2, 00:00:04, GigabitEthernet0/5
                  [90/4881] via 10.12.6.2, 00:00:04, GigabitEthernet0/6
                  [90/5177] via 10.12.7.2, 00:00:04, GigabitEthernet0/7
-</pre>
+```
 
 ## Stub Routing
 

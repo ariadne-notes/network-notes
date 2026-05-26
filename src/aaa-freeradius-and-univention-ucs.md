@@ -32,7 +32,7 @@ This solution relies on:
 
 ### AAA Config
 
-<pre>
+```console
 aaa new-model
 !
 radius server FREERADIUS
@@ -46,7 +46,7 @@ aaa authorization exec default group radius local
 line vty 0 15
  login authentication default
  transport input ssh
-</pre>
+```
 
 ## Univention UCS Side
 
@@ -164,7 +164,7 @@ freeradius -X
 ```
 
 ## After it's working, RSYNC it
-
+ 
 
 ```console
 rsync -av /etc/freeradius/3.0/clients.conf \

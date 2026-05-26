@@ -23,7 +23,7 @@ AVF
 : Active Virtual Forwarder
 - Two states {Active, Listen}
 - A router in a GLBP group that is forwarding packets.
-- All AVFs have their own mac, and are responsible for forwarding traffic destined towards that MAC.
+- All AVFs have their own mac and forwarding traffic destined towards that MAC.
 - 4 max.
 
 ### Details

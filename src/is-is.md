@@ -1,14 +1,28 @@
 # ISIS
 
-- Routed Protocol Agnostic, it just finds a shortest path.
-- Good for large flat networks
+IS-IS
+: Intermediate System To Intermediate System
+  - An ISO standard open protocol.
+  - Link State and Shortest Path
+  - Good for large flat networks
+
+IS
+: Intermediate System
+  - A router
+  
+ES
+: End Station
+  - A PC, or a server.
+
 - Default route injected via route-map.
 
-Station Routing
-  : Routing within a L1 area.
+- **Station Routing**
+  - AKA, intra-area
+  - Routing within a L1 area.
   
-Area Routing
-  : Routing within a L2 area.
+- **Area Routing**
+  - AKA, inter-area
+  - Routing within a L2 area.
   
 Backbone
   : The L2 area.

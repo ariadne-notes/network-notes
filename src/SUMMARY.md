@@ -11,6 +11,8 @@
 - [How to Take Notes](how-to-take-notes.md)
 - [How to Make a Blog Like This](how-to-make-a-blog-like-this.md)
 - [How to Evaluate AI](how-to-evaluate-ai.md)
+- [Git](git.md)
+  - [Git Merge](git-merge.md)
 
 # IPv4
 

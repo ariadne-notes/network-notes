@@ -39,6 +39,7 @@
 # IPv6
 
 - [IPv6](ipv6.md)
+  - [IPv6 Subnetting](ipv6-subnetting.md)
   - [IPv6 Hextext Boundaries](ipv6-hextet-boundaries.md)
 
 # IPv6 Transition Technology

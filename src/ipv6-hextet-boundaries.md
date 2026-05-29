@@ -1,6 +1,13 @@
 # IPv6 Hextext Boundaries
 
-As groups of 32
+## Groups of 64
+
+<pre>
+/64   FFFF:FFFF:FFFF:FFFF::
+/128  FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF
+</pre>
+
+## Groups of 32
 
 <pre>
 /32   FFFF:FFFF::
@@ -9,27 +16,20 @@ As groups of 32
 /128  FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF
 </pre>
 
-As groups of 16.
+## As groups of 16
 
 <pre>
 /16   FFFF::
-
 /32   FFFF:FFFF::
-
 /48   FFFF:FFFF:FFFF::
-
 /64   FFFF:FFFF:FFFF:FFFF::
-
 /80   FFFF:FFFF:FFFF:FFFF:FFFF::
-
 /96   FFFF:FFFF:FFFF:FFFF:FFFF:FFFF::
-
 /112  FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF::
-
 /128  FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF
 </pre>
 
-In groups of 8
+## Groups of 8
 
 <pre>
 /8    FF::
@@ -50,7 +50,8 @@ In groups of 8
 /128  FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF
 </pre>
 
-In groups of 4.
+## Groups of 4
+
 <pre>
 /4    F::
 /8    FF::

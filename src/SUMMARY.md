@@ -110,6 +110,7 @@
 - [OSPF](ospf.md)
   - [OSPF LSAs](ospf-lsas.md)
   - [OSPF LSA Captures](ospf-lsa-captures.md)
+  - [OSPFv2 Point-to-Multipoint](ospfv2-p2mp.md)
   - [OSPFv2 LSA Chart](ospfv2-lsa-chart.md)
   - [OSPFv2 LSA Default Routes](ospfv2-lsa-default-route.md)
 

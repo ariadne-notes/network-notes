@@ -8,6 +8,10 @@ Active Router
 Backup Router
 : The routers waiting to transition to become default gateways.
 
+## Details
+
+- Default timers: 1s / 3 seconds
+
 ## Example
 
 ```console

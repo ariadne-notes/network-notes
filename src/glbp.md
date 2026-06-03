@@ -28,6 +28,7 @@ AVF
   - 224.0.0.102
 - UDP 3222
 - MD5 is supported
+- Default timers: 3s / 10s
 
 ## Example
 

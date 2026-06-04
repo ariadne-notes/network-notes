@@ -1,15 +1,90 @@
 # Clouds
 
-IaaS
-  : Infrastructure as a Service. Instead of buying routers, switches, or servers, you can rent digital versions, online.
-  : AWS (Amazon), Azure (Microsoft), Google Cloud Platform.
+Most of this is based on the NIST definitions.
 
-SaaS
-  : Software as a service. Instead of owning or installing software, you can rent it, online.
-  : Microsoft 365 (MS Teams), Salesforce (CRM), Atlassian (Agile), Adobe Creative Cloud
+## NIST Characteristics
 
-Private Cloud
-  : Equipment you own, on a network you own, to reach services you own. Formerly called an Intranet.
+**On-Demand**
 
-[Colo](https://en.wikipedia.org/wiki/Colocation_centre)
-  : Putting equipment you own into a datacenter ... because it's safe there.
+- Unilateral, no human interaction
+  
+**Broad Network Access**
+
+- Works on phones, laptops, desktops
+
+**Resource Pooling**
+
+- Multi-tenant
+- Location independence 
+
+**Rapid Elasticity**
+
+- Capabilities can be provisioned and released, in some cases automatically 
+- Resources often appear unlimited
+- Scales with demand
+
+**Measured Service**
+
+- Resource usage is monitored controlled and reported
+
+## Service Models
+
+**SaaS** --- Software as a Service
+
+Running a providers app on their cloud infrastructure.
+
+- Microsoft 365 (MS Teams)
+- Salesforce (CRM)
+- Atlassian (Agile)
+- Adobe Creative Cloud
+
+**PaaS** -- Platform as a Service
+
+Deploy your own apps into a cloud.
+
+- AWS: Elastic Beanstalk (Java, Python etc.)
+- Azure App Service 
+- Google App Engine
+- IBM Cloud Foundry
+
+**IaaS** --- Infrastructure as a Service
+
+Provision compute, storage, and networks on a providers cloud network.
+
+- AWS (Amazon)
+- Azure (Microsoft)
+- Google Cloud Platform
+
+## Deployments
+
+**Private**
+
+- Provisioned exclusively for one organization
+- The organization can have multiple customers
+- Can be on or off premise
+
+**Community**
+
+- Provisioned exclusively for a community with a shared concern
+- Mission based
+  - Security requirements
+  - Policy Requirements
+  - Compliance Requirements.
+  
+An example is is credit unions.
+
+**Public**
+
+Open for use by the public.
+
+**Hybrid**
+
+Merging some private cloud resources, with a public cloud offering.
+
+- Adding AI capability.
+
+## References
+
+[800-145 The NIST Definition of Cloud Computing](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf)
+
+[What is Hybrid Cloud? | IBM](https://www.ibm.com/think/topics/hybrid-cloud)

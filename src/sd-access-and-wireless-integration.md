@@ -50,7 +50,7 @@ Everything is CAPWAP inside of VXLAN-GPO. Central switching.
 - Subnet for the WLC goes into the underlay network, via an IGP.
 
 
-# References
+## References
 
 [SD-Access Wireless Design and Deployment Guide - Cisco DNA center 2.1.1](https://www.cisco.com/c/dam/en/us/td/docs/cloud-systems-management/network-automation-and-management/dna-center/deploy-guide/cisco-dna-center-sd-access-wl-dg.pdf)
 

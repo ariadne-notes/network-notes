@@ -1,12 +1,25 @@
 # OMP
 
-- **OMP routes:** AKA, vRoutes, AKA Site prefixes. `10.0.0.0/24`.
 
-- **TLOC:** A tunnel endpoint. A tunnel endpoint is a 3-tuple (System IP, Color, Encapsulation)
+## Terms
 
-- **Full Mesh:** Each TLOC will attempt a full-mesh connection with every other TLOC.
 
-n*(n-1)/2
+**OMP** --- Overlay Management Protocol
+
+
+**OMP routes** 
+
+- AKA, vRoutes
+- AKA, Site prefixes `10.0.0.0/24`
+
+**TLOC** --- Transport Locat
+
+- A tunnel endpoint. A tunnel endpoint is a 3-tuple (System IP, Color, Encapsulation)
+
+**Full Mesh** 
+
+- Each TLOC will attempt a full-mesh connection with every other TLOC.
+- n*(n-1)/2
 
 
 - Service routes: Firewalls, IPS, and VPN labels.

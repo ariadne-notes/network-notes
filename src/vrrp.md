@@ -11,6 +11,7 @@ Backup Router
 ## Details
 
 - Default timers: 1s / 3 seconds
+- 224.0.0.18
 
 ## Example
 

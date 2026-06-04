@@ -1,11 +1,18 @@
 # FHRP
 
+Useful for hosts, which cannot configure more than one IP.
+
+FHRPs can suffer from asymmetrical routing, if two switches advertise the same subnet, upstream equipment cannot know which switch is the primary.
+
+This is generally not a problem if both switches can still reach both hosts, but becomes a problem with spanning tree blocking ports.
+
+## Terms
+
 FHRP
 : First Hop Routing Protocol
 
 VIP
 : The shared IP in a a first-hop routing protocol.
-
 
 ## References
 

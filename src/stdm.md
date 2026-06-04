@@ -2,45 +2,55 @@
 
 The common STDM system in the US is T-Carrier.
 
-STDM
-: Synchronous Time-Division Multiplexing
+**STDM**
 
-DS0
-: Level 0. One timeslot.
-  - A timeslot carries 8 bits. 
-  - Frame rate is 8000 Hz. 8 × 8000 = 64 Kbps.
+- Synchronous Time-Division Multiplexing
 
-B8ZS
-: Binary Eight Zero Substitution. 
-  - A special way to encode `0000 0000` for DS0 lines.
+**DS0**
 
-T1 Frame
-: T-Carrier, Level 1. 
-  - Aggregates 24 DS0 frames, or 192 bits.
-  - The T1 gets an extra bit for framing, so 193. 193 × 8000 = 1.544 Mbps.
+- Level 0. One timeslot.
+- A timeslot carries 8 bits. 
+- Frame rate is 8000 Hz. 8 × 8000 = 64 Kbps.
 
-Super Frame
-: 12 T1 frames.
+**B8ZS**
 
-Framing Search
-: Each T1 frame uses the extra bit to encode part of the superframe bit pattern
-  - `0101 1101 0001`, or (5, 13, 1).
+- Binary Eight Zero Substitution. 
+- A special way to encode `0000 0000` for DS0 lines.
 
-APS
-: Automatic Protection Switching.
-  - The device engaging in APS sends the data on *both* links, the working link and the protected link. 
-  - The receiving device devices which to use.
+**T1 Frame**
 
-DS1
-: Data Stream, Level 1.
+- T-Carrier, Level 1. 
+- Aggregates 24 DS0 frames, or 192 bits.
+- The T1 gets an extra bit for framing, so 193. 193 × 8000 = 1.544 Mbps.
 
-T1
-: T-Carrier, Level 1.
-  - Carries 24 DS0 frames, or 192 bits.
-  - The T1 gets an extra bit for framing, so 193. 193 × 8000 = 1.544 Mbps.
+**Super Frame**
 
-ACR
-: Access Circuit Redundancy.
+- 12 T1 frames.
+
+**Framing Search**
+
+- Each T1 frame uses the extra bit to encode part of the superframe bit pattern
+- `0101 1101 0001`, or (5, 13, 1).
+
+**APS**
+
+- Automatic Protection Switching.
+- The device engaging in APS sends the data on *both* links, the working link and the protected link. 
+- The receiving device devices which to use.
+
+**DS1**
+
+- Data Stream, Level 1.
+
+**T1**
+
+- T-Carrier, Level 1.
+- Carries 24 DS0 frames, or 192 bits.
+- The T1 gets an extra bit for framing, so 193. 193 × 8000 = 1.544 Mbps.
+
+**ACR**
+
+- Access Circuit Redundancy.
 
 ## Cisco CEM Terms
 

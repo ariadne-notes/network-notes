@@ -1,44 +1,21 @@
 # MSDP
 
-```plain
-MSDP [Multicast Source Discovery Protocol] - Connecting PIM Sparse-Mode Domains
+Used to link together multicast domains via RPs.
 
-RFC 4611               MSDP Deployment Scenarios             # August 2006
+A source turns on, and when the first RP finds out about it, it notifies other RPs.
 
-1. Introduction
+## Details
 
-MSDP [RFC3618] is used primarily in two deployment scenarios:
+- RPs register to each other, in different multicast domains.
+- RP sends a SA (source active) message.
+- Still needs PIM running for the S,G.
+- TCP port 639.
+- Has keepalives.
 
-o  Between PIM Domains
-
-MSDP can be used between Protocol Independent Multicast Sparse
-Mode (PIM-SM) [RFC4601] domains to convey information about active
-sources available in other domains.  MSDP peering used in such
-cases is generally one-to-one peering, and utilizes the
-deterministic peer-RPF (Reverse Path Forwarding) rules described
-in the MSDP specification (i.e., it does not use mesh-groups).
-Peerings can be aggregated on a single MSDP peer.  Such a peer can
-typically have from one to hundreds of peerings, which is similar
-in scale to BGP peerings.
-
-o  Within a PIM Domain
-
-MSDP is often used between Anycast Rendezvous Points (Anycast-RPs)
-
-[RFC3446] within a PIM domain to synchronize information about the
-active sources being served by each Anycast-RP peer (by virtue of
-IGP reachability).  MSDP peering used in this scenario is
-typically based on MSDP mesh groups, where anywhere from two to
-tens of peers can comprise a given mesh group, although more than
-ten is not typical.  One or more of these mesh-group peers may
-also have additional one-to-one peerings with MSDP peers outside
-that PIM domain for discovery of external sources.  MSDP for
-anycast-RP without external MSDP peering is a valid deployment
-option and common.
-```
+`show ip msdp peer`
+`show ip msdp sa-cache`
 
 ## Startup
-
 
 1. Multicast source starts up.
 2. FHR router sends a register message to the closest RP.
@@ -48,7 +25,7 @@ option and common.
 
 (*,G) means there is an interested receiver.
 
-## MSDP Configuration Example
+## Config
 
 ```console
 !
@@ -81,3 +58,7 @@ ip msdp peer 10.1.1.1 connect-source lo1
 ip msdp originator-id loopback 1
 ip pim rp-address 10.0.0.1
 ```
+
+## References
+
+[RFC 4611 - Multicast Source Discovery Protocol (MSDP) Deployment Scenarios](https://datatracker.ietf.org/doc/html/rfc4611)

@@ -153,6 +153,6 @@ A `/55` is three hextets, plus three binary bits.
 - `3fff:0:0:6000::/55`
 - `3fff:0:0:8000::/55`
 
-# References
+## References
 
 [IPv6 address - Wikipedia](https://en.wikipedia.org/wiki/IPv6_address)

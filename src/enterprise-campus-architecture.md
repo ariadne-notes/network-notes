@@ -9,7 +9,6 @@ The C9000-L series, does not support Catalyst Center, and has lower stackwise Sp
 - The core and distribution switches are the same
 - The center is running StackWise Virtual
 
-
 ## Three Tier
 
 ![cisco-campus-three-tier-with-network-services-layer](./images/cisco-campus/cisco-campus-three-tier-with-network-services-layer.jpg)
@@ -27,12 +26,14 @@ The C9000-L series, does not support Catalyst Center, and has lower stackwise Sp
 
 ## Core Layer
 
-### Gear
+Fast and expensive.
+
+**Gear**
 
 - 9500
 - 9600 (modular chassis)
 
-### Features
+**Features**
 
 - No services
 - Layer 3 only
@@ -43,13 +44,27 @@ The C9000-L series, does not support Catalyst Center, and has lower stackwise Sp
 
 ## Distribution Layer Considerations
 
-### Gear
+Purpose
+- Aggregates wiring closets.
+- Protects the core from high-density peering, and access layer problems.
+
+- Summarize routes towards core
+- Set STP root to be the FHRP Primary
+
+- Enable
+  - RootGuard on Downlinks
+  - Loopguard on Uplinks
+
+- Disable
+  - DTP
+
+**Gear**
 
 - 9400 (modular chassis)
 - 9500
 - 9600 (modular chassis)
 
-### Features
+**Features**
 
 - Service heavy (FHRPs, Routing, SVIs)
 - Typical L2 boundary
@@ -60,26 +75,56 @@ The C9000-L series, does not support Catalyst Center, and has lower stackwise Sp
 
 ## Access Layer
 
-### Gear
+Set ports to access ports.
+
+- Disable
+  - DTP
+  - Etherchannel
+  
+- Enable
+  - Portfast
+  - BPDU-Guard
+    - Or Rootguard
+
+**Gear**
 
 - 9200 (160Gbps stack-wise ring)
 - 9300 (480Gbps stack-wise ring)
 - 9400 (modular chassis)
 
-### Features
+**Features**
 
-- mGig, so access speeds can scale
-- UPOE+, 90W with perpetual power (survives reboots)
-
-
+- Switch stacking
+  - Also provides HA
+- POE
+  - Perpetual Power (survives reboots)
+- mGig (Access port speed scaling)
+- Port Security
+  - 802.1x
+  - Dynamic ARP Inspection
+  - DHCP Snooping
+- Phones
+  - QoS
+  - Trust Boundaries
+  - Auxilary VLANs
+- IP Multicast
+- IGMP snooping
+- Link Aggregation
+  - LACP/PAGP
 
 ## Traditional Design
 
 ![cisco-campus-looped-access](./images/cisco-campus/cisco-campus-looped-access.jpg)
 
 - Needs STP to block ports
+- VLANS can span multiple switches.
 
 ### Traditional Design - Loop Free
+
+- This relies on SVI [Autostate].
+- VLANs cannot span multiple switches.
+
+[Autostate]: https://www.cisco.com/c/en/us/td/docs/switches/lan/c9000/infra/interface-characteristics/interface-characteristics-configuration-guide.html
 
 ![cisco-campus-loop-free-access](./images/cisco-campus/cisco-campus-loop-free-access.jpg)
 

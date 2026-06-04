@@ -183,12 +183,12 @@ AS and Router ID of the BGP router that did the atomic aggregation.
 
 Usually used to tag routes from a specific customer.
 
-Tag | Purpose
--------------|--------------------------
-INTERNET     | Default community.
-NO_EXPORT    | Do not share with other ASes
-NO_ADVERTISE | Do not share with other routers
-LOCAL_AS     | ????
+| Tag          | Purpose
+| -------------|----------------------------------|
+| INTERNET     | Default community.               |
+| NO_EXPORT    | Do not share with other ASes     |
+| NO_ADVERTISE | Do not share with other routers  |
+| LOCAL_AS     | ????                             |
 
 ### ORIGINATOR_ID
 
@@ -231,7 +231,6 @@ Just because the route shows up in `show ip bgp` doesn't mean it will install. B
 3. Use a route-map to set the next hops.
 
 ## References
-
 
 B. Edgeworth, R. Garza Rios, J. Gooley, and D. Hucaby, *CCNP and CCIE Enterprise Core ENCOR 350-401 Official Cert Guide*, 2nd ed. Indianapolis, IN: Cisco Press, 2023.
 

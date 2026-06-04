@@ -1,23 +1,20 @@
 # Windows 10 Physical to Virtual
 
-## My Setup
+I bought a used Intel i7 Windows 10 machine with a 512 GB NVMe drive. 
 
-I am adding a compute node to an existing proxmox cluster.
-
-I bought a used i7 Windows 10 machine with a 512 GB NVMe drive. On the outside are two [COA](https://en.wikipedia.org/wiki/Certificate_of_authenticity#COAs_for_software) stickers, one for Windows 10 Pro, and another for H&S Office 2019.
-
-The current OS boots and the copy of Office works.
+On the outside are two [COA](https://en.wikipedia.org/wiki/Certificate_of_authenticity#COAs_for_software) stickers, one for Windows 10 Pro, and another for MS Office 2019.
 
 **Goal:** I want to keep this install of Windows 10 working, and copy the OS into Proxmox. I want to virtualize this OS.
 
-This will give me a working licensed copy of Office.
+## My Setup
+
+I am adding a compute node to an existing proxmox hypervisor cluster.
 
 ## Theory
 
-I just need to get the "data" onto the [VM.](https://en.wikipedia.org/wiki/Virtual_machine)
+If I can copy the OS drive, as is, I should be OK.
 
-1. The physical machine and the VM need to be able to ping each other.
-1. Installing the drivers ahead of time should make the OS bootable.
+1. I can install the hypervisor drivers onto the OS ahead of time.
 1. Copying the data should preserve the OS and applications.
 1. Copying the partitions should make recovery easier.
 1. Rebuilding the boot information should make the OS bootable.
@@ -26,7 +23,7 @@ A lot of this is to enable a clean "recovery" of the OS once it's copied over. M
 
 - [FAT32](https://en.wikipedia.org/wiki/File_Allocation_Table#FAT32)
 - [NTFS](https://en.wikipedia.org/wiki/NTFS) - This filesystem should really only be checked using Microsoft's own tools.
-- **BCD -** Boot Configuraiton Data
+- **BCD -** Boot Configuration Data
 - [GPT](https://en.wikipedia.org/wiki/GUID_Partition_Table)
 - [EFI](https://en.wikipedia.org/wiki/EFI_system_partition)
 - [MSR](https://en.wikipedia.org/wiki/Microsoft_Reserved_Partition)
@@ -41,7 +38,7 @@ Before doing this, practice both making and recovering bare metal restores (BMRs
 
 BMR is usually *device-to-image*, or *image-to-device.*
 
-[Here](https://clonezilla.org/clonezilla-live-doc.php) are the docs for using Clonezilla.
+Clonezilla [Docs](https://clonezilla.org/clonezilla-live-doc.php)
 
 My Windows 10 BMR is 11GB stored as bzip2.
 

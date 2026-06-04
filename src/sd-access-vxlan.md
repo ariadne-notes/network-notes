@@ -45,7 +45,7 @@ The VNI is matched to a VLAN.
 
 The VNI is matched to a VRF.
 
-# References
+## References
 
 [RFC 7348: Virtual eXtensible Local Area Network (VXLAN): A Framework for Overlaying Virtualized Layer 2 Networks over Layer 3 Networks | RFC Editor](https://www.rfc-editor.org/info/rfc7348/)
 

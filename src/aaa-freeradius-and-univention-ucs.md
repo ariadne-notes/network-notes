@@ -5,7 +5,7 @@ This solution relies on:
 - [Univention UCS](https://www.univention.com/products/ucs/) a Linux based, Active Directory, Domain Controller.
 - [FreeRADUS](https://github.com/FreeRADIUS/freeradius-server), an AAA plugin for Univention UCS.
 
-<pre>
+```plain
 ┌──────────────┐          ┌──────────────┐
 │    UCS-1     │          │    UCS-2     │
 │ ┌──────────┐ │   DRS    │ ┌──────────┐ │
@@ -25,7 +25,7 @@ This solution relies on:
              │   Network    │
              │     Device   │
              └──────────────┘
-</pre>
+```
 
 ## Cisco Side
 
@@ -53,7 +53,7 @@ line vty 0 15
 
 ### LDAP - Create the Groups
 
-This loads the `dc=` stuff into `$ldap_base`
+This loads the `dc=` stuff into `ldap_base`
 
 ```console
 eval $(ucr shell)

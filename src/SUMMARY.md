@@ -46,9 +46,9 @@
 # IPv6 Transition Technology
 
 - [IPv4 to IPV6 Migration Strategies](ipv4-to-ipv6-migration-strategies.md)
-- [ISATAP](isatap.md)
-- [6RD](6rd.md)
-- [NAT64](nat64.md)
+  - [ISATAP](isatap.md)
+  - [6RD](6rd.md)
+  - [NAT64](nat64.md)
 
 # Ethernet
 
@@ -73,6 +73,7 @@
 - [BPDU Filter](bpdu-filter.md)
 - [Root Guard](root-guard.md)
 - [Loop Guard](loop-guard.md)
+- [UplinkFast](uplinkfast.md)
 - [Port Security](port-security.md)
 - [UDLD](udld.md)
 
@@ -104,17 +105,20 @@
   - [BIDIR-PIM](bidir-pim.md)
   - [Auto-RP](auto-rp.md)
   - [MSDP](msdp.md)
+  - [Multicast Tech Debt](multicast-tech-debt.md)
 
 # Routing Protocols
 
 - [OSPF](ospf.md)
-  - [OSPF LSAs](ospf-lsas.md)
-  - [OSPF LSA Captures](ospf-lsa-captures.md)
+  - [OSPF DR Election](ospf-dr-election.md)
+    - [OSPF DR LSAs](ospf-dr-lsas.md)
   - [OSPFv2 Point-to-Multipoint](ospfv2-p2mp.md)
   - [OSPFv2 LSA Chart](ospfv2-lsa-chart.md)
   - [OSPFv2 LSA Default Routes](ospfv2-lsa-default-route.md)
+  - [OSPF LFA](ospf-lfa.md)
 
 - [EIGRP](eigrp.md)
+  - [EIGRP Stub Routing](eigrp-stub-routing.md)
   - [EIGRP Classic Metric](eigrp-classic-metric.md)
   - [EIGRP Wide Metric](eigrp-metric-wide.md)
 - [IS-IS](is-is.md)
@@ -126,6 +130,7 @@
 - [BGP](bgp.md)
   - [BGP Confederations](bgp-confederations.md)
   - [BGP Route Reflectors](bgp-route-reflectors.md)
+  - [BGP Multipath](bgp-multipath.md)
   - [BGP Tuning](bgp-tuning.md)
   - [BGP Load Balancing](bgp-load-balancing.md)
 
@@ -147,9 +152,10 @@
 
 - [Out Of Band Management](oob.md)
 
-# Routing Features
+# High Availability
 
 - [SSO](sso.md)
+- [Stackwise Virtual](stackwise-virtual.md)
 
 # Enterprise Campus
 
@@ -182,6 +188,7 @@
   - [SD-WAN ZTP](sdwan-ztp.md)
 - [SD-Access](sd-access.md)
   - [Cisco Catalyst Center](cisco-catalyst-center.md)
+  - [SD-Access Lisp](sd-access-lisp.md)
   - [SD-Access VXLAN](sd-access-vxlan.md)
   - [SD-Access and Wireless Integration](sd-access-and-wireless-integration.md)
 
@@ -201,6 +208,7 @@
 - [RESTCONF](restconf.md)
 - [NETCONF](netconf.md)
 - [gRPC](grpc.md)
+- [gNMI](gnmi.md)
 - [YANG](yang.md)
 - [MDT](mdt.md)
 
@@ -219,12 +227,6 @@
 - [Back to Back Frame Relay](back-to-back-frame-relay.md)
 - [STDM](stdm.md)
 - [UDP](udp.md)
-- [HTTP Codes](http-codes.md)
-
-# Overlays
-
-- [IPSec with IKEv1](ipsec-ikev1.md)
-- [IPSec with IKEv2 and VTI](ipsec-ikev2-vti).md
 
 # Etc (Stuff I Haven't Sorted)
 
@@ -236,7 +238,6 @@
 - [OS Architecture](os-architecture.md)
 - [Wiki.js, Duplicati, Traefik, Portainer](wikijs-duplicati-traefik-portainer.md)
 - [Windows 10 Physical to Virtual](windows-10-physical-to-virtual.md)
-
 - [BFD](bfd.md)
 - [LISP](lisp.md)
   - [LISP Encapsulation](lisp-encapsulation.md)
@@ -245,6 +246,7 @@
 - [Certbot](certbot.md)
 - [Power Over Ethernet](power-over-ethernet.md)
 - [Wake on LAN](wake-on-lan.md)
+- [Grep](grep.md)
 
 # Certification Stuff
 

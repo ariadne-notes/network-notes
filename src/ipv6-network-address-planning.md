@@ -9,6 +9,9 @@ Common subnets found in v6 BGP global table.
 | /36 – /44 | Sub-allocations, multi-site orgs                  |
 | /48       | End-site (dominant)                               |
 | /64       | One subnet                                        |
+| /127      | Used on p2p links to prevent attacks              |
+
+Found in the *APNIC BGP in 2025* pdf.
 
 > If a /24 is the minimum accepted route prefix size in IPv4, what is the comparable size in IPv6?
 > 

@@ -2,7 +2,7 @@
 
 ## I Don't Need To Take Notes. I Can Remember Everything Just Fine
 
-Note down what you will not remember.
+Note down what you will not remember
  
 - Bit counts
 - Packet headers
@@ -16,7 +16,7 @@ You can find these details via
 - Doing labs
 - Finding  outputs
 - Collecting packets
-- collecting debugs
+- Collecting debugs
 
 ## I Don't Look At My Notes After I Take Them
 

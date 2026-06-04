@@ -46,18 +46,21 @@ A network is set up on Ethernet.
 This will not work.
 
 **IPs are**
+
 - 10.12.34.1
 - 10.12.34.2
 - 10.12.34.3
 - 10.12.34.4
 
 **RIDs are**
+
 - 1.1.1.1
 - 2.2.2.2
 - 3.3.3.3
 - 4.4.4.4
 
 **OSPF Network Types**, attempted.
+
 - point-to-multipoint
 - point-to-multipoint non-broadcast
 
@@ -78,8 +81,8 @@ Neighbor ID     Pri   State           Dead Time   Address         Interface
 
 ### R1 OSPF Debugs Show Adjacency Problems
 
-* R1-R4 Hello messages seem to work fine
-* DBD messages from R1 never get to R4.
+- R1-R4 Hello messages seem to work fine
+- DBD messages from R1 never get to R4.
 
 ```console
 debug ip ospf adjacency

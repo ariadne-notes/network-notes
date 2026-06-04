@@ -1,29 +1,37 @@
 # EIGRP
 
-## EIGRP Terminology
+## Terms
 
 **Successor route**
+
 - The current best path, with the smallest metric. The "successful" route.
 
 **Successor**
+
 - The first next-hop router for the successor route.
 
 **Feasible distance (FD)**
+
 - Lowest metric to reach a subnet. The sum of the RD + local cost.
 
 **Reported distance (RD)**
+
 - The metric inside a route update from another router. The sending router included it's FD, which becomes out RD.
 
 **Feasibility condition**
+
 - If another path is *actually a backup*, the RD will be less than the current FD.
 
 **Feasible successor**
+
 - A route that satisfies the feasibility condition and is maintained as a backup route.
 
 **Split Horizon**
+
 - Never advertise a network, out the same interface it was learned on.
 
 **Poison Reverse**
+
 - If you must advertise a network out the same interface it was received on, advertise the delay as infinity.
 
 ## Feasible Successor Algo
@@ -44,19 +52,18 @@ R1 calculates total path metric.
 
 R1 sees it has an reported distance less than the current distance, so installs that route as the feasible successor.
 
-<pre>
+```plain
 ┌────────┐            1000             ┌────────┐    10.0.0.0/24
 │   R1   ├─────────────────────────────┤   R2   ├──────────────────
 └─────┬──┘                             └─┬──────┘      2000
       │            ┌────────┐            │
       └────────────┤   R3   ├────────────┘
          50        └────────┘      50
-</pre>
+```
 
 ## Example With The EIGRP Topology Table
 
-
-```text
+```console
 R1# show ip eigrp topology 10.0.0.0/24
 EIGRP-IPv4 Topology Entry for AS(1)/ID(1.1.1.1) for 10.0.0.0/24
   State is Passive, Query origin flag is 1, 1 Successor(s), FD is 2100
@@ -265,15 +272,7 @@ D        2.2.2.2 [90/3398] via 10.12.1.2, 00:00:04, GigabitEthernet0/1
                  [90/5177] via 10.12.7.2, 00:00:04, GigabitEthernet0/7
 ```
 
-## Stub Routing
-
-
-- This feature is used so remote sites are never used for transit, and simplifies configuration for remote sites.
-- The router responds to queries for summaries, connected routes, redistributed static routes, external routes, and internal routes with the message "inaccessible."
-- Any neighbor that receives a packet informing it of the stub status will not query the stub router for any routes, and a router that has a stub peer will not query that peer.
-
 ## Network Parser
-
 
 - The CLI parser is converting the IP into binary, then comparing it to the wild mask.
 - The CLI parser will only save the matched bits of the IP.

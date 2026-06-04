@@ -9,36 +9,36 @@
 
 ### Terms
 
-- **IS**
+**IS**
+
 - Intermediate System
 - A router
 
-### NSAP
+**NSAP**
 
 - Network Service Access Point
 - An instance of the IS-IS protocol. 
 
-### NET
+**NET**
 
 - Network Entity Title
 - A router
 - Also refers to the address NSAP
 
-### ES
+**ES**
 
 - End Station
 - A PC, or a server.
 
-### Station Routing
+**Station Routing**
 
 - AKA, intra-area
 - Routing within a L1 area.
 
-### Area Routing
+**Area Routing**
 
--  AKA, inter-area
--  Routing within a L2 area.
-
+- AKA, inter-area
+- Routing within a L2 area.
 - The L2 area.
 
 ## Types of Routers
@@ -77,10 +77,12 @@ These are the Area routers. They do not flood their link state databases into L2
 ## Topologies
 
 **Single Topology**
+
 - All Routed Protocols must be configured on all enabled interfaces.
 - e.g. v4 and v6 on all interfaces.
 
 **Multi-Topology**
+
 - Some interfaces can be v4, others can be v6, others can be both.
 
 
@@ -95,18 +97,22 @@ packet-beta
 ```
 
 **AFI**
+
 - Authority and Format Identifier - 1 byte
 - `49` means local authority, and hexadecimal (binary is encoded).
 
 **Area ID**
+
 - Variable, and ... *includes* the AFI.
 
 **System ID**
+
 - 6 bytes, can fit a MAC address or a v4 address.
 - Must be unique in an area for L1.
 - Must be unique in a domain for L2.
 
 **SEL**
+
 - Selector - 1 byte.
 - This is always `00` to mean router.
 
@@ -125,6 +131,7 @@ Level 1 is Intra area only.
 Level 2 is the backbone.
 
 Level 1 (NSSA)
+
   - Intraarea
   - Default route out (sets the attached bit)
   - Redistribution is allowed.

@@ -6,7 +6,6 @@
 monitor session 1 source interface GigabitEthernet1/0/1 both
 monitor session 1 destination interface GigabitEthernet1/0/2
 ```
-
 ## RSPAN
 
 
@@ -14,7 +13,7 @@ monitor session 1 destination interface GigabitEthernet1/0/2
 - Does not support layer 2 protocols. (CDP, BPDUs)
 - If the source is a trunk port, you can use the `filter` keyword to select specific vlans.
 
-### Source switch
+**Source switch**
 
 ```console
 vlan 3000
@@ -23,7 +22,7 @@ monitor session 1 source interface GigabitEthernet1/0/1 both
 monitor session 1 destination remote vlan 3000
 ```
 
-### Destination switch
+**Destination switch**
 
 ```console
 vlan 3000
@@ -44,7 +43,7 @@ These need `ip routing` turned on.
 These do not support QoS.
 
 
-### Source switch
+**Source switch**
 
 ```console
 monitor session 1 type erspan-source
@@ -59,7 +58,7 @@ monitor session 1 type erspan-source
  no shutdown
 ```
 
-### Destination switch
+**Destination switch**
 
 ```console
 monitor session 1 type erspan-destination

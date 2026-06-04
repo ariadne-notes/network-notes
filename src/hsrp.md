@@ -6,7 +6,7 @@ Cisco Proprietary
 - Version 1,  RFC 2281
 - Version 2, adds IPv6, no RFC
 
-### Version 1
+## Version 1
 
 - No millisecond timers
 - Groups from 0 to 255
@@ -14,7 +14,7 @@ Cisco Proprietary
 - 224.0.0.2
 - default timers: 3s / 10s
 
-### Version 2
+## Version 2
 
 - Millisecond timers
 - Groups from 0 to 4095

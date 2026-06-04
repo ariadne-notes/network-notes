@@ -18,9 +18,17 @@
 
 ## Automatic Tunnels
 
-- **6to4:** Uses `2002::/16`
-- **6RD:** The ISP uses it's own addressing.
-- **ISATAP:** Uses these 32 bits to denotes ISATAP `0000:5EFE`
+**6to4** 
+
+- Uses `2002::/16`
+
+**6RD**
+
+- The ISP uses its own addressing.
+
+**ISATAP** --- Intra-site Automatic Tunnel Addressing Protocol 
+
+- Uses these 32 bits to denotes ISATAP `0000:5EFE`
 
 ## Translation
 
@@ -28,9 +36,13 @@
 
 ## DNS64 And NAT64
 
-- **DNS64:** DNS creates synthetic AAAA records, so a v4 client can connect to a v6 service.
-- **NAT64:** A router translates IPv6 traffic to IPv4 traffic.
+**DNS64** 
 
+- DNS creates synthetic AAAA records, so a v4 client can connect to a v6 service.
+
+**NAT64** 
+
+- A router translates IPv6 traffic to IPv4 traffic.
 
 ## References
 

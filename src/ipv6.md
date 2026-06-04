@@ -88,23 +88,23 @@ All globally routeable IPv6 addresses fit into this block.
 
 ## IPv6 Special Address Blocks
 
-| Name                 | Address Block        | RFC      | Notes                                                                    |
-|----------------------|----------------------|----------|----------------------------------------------------------------------------|
-| Unspecified          | `::/128`             | RFC 4291 | Used on hosts when the IP isn't known, means "bind to all addresses        |
-| Loopback             | `::1/128`            | RFC 4291 | So hosts can talk to themselves                                            |
-| IPv4 Mapped IPv6     | `::ffff:0:0/96`      | RFC 4291 | Transition mechanism. Tells the app "I'm actually a v4 host"               |
-|                      | `64:ff9b::/96`       | RFC 6052 | NAT64 IPv4/IPv6 translation                                                |
-|                      | `64:ff9b:1::/48`     | RFC 8215 | Local-use IPv4/IPv6 translation                                            |
-|                      | `100::/64`           | RFC 6666 | Discard prefix                                                             |
-|                      | `2001::/32`          | RFC 4380 | Teredo tunneling                                                           |
-| Documentation        | `2001:db8::/32`      | RFC 3849 | Intended for labs, books, documents                    |
-|                      | `2002::/16`          | RFC 3056 | 6to4 addressing scheme                                                     |
-| Documentation        | `3fff::/20`          | RFC 9637 | Intended for labs, books, documents. Bigger                                |
-| Segment Routing      | `5f00::/16`          | RFC 9602 | AKA, SRv6                                                                  |
-| ULA (Unique Local)   | `fc00::/7`           | RFC 4193 | Unique local address. Reserved, do not use                                 |
-| ULA (Unique Local)   | `fd00::/8`           | RFC 4193 | Supposed to be random subnet: fdxx:xxxx:xxxx::/48                          |
-| Link Local           | `fe80::/64`          | RFC 4291 | L2 Only, not routeable.                                                    |
-| Multicast            | `ff00::/8`           | RFC 4291 | No broadcasts in v6                                                        |
+| Name                 | Address Block        | RFC  | Notes                                                                      |
+|----------------------|----------------------|------|----------------------------------------------------------------------------|
+| Unspecified          | `::/128`             | 4291 | Used on hosts when the IP isn't known, means "bind to all addresses        |
+| Loopback             | `::1/128`            | 4291 | So hosts can talk to themselves                                            |
+| IPv4 Mapped IPv6     | `::ffff:0:0/96`      | 4291 | Transition mechanism. Tells the app "I'm actually a v4 host"               |
+|                      | `64:ff9b::/96`       | 6052 | NAT64 IPv4/IPv6 translation                                                |
+|                      | `64:ff9b:1::/48`     | 8215 | Local-use IPv4/IPv6 translation                                            |
+|                      | `100::/64`           | 6666 | Discard prefix                                                             |
+|                      | `2001::/32`          | 4380 | Teredo tunneling                                                           |
+| Documentation        | `2001:db8::/32`      | 3849 | Intended for labs, books, documents                                        |
+|                      | `2002::/16`          | 3056 | 6to4 addressing scheme                                                     |
+| Documentation        | `3fff::/20`          | 9637 | Intended for labs, books, documents. Bigger                                |
+| Segment Routing      | `5f00::/16`          | 9602 | AKA, SRv6                                                                  |
+| ULA (Unique Local)   | `fc00::/7`           | 4193 | Unique local address. Reserved, do not use                                 |
+| ULA (Unique Local)   | `fd00::/8`           | 4193 | Supposed to be random subnet: fdxx:xxxx:xxxx::/48                          |
+| Link Local           | `fe80::/64`          | 4291 | L2 Only, not routeable.                                                    |
+| Multicast            | `ff00::/8`           | 4291 | No broadcasts in v6                                                        |
 
 
 ## IPv6 Documentation Prefixes

@@ -1,9 +1,13 @@
 # SD-Access LISP
 
-Usually an IP includes two things
-  - Identity
-  - Location
-  
+LISP
+: Locater Identifier Separation Protocol
+
+Usually an IP includes two things:
+
+- Identity
+- Location
+
 LISP allows these to be de-coupled.
 
 In LISP these are called **namespaces.**

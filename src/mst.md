@@ -11,17 +11,11 @@ switch(config)# spanning-tree mode ?
 
 The Industry has three kinds of interop.
 
-
-
-IEEE            | Cisco         | Notes
-
-----------------|---------------|--------------------------------------------
-STP (802.1D)    | PVST+         | Cisco's version is per vlan
-
-RSTP (802.1w)   | Rapid PVST+   | Cisco's version is per vlan
-
-MST (802.1s)    | MST           | Same standard; Cisco implements it on-gear
-
+| IEEE            | Cisco         | Notes                                          |
+| ----------------|---------------|------------------------------------------------|
+| STP (802.1D)    | PVST+         | Cisco's version is per vlan                    |
+| RSTP (802.1w)   | Rapid PVST+   | Cisco's version is per vlan                    |
+| MST (802.1s)    | MST           | Same standard; Cisco implements it on-gear     |
 
 Industry liked what Cisco was doing with "per vlan" so MST merges that feature into 802.1s.
 
@@ -29,44 +23,57 @@ Industry liked what Cisco was doing with "per vlan" so MST merges that feature i
 
 
 **CST**
+
 - Common Spanning Tree. 
 - For interoperability we fall back to 802.1D, with one spanning tree.
 
 **CST Root**
+
 - The one root bridge for the entire CST.
 
 **MST**
+
 - Multiple Spanning Trees.
 
 **MSTI**
+
 - MST Instance, a group of vlans on a common MSTI.
 
 **MST Region**
+
 - A group of switches with the same high-level config.
 
 **MST Region Boundary**
+
 - Where a MST region sends and receives BPDUs with a different switching instance (could be STP, RSTP, MST but a different region)
 
 **MST Region Root**
+
 - MST can propagate multiple MSTIs. Each MSTI can have it's own root.
 
 **IST**
+
 - Internal Spanning Tree
 - instance 0, the first instance.
 
 **IST Root**
+
 - The IST root is the CST root.
 
 **CIST**
+
 - Common and Internal Spanning tree. MST can derive what STP would do, for interop. If a switch in a MST region is connected to a much older switch, it will present it with a CST.
 
 **MST Region Boundary**
+
 - Any port that connects to a 802.1D or 802.1W device.
 
 **PVST Simulation**
+
 - if a MST switch is root for the whole switch topology, it will map the IST (instance 0) onto the CST, by sending BPDUs for all the VLANS it sees on the neighbor.
 
 **PVST Simulation Check**
+
 - If a MST device receives a superior BPDU, it will shut down the port.
 
 

@@ -30,7 +30,7 @@ Config that lives on the port can sense and respond to a link failure in 8 msec.
 
 For an SVI to go down, it must be the only port, and it must sense the interface down, this takes 150+ msec.
 
-# References
+## References
 
 [RFC 3021 - Using 31-Bit Prefixes on IPv4 Point-to-Point Links](https://datatracker.ietf.org/doc/html/rfc3021)
 

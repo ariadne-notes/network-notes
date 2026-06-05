@@ -62,6 +62,11 @@
   - [Proxy ARP](proxy-arp.md)
 - [VLAN Access Control Lists](vlan-access-control-lists.md)
 
+# IP Security
+- [IPSec](ipsec.md)
+  - [IPSec Authentication Header](ipsec-ah.md)
+  - [IPSec Encapsulating Security Payload](ipsec-esp.md)
+
 # Quality of Service
 
 - [QoS](qos.md)
@@ -249,6 +254,9 @@
 - [Wake on LAN](wake-on-lan.md)
 - [Grep](grep.md)
 - [Unknown Command or Computer Name](unknown-command-or-computer-name.md)
+- [Cisco C9000 Catalyst Troubleshooting](cisco-c9000-troubleshooting.md)
+- [Cisco ECMP](cisco-ecmp.md)
+
 
 # Certification Stuff
 

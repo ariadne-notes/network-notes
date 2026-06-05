@@ -40,7 +40,7 @@ columns 1
 
 ## Switched Flow
 
-The VLAN ACL is only processed once, on switching operation.
+The VLAN ACL is only processed once, on switching operation. 
 
 ```mermaid
 block

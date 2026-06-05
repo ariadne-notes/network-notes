@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 618 195" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g transform="matrix(1,0,0,1,-147.25,-113.25)">
+        <g id="Layer-1" serif:id="Layer 1" transform="matrix(2.83465,0,0,2.83465,0,-360)">
+            <g transform="matrix(0.229959,0,0,0.246091,20.7067,147.529)">
+                <rect x="137" y="80" width="945" height="248" style="fill:rgb(238,248,87);fill-opacity:0.51;stroke:black;stroke-width:2.22px;"/>
+            </g>
+            <g transform="matrix(0.369711,0,0,0.431906,45.2261,131.111)">
+                <rect x="225" y="113" width="375" height="107" style="fill:rgb(0,197,255);fill-opacity:0.31;stroke:rgb(0,57,35);stroke-width:1.28px;"/>
+            </g>
+            <g transform="matrix(0.251669,0,0,0.359497,70.1272,144.824)">
+                <rect x="240" y="130" width="360" height="90" style="fill:rgb(0,134,255);fill-opacity:0.3;stroke:black;stroke-width:1.65px;"/>
+            </g>
+            <g transform="matrix(0.352778,0,0,0.352778,0,127)">
+                <text x="508.371px" y="307.411px" style="font-family:'Helvetica';font-size:1.394px;fill:rgb(0,255,252);">.</text>
+            </g>
+            <g id="rect4791" transform="matrix(0.723427,0,0,1,77.4083,-43.669)">
+                <rect x="76.798" y="247.272" width="29.029" height="18.143" style="fill:rgb(0,157,255);fill-opacity:0.47;stroke:black;stroke-width:0.59px;stroke-linecap:butt;stroke-miterlimit:2;"/>
+            </g>
+            <g id="rect4803" transform="matrix(1.08235,0,0,1,9.86754,-43.669)">
+                <rect x="134.855" y="247.272" width="57.755" height="18.143" style="fill:rgb(0,157,255);fill-opacity:0.47;stroke:black;stroke-width:0.51px;stroke-linecap:butt;stroke-miterlimit:2;"/>
+            </g>
+            <g transform="matrix(1.04626,0,0,1.04319,173.67,214.534)">
+                <text x="0px" y="0px" style="font-family:'Helvetica';font-size:7.056px;">Payload</text>
+            </g>
+            <g id="text4801">
+            </g>
+            <g id="rect5007" transform="matrix(1,0,0,1.03889,46.4722,50.351)">
+                <rect x="39.045" y="147.321" width="40.632" height="18.143" style="fill:rgb(255,182,30);stroke:black;stroke-width:0.5px;stroke-linecap:butt;stroke-miterlimit:2;"/>
+            </g>
+            <g transform="matrix(1,0,0,1,105.597,211.303)">
+                <text x="-7.059px" y="0px" style="font-family:'Helvetica';font-size:7.056px;">ESP</text>
+                <text x="-11.57px" y="8.819px" style="font-family:'Helvetica';font-size:7.056px;">Header</text>
+            </g>
+            <g id="rect5017" transform="matrix(1,0,0,1,57.2005,56.7857)">
+                <rect x="166.461" y="147.321" width="40.632" height="18.143" style="fill:rgb(255,182,30);stroke:black;stroke-opacity:0.98;stroke-width:0.53px;stroke-linecap:butt;stroke-miterlimit:2;"/>
+            </g>
+            <g transform="matrix(1,0,0,1,243.998,211.337)">
+                <text x="-7.059px" y="0px" style="font-family:'Helvetica';font-size:7.056px;">ESP</text>
+            </g>
+            <g transform="matrix(1,0,0,1,243.998,220.157)">
+                <text x="-9.867px" y="0px" style="font-family:'Helvetica';font-size:7.056px;">T<tspan x="-5.815px -3.466px " y="0px 0px ">ra</tspan>iler</text>
+            </g>
+            <g id="rect5027" transform="matrix(1,0,0,1.03889,47.4432,-53.5875)">
+                <rect x="7.137" y="247.272" width="29.029" height="18.143" style="fill:rgb(242,213,13);fill-opacity:0.49;stroke:black;stroke-width:0.52px;stroke-linecap:butt;stroke-miterlimit:2;"/>
+            </g>
+            <g transform="matrix(1,0,0,1,60.1747,211.124)">
+                <text x="5.49px" y="0px" style="font-family:'Helvetica';font-size:7.056px;">IP</text>
+                <g transform="matrix(7.05556,0,0,7.05556,17.6458,8.81944)">
+                </g>
+                <text x="0px" y="8.819px" style="font-family:'Helvetica';font-size:7.056px;">Outer</text>
+            </g>
+            <g id="text5031">
+            </g>
+            <g transform="matrix(0.352778,0,0,0.352778,64.4809,165.735)">
+                <g transform="matrix(20,0,0,20,383.282,95.7223)">
+                </g>
+                <text x="247.666px" y="95.722px" style="font-family:'Helvetica';font-size:20px;">Original Packet</text>
+            </g>
+            <g transform="matrix(0.352778,0,0,0.352778,58.3325,155.817)">
+                <g transform="matrix(20,0,0,20,439.972,91.0107)">
+                </g>
+                <text x="349.923px" y="91.011px" style="font-family:'Helvetica';font-size:20px;">Encrypted</text>
+            </g>
+            <g transform="matrix(0.484739,0,0,0.484739,-63.5613,-21.2579)">
+                <g transform="matrix(20,0,0,20,577.694,408.409)">
+                </g>
+                <text x="346.786px" y="408.409px" style="font-family:'Helvetica';font-size:20px;">IPSec ESP<tspan x="445.37px 450.575px 462.059px 473.182px " y="408.409px 408.409px 408.409px 408.409px "> Tun</tspan>nel Packet</text>
+            </g>
+            <g transform="matrix(0.352778,0,0,0.352778,5.29167,97.0139)">
+                <text x="381.552px" y="326.346px" style="font-family:'Helvetica';font-size:20px;">IP</text>
+                <g transform="matrix(20,0,0,20,413.793,346.346)">
+                </g>
+                <text x="368.207px" y="346.346px" style="font-family:'Helvetica';font-size:20px;">Inner</text>
+            </g>
+            <g transform="matrix(0.352778,0,0,0.352778,0,127)">
+                <g transform="matrix(1.39415,0,0,1.39415,667.601,174.672)">
+                </g>
+                <text x="667.214px" y="174.672px" style="font-family:'Helvetica';font-size:1.394px;fill:rgb(0,209,255);">.</text>
+            </g>
+        </g>
+    </g>
+</svg>

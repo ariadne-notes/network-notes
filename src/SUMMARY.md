@@ -74,6 +74,7 @@
 
 # Enterprise Switchport Features
 
+- [DTP](dtp.md)
 - [Portfast](portfast.md)
 - [BPDU Guard](bpdu-guard.md)
 - [BPDU Filter](bpdu-filter.md)

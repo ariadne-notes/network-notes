@@ -148,7 +148,6 @@
   - [Route Redistribution EIGRP](route-redistribution-eigrp.md)
   - [Route Redistribution OSPF](route-redistribution-ospf.md)
   - [Route Redistribution with Tags](route-redistribution-with-tags.md)
-  - [Route Maps](route-maps.md)
 - [DMVPN](dmvpn.md)
   - [NHRP](nhrp.md)
 - [Policy Based Routing](policy-based-routing.md)

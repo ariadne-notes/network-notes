@@ -2,6 +2,9 @@
 
 The RFC recommended way to modify a path with EIGRP is **changing the delay**, under the interface. This will not impact other protocols. Modifying bandwidth ... affects lots of things!
 
+This calculator uses the EIGRP values from the RFC, in table [5.6.1.2].
+
+[5.6.1.2]: https://www.rfc-editor.org/rfc/rfc7868.html#section-5.6.1.2
 
 <h2 class="sr-only">EIGRP named mode 64-bit wide metric calculator per RFC 7868 with correct interface delay constants</h2>
 

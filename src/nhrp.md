@@ -1,22 +1,30 @@
 # NHRP
 
-NHRP
-: NBMA Next-Hop Resolution Protocol
+**NHRP** --- Next-Hop Resolution Protocol
 
-NBMA
-: Non-broadcast Multi-access Network. Network connections you could make, if only you knew how to address the packet.
+**NBMA** --- Non-Broadcast Multi-Access Network
 
-NBMA Address
-: AKA transport address. For DMVPN, this is the public address out on the Internet.
+Network connections you could make, if only you knew how to address the packet.
 
-NHS
-: Next Hop Server. This is the service that NHRP provides. The NHS is usually the hub router.
+**NBMA Address**
 
-NHC
-: Next Hop Client. These can dynamically register with the NHS.
+- AKA transport address.
 
-Protocol Address
-: AKA overlay address. This is what the client asks for. For a point-to-multipoint cloud, this is usually a subnet.
+For DMVPN, this is the public address out on the Internet.
+
+**NHS** --- Next Hop Server
+
+This is the service that NHRP provides. The NHS is usually the hub router.
+
+**NHC** --- Next Hop Client
+
+These can dynamically register with the NHS.
+
+**Protocol Address**
+
+- AKA overlay address.
+
+This is what the client asks for. For a point-to-multipoint cloud, this is usually a subnet.
 
 ## Config
 

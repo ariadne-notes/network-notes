@@ -34,7 +34,7 @@
 
 - If you must advertise a network out the same interface it was received on, advertise the delay as infinity.
 
-## Feasible Successor Algo
+## Feasible Successor Algorithm
 
 R2 sends an update
 
@@ -126,7 +126,7 @@ EIGRP can load balance over the successor and feasible successor routes with a v
 
 ## Auto Summary
 
-Is off by default.
+Off by default.
 
 The summarization done by this command is *classful.* This should **never** be turned on.
 
@@ -136,7 +136,6 @@ To enable:
 
 ## Manual Summaries
 
-
 In EIGRP these go under the interface, on the interface you want the summary to be sent out of.
 
 ```console
@@ -145,7 +144,6 @@ ethernet 1
 ```
 
 ## Named Mode
-
 
 Name mode supports IPv6 inside a VRF.
 
@@ -260,6 +258,7 @@ interface GigabitEthernet0/7
 R1# show ip route
 
 [output omitted]
+
 !
 ! sorted to look pretty and be in order
 !

@@ -144,12 +144,14 @@
 # Routing Strategies
 
 - [Route Redistribution](route-redistribution.md)
+  - [Route Redistribution BGP](route-redistribution-bgp.md)
+  - [Route Redistribution EIGRP](route-redistribution-eigrp.md)
+  - [Route Redistribution OSPF](route-redistribution-ospf.md)
   - [Route Redistribution with Tags](route-redistribution-with-tags.md)
   - [Route Maps](route-maps.md)
 - [DMVPN](dmvpn.md)
   - [NHRP](nhrp.md)
 - [Policy Based Routing](policy-based-routing.md)
-- [Point to Point Links](point-to-point-links.md)
 
 # DDoS Prevention
 
@@ -157,7 +159,8 @@
 
 # Best Practices
 
-- [Out Of Band Management](oob.md)
+- [Out Of Band Management](out-of-band-management.md)
+- [Point to Point Links](point-to-point-links.md)
 
 # High Availability
 

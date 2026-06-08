@@ -2,11 +2,11 @@
 
 - Tag EIGRP as 100
 - TAG OSPF as 1
-
 - Route maps should take the form DENY -> PERMIT.
 - Routes are tagged when they are advertised.
 
 Route tags appear on-the-wire and can be read by other routers.
+
 `ospf.lsa.asext.extrttag == 100`
 
 In this example, EIGRP becomes a Type-5 OSPF update, with a route-tag of 100. If we look for these tags can exclude them in redistribution updates.
@@ -34,3 +34,8 @@ router eigrp 100
 router ospf 1
  redistribute eigrp 100 subnets route-map eigrp-into-ospf
 ```
+
+## References
+
+[Configure Routing Protocol Redistribution - Cisco](https://www.cisco.com/c/en/us/support/docs/ip/enhanced-interior-gateway-routing-protocol-eigrp/8606-redist.html)
+

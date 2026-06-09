@@ -1,12 +1,10 @@
 # ARP Attacks
 
-**ARP Spoofing**
+ARP Spoofing and ARP Poisoning are related concepts.
 
-- An attacker users a known MAC address on the network, usually the network router for the subnet.
+The attacker **spoofs** an IP on the network, usually the default gateway, with the MAC address of their machine, to intercept all user traffic.
 
-**ARP Poisoning**
-
-- ARP tables on devices (routers, switches, hosts) contain false mappings.
+This leads to **ARP poisoning** where device IP-to-MAC tables now contain false bindings.
 
 Successful ARP attacks lead to traffic hijacking, traffic denial, or man-in-the-middle attacks.
 

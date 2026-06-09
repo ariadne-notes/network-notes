@@ -1,6 +1,6 @@
 # SNMP
 
-- **NMS:** Network Monitoring System
+- **NMS:** Network Management System
 
 - **[SNMP](https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol):** Simple Network Management Protocol. a protocol to exchange network device statistics.
 

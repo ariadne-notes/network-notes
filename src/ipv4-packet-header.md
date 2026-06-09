@@ -26,7 +26,7 @@ packet
 | **Total Length**                  | 16 bits  | Total packet size in bytes (header + data). 16 bits × 8 = max packet size of 65,535 bytes. |
 | **Identification**                | 16 bits  | Used to uniquely identify fragmented packets to add reassembly. |
 | **Flags**                         | 3 bits   | always 0, May Fragment, More Fragments |
-| **Fragment Offset**               | 13 bits  | Where in bytes this fragment belongs in the fragment chain. First fragment is set to 0. |
+| **Fragment Offset**               | 13 bits  | Where the fragment belongs. Units of 8 octets (64 bits). First fragment is set to 0. |
 | **TTL** — Time to Live            | 8 bits   | Prevents routing loops. Each router decrements by 1; packet is discarded at 0. |
 | **Protocol**                      | 8 bits   | What the packet encapsulates, Ex: 1 = ICMP, 6 = TCP, 17 = UDP, 88 = EIGRP, 89 = OSPF. |
 | **Header Checksum**               | 16 bits  | Covers the IP header only (not data). Recomputed at each device that processes the IP header. |

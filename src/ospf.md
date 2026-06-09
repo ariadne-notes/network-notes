@@ -32,7 +32,7 @@ A router can only modify an LSA, iff it's RID is inside the "Advertising Router"
 
 **LS Sequence**
 
-Higher sequence numbers are newer LSAs. The first sequence number in any LSA is 8000000.
+Higher sequence numbers are newer LSAs. The first sequence number in any LSA is `0x80000001`
 
 **LS Checksum**
 
@@ -44,21 +44,13 @@ LSAs time out in an hour, and are refreshed every 30 minutes. LSA Age increments
 
 ## Packet Types
 
-| Type | Name                                  | Purpose |
-|------|---------------------------------------|---------|
-| 1    | **Hello**                             | OSPF puts the neighbor ID into it's hello messages. |
-| 2    | **Database Description (DBD/DDP)**    | Used to sync a new neighbor rapidly. Large update packet, to transfer the LSDB in bulk. Contains lots of LSAs. |
-| 3    | **Link-State Request (LSR)**          | The router wants a specific LSA.   |
-| 4    | **Link-State Update (LSU)**           | The neighbor sends a specific LSA. |
-| 5    | **Link-State Acknowledgment (LSAck)** | To confirm a device got the intended LSAs, it transmits the exact same LSAs back to the receiver. |
-
-These can be thought of as the five steps.
-
-1. We say hello, using each others names, to confirm we can both hear one another.
-2. We share state (like the weather).
-3. I ask how something went.
-4. You tell me how it went.
-5. To make sure I really got it, I'll repeat it word-for-word.
+| Type | Name                                  | Purpose                                                         |
+|------|---------------------------------------|---------                                                        |
+| 1    | **Hello**                             | OSPF puts the neighbor ID into it's hello messages.             |
+| 2    | **Database Description (DBD/DDP)**    | A LSA that contains LSA headers, "I have these LSAs"            |
+| 3    | **Link-State Request (LSR)**          | Requesting a specific LSA.                                      |
+| 4    | **Link-State Update (LSU)**           | Sending a specific LSA.                                         |
+| 5    | **Link-State Acknowledgment (LSAck)** | Acknowledging a specific LSA.                                   |
 
 ## Hello Packets
 
@@ -134,14 +126,14 @@ Can also check with [checksums](https://en.wikipedia.org/wiki/Fletcher%27s_check
 
 ## Routing Hierarchy
 
-OSPF has four levels of routing hierarchy
+OSPF has four levels of routing hierarchy.
 
 | Preference   | Route   | Purpose                                                |
 |--------------|---------|--------------------------------------------------------|
 | 1            | O       | Intra-area (same area)                                 |
 | 2            | O IA    | Inter-area (same OSPF domain)                          |
-| 3            | E1      | External type 1 (to an attached but non-OSPF domain)   |
-| 4            | E2      | External type 2 (to the Internet)                      |
+| 3            | E1      | External type 1 (seed metric + IGP metric)             |
+| 4            | E2      | External type 2 (just seed metric)                     |
 
 The `bit E` is what makes E1 and E2 routes. The bit being set is an E2 route, which is considered less preferred.
 
@@ -272,7 +264,7 @@ router ospfv3 1
 
 #### External Network connections
 
-- **NSSA:** From the RFC, this is a stub area with an ASBR. The LSAs within the area are LSA-7, and they get converted to LSA-5 by the ASBR.
+- **NSSA:** From the RFC, this is a stub area with an ASBR. The LSAs within the area are LSA-7, and they get converted to LSA-5 by the ABR.
 - **Totally Stubby NSSA:**, same as above, used to connect an external network, a default is injected as a LSA-3.
 
 ## References

@@ -2,7 +2,7 @@
 
 Cisco Proprietary
 
-- UDP port 1885 (v6 2029)
+- UDP port 1985 (v6 2029)
 - Version 1,  RFC 2281
 - Version 2, adds IPv6, no RFC
 

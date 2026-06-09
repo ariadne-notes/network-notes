@@ -31,7 +31,7 @@ A `/40` is two hextets, and two hex digits worth of bits.
 
 which becomes
 
-- `3fff:0::/44`
+- `3fff:0::/40`
 - `3fff:0:100::/40`
 - `3fff:0:200::/40`
 - `3fff:0:300::/40`
@@ -72,18 +72,6 @@ A `/48` is three hextets, worth of bits.
 - `3fff:0:3::/48`
 - `3fff:0:4::/48`
 
-### /52
-
-You're given `3fff::/20`, make some `/52` networks.
-
-A `/52` is three hextets, plus 1 hex digit worth of bits.
-
-- `3fff:0:0:0::/52`
-- `3fff:0:0:1000::/52`
-- `3fff:0:0:2000::/52`
-- `3fff:0:0:3000::/52`
-- `3fff:0:0:4000::/52`
-
 ## Cursed Subnets
 
 What if instead, we try and subnet, inside a hex digit?
@@ -117,41 +105,41 @@ Then we'd want to figure out where the boundaries are for bits borrowed:
 | 2 bits        | 0, 4, 8, C                                     |
 | 3 bits        | 0, 2, 4, 6, 8, A, C, E                         |
 
-### /53
+### /49
 
-You're given `3fff::/20`, make some `/53` networks.
+You're given `3fff::/20`, make some `/49` networks.
 
-A `/53` is three hextets, plus one binary bit.
+A `/49` is three hextets, plus one binary bit.
 
-- `3fff:0:0:0::/53`
-- `3fff:0:0:8000::/53`
-- `3fff:0:1:0::/53`
-- `3fff:0:1:8000::/53`
-- `3fff:0:1:8000::/53`
+- `3fff:0:0:0::/49`
+- `3fff:0:0:8000::/49`
+- `3fff:0:1:0::/49`
+- `3fff:0:1:8000::/49`
+- `3fff:0:2:0000::/49`
 
-### /54
+### /50
 
-You're given `3fff::/20`, make some `/54` networks.
+You're given `3fff::/20`, make some `/50` networks.
 
-A `/54` is three hextets, plus two binary bits.
+A `/50` is three hextets, plus two binary bits.
 
-- `3fff:0:0:0::/54`
-- `3fff:0:0:4000::/54`
-- `3fff:0:0:6000::/54`
-- `3fff:0:0:8000::/54`
-- `3fff:0:0:C000::/54`
+- `3fff:0:0:0::/50`
+- `3fff:0:0:4000::/50`
+- `3fff:0:0:8000::/50`
+- `3fff:0:0:C000::/50`
+- `3fff:0:1:0000::/50`
 
-### /55
+### /51
 
-You're given `3fff::/20`, make some `/55` networks.
+You're given `3fff::/20`, make some `/51` networks.
 
-A `/55` is three hextets, plus three binary bits.
+A `/51` is three hextets, plus three binary bits.
 
-- `3fff:0:0:0::/55`
-- `3fff:0:0:2000::/55`
-- `3fff:0:0:4000::/55`
-- `3fff:0:0:6000::/55`
-- `3fff:0:0:8000::/55`
+- `3fff:0:0:0::/51`
+- `3fff:0:0:2000::/51`
+- `3fff:0:0:4000::/51`
+- `3fff:0:0:6000::/51`
+- `3fff:0:0:8000::/51`
 
 ## References
 

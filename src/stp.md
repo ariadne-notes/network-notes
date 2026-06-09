@@ -2,30 +2,60 @@
 
 ## Terms
 
-- **Bridge:** A device that participates in the spanning tree algorithm.
+**STP** --- Spanning Tree Protocol
 
-- **Root Bridge:** The bridge that wins the STP election.
+Frequently cited as `802.1D`.
 
-- **Bridge ID:** Three fields, next to each other. `Bridge Priority, Extension ID (the VLAN), MAC Address`
+**Bridge** 
 
-- **BPDU:** Bridge Protocol Data Unit. The frame used in 802.1D STP.
+A device that participates in the spanning tree algorithm.
 
-- **STP:** Spanning tree protocol. Frequently cited at 802.1D.
+**Root Bridge** 
 
-- **802.1D:** An IEEE standard. The oldest Ethernet STP.
+The bridge that wins the STP election.
 
-- **Root ID:** - The bridge that has won and is winning the elections.
+**Bridge ID** 
 
-- **Designated ports:** AKA DP. Sends BPDUs downstream.
+Three fields, next to each other.
 
-- **Root Port:** AKA, RP. AKA, Upstream. Receives BPDUs, from upstream switch. Each bridge can have only one RP. RP is picked by `port-selection-algo`
+`Bridge Priority, Extension ID (the VLAN), MAC Address`
 
-- **TCN:** Topology change notification. Sent by the bridge that sees a STP change, upstream via it's RP. This is it's own message.
+**BPDU** --- Bridge Protocol Data Unit
 
-- **TCA Bit:** Topology Change Acknowledge, sent by the upstream bridge, to let the TC reporting bridge know it relay'd the TCN upstream. This is inside a config BPDU.
+The frame used in 802.1D STP.
 
-- **TC Bit:** Topology Change. The root bridge sets the TC to tell other bridges to set their mac address tables to `max age`. This is inside a config BPDU.
+**802.1D**
 
+An IEEE standard. The oldest Ethernet STP.
+
+**Root ID**
+
+The bridge that has won and is winning the elections.
+
+**Designated ports**
+
+Sends BPDUs downstream.
+
+- AKA DP
+
+**Root Port:**
+
+Receives BPDUs, from upstream switch. Each bridge can have only one RP. RP is picked by `port-selection-algo`
+
+- AKA, RP.
+- AKA, Upstream.
+
+**TCN** --- Topology change notification.
+
+Sent by the bridge that sees a STP change, upstream via it's RP. This is it's own message.
+
+**TCA Bit** --- Topology Change Acknowledge
+
+Sent by the upstream bridge, to let the TC reporting bridge know it relay'd the TCN upstream. This is inside a config BPDU.
+
+**TC Bit:** --- Topology Change.
+
+The root bridge sets the TC, to tell downstream bridges to shorten their MAC aging timer to Forward Delay (default 15 seconds).
 
 ## How STP makes a loop free topology
 
@@ -462,15 +492,15 @@ Spanning Tree Protocol
 ```
 
 1. Bridge sees change in STP topology, sends TCN to upstream bridge.
-1. Upstream sees TCN, sends a regular BDPU back with TCN-Ack set.
+1. Upstream sees TCN, sends a regular BDPU back with TCA bit set.
 1. Upstream bridge sends TCN upstream, this continues until TCN reaches the root.
 1. Root Bridge sees the TCN, marks BPDUs with TC bit set.
-1. All bridges see TC, and set their max-age to 15 seconds.
+1. All bridges see TC, and shorten their MAC aging timer to Forward Delay (default 15 seconds).
 1. Root bridge stops sending TCs.
 
 The default for Cisco is keeping a mac-address in CAM for 300 seconds (5 minutes)
 
-Receiving a TCN sets this `max age` to the `forward delay` usually 15 seconds. This means any server that is not actively sending, will have it's traffic flooded onto that VLAN.
+Receiving a TCN shortens the aging timer to `forward delay` usually 15 seconds. This means any server that is not actively sending, will have it's traffic flooded onto that VLAN.
 
 ```console
 switch# show mac address-table aging-time 
@@ -564,4 +594,8 @@ switch# show logging | i %LINK
 
 R. Perlman, *Interconnections: Bridges, Routers, Switches, and Internetworking Protocols*, 2nd ed. Boston, MA: Addison-Wesley, 1999.
 
+[Understand and Tune Spanning Tree Protocol Timers - Cisco](https://www.cisco.com/c/en/us/support/docs/lan-switching/spanning-tree-protocol/19120-122.html)
+
 [Layer 2 Configuration Guide, Cisco IOS-XE 17.16.X](https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9200/software/release/17-16/configuration_guide/lyr2/b_1716_lyr2_9200_cg/configuring_spanning_tree_protocol.html)
+
+

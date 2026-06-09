@@ -8,13 +8,13 @@ This is generally not a problem if both switches can still reach both hosts, but
 
 ## Terms
 
-FHRP
-: First Hop Routing Protocol
+***FHRP*** --- First Hop Redundancy Protocol
 
-VIP
-: The shared IP in a a first-hop routing protocol.
+**VIP** --- The IP intended for hosts provided by the FHRP.
 
 ## References
+
+[First-hop redundancy protocol - Wikipedia](https://en.wikipedia.org/wiki/First-hop_redundancy_protocol)
 
 [Network Services Configuration Guide, Cisco IOS XE 17.x - Configuring VRRP Cisco IOS XE 17 - Cisco](https://www.cisco.com/c/en/us/td/docs/routers/ios/config/17-x/ntw-servs/b-network-services/m_fhp-vrrp-0.html)
 

@@ -8,17 +8,7 @@
 ### Private Numbers
 
 - 64,512 – 65,534
-
 - 4,200,000,000 – 4,294,967,294
-
-## Requesting An ASN
-
-
-IANA asks for the following things.
-
-- Proof of a publicly allocated network range
-- Proof that Internet connectivity is provided through multiple connections
-- Need for a unique routing policy from providers
 
 ## BGP Path Attributes
 
@@ -213,14 +203,21 @@ To get iBGP routers to update the next-hop to be themselves when advertising to 
 
 This makes it so other iBGP routers don't need reachability information for the physical link to the next AS.
 
-#### BGP Finite State Machine
+#### BGP Neighbor States
 
-- **Idle** -  check the config
-- **Connect** -  TCP is probably broken
-- **Active** -  Listening for TCP
-- **OpenSent**
-- **OpenConfirm**
-- **Established**
+**Idle**
+
+**Connect**
+
+**Open Sent**
+
+**Open Confirm**
+
+**Active**
+
+**Established**
+
+
 
 #### Fixing Next-Hop Issues
 
@@ -231,6 +228,14 @@ Just because the route shows up in `show ip bgp` doesn't mean it will install. B
 3. Use a route-map to set the next hops.
 
 ## References
+
+[RFC 4271: A Border Gateway Protocol 4 (BGP-4) | RFC Editor](https://www.rfc-editor.org/info/rfc4271/)
+
+[The Network Times: Border Gateway Protocol – Finite State Machine (BGP-FSM)](https://nwktimes.blogspot.com/2017/07/border-gateway-protocol-finite-state.html)
+
+[BGP Troubleshooting Diagram](https://coggle.it/diagram/WeBUMWgXiQABUtQG/t/bgp)
+
+V. Jain and B. Edgeworth, *Troubleshooting BGP: A Practical Guide to Understanding and Troubleshooting BGP*, 1st ed. Indianapolis, IN: Cisco Press, 2016, ISBN 978-1-58714-464-6.
 
 B. Edgeworth, R. Garza Rios, J. Gooley, and D. Hucaby, *CCNP and CCIE Enterprise Core ENCOR 350-401 Official Cert Guide*, 2nd ed. Indianapolis, IN: Cisco Press, 2023.
 

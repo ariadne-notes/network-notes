@@ -10,7 +10,7 @@
 **IGMP** --- Internet Group Management Protocol
 
 - Receivers send IGMP to LHR to request multicast streams
-- Switches see IGMP (for snooping), and the FHR uses this to build the MDT
+- Switches see IGMP (for snooping), and the LHR uses this to build the MDT
 
 **PIM** --- Protocol Independent Multicast
 
@@ -120,14 +120,14 @@ Multicast comes from an older time. Unlike Unicast addresses, you can tell via b
 
 A multicast address always start with `1110`
 
-| Address Scopes      | Description                                                                         |
-| ------------------- | --------------                                                                      |
-| `224.0.0.0/4`       | Multicast Supernet                                                                  |
-| `224.0.0.0/24`      | Local Control (TTL=1)                                                               |
-| `224.0.1.0/24`      | Internetwork Control (an example is NTP, Cisco RP-Announce, Cisco RP-Discovery)     |
-| `232.0.0.0/8`       | Source-Specific Multicast (SSM). Via an extension PIM can build (S,G) MDTs.         |
-| `233.0.0.0/8`       | GLOP! Companies with a 16-bit ASN can have globally static multicast. 233.X.Y.0/8   |
-| `239.0.0.0/8`       | Organization-Local Scope. Exactly like RFC1918, but for multicast.                  |
+| Address Scopes      | Description                                                                          |
+| ------------------- | --------------                                                                       |
+| `224.0.0.0/4`       | Multicast Supernet                                                                   |
+| `224.0.0.0/24`      | Local Control (TTL=1)                                                                |
+| `224.0.1.0/24`      | Internetwork Control (an example is NTP, Cisco RP-Announce, Cisco RP-Discovery)      |
+| `232.0.0.0/8`       | Source-Specific Multicast (SSM). Via an extension PIM can build (S,G) MDTs.          |
+| `233.0.0.0/8`       | GLOP! Companies with a 16-bit ASN can have globally static multicast. 233.X.Y.0/24   |
+| `239.0.0.0/8`       | Organization-Local Scope. Exactly like RFC1918, but for multicast.                   |
 
 ## Common L3 Addresses
 

@@ -8,14 +8,11 @@ There are a lot of fundamentals changed with v6.
 - Optional, Option headers
 - SLAAC. Stateless host addressing, with the router advertising the subnet prefix.
 - Flow Labeling (for QoS)
-- IPSec is required
 - Routers cannot fragment packets
 - Hosts can perform MTU path discovery
 - Hosts can have multiple addresses and even multiple subnets
 - Mobile IPv6 lets mobile nodes remain reachable
 - No broadcast traffic
-
-
 
 ## Header
 

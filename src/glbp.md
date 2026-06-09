@@ -8,21 +8,20 @@ This is a Cisco proprietary FHRP. The v4 and v6 exist for IOS, but v6 is missing
 
 - Gateway Load Balancing Protocol
 - Cisco Proprietary
-- Supports 4 active AVFs
+- Supports 4 active forwarding instances
 
 **AVG**
 
 - Active Virtual Gateway
-- The AVG is responsible for answering incoming ARP for the VIP.
-- Can reply with a different MAC addresses to load balance.
-- Highest priority AVF is the AVG.
+- The AVG is responsible for answering incoming ARP for the VIP
+- Can reply with a different MAC addresses to load balance
+- Highest priority router is the AVG
 
 **AVF** 
 
 - Active Virtual Forwarder
 - Two states {Active, Listen}
-- A router in a GLBP group that is forwarding packets.
-- All AVFs have their own mac and forwarding traffic destined towards that MAC.
+- All AVFs have their own mac and forwarding traffic destined towards that MAC
 - 4 max.
 
 ### Details

@@ -17,7 +17,6 @@
 **NSAP**
 
 - Network Service Access Point
-- An instance of the IS-IS protocol. 
 
 **NET**
 
@@ -155,7 +154,7 @@ These are the limits:
 
 ### IS-IS Wide
 
-- 16 772 215 per link
+- 16 777 215 per link
 - 4 294 967 295 per path
 
 Cisco's implementation of the wide metric uses the bits ISO set aside for delay, expense and error.

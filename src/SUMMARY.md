@@ -148,6 +148,7 @@
 # BGP
 
 - [BGP](bgp.md)
+  - [BGP Neighbor Finite State Machine](bgp-neighbor-fsm.md)
   - [BGP Confederations](bgp-confederations.md)
   - [BGP Route Reflectors](bgp-route-reflectors.md)
   - [BGP Multipath](bgp-multipath.md)

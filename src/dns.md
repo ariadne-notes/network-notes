@@ -3,7 +3,10 @@
 DNS uses TCP and UDP.
 
 - UDP, for user queries
-- TCP, to do zone transfers (how DNS replicates it's records to other DNS boxes)
+- TCP
+  - Zone transfers (how DNS replicates it's records to other DNS boxes)
+  - Requests exceed 512 bytes
+  - DNSSEC/EDNS
 
 ## DNS Resource Records
 

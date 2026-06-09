@@ -6,7 +6,7 @@ DTP is a Cisco proprietary point-to-point protocol, for full-duplex switchlinks.
 
 An older feature intended to automate parts of network setup, you could set one switch to `dynamic desireable` and it will form trunks automatically.
 
-The best practice is to disable this feature on every port with `switchport nonegotiate`
+The best practice is to disable this feature on trunks links with `switchport nonegotiate`
 
 DTP is normally every 30 seconds.
 

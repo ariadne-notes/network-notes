@@ -15,6 +15,10 @@
 | `224.0.0.0/4`     | Multicast (Class D)              | RFC 5771          | 268,435,456 |
 | `240.0.0.0/4`     | Reserved / Experimental (Class E)| RFC 1112          | 268,435,456 |
 
+**This Network**
+
+The `0.0.0.0` address literally means "when an app requests connectivity to 0.0.0.0, bind to every interface running IP and make it work".
+
 ## References
 
 [RFC 1918 - Address Allocation for Private Internets](https://www.rfc-editor.org/rfc/rfc1918)

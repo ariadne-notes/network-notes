@@ -27,7 +27,7 @@ Internet Address starts with `192-223`? You must have one network with 254 hosts
 
 We know now this was a terrible idea, but parts of it stay with us today.
 
-- `/24` (from class A) is a very popular prefix. This is said out loud as "A twenty four".
+- `/24` (from class C) is a very popular prefix. This is said out loud as "A twenty four".
 - `/16` (from class B) is a very popular prefix. This is said out loud as "A sixteen".
 - All v4 multicast addresses still start with `1110`
 

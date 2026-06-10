@@ -185,7 +185,7 @@
 - [Enterprise Campus Architecture](enterprise-campus-architecture.md)
 - [Enterprise Campus Modular Design](enterprise-campus-modular-design.md)
 - [Cisco AAA](cisco-aaa.md)
-- [AAA and ISE](aaa-ise.md)
+- [TACACS+](tacacs-plus.md)
 - [Clouds](clouds.md)
 
 # Network Services
@@ -279,9 +279,9 @@
 
 - [Cisco Certifications](cisco-certifications.md)
 
-# Other Blogs
+# The End
 
-- [Other Blogs](other-blogs.md)
+- [Other Resources](other-resources.md)
 - [Style Guide](style-guide.md)
 
 ---

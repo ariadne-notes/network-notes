@@ -227,6 +227,9 @@
 
 # Automation
 
+- [Cisco IQ](cisco-iq.md)
+  - [Cisco IQ Support Tiers](cisco-iq-support-tiers.md)
+  - [Cisco IQ Link](cisco-iq-link.md)
 - [Ansible Basics](ansible-basics.md)
 - [RESTCONF](restconf.md)
 - [NETCONF](netconf.md)

@@ -56,6 +56,10 @@ These are kind of like ABRs in OSPF.
 
 These are the Area routers. They do not flood their link state databases into L2.
 
+- Intra-area
+- Default route out (sets the attached bit)
+- Redistribution is allowed
+
 ## Example
 
 ```plain
@@ -83,7 +87,6 @@ These are the Area routers. They do not flood their link state databases into L2
 **Multi-Topology**
 
 - Some interfaces can be v4, others can be v6, others can be both.
-
 
 ### Addressing scheme
 
@@ -125,17 +128,7 @@ So long as the NSAP is unique, its OK because we aren't routing CLNS.
 Priority is used for the CLNS election.
 Circuit ID, who won the election
 
-Level 2 can be Inter or Intra area
-Level 1 is Intra area only.
-Level 2 is the backbone.
-
-Level 1 (NSSA)
-
-  - Intraarea
-  - Default route out (sets the attached bit)
-  - Redistribution is allowed.
-
-L1/L2 is the ABR in OSPF
+## Etc
 
 ISIS does not ride IP, it rides CLNS.
 To do Multipoint NBMA you need to include CLNS resolution.

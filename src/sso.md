@@ -29,19 +29,51 @@ To get zero packet loss during a RP failure, without notifying the peer or dropp
 
 ## Terms
 
-- **RIB:** Routing Information Base. This is where the RP stores its routes.
-- **FIB:** Forwarding Information Base. This is the information necessary to program the linecard to pass traffic.
-- **SSO:** Stateful Switchover. The RPs sync with each other and share state, (hopefully) enough state to prevent traffic disruption.
-- **Checkpointing:** All necessary information to perform the task is already on the standby RP.
-- **Non-Stop Routing:** AKA NSR. The Control plane relationships and RIB are both checkpointed.
-- **Non-Stop Forwarding:** AKA NSF. The FIB is checkpointed.
-- **Graceful Restart:** SSO/NSF/NSR are all vendor features that do no share state with the neighbor. GR is an IETF capability both devices must have turned on.
-- **EoR:** End-of-RIB. This means the neighbor has shared the its entire routing table.
+**RIB** --- Routing Information Base. 
+
+This is where the RP stores its routes.
+
+**FIB** --- Forwarding Information Base. 
+
+This is the information necessary to program the linecard to pass traffic.
+
+**SSO** --- Stateful Switchover.
+
+The RPs sync with each other and share state, (hopefully) enough state to prevent traffic disruption.
+
+**Checkpointing**
+
+All necessary information to perform the task is already on the standby RP.
+
+**Non-Stop Routing** 
+
+The Control plane relationships and RIB are both checkpointed.
+
+- AKA NSR
+
+**Non-Stop Forwarding**
+
+The FIB is checkpointed.
+
+- AKA NSF
+
+**Graceful Restart**
+
+SSO/NSF/NSR are all vendor features that do no share state with the neighbor. GR is an IETF capability both devices must have turned on.
+
+**EoR** --- End-of-RIB. 
+
+This means the neighbor has shared the its entire routing table.
 
 ## Graceful Restart
 
-- **Restart Timer:** If I drop the BGP session, Please wait this long before you stop forwarding me my traffic. (Default is 2 minutes)
-- **Stale Timer:** Once I send an open message, that means I'm working, so please give me this long before flushing my routes. (Default is 6 minutes)
+**Restart Timer**
+
+If I drop the BGP session, Please wait this long before you stop forwarding me my traffic. (Default is 2 minutes)
+
+**Stale Timer**
+
+Once I send an open message, that means I'm working, so please give me this long before flushing my routes. (Default is 6 minutes)
 
 ## Graceful Restart Mechanics
 
@@ -60,10 +92,10 @@ This is a BGP Example.
      Restart  ├─── OPEN with Restart Bit Set ──────►│ * Mark routes stale
      Notif.   │                                     │ * Start Restart Timer
               │                                     │ * GR-Aware Peer in "helper mode"
-              │◄── OPEN with Capability ───────────►│
+              │◄── OPEN with Capability ────────────│
               │                                     │
 - Session     │                                     │
-  Established │──────── BGP Hello ─────────────────►│ * Stop Restart Timer
+  Established │──────── BGP KEEPALIVE ─────────────►│ * Stop Restart Timer
               │                                     │ * Start Stale-Path Timer
               │                                     │
               │◄──── Send Initial Updates + EoR ────┤

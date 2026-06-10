@@ -6,13 +6,13 @@ Top down, the normal view.
 git log --oneline
 ```
 
-Bottom up, good for rebasing
+Bottom up, good for rebasing.
 
 ```console
 git log --oneline --reverse
 ```
 
-Decorate with active branches
+Decorate with active branches.
 
 ```console
 git log --oneline --decorate --graph

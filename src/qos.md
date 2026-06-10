@@ -2,90 +2,87 @@
 
 ## Terms
 
-**FIFO**
+**FIFO** --- First in, First out
 
-- First in, First out.
-- The default behavior of an network node processing IP traffic.
+The default behavior of an network node processing IP traffic.
 
 **Differentiated Services**
 
-- AKA, DiffServ.
-- Giving packet flows different levels of network service, based on classification.
+Giving packet flows different levels of network service, based on classification.
 
-**Integrated Services** 
+- AKA, DiffServ
 
-- AKA, IntServ. 
-- Packet flows explicitly reserve bandwidth along a path, via admission control.
+**Integrated Services**
 
-**RSVP** 
+Packet flows explicitly reserve bandwidth along a path, via admission control.
 
-- Resource Reservation Protocol.
-- Uses Admission control to make explicit QoS reservations on each device in the path.
+- AKA, IntServ
 
-**Marking** 
+**RSVP** --- Resource Reservation Protocol
 
-- Changing the DSCP bits in the IP header field to put an IP flow into a specific traffic class.
+Uses Admission control to make explicit QoS reservations on each device in the path.
 
-**DSCP** 
+**Marking**
 
-- Differentiated Services Code Point.
-- The marking of an IP packet that allows DiffServ
+Changing the DSCP bits in the IP header field to put an IP flow into a specific traffic class.
 
-**PHB**
-- Per Hop Behavior.
-- What a node should or shouldn't do with marked traffic.
+**DSCP** --- Differentiated Services Code Point
+
+The marking of an IP packet that allows DiffServ
+
+**PHB** --- Per Hop Behavior
+
+What a node should or shouldn't do with marked traffic.
 
 **Queuing**
 
-- Holding a packet in memory, delaying transmission. Queuing is always expensive.
+Holding a packet in memory, delaying transmission. Queuing is always expensive.
 
-**LLQ**
+**LLQ** --- Low latency queuing
 
-- Low latency queuing.
 - Describes queue behavior for the EF PHB: 
   - Never drop
   - Never delay
   - Send immediately
   - Police aggressively
 
-**EF**
+**EF** --- Expedited Forwarding
 
-- Expedited Forwarding.
-- The highest tier of service for network data, that isn't control traffic.
+The highest tier of service for network data, that isn't control traffic.
 
 **Control Traffic**
 
-- CS6. CS6 traffic is used to share topology information, eg. (OSPF, IS-IS, BGP)
+CS6 traffic is used to share topology information, eg. (OSPF, IS-IS, BGP)
 
-**CAR**
+- CS6. 
 
-- Committed Access Rate.
-- The agreed rate a traffic source will flow at, or violate it's SLA.
+**CAR** --- Committed Access Rate
 
-**SLA**
+The agreed rate a traffic source will flow at, or violate it's SLA.
 
-- Service Level Agreement.
-- SLAs are business agreements about data servicing requirements.
+**SLA** --- Service Level Agreement
 
-**WFQ**
+SLAs are business agreements about data servicing requirements.
 
-- Weighted Fair Queuing.
-- The default strategy on links under 2Mbps. Sorts traffic into high bw and low bw classes.
+**WFQ** --- Weighted Fair Queuing.
 
-**CBWFQ**
+WFQ is the legacy default on serial interfaces at E1 speeds and below ~2.048 Mbps
 
-- Class Based Weighted Fair Queuing
+Sorts traffic into high bw and low bw classes.
+
+**CBWFQ** --- Class Based Weighted Fair Queuing
+
 - AKA, Modular QoS: multiple queues, bandwidth limits, and access to different kinds of queues, like LLQ.
 
 **MQC**
 
-- Modular QoS CLI.
+Modular QoS CLI.
 
-**PQ**
+**PQ** --- Priority Queue
 
-- Priority Queue.
-- A queue that is served first, even if other queues have been waiting longer.
+A queue that is served first, even if other queues have been waiting longer.
 
+An LLQ is an example of a PQ.
 
 ## Type of Service
 

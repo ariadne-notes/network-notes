@@ -1,6 +1,6 @@
 # Port Security
 
-The default settings for port security **will not** age out learned mac addresses. To get aging back to the mac address table default of 5 minutes, set this feature to `300`.
+The default settings for port security **will not** age out learned mac addresses. To get aging back to the mac address table default of 5 minutes, set this feature to `5`.
 
 ## Config
 
@@ -9,7 +9,7 @@ interface GigabitEthernet0/0
  switchport access vlan 10
  switchport mode access
  switchport port-security maximum 2
- switchport port-security aging time 300
+ switchport port-security aging time 5
  switchport port-security
  negotiation auto
  spanning-tree portfast edge

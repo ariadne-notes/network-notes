@@ -1,6 +1,10 @@
 # uRPF
 
-This is an anti-spoofing feature where the switch checks to see if it has a RIB entry for the source address of a packet.
+**Loose mode**
+Uses CEF to check for any entry on this device (not a default route).
+
+**Strict mode**
+Uses CEF to verify the packet arrived on the interface the router would use to route back to that source.
 
 ## References
 

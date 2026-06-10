@@ -113,8 +113,6 @@ server:
 
 ## Verification
 
-
-
 ```console
 R1#show nat64 translations 
 
@@ -130,8 +128,9 @@ Total number of translations: 1
 
 > The WKP (Well Known Prefix) will not work toward RFC1918 addresses. You must configure a different /96.
 
-
 ## References
+
+[RFC 6052: IPv6 Addressing of IPv4/IPv6 Translators | RFC Editor](https://www.rfc-editor.org/info/rfc6052/)
 
 [IP Addressing Configuration Guide, Cisco IOS XE 17.x - Stateful Network Address Translation 64 Cisco IOS XE 17 - Cisco](https://www.cisco.com/c/en/us/td/docs/routers/ios/config/17-x/ip-addressing/b-ip-addressing/m_iadnat-stateful-nat64.html)
 

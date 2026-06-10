@@ -4,7 +4,7 @@
 
 OSPF uses explicit acknowledgments (re-sending the LSAs), so as neighbors and adjacencies grow, the amount of OSPF traffic on a network increases.
 
-A network with six ospf routers forming a full-mesh requires 30 adjacencies.
+A network with six ospf routers forming a full-mesh requires 15 adjacencies.
 
 To mitigate the scaling problem, on broadcast segments OSPF elects a DR, and BDR, to maintain the LSDB.
 

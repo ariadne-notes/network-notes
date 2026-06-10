@@ -38,14 +38,14 @@ Sends BPDUs downstream.
 
 - AKA DP
 
-**Root Port:**
+**Root Port**
 
 Receives BPDUs, from upstream switch. Each bridge can have only one RP. RP is picked by `port-selection-algo`
 
 - AKA, RP.
 - AKA, Upstream.
 
-**TCN** --- Topology change notification.
+**TCN** --- Topology change notification
 
 Sent by the bridge that sees a STP change, upstream via it's RP. This is it's own message.
 
@@ -53,7 +53,7 @@ Sent by the bridge that sees a STP change, upstream via it's RP. This is it's ow
 
 Sent by the upstream bridge, to let the TC reporting bridge know it relay'd the TCN upstream. This is inside a config BPDU.
 
-**TC Bit:** --- Topology Change.
+**TC Bit** --- Topology Change
 
 The root bridge sets the TC, to tell downstream bridges to shorten their MAC aging timer to Forward Delay (default 15 seconds).
 
@@ -155,11 +155,11 @@ For end Hosts
 
 - Does not protect against BPDUs
 
-## Loop prevention
+## Loop Prevention
 
 Best practice is to set the root to `0` and the secondary to `4096`.
 
-### STP loop guard
+### STP Loop Guard
 
 A unidirectional failure on a `root` or `alternate` port will cause spanning tree to loop, as other switches will unblock ports, and the unidirectional failure will still forward frames. To prevent this, turn on `stp loop guard` so ... if a port doesn't get a BPDU, it enters `STP loop-inconsistent` disabling the port.
 
@@ -172,17 +172,19 @@ switch(config-if)# spanning-tree guard loop
 
 More details [here](https://www.cisco.com/c/en/us/support/docs/lan-switching/spanning-tree-protocol/10596-84.html).
 
-## Port types
+## Port Types
 
-- **Designated ports:** send BPDUs downstream.
+**Designated ports** send BPDUs downstream.
 
-- **Root Ports** are the best port towards the root bridge, either the lowest total cost or the lowest advertised priority or lowest advertised port ID (interface number).
+**Root Ports** are the best port towards the root bridge, either the lowest total cost or the lowest advertised priority or lowest advertised port ID (interface number).
 
-## Root path cost
+## Root Path Cost
 
-**Root Path Cost** - What the interfaces costs + the advertised cost to the root. The root sends a cost of 0.
+**Root Path Cost**
 
-### STP path calculations
+What the interfaces costs + the advertised cost to the root. The root sends a cost of 0.
+
+### STP Path Calculations
 
 `spanning-tree pathcost method long`
 

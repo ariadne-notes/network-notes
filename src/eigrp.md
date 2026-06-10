@@ -36,21 +36,7 @@
 
 ## Feasible Successor Algorithm
 
-R2 sends an update
-
- - 10.0.0.0/24 - RD is 2000
-
-R3 Sends an update
-
- - 10.0.0.0/24 - RD is 2050
-
-R1 calculates total path metric.
-
- - R2 is 2000 + 1000 = 3000.
- - R3 is 2050 +   50 = 2100.  < - Successor route.
-
-
-R1 sees it has an reported distance less than the current distance, so installs that route as the feasible successor.
+**Topology**
 
 ```plain
 ┌────────┐            1000             ┌────────┐    10.0.0.0/24
@@ -61,7 +47,25 @@ R1 sees it has an reported distance less than the current distance, so installs 
          50        └────────┘      50
 ```
 
-## Example With The EIGRP Topology Table
+R2 sends an update
+
+- 10.0.0.0/24 - RD is 2000
+
+R3 Sends an update
+
+- 10.0.0.0/24 - RD is 2050
+
+R1 calculates total path metric.
+
+- R2 is 2000 + 1000 = 3000.
+- R3 is 2050 +   50 = 2100.  < - Successor route.
+
+**Results**
+
+- R1 installs the successor route as R1-R2
+- R1 picks R1-R3 as the feasible successor because the RD (2050) is less than the FD
+
+**Results in the CLI**
 
 ```console
 R1# show ip eigrp topology 10.0.0.0/24
@@ -83,22 +87,22 @@ EIGRP can load balance over the successor and feasible successor routes with a v
 
 ## Timers
 
-- Hello packets are every 5 seconds, on 60 seconds on T1 links.
-  - The deadtime is 3x the hold timer.
+- Hello packets are every 5 seconds, on 60 seconds on T1 links
+  - The deadtime is 3x the hello timer
 
 ## Initial Bringup
 
 - Send Hello packets, to 224.0.0.10
   - Doesn't' require multicast to be on
   - Unicast Init from neighbor, set Seq, Set Ack to 0
-    - Neighbor Sends back Ack as prior sequence number.
+    - Neighbor Sends back Ack as prior sequence number
     - Update Messages
 
 ## Stuck in Active
 
-- The router is too busy to answer the query (generally due to high CPU utilization).
-- The router has memory problems and cannot allocate the memory to process the query or build the reply packet.
-- The circuit between the two routers is not good; there are not enough packets that get through to keep the neighbor relationship up, but some queries or replies are lost between the routers.
+- The router is too busy to answer the query (generally due to high CPU utilization)
+- The router has memory problems and cannot allocate the memory to process the query or build the reply packet
+- The circuit between the two routers is not good; there are not enough packets that get through to keep the neighbor relationship up, but some queries or replies are lost between the routers
 - unidirectional links (a link on which traffic can only flow in one direction because of a failure)
 
 ## Update Message
@@ -126,13 +130,13 @@ EIGRP can load balance over the successor and feasible successor routes with a v
 
 ## Auto Summary
 
-Off by default.
+Off by default on versions later than IOS 15.
 
 The summarization done by this command is *classful.* This should **never** be turned on.
 
 To enable:
 
-`no auto-summary`
+`auto-summary`
 
 ## Manual Summaries
 

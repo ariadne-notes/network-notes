@@ -40,7 +40,7 @@ Synchronous Ethernet and IEEE 1588 in Telecoms
 
 - **T2:** Timing Reference signal derived from 2048/1544 kbit input (input from PDH)
 
-- **T3:** Timing reference signal derived from 2048 or 2048 1544 with SSM.
+- **T3:** Timing reference signal derived from 1544 or 2048 with SSM.
 
 - **T4:** Clock-interface output.
 

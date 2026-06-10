@@ -3,7 +3,7 @@
 Captured on-wire.
 
 ```plain
-packet #1 - who has 10.0.6.10? Tell 10.0.0.20
+packet #1 - who has 10.0.0.10? Tell 10.0.0.20
 packet #2 - 10.0.0.10 is at ce:b1:5f:58:1d:8a
 ```
 

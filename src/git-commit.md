@@ -17,7 +17,7 @@ git commit --amend -m "This is what I wished it said"
 
 ## All
 
-- Automatically stages all files known to the Index.
+- Automatically stages all files known to the Index
 - Does not add new files
 
 ```console

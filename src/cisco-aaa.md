@@ -16,7 +16,7 @@ radius server RADIUS-UCS-1
  address ipv4 10.0.0.1 auth-port 1812 acct-port 1813
  key StrongPassword123
 !
-! default means, "Apply to VTY lines, but not console"
+! default means, "Apply to Everything, including console."
 !
 aaa authentication login default group radius local
 !

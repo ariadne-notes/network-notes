@@ -15,8 +15,7 @@ A gRPC based protocol to do the following:
 
 ## Setting an IPv4 Address
 
-
-This is done with NETCONF and a YANG model.
+This is done in gNMI via gRPC and a YANG model.
 
 ```console
 /interfaces/interface[name=g0/0/0/0]/subinterfaces/subinterface[index=0]/ipv4/addresses/address[ip=10.0.0.1]/config/

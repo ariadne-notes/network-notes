@@ -1,12 +1,34 @@
 # 6RD
 
-- **6to4:** The base standard, requires a specific prefix.
-- **6RD:** The current standard, allows any global prefix.
-- **RG:** Router Gateway. The CPE the ISP provides to connect to their network.
-- **BNG:** Border Network Gateway. This is the Customer aggregation node, which can aggregate thousands of connections.
-- **NMS:** Network monitoring system. Needed for network health
-- **AAA:** Authentication, Authorization, Accounting. This is how the ISP controls who can access the network, and controls QoS Deployments.
-- **BR:** AKA, Border Relay. This node terminates the 6RD tunnels.
+**6to4**
+
+The base standard, requires a specific prefix.
+
+**6RD**
+
+The current standard, allows any global prefix.
+
+**RG** --- Router Gateway. 
+
+The CPE the ISP provides to connect to their network.
+
+**BNG** --- Broadband Network Gateway.
+
+This is the Customer aggregation node, which can aggregate thousands of connections.
+
+**NMS** --- Network Management System.
+
+Provides a place to see and configure the network.
+
+**AAA** --- Authentication, Authorization, Accounting.
+
+This is how the ISP controls who can access the network, and controls QoS Deployments.
+
+**BR**
+
+This node terminates the 6RD tunnels.
+
+- AKA,Border Relay.
 
 ## What does 6RD Solve?
 

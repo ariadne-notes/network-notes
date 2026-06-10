@@ -15,7 +15,7 @@ The common STDM system in the US is T-Carrier.
 **B8ZS**
 
 - Binary Eight Zero Substitution. 
-- A special way to encode `0000 0000` for DS0 lines.
+- A special way to encode `0000 0000` for DS1/T1 lines.
 
 **T1 Frame**
 
@@ -40,7 +40,7 @@ The common STDM system in the US is T-Carrier.
 
 **DS1**
 
-- Data Stream, Level 1.
+- Digital Signal, Level 1.
 
 **T1**
 

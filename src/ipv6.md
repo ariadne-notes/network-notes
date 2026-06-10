@@ -100,7 +100,7 @@ All globally routeable IPv6 addresses fit into this block.
 | Segment Routing      | `5f00::/16`          | 9602 | AKA, SRv6                                                                  |
 | ULA (Unique Local)   | `fc00::/7`           | 4193 | Unique local address. Reserved, do not use                                 |
 | ULA (Unique Local)   | `fd00::/8`           | 4193 | Supposed to be random subnet: fdxx:xxxx:xxxx::/48                          |
-| Link Local           | `fe80::/64`          | 4291 | L2 Only, not routeable.                                                    |
+| Link Local           | `fe80::/10`          | 4291 | L2 Only, not routeable.                                                    |
 | Multicast            | `ff00::/8`           | 4291 | No broadcasts in v6                                                        |
 
 

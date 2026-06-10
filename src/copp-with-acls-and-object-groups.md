@@ -29,7 +29,7 @@ policy-map POLICY_MAP_COPP
 
 ```console
 control-plane
- service-policy input COPP-POLICY-MAP
+ service-policy input POLICY_MAP_COPP
 ```
 
 5. Validate

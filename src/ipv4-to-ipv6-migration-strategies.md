@@ -9,7 +9,13 @@
 
 ## Native Mode
 
-- DNS determines which stack gets used, by returning AAAA records first most of the time. Since the host gets an AAAA record it will connect with IPv6. This strategy is called "Happy Eyeballs" after the RFC
+Both stacks are running on clients. The clients request A and AAAA records near simultaneously.
+
+Whichever DNS records return first decides if the next set of flows are v4 or v6.
+
+This strategy is called "Happy Eyeballs" after the RFC. Do not punish users by "preferring" one protocol or another.
+
+Do whatever is fastest.
 
 ## Tunneling
 

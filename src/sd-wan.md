@@ -2,10 +2,19 @@
 
 ## Terms
 
-- **DIA:** Direct Internet Access. What we usually have has residential customers. No real guarantee of service, but tends to be fast.
-- **SLA:** Service Level Agreement. Business Internet, especially, to connect sites together tends to have a SLA.
-- **MPLS:** A kind of VPN service provided by an ISP, to connect business sites together. Comes with a SLA. More expensive than DIA.
-- **BFD:** Bidirectional Forwarding Detection
+**DIA** --- Direct Internet Access
+
+What we usually have has residential customers. No real guarantee of service, but tends to be fast.
+
+**SLA** --- Service Level Agreement
+
+Business Internet, especially, to connect sites together tends to have a SLA.
+
+**MPLS** --- Multi-protocol Label Switching
+
+A kind of VPN service provided by an ISP, to connect business sites together. Comes with a SLA. More expensive than DIA.
+
+**BFD** --- Bidirectional Forwarding Detection
 
 ## Devices
 
@@ -46,7 +55,7 @@ The Validator has a permanent dTLS tunnel to all the controllers.
 
 ### WAN Edge
 
-- AKA vEdge, AKA Viptella (legacy gear)
+- AKA vEdge, AKA Viptela (legacy gear)
 - Dataplane, and Onsite.
   - DIA, or MPLS.
 - Has OMP, BGP, OSPF, EIGRP, ACLs, ARP, HA, and QoS.
@@ -71,7 +80,7 @@ Policies are further classified as
 - **TCP Optimization and Session Persistence:** For high-latency links like satellite, open one TCP session, proxy it, and reuse it.
 - **Data Redundancy Elimination:** DRE. Modern compression to get more bandwidth from WAN links.
 - For AAR, or CoR, the edge will send HTTP probes and measure the jitter and/or loss.
-- The score for an app is the vQoS (Viptela Quality of Experience) from 0 to 10, 10 being best.
+- The score for an app is the vQoE (Viptela Quality of Experience) from 0 to 10, 10 being best.
 
 ## VPNs
 
@@ -138,7 +147,7 @@ python -m http.server 8000 --bind 10.0.0.1
 1. Copy into cisco box
 
 ```console
-copy tftp://10.0.0.1:8000/<boot-strap>.cfg bootflash:/<bootstrap>.cfg
+copy http://10.0.0.1:8000/<boot-strap>.cfg bootflash:/<bootstrap>.cfg
 ```
 
 ## References

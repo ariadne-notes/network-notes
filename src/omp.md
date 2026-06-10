@@ -6,13 +6,12 @@
 
 **OMP** --- Overlay Management Protocol
 
-
 **OMP routes** 
 
 - AKA, vRoutes
 - AKA, Site prefixes `10.0.0.0/24`
 
-**TLOC** --- Transport Locat
+**TLOC** --- Transport Locator
 
 - A tunnel endpoint. A tunnel endpoint is a 3-tuple (System IP, Color, Encapsulation)
 
@@ -20,7 +19,6 @@
 
 - Each TLOC will attempt a full-mesh connection with every other TLOC.
 - n*(n-1)/2
-
 
 - Service routes: Firewalls, IPS, and VPN labels.
 

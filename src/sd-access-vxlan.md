@@ -1,6 +1,6 @@
 # SD Access VXLAN
 
-MAC-in-IP Encapsulation.
+MAC-in-UDP Encapsulation.
 
 Extends vlans to support 16 million network segments in the same administrative domain.
 
@@ -30,7 +30,7 @@ Multi-destination Support is provided by multicast.
 - Virtual Tunnel End point.
 - Originates and Terminates tunnels.
   - push and pop VXLAN headers.
-- Typically a hypervisor (for app hosting)
+- Somitems a hypervisor (for app hosting)
 
 ## VXLAN Segment
 

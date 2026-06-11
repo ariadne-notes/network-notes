@@ -1,40 +1,6 @@
 # Cisco IQ Support Tiers
 
-## Terms
 
-**EOL** --- End of Life
-
-This product cannot be covered by a support contract, and there are no software updates. Usually these also have unpatched security vulnerabilities.
-
-**LDOS** --- Last day of Support
-
-This product has already stopped getting software updates, but Cisco still supports it via best effort and TAC cases.
-
-## Basic
-
-- CX Case Management
-- Self-Service Troubleshooting
-- Asset Inventory
-- Reports
-  - EoL
-  - Support
-  - Security Advisories
-  - Field Notices
-- Dashboard
-  - LDOS
-
-## Standard
-
-- Insights for previous tier
-- New Insights
-  - Security Hardening Insights
-  - Configuration Insights
-  - CX Case Insights
-
-## Signature
-
-- Config Recommendations
-- Security Hardening Recommendations
 
 ## References
 

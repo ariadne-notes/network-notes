@@ -1,16 +1,18 @@
 # Cisco IQ
 
-Launched: Nov 4th, 2025
+**Launched:** Nov 4th, 2025
 
-General Availability: April 29, 2026
+**General Availability:** April 29, 2026
 
 A web dashboard meant to help with the CX experience, harnessing a combination of Agentic AI, and customer provided Telemetry.
 
-Works with just the cloud dashboard [iq.cisco.com], optionally expanded via Cisco IQ Link, the on-prem data collector.
+Works with just the cloud dashboard [iq.cisco.com](http://iq.cisco.com), optionally expanded via Cisco IQ Link, the on-prem data collector.
 
 Cisco IQ can make a variety of data-driven network recommendations.
 
-From the News Release:
+From the [News Release]
+
+[News Release]: https://blogs.cisco.com/news/cisco-iq-is-generally-available-heres-what-that-actually-means
 
 > Over 40 percent of outages start as misconfigurations nobody caught in time.
 >
@@ -41,6 +43,8 @@ This product has already stopped getting software updates, but Cisco still suppo
 Cisco's RTP NC. USA Campus.
 
 ## Support Tiers
+
+These are tied to service contract levels.
 
 **Basic**
 
@@ -107,7 +111,7 @@ Recommendations are provided by Cisco's LLM in RTP.
 
 - Box A to B
 
-**Network OS Migration
+**Network OS Migration**
 
 - IOS-XE to IOS-XR
 
@@ -123,13 +127,15 @@ Recommendations are provided by Cisco's LLM in RTP.
 
 Hosted in the cloud, part of the support contract.
 
-Comes with an optional collector called **Cisco IQ-Link**
+Comes with an optional collector called [Cisco IQ-Link](./cisco-iq-link.md)
 
-- Cisco IQ Link, the telemetry collector
-  - Deployed VM
-  - Uses the cloud LLM (in RTP) for inference
-    - Does not train the AI
-    - Data is not kept
+- Deployed VM
+- Telemetry is SNMP
+- Includes a RADKit deployment
+- Uses the cloud LLM for inference
+  - Does not train the AI
+    - Cisco's [AI Transparency Technical Note](https://trustportal.cisco.com/c/r/ctp/trust-portal.html#/19950757990294277)
+    - Cisco's [Offer Disclosure](https://trustportal.cisco.com/c/r/ctp/trust-portal.html#/19997275235396702)
 
 **On-Prem Tethered**
 
@@ -145,6 +151,8 @@ Same as above, but no automatic updates, and no external connections.
 ## References
 
 [Cisco Live - Cisco IQ Your AI Superpower - Youtube](https://www.youtube.com/watch?v=YwFxjA7KcXw&t=40s)
+
+[Cisco IO - Offer Disclosure](https://trustportal.cisco.com/c/r/ctp/trust-portal.html#/19997275235396702)
 
 [Cisco Newsroom - Cisco launches Cisco IQ, ... ](https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2025/m11/cisco-launches-cisco-iq-the-unified-ai-powered-experience-that-connects-the-entire-customer-journey.html)
 

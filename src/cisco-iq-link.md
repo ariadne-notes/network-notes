@@ -2,9 +2,10 @@
 
 - AKA, The Collector.
 
-Optional, but allows tools like SNMP to query the devices directly for their telemetry.
+Necessary for the Standard and Signature tier.
 
 Telemetry examples:
+- SNMP
 - Software Versions
 - Crypto being used for VPNs
 
@@ -12,11 +13,13 @@ Can also use Data Connectors to talk to other Managers, like On-Prem SD-WAN Mana
 
 ## VM Requirements
 
-10K devices
+This set of requirements is for 10K devices:
 
 - 16 vCPU
 - 28GB RAM
 - 600 GB
+  - Thick Provision
+  - Disk write speed must be greater than 70 megabytes per second
 
 ## IPv4 and DNS Requirements
 
@@ -33,7 +36,7 @@ These must work and be reachable in DNS.
 - us-west-2.iq.cisco.com
 - ng.acs.agent.us.csco.cloud
 
-**EMEA Markt**
+**EMEA Market**
 
 - eu-central-1.iq.cisco.com
 - ng.acs.agent.emea.csco.cloud
@@ -55,7 +58,7 @@ These must work and be reachable in DNS.
 
 ## Supported Hypervisors
 
-- VMWare ESXi
+- VMware ESXi
 - Microsoft Hyper-V Server
 - Red Hat KVM
 
@@ -74,8 +77,8 @@ OK candidates are:
 ## Data Connectors
 
 - Intersight
-- SD-WAN Manager
 - Meraki Dashboard
+- On-Prem SD-WAN Manager
 - On-Prem Catalyst Center
 
 ## References

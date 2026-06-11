@@ -4,13 +4,15 @@
 
 **General Availability:** April 29, 2026
 
-A web dashboard meant to help with the CX experience, harnessing a combination of Agentic AI, and customer provided Telemetry.
+A web dashboard meant to help with the Cisco CX experience, harnessing a combination of Agentic AI, and customer provided Telemetry.
 
-Works with just the cloud dashboard [iq.cisco.com](http://iq.cisco.com), optionally expanded via Cisco IQ Link, the on-prem data collector.
+The Basic Tier works with just the cloud dashboard [iq.cisco.com](http://iq.cisco.com) 
+
+Standard and Signature use the same dashboard, enhanced with Telemetry from Cisco IQ Link, the On-Prem data collector.
 
 Cisco IQ can make a variety of data-driven network recommendations.
 
-From the [News Release]
+From the [News Release].
 
 [News Release]: https://blogs.cisco.com/news/cisco-iq-is-generally-available-heres-what-that-actually-means
 
@@ -23,6 +25,8 @@ From the [News Release]
 > Our Talos team confirmed it: 40% of top-targeted vulnerabilities last year impacted end-of-life devices. 
 >
 > 32% are over a decade old.
+>
+> **Liz Centoni** - *Executive Vice President, Chief Customer Experience Officer, Cisco*
 
 ## Terms
 
@@ -32,15 +36,15 @@ Cisco's name for their customer support organization.
 
 **EOL** --- End of Life
 
-This product cannot be covered by a support contract, and there are no software updates. Usually these also have unpatched security vulnerabilities.
+A process that guides the final business operations associated with the Cisco Product life cycle. 
 
-**LDOS** --- Last day of Support
+The end-of-life process consists of a series of technical and business milestones and activities that, once completed, make a Product obsolete. 
 
-This product has already stopped getting software updates, but Cisco still supports it via best effort and TAC cases.
+Once obsolete, the Product is not sold, improved, maintained, or supported.
 
-**RTP** --- Research Triangle Park
+**LDoS** --- Last Day of Support
 
-Cisco's RTP NC. USA Campus.
+The last date to receive support as entitled by active service contracts for covered Cisco hardware and software. After this date, support is no longer available.
 
 ## Support Tiers
 
@@ -57,13 +61,12 @@ These are tied to service contract levels.
   - Security Advisories
   - Field Notices
 - Dashboard
-  - LDOS
+  - LDoS
 
 **Standard**
 
-Insights are provided by Cisco's LLM in RTP.
-
-- Insights from previous tier
+- Requires Cisco IQ Link Deployment
+- Insights into previous tier
 - New Insights
   - Security Hardening Insights
   - Configuration Insights
@@ -71,55 +74,50 @@ Insights are provided by Cisco's LLM in RTP.
 
 **Signature**
 
-Recommendations are provided by Cisco's LLM in RTP.
-
 - Config Recommendations
 - Security Hardening Recommendations
 
 ## Features
 
-### Intelligent Asset Management
+Feature availability is tied to the support level: Basic, Standard, or Signature
 
-- Assets
-  - Hardware (BOM)
+### Assets Application
+
+- Overview
+  - Device Discovery
+- Criticality Insights
+- Inventory
+  - Hardware (HBOM)
   - Software (SBOM)
-  - Crypto (CBOM)
-- Contracts
-- Devices discovered
-  - LDOS
-    - How many of my devices have critical vulnerabilities?
-    - Give a summary using sentences of less than 7 words.
+  - Crypto   (CBOM)
+- Asset Tags
+- Service Contracts
+- End-of-Life
 
-### Adaptive Infrastructure 
+### Assessments Overview
 
-- Field Notices
+- Findings by Asset
 - Security Advisories
 - Security Hardening
-- Vulnerabilities
+- Configuration
+- Field Notices
 
-### Other Services 
+### Support Application
 
-- LLM Troubleshooting
-- Automated RMAs
-- Management of TAC cases
-- Config Validation
-- Migration Support 
+- Overview
+  - Cases
+  - RMAs
 
-## Migrations
+### AI Assistant
 
-**Device Migration**
-
-- Box A to B
-
-**Network OS Migration**
-
-- IOS-XE to IOS-XR
-
-**Network Architecture Migration**
-
-- IPv4 to IPv6
-- Classical Networking to Controller Based
-- MPLS to SRv6
+- Security Hardening compared to CISA hardening guidelines
+- Configuration evaluation against best practices
+- Troubleshooting
+- CX Case Handling
+  - Escalate an open case
+  - Raise Severity
+  - Request a new engineer
+  - Re-queue the case
 
 ## Deployment Models
 
@@ -127,10 +125,10 @@ Recommendations are provided by Cisco's LLM in RTP.
 
 Hosted in the cloud, part of the support contract.
 
-Comes with an optional collector called [Cisco IQ-Link](./cisco-iq-link.md)
+Comes with an optional collector called [Cisco IQ Link](./cisco-iq-link.md)
 
 - Deployed VM
-- Telemetry is SNMP
+- One Telemetry source is SNMP
 - Includes a RADKit deployment
 - Uses the cloud LLM for inference
   - Does not train the AI
@@ -148,6 +146,27 @@ Comes with an optional collector called [Cisco IQ-Link](./cisco-iq-link.md)
 
 Same as above, but no automatic updates, and no external connections.
 
+## Cisco Live AI Integration Examples
+
+**Peer Benchmarking**
+
+How does my network compare to similar networks in my business vertical?
+
+**Device Migration**
+
+- Box A to B
+
+**Network OS Migration**
+
+- IOS-XE to IOS-XR
+
+**Network Architecture Migration**
+
+- IPv4 to IPv6
+- Classical Networking to Controller Based
+- MPLS to SRv6
+
+
 ## References
 
 [Cisco Live - Cisco IQ Your AI Superpower - Youtube](https://www.youtube.com/watch?v=YwFxjA7KcXw&t=40s)
@@ -161,3 +180,5 @@ Same as above, but no automatic updates, and no external connections.
 [Cisco IQ Frequently Asked Questions](https://www.cisco.com/c/en/us/support/docs/cx/cisco-iq/faq/cx225779-cisco-iq-frequently-asked-questions.pdf)
 
 [Cisco Newsroom - Cisco IQ General Availability](https://blogs.cisco.com/news/cisco-iq-is-generally-available-heres-what-that-actually-means)
+
+[Products - End-of-Life Policy - Cisco](https://www.cisco.com/c/en/us/products/eos-eol-policy.html)

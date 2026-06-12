@@ -21,23 +21,24 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Build job
   build:
     runs-on: ubuntu-latest
+    env:
+      BOOK: 0.5.3
+      MER: 0.17.0
+      BOB: 0.3.0
     steps:
       - uses: actions/checkout@v4
-
       - name: Cache cargo binaries
         uses: actions/cache@v4
         with:
           path: ~/.cargo/bin
-          key: cargo-bin-mdbook-${{ runner.os }}-0.5.3-mdbook-mermaid-0.17.0
-
+          key: cargo-bin-${{ runner.os }}-mdbook-${{ env.BOOK }}-mermaid-${{ env.MER }}-svgbob-${{ env.BOB }}
       - name: Install mdBook
         run: |
-          which mdbook || cargo install --version 0.5.3 mdbook
-          which mdbook-mermaid || cargo install --version 0.17.0 mdbook-mermaid
-
+          which mdbook || cargo install --version ${{ env.BOOK }} mdbook
+          which mdbook-mermaid || cargo install --version ${{ env.MER }} mdbook-mermaid
+          which mdbook-svgbob || cargo install --version ${{ env.BOB }} mdbook-svgbob
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5

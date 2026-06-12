@@ -51,14 +51,9 @@
 
 # Ethernet
 
-- [STP](stp.md)
-- [RSTP](rstp.md)
-- [MST](mst.md)
 - [802.1Q](802.1q.md)
-- [ARP](arp.md)
-  - [ARP Attacks](arp-attacks.md)
-  - [DAI](dai.md)
-  - [Proxy ARP](proxy-arp.md)
+
+
 - [VLAN Access Control Lists](vlan-access-control-lists.md)
 
 # IP Security
@@ -74,17 +69,27 @@
 - [QoS](qos.md)
   - [Cisco IOS QoS Commands](cisco-ios-qos-commands.md)
 
-# Enterprise Switchport Features
+# Enterprise Switching
 
-- [DTP](dtp.md)
-- [Portfast](portfast.md)
-- [BPDU Guard](bpdu-guard.md)
-- [BPDU Filter](bpdu-filter.md)
-- [Root Guard](root-guard.md)
-- [Loop Guard](loop-guard.md)
-- [UplinkFast](uplinkfast.md)
-- [Port Security](port-security.md)
-- [UDLD](udld.md)
+- [Spanning Trees](spanning-trees.md)
+  - [STP](stp.md)
+  - [RSTP](rstp.md)
+  - [MST](mst.md)
+
+- [Defend Spanning Tree](defend-spanning-tree.md)
+  - [DTP](dtp.md)
+  - [Portfast](portfast.md)
+  - [BPDU Guard](bpdu-guard.md)
+  - [BPDU Filter](bpdu-filter.md)
+  - [Root Guard](root-guard.md)
+  - [Loop Guard](loop-guard.md)
+  - [UplinkFast](uplinkfast.md)
+  - [Port Security](port-security.md)
+  - [UDLD](udld.md)
+- [ARP](arp.md)
+  - [ARP Attacks](arp-attacks.md)
+  - [DAI](dai.md)
+  - [Proxy ARP](proxy-arp.md)
 
 # SP Ethernet
 
@@ -116,7 +121,7 @@
   - [MSDP](msdp.md)
   - [Multicast L2 Addressing](multicast-l2-addressing.md)
 
-# OSPF
+# Routing
 
 - [OSPF](ospf.md)
   - [OSPF DR Election](ospf-dr-election.md)
@@ -134,17 +139,14 @@
   - [OSPF LFA](ospf-lfa.md)
   - [OSPF Sham Links](ospf-sham-links.md)
 
-# EIGRP
-
 - [EIGRP](eigrp.md)
   - [EIGRP Stub Routing](eigrp-stub-routing.md)
   - [EIGRP Classic Metric](eigrp-classic-metric.md)
   - [EIGRP Wide Metric](eigrp-metric-wide.md)
+  
 - [IS-IS](is-is.md)
   - [IS-IS Network Design](is-is-network-design.md)
   - [IPv4 To Hex](ipv4-to-hex.md)
-
-# BGP
 
 - [BGP](bgp.md)
   - [BGP Neighbor Finite State Machine](bgp-neighbor-fsm.md)

@@ -2,33 +2,36 @@
 
 **6to4**
 
-The base standard, requires a specific prefix.
+- The base standard
+- Requires a specific prefix
 
 **6RD**
 
-The current standard, allows any global prefix.
+- The current standard
+- Allows any global prefix
 
-**RG** --- Router Gateway. 
+**RG** --- Router Gateway
 
-The CPE the ISP provides to connect to their network.
+- The CPE the ISP provides to connect to their network
 
-**BNG** --- Broadband Network Gateway.
+**BNG** --- Broadband Network Gateway
 
-This is the Customer aggregation node, which can aggregate thousands of connections.
+- This is the Customer aggregation node
+- Aggregate thousands of connections
 
-**NMS** --- Network Management System.
+**NMS** --- Network Management System
 
-Provides a place to see and configure the network.
+- Provides a place to see and configure the network
 
-**AAA** --- Authentication, Authorization, Accounting.
+**AAA** --- Authentication, Authorization, Accounting
 
-This is how the ISP controls who can access the network, and controls QoS Deployments.
+- This is how the ISP controls who can access the network
+- Controls QoS Deployments
 
 **BR**
 
-This node terminates the 6RD tunnels.
-
-- AKA,Border Relay.
+- Terminates the 6RD tunnels
+- AKA, Border Relay
 
 ## What does 6RD Solve?
 
@@ -38,7 +41,7 @@ This way, the customer gets dual stack without the ISP needing to upgrade a lega
 
 ```bob
      Customer's Home   ┌───────── 6RD Tunnel ────────────┐
-          v4/v6        │                                 │
+         v4 / v6       │                                 │
 ┌──────────────────────┼─┐   Legacy Access Network       │
 │┌──────────┐          │ │           v4 only             │
 ││Customer  │          ▼ │┌────────────────────────────┐ ▼

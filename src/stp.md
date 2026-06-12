@@ -4,58 +4,61 @@
 
 **STP** --- Spanning Tree Protocol
 
-Frequently cited as `802.1D`.
+- Frequently cited as `802.1D`
 
 **Bridge** 
 
-A device that participates in the spanning tree algorithm.
+- A device that participates in the spanning tree algorithm
 
 **Root Bridge** 
 
-The bridge that wins the STP election.
+- The bridge that wins the STP election
 
 **Bridge ID** 
 
-Three fields, next to each other.
-
-`Bridge Priority, Extension ID (the VLAN), MAC Address`
+- Three fields, next to each other
+- `Bridge Priority, Extension ID (the VLAN), MAC Address`
 
 **BPDU** --- Bridge Protocol Data Unit
 
-The frame used in 802.1D STP.
+- The frame used in 802.1D STP
 
 **802.1D**
 
-An IEEE standard. The oldest Ethernet STP.
+- An IEEE standard. The oldest Ethernet STP
 
 **Root ID**
 
-The bridge that has won and is winning the elections.
+- The bridge that has won and is winning the elections
 
 **Designated ports**
 
-Sends BPDUs downstream.
-
+- Sends BPDUs downstream
 - AKA DP
 
 **Root Port**
 
-Receives BPDUs, from upstream switch. Each bridge can have only one RP. RP is picked by `port-selection-algo`
-
-- AKA, RP.
-- AKA, Upstream.
+- Receives BPDUs, from upstream switch.
+- Each bridge can have only one RP. RP is picked by `port-selection-algo`
+- AKA, RP
+- AKA, Upstream
 
 **TCN** --- Topology change notification
 
-Sent by the bridge that sees a STP change, upstream via it's RP. This is it's own message.
+- This is its own message
+- Sent by the bridge that sees a STP change, upstream via it's RP
+- One of the only upstream messages
 
 **TCA Bit** --- Topology Change Acknowledge
 
-Sent by the upstream bridge, to let the TC reporting bridge know it relay'd the TCN upstream. This is inside a config BPDU.
+- Sent by the upstream bridge
+- Lets the downstream reporting bridge know the TCN was relayed upstream
+- Inside a config BPDU
 
 **TC Bit** --- Topology Change
 
-The root bridge sets the TC, to tell downstream bridges to shorten their MAC aging timer to Forward Delay (default 15 seconds).
+- The root bridge sets the TC Bit
+- Downstream bridges shorten their MAC aging timer to Forward Delay (default 15 seconds)
 
 ## How STP makes a loop free topology
 
@@ -174,9 +177,16 @@ More details [here](https://www.cisco.com/c/en/us/support/docs/lan-switching/spa
 
 ## Port Types
 
-**Designated ports** send BPDUs downstream.
+**Designated ports** 
 
-**Root Ports** are the best port towards the root bridge, either the lowest total cost or the lowest advertised priority or lowest advertised port ID (interface number).
+- Send BPDUs downstream
+
+**Root Ports** 
+
+- The selected port towards the root bridge
+  - Lowest total cost 
+    - OR lowest advertised priority
+      - OR Lowest advertised port ID (interface number)
 
 ## Root Path Cost
 

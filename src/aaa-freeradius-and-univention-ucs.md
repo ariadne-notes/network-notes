@@ -5,9 +5,9 @@ This solution relies on:
 - [Univention UCS](https://www.univention.com/products/ucs/) a Linux based, Active Directory, Domain Controller.
 - [FreeRADUS](https://github.com/FreeRADIUS/freeradius-server), an AAA plugin for Univention UCS.
 
-```plain
+```bob
 ┌──────────────┐          ┌──────────────┐
-│    UCS-1     │          │    UCS-2     │
+│    UCS 1     │          │    UCS 2     │
 │ ┌──────────┐ │   DRS    │ ┌──────────┐ │
 │ │   LDAP   │ │◄────────►│ │   LDAP   │ │
 │ └──────────┘ │          │ └──────────┘ │
@@ -28,7 +28,6 @@ This solution relies on:
 ```
 
 ## Cisco Side
-
 
 ### AAA Config
 

@@ -2,13 +2,13 @@
 
 - Packet-in-packet technology
 - Mostly historical
-- Used within one site, **not** an Internet Tech.
+- Used within one site, **not** an Internet Technology
 - "v6 islands within a v4 ocean"
-- Treats the v4 network as NBMA.
-- ISATAP devices must be dual stacked.
-- Adds 20-bytes of overhead.
-- Works as long as v4 routing works.
-- Stateless.
+- Treats the v4 network as NBMA
+- ISATAP devices must be dual stacked
+- Adds 20-bytes of overhead
+- Works as long as v4 routing works
+- Stateless
 
 ## Theory
 
@@ -19,7 +19,7 @@ Use v4 connectivity to emulate a NBMA network. Wrap the v6 packet inside v4.
 
 ## The routers perform ISATAP
 
-<pre>
+```plain
          ┌─ v6 only ─┐         ┌────────────  v4 only ───────────────┐         ┌─ v6 only ─┐
          ▼           ▼         ▼                                     ▼         ▼           ▼
 ┌────────┐           ┌─────────┐            ┌─────────┐              ┌─────────┐           ┌────────┐
@@ -33,12 +33,11 @@ Use v4 connectivity to emulate a NBMA network. Wrap the v6 packet inside v4.
                            ┌───────────┬───────────┐
                            │ v6-packet │ v4-header │ ───────►
                            └───────────┴───────────┘
-</pre>
+```
 
 ## The clients perform ISATAP
 
-<pre>
-
+```plain
            ┌──────────────────────────────────  v4 only  ───────────────────────────────────┐
            ▼                                                                                ▼
   ┌────────┐           ┌─────────┐            ┌─────────┐              ┌─────────┐          ┌────────┐
@@ -52,7 +51,7 @@ Use v4 connectivity to emulate a NBMA network. Wrap the v6 packet inside v4.
         ┌───────────┬───────────┐
         │ v6-packet │ v4-header │ ────────►
         └───────────┴───────────┘
-</pre>
+```
 
 
 ## ISATAP Interface in v6
@@ -62,13 +61,13 @@ All ISATAP interfaces look like this. The giveaway is `0000:5EFE` in the host po
 
 If a router sees a v6 destination that looks like this, it's an ISATAP packet.
 
-<pre>
+```plain
                     64 bits                              32 bits                   32 bits
 
 ┌───────────────────────────────────────────────┬───────────────────────────┬──────────────────────┐
 │  Global Unicast Prefix                        │        0000:5EFE          │  IPv4 of ISATAP Link │
 └───────────────────────────────────────────────┴───────────────────────────┴──────────────────────┘
-</pre>
+```
 
 ## Terms
 

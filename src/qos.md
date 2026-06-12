@@ -4,39 +4,41 @@
 
 **FIFO** --- First in, First out
 
-The default behavior of an network node processing IP traffic.
+ - Default behavior
 
 **Differentiated Services**
 
-Giving packet flows different levels of network service, based on classification.
-
+- Giving packet flows different levels of network service
+- Based on classification
 - AKA, DiffServ
 
 **Integrated Services**
 
-Packet flows explicitly reserve bandwidth along a path, via admission control.
-
+- Packet flows explicitly reserve bandwidth along a path
+- Uses admission control
 - AKA, IntServ
 
 **RSVP** --- Resource Reservation Protocol
 
-Uses Admission control to make explicit QoS reservations on each device in the path.
+- An IntServ Implementation
 
 **Marking**
 
-Changing the DSCP bits in the IP header field to put an IP flow into a specific traffic class.
+- Changing the DSCP bits in the IP header field
 
 **DSCP** --- Differentiated Services Code Point
 
-The marking of an IP packet that allows DiffServ
+- The markings of an IP packet that allows DiffServ
 
 **PHB** --- Per Hop Behavior
 
-What a node should or shouldn't do with marked traffic.
+- What a node should or shouldn't do with marked traffic.
 
 **Queuing**
 
-Holding a packet in memory, delaying transmission. Queuing is always expensive.
+- Hold a packet in memory
+- Delays transmission
+- Expensive, because memory is expensive
 
 **LLQ** --- Low latency queuing
 
@@ -48,17 +50,17 @@ Holding a packet in memory, delaying transmission. Queuing is always expensive.
 
 **EF** --- Expedited Forwarding
 
-The highest tier of service for network data, that isn't control traffic.
+- The highest PHB for network data
 
 **Control Traffic**
 
-CS6 traffic is used to share topology information, eg. (OSPF, IS-IS, BGP)
-
-- CS6. 
+- Routing Traffic
+  - OSPF, EIGRP, IS-IS, BGP, etc
 
 **CAR** --- Committed Access Rate
 
-The agreed rate a traffic source will flow at, or violate it's SLA.
+- Contractual data rate a traffic source will flow at
+- SLA oriented
 
 **SLA** --- Service Level Agreement
 

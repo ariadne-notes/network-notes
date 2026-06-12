@@ -22,26 +22,23 @@ Industry liked what Cisco was doing with "per vlan" so MST merges that feature i
 ## Terms
 
 
-**CST**
+**CST** --- Common Spanning Tree
 
-- Common Spanning Tree. 
-- For interoperability we fall back to 802.1D, with one spanning tree.
+- For interoperability we fall back to 802.1D, with one STP
 
 **CST Root**
 
-- The one root bridge for the entire CST.
+- The one root bridge for the entire CST
 
-**MST**
+**MST** --- Multiple Spanning Trees
 
-- Multiple Spanning Trees.
+**MSTI** --- MST Instance
 
-**MSTI**
-
-- MST Instance, a group of vlans on a common MSTI.
+- A group of vlans on a common MSTI
 
 **MST Region**
 
-- A group of switches with the same high-level config.
+- A group of switches with the same high-level config
 
 **MST Region Boundary**
 
@@ -49,32 +46,34 @@ Industry liked what Cisco was doing with "per vlan" so MST merges that feature i
 
 **MST Region Root**
 
-- MST can propagate multiple MSTIs. Each MSTI can have it's own root.
+- MST can propagate multiple MSTIs. Each MSTI can have it's own root
 
-**IST**
+**IST** --- Internal Spanning Tree
 
-- Internal Spanning Tree
-- instance 0, the first instance.
+- Instance 0, the first instance
 
 **IST Root**
 
-- The IST root is the CST root.
+- The IST root is the CST root
 
-**CIST**
+**CIST** --- Common and Internal Spanning Tree
 
-- Common and Internal Spanning tree. MST can derive what STP would do, for interop. If a switch in a MST region is connected to a much older switch, it will present it with a CST.
+- MST can derive what STP would do, for interop
+- If a switch in a MST region is connected to a much older switch, it will present it with a CST
 
 **MST Region Boundary**
 
-- Any port that connects to a 802.1D or 802.1W device.
+- Any port that connects to a 802.1D or 802.1W device
 
 **PVST Simulation**
 
-- if a MST switch is root for the whole switch topology, it will map the IST (instance 0) onto the CST, by sending BPDUs for all the VLANS it sees on the neighbor.
+- If a MST switch is root for the whole switch topology
+  - Map the IST (instance 0) onto the CST, by sending BPDUs for all the VLANS it sees on the neighbor
 
 **PVST Simulation Check**
 
-- If a MST device receives a superior BPDU, it will shut down the port.
+- If a MST device receives a superior BPDU
+  - Shut down the port
 
 
 ## Packet
@@ -111,13 +110,13 @@ Spanning Tree Protocol
 
 MST keeps track of a few things:
 
-- **Root Identifier**, This is the interop bridge for the whole topology.
+- **Root Identifier**, the interop bridge for the whole topology
 
-- **Bridge Identifier:** This is the interop field that makes a MST region appear as one bridge outside of it.
+- **Bridge Identifier,** the interop field that makes a MST region appear as one bridge outside of it
 
-- **CIST Bridge,** This is the bridge that originated the BPDU. Not visible outside of MST.
+- **CIST Bridge,** the bridge that originated the BPDU. Not visible outside of MST
 
-- **Regional Root:** The bridge that is the root for `green`. Not visible outside of MST.
+- **Regional Root,** the bridge that is the root for `green`. Not visible outside of MST
 
 
 

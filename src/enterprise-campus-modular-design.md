@@ -2,14 +2,13 @@
 
 Connections shown are logical to connect the modules, not the actual connections :)
 
-<pre>
-   Enterprise Campus                           Enterprise Edge
-
-                            ┌────────────────────────────────────────────────────┐
+```bob
+                                             Enterprise Edge
+   Enterprise Campus        ┌────────────────────────────────────────────────────┐
 ┌────────────────────┐      │ ┌─────────────────────┐  ┌───────────────────────┐ │
 │┌─────────────────┐ │  ┌───┼─┤   Internet / DMZ    ├──┤ Service Provider Edge │ │
-││      Access     │ │  │   │ └─────────┬───────────┘  │ ┌─────┐     ┌─────┐   │ │
-│└─────────────────┘ │  │   │           │              │ │ISP-1│     │ISP-2│   │ │
+││     Access      │ │  │   │ └─────────┬───────────┘  │ ┌─────┐     ┌─────┐   │ │
+│└─────────────────┘ │  │   │           │              │ │ISP1 │     │ISP2 │   │ │
 │┌─────────────────┐ │  │   │           │              │ └─────┘     └─────┘   │ │
 ││   Distribution  │ │  │   │           │              └───────────────────────┘ │
 │└─────────────────┘ │  │   │ ┌─────────┴───────────┐  ┌───────────────────────┐ │
@@ -17,7 +16,7 @@ Connections shown are logical to connect the modules, not the actual connections
 ││ Enterprise Core ├─┼──┤   │ └─────────────────────┘  └───────────────────────┘ │
 │└─────────────────┘ │  │   └────────────────────────────────────────────────────┘
 │┌─────────────────┐ │  │
-││    Data Center  │ │  │                        WAN Edge
+││   Data Center   │ │  │                        WAN Edge
 │└─────────────────┘ │  │   ┌──────────────────────────────────────────────────┐
 └────────────────────┘  │   │┌─────┐ Direct Connect / MPLS ┌─────────────────┐ │
                         └───┼┤ WAN ├───────────────────────┤ Cloud Providers │ │
@@ -26,4 +25,4 @@ Connections shown are logical to connect the modules, not the actual connections
                             │      L2VPN/L3VPN/MetroE/SDWAN/MPLS Connections   │
                             │                                                  │
                             └──────────────────────────────────────────────────┘
-</pre>
+```

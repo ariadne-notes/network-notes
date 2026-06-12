@@ -1,31 +1,69 @@
 # RSTP
 
-- **Discarding:** ports are on, but not forwarding data traffic. Might be receiving BPDUs. STP states: Disabled, blocking and listening.
+**Discarding**
 
+- On
+- Blocking data traffic
+- Might be receiving BPDUs
+  - STP states: Disabled, Blocking and Listening
 
-- **Learning:** ports are on, the switch is building the CAM table. The only forwarding is control traffic.
+**Learning**
 
-- **Forwarding:** ports pass data and control traffic.
+- On
+- Building the CAM table
+- Only forwarding BPDUs
 
-- **Root port:** AKA RP. A VLAN has one RP.
+**Forwarding**
 
-- **Designated port:** AKA DP. Each link can have only one DP.
+- On
+- Forwarding BPDUs and Data traffic
 
-- **Backup port:** A network port that provides link redundancy toward the shared segment within the same collision domain, which is typically a network hub.
+**Root port**
 
-- **Edge ports:** are edge of the STP topology, meant for hosts. Edge ports have portfast turned on.
+- AKA RP
+- A switch has one RP
 
-- **Non-Edge ports:** have received a BPDUs. Could be attached to switches.
+**Designated port**
 
-- **Point-to-point ports:** connect to other RSTP switches with full duplex.
+- AKA DP
+- Each link can have only one DP
 
-- **Propose bit:** Added in 802.1w, the switch that compares BPDUs and sees it has the superior BPDU sets the `Propose` and `DP` bits.
+**Backup port**
 
-- **Agree Bit:** Tells the other side, "yeah, I agree" the other side immediately moves into forwarding.
+- Typically connected to a hub
+- Used on shared segments
+- Provides link redundancy
+
+**Edge ports**
+
+- Edge of the STP topology, meant for hosts
+- Edge ports have portfast turned on
+
+**Non-Edge ports**
+
+- Have received a BPDUs
+  - Could be attached to switches
+
+**Point-to-point ports**
+
+- Connect to other RSTP switches with full duplex
+
+**Propose bit**
+
+- Added in 802.1w
+- Switches compare BPDUs 
+  - Switch with Superior BPDU
+    - Sets the `Propose` and `DP` bits
+
+**Agree Bit**
+
+- Sent in response to a Propose Bit
+  - "Yeah, I agree"
+  - Transition immediately to forwarding
 
 ## Packet Headers
 
-```console
+```text
 Spanning Tree Protocol
     Protocol Identifier: Spanning Tree Protocol (0x0000)
     Protocol Version Identifier: Rapid Spanning Tree (2)
@@ -51,25 +89,17 @@ Spanning Tree Protocol
 
 ## Proposal
 
-
 Like 802.1D, we have BPDUs. To speed things up some logic has been added.
 
 Is this port full-duplex? If so, it's point-to-point, and if so, there is a RP and DP.
 
 No BPDUs being received? Wait for the forward delay, transition port to forwarding.
 
-## Proposal Bit
-
-- One side marks `Propose`
-- The other side marks `Agree`
-
-
 ## Fastest Scenario, The Would-Be DP Is Already Transmitting
 
-
-```plain
+```bob
 ┌─────────┐                      ┌─────────┐
-│         │   Full-Duplex Link   │         │
+│         │   Full Duplex Link   │         │
 │   SW1   ├──────────────────────┤   SW2   │
 │         │                      │         │
 └────┬────┘                      └────┬────┘
@@ -90,6 +120,5 @@ No BPDUs being received? Wait for the forward delay, transition port to forwardi
 [RSTP-initial-bringup-fastest.pcap](./captures/switching/RSTP-initial-bringup-fastest.pcap)
 
 ## References
-
 
 [Cisco - Spanning Tree Protocol](https://www.cisco.com/c/en/us/support/docs/lan-switching/spanning-tree-protocol/24062-146.html)

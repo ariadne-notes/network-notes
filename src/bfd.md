@@ -1,15 +1,24 @@
 # BFD
 
+Solves the problem of broken unidirectional links neatly, by putting packets into the dataplane then watching them return.
+
 ## Terms
 
-- **Echo** - Test the dataplane.
+**BFD Async**
 
-- **BOB** - BFD over Bundle.
+- Test the BFD control plane
 
-- **BLB** - BFD over Logical Bundle - (VLANS, Sub-interfaces). 
-  - This requires multipath to be enabled. 
-  - Multipath doesn't inject BFD packets into the HP queue.
+**BFD Echo**
 
+- Test the dataplane
+
+**BOB** --- BFD over Bundle
+
+**BLB** --- BFD over Logical Bundle
+
+- VLANS & Sub-interfaces
+- This requires multipath to be enabled
+  - Multipath doesn't inject BFD packets into the HP queue
 
 ## Ports
 
@@ -25,19 +34,16 @@ BFD Payload is sent as SRC UDP 3785  --> Destination 3785
 
 "Please respond to this packet with the control plane of the far device."
 
-```plain
-          Peer-A to Peer-B, lets agree to use BFD.
-          
-          Peer-A, I see your control packets.
-          
-          Peer-B, I also see your control packets.
-          
+```bob 
+          Peer A Let's agree to use BFD.
+          Peer A I see your control packets.
+          Peer B I also see your control packets.
           
           L3 SRC A
           L3 DST B
           
 ┌───────┐ ──────────────────────────────► ┌───────┐
-│Peer-A │                                 │Peer-B │
+│Peer A │                                 │Peer B │
 └───────┘ ◄────────────────────────────── └───────┘
 ```
 
@@ -47,19 +53,17 @@ BFD Payload is sent as SRC UDP 3785  --> Destination 3785
 
 "Just loop the BFD packets back onto the link, please."
 
-The packets never leave the data plane, and never touches the control plane of Peer-A or Peer-B.
+Peer B's BFD process does not handle these packets, they are forwarded as data traffic.
 
-```console
-
+```bob
            L3 SRC A
            L3 DST A
-
 !
-! Peer A tests it's return path
+! Peer A tests its return path
 !
 ┌───────┐                                   ┌───────┐
 │       │ ────────────────────────────────┐ │       │
-│Peer-A │                                 │ │Peer-B │
+│Peer A │                                 │ │Peer B │
 │       │ ◄───────────────────────────────┘ │       │
 └───────┘                                   └───────┘
 
@@ -67,11 +71,11 @@ The packets never leave the data plane, and never touches the control plane of P
            L3 SRC A
            L3 DST A
 !
-! Peer B also tests it's return path
+! Peer B also tests its return path
 !
 ┌───────┐                                   ┌───────┐ 
 │       │ ┌──────────────────────────────── │       │ 
-│Peer-A │ │                                 │Peer-B │ 
+│Peer A │ │                                 │Peer B │ 
 │       │ └───────────────────────────────► │       │ 
 └───────┘                                   └───────┘ 
 ```

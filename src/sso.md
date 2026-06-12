@@ -1,23 +1,23 @@
 # SSO
 
-<pre>
+```bob
 ┌──────────────────────┐
 │┌────────────────────┐│
-││ RP-2 (Standby)     ││
+││ RP 2 (Standby)     ││
 │└────────────────────┘│
 │    ▲                 │
 │    │ State           │
 │┌───┴────────────────┐│
-││ RP-1 (Active)      ││
+││ RP 1 (Active)      ││
 │└─┬──────────────────┘│
 │  │ BGP            ▲  │
 │  ▼            BGP │  │
 │┌──────────────────┴─┐│
-││ Linecard-1         ││
+││ Linecard 1         ││
 │└────────────────────┘│
 │                      │
 └──────────────────────┘
-</pre>
+```
 
 The owner of the control plane is the **RP**, the Route Processor. The Active RP sends and receives the hello packets.
 
@@ -79,9 +79,9 @@ Once I send an open message, that means I'm working, so please give me this long
 
 This is a BGP Example.
 
-<pre>
+```bob
      ┌───────────────────┐                 ┌────────────────┐
-     │ GR-Capable Router │                 │  GR-Aware Peer │
+     │ GR Capable Router │                 │ GR Aware Peer  │
      └───────────────────┘                 └────────┬───────┘
               │                                     │
               │◄─── OPEN with GR Capability ───────►│
@@ -91,22 +91,22 @@ This is a BGP Example.
    * Send     │                                     │ * Acknowledge restart
      Restart  ├─── OPEN with Restart Bit Set ──────►│ * Mark routes stale
      Notif.   │                                     │ * Start Restart Timer
-              │                                     │ * GR-Aware Peer in "helper mode"
+              │                                     │ * GR Aware Peer in "helper mode"
               │◄── OPEN with Capability ────────────│
               │                                     │
 - Session     │                                     │
   Established │──────── BGP KEEPALIVE ─────────────►│ * Stop Restart Timer
-              │                                     │ * Start Stale-Path Timer
+              │                                     │ * Start Stale Path Timer
               │                                     │
               │◄──── Send Initial Updates + EoR ────┤
               │                                     │
     * Best    │                                     │
-      Path    │                                     │ * Stop Stale-Path Timer
+      Path    │                                     │ * Stop Stale Path Timer
       Select  │──────── Send Updates + EoR ───────► │ * Delete stale prefixes
       on EoR  │                                     │ * Refresh with new ones
               │                                     │
               │           *** CONVERGED ***         │
-</pre>
+```
 
 
 ## References

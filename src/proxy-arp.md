@@ -2,24 +2,21 @@
 
 There are lots of requirements to get this to work.
 
-- Router needs to see the host `on-link`.
-
-- Host is configured for a much larger subnet then what is actually present.
-- The ARP target the host is requesting is in the routing table.
-- The ARP target cannot be out the same interface the ARP was heard on.
+- Router needs to see the host `on-link`
+- Host is configured for a **much larger subnet then what is actually present**
+- The ARP target the host is requesting is in the routing table
+- The ARP target cannot be out the same interface the ARP was heard on
 
 ## Lab topology
 
 
-<pre>
-                                                    192.168.23.0/24
+```bob
+192.168.0.0/16      192.168.0.0/24                   192.168.23.0/24
 
 ┌──────┐                   ┌──────┐         ┌──────┐               ┌──────┐
 │ Host ├───────────────────┤  R1  ├─────────┤  R2  ├───────────────┤  R3  │
-└──────┘                   └──────┘         └──────┘.2           .3└──────┘
-192.168.0.10/16      192.168.0.1/24
-
-</pre>
+└──────┘.10              .1└──────┘         └──────┘.2           .3└──────┘
+```
 
 ## Evidences
 

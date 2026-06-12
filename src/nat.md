@@ -2,45 +2,49 @@
 
 We specify an `inside` and `outside` network, so we can do one or both transforms.
 
-- **Source** NAT, where we modify the SA (Source address)
-- **Destination** NAT, where we modify the DA (Destination Address)
+**Source NAT**
 
-<pre>
-         Inside   Outside
+Modifies the SA (Source address)
 
+**Destination NAT**
+
+Modifies the DA (Destination Address)
+
+```bob
+        Inside   Outside
        ┌────────┬────────┐
        │Inside  │Outside │
 Local  │   Local│   Local│  ──► How it appears crossing our network
        ├────────┼────────┤
-Global │Inside  │Outside │
-       │  Global│  Global│  ──► How it appears out on the Internet
+       │Inside  │Outside │
+Global │  Global│  Global│  ──► How it appears out on the Internet
        └───┬────┴───┬────┘
            │        │
            │        └─────────► Destination NAT
            │
            │
            └──────────────────► Source NAT
-</pre>
+```
 
 
 ## Translation
 
 
 <pre>
-                    INSIDE NETWORK                                   OUTSIDE NETWORK
-         ┌────────────────────────────────────┐         ┌──────────────────────────────────────┐
-         │                                    │         │                                      │
-         │       ┌────────────┬─────────────┐ │         │       ┌─────────────┬──────────────┐ │
-         │ ────► │    SA      │     DA      │ │ ──────► │ ────► │    SA       │     DA       │ │
-┌──────┐ │       │Inside Local│Outside Local│ │         │       │Inside Global│Outside Global│ │ ┌───────┐
-│Inside│ │       └────────────┴─────────────┘ │  ┌───┐  │       └─────────────┴──────────────┘ │ │Outside│
-│ Host │ │                                    │  │NAT│  │                                      │ │ Host  │
-└──────┘ │ ┌────────────┬─────────────┐       │  └───┘  │ ┌─────────────┬──────────────┐       │ └───────┘
-         │ │    SA      │     DA      │       │         │ │    SA       │     DA       │       │
-         │ │Inside Local│Outside Local│ ◄──── │ ◄────── │ │Inside Global│Outside Global│ ◄──── │
-         │ └────────────┴─────────────┘       │         │ └─────────────┴──────────────┘       │
-         │                                    │         │                                      │
-         └────────────────────────────────────┘         └──────────────────────────────────────┘
+                    INSIDE NETWORK                                 OUTSIDE NETWORK
+         ┌────────────────────────────────────┐       ┌──────────────────────────────────────┐
+         │                                    │       │                                      │
+         │       ┌────────────┬─────────────┐ │       │       ┌─────────────┬──────────────┐ │
+         │ ────► │    SA      │     DA      │ │ ────► │ ────► │    SA       │     DA       │ │
+┌──────┐ │       │Inside Local│Outside Local│ │       │       │Inside Global│Outside Global│ │ ┌───────┐
+│Inside│ │       └────────────┴─────────────┘ │ ┌───┐ │       └─────────────┴──────────────┘ │ │Outside│
+│ Host │ │                                    │ │NAT│ │                                      │ │ Host  │
+└──────┘ │ ┌────────────┬─────────────┐       │ └───┘ │ ┌─────────────┬──────────────┐       │ └───────┘
+         │ │    SA      │     DA      │       │       │ │    SA       │     DA       │       │
+         │ │Inside Local│Outside Local│ ◄──── │ ◄──── │ │Inside Global│Outside Global│ ◄──── │
+         │ └────────────┴─────────────┘       │       │ └─────────────┴──────────────┘       │
+         │                                    │       │                                      │
+         └────────────────────────────────────┘       └──────────────────────────────────────┘
 </pre>
 
 Based on a diagram [here.](https://www.cisco.com/c/en/us/support/docs/ip/network-address-translation-nat/13772-12.html)
@@ -53,7 +57,7 @@ This is Source NAT.[^source]
 
 Packets to R3 will appear to be from `10.0.0.2`
 
-<pre>
+```bob
           192.168.0.0/24             10.0.0.0/24
 
 ┌────┐.1                 .2┌────┐.2             .1┌────┐
@@ -62,7 +66,7 @@ Packets to R3 will appear to be from `10.0.0.2`
                            ▲    ▲
                            │    │
            Inside ─────────┘    └─────── Outside
-</pre>
+```
 
 ```console
 !

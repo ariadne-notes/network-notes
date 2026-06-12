@@ -10,21 +10,25 @@ EIGRP defaults to 4 paths.
 
 Your equipment might support different options.
 
-**Original**
-
-Legacy. Oldest exists on all the gear.
-
 **Universal**
 
-Default. Selects based on (src-ip, dst-ip)
+- Default
+- Selects based on (src-ip, dst-ip)
+
+**Original**
+
+- Legacy
+- Exists on Cisco equipment
 
 **Tunnel**
 
-Meant for tunnel endpoints, with low src-ip and dst-ip diversity.
+- Meant for tunnel endpoints
+- Help with with low src-ip and dst-ip diversity
 
 **Include Ports**
 
-Selects based on (src-ip, dst-ip, src-port, dst-port)
+- Selects based on longer tuple
+  - (src-ip, dst-ip, src-port, dst-port)
 
 ```console
 ip cef load-sharing algorithm

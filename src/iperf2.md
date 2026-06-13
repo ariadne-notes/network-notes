@@ -10,13 +10,13 @@ I like this test design for a few reasons.
 
 ### Server
 
-```console
+```console,editable
 iperf --server --port 2000 --interval 5
 ```
 
 ### Client
 
-```console
+```console,editable
 iperf --port 2000 --client 10.0.100.100 --reverse --time 3600 --interval 5 --udp --bandwidth 5pps  --len 1000
 ```
 
@@ -24,12 +24,12 @@ iperf --port 2000 --client 10.0.100.100 --reverse --time 3600 --interval 5 --udp
 
 ### Source
 
-```console
+```console,editable
 iperf --server --udp --bind 239.10.10.10 --interval 5
 ```
 
 ### Receiver
 
-```console
+```console,editable
 iperf --client 239.10.10.10 --udp --time 3600 --interval 5 --bandwidth 5pps --ttl 15 --len 1000
 ```

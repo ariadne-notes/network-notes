@@ -2,7 +2,7 @@
 
 I made this blog to help redo my CCNP.
 
-My study topics are mostly ENARSI and ENSLD.
+My study topics are mostly ENCOR, ENARSI, and ENSLD.
 
 I've been in the Networking Industry since 2012.
 

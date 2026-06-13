@@ -1,9 +1,9 @@
 # GRE
 
-GRE -- **Generic Routing Encapsulation**
+**GRE** --- Generic Routing Encapsulation
 
-- does not provide encryption
-- just a transport service
+- No encryption
+- Just a transport service
 
 To carry IPv4 just set the protocol type to `0x800`
 
@@ -11,7 +11,7 @@ The outer header (the delivery header) if it's IPv4 uses the protocol `47`
 
 ## Structure
 
-GRE tries to be very basic, so it has three parts:
+GRE is a generic transport, it has three parts:
 
 ```
 ┌───────────────────────────────┐ 

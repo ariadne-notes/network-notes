@@ -284,7 +284,7 @@
 - [Cisco C9000 Catalyst Troubleshooting](cisco-c9000-troubleshooting.md)
 - [Cisco ECMP](cisco-ecmp.md)
 - [Packet Drops](packet-drops.md)
-
+- [SecureCRT](securecrt.md)
 
 # Certification Stuff
 

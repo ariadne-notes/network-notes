@@ -1,32 +1,32 @@
 # WAN Considerations
 
-**DIA** --- Direct Internet Access.
+**DIA** --- Direct Internet Access
 
-An ordinary connection to the Internet.
+- An ordinary connection to the Internet
 
 ## Leased Lines
 
-- Point-to-point.
-- Logically "a wire" between two sites.
-- ISP makes the wire look continuous.
-- Usually .
-  - Based on T-Carrier, or OCx technology.
-  - Takes months to provision.
-  - Older tech.
+- Point-to-point
+- Logically "a wire" between two sites
+- ISP makes the wire look continuous
+- Usually 
+  - Based on T-Carrier, or OCx technology
+  - Takes months to provision
+  - Older tech
   - Very private (only the ISP can see the data)
-- Sometimes requires construction to provision.
-- Always more expensive, but reliable and dedicated bandwidth.
-- Gets more expensive with a SLA.
+- Sometimes requires construction to provision
+- Always more expensive, but reliable and dedicated bandwidth
+- Gets more expensive with a SLA
 
 ## T-Carrier
 
-- Leased line.
-- Invented in the 1950s, used to link telephone central offices and transport telephone calls.
+- Leased line
+- Invented in the 1950s, used to link telephone central offices and transport telephone calls
 - Completely private
 - Dedicated Bandwidth
 - Expensive
-- Old cell-towers still sometimes require handoff via a T-Carrier.
-- Very few of these still exist.
+- Old cell-towers still sometimes require handoff via a T-Carrier
+- Very few of these still exist
 
 | Level | Signal | Line Rate     | DS0 Voice Channels | Composition         |
 |-------|--------|---------------|--------------------|---------------------|
@@ -38,10 +38,10 @@ An ordinary connection to the Internet.
 ## SONET
 
 - Leased Lines
-- Uses a ring to provide built-in redundancy.
-- 50ms failover time.
-- Higher uptime than other technologies.
-- **Expensive.** Extremely expensive dedicated links.
+- Uses a ring to provide built-in redundancy
+- 50ms failover time
+- Higher uptime than other technologies
+- **Expensive.** Extremely expensive dedicated links
 
 | OC Level | Speed       |
 |----------|-------------|
@@ -57,58 +57,66 @@ An ordinary connection to the Internet.
 
 - Less expensive than a leased line
 - Much faster
-- Gets expensive when a SLA is required.
+- Gets expensive when a SLA is required
 
 ## MPLS Layer 3 VPN
 
-- Can be multi-site.
-- Relatively cheap.
-- Requires peering with the provider who carries the routes between sites.
+- Can be multi-site
+- Relatively cheap
+- Requires peering with the provider who carries the routes between sites
 
 ## MPLS Layer 2 VPNs
 
 - Always more expensive.
-- Required if your App needs direct adjacency.
-- Required if you want to do your own routing (peer with just your own nodes).
-- **VPWS** Virtual private wire service is point-to-point.
-- **VPLS** Virtual Private LAN Service is Full-Mesh.
+- Required if your App needs direct adjacency
+- Required if you want to do your own routing (peer with just your own nodes)
+
+**VPWS** --- Virtual private wire service
+
+- Point-to-point
+
+**VPLS** --- Virtual Private LAN Service
+
+- Full-Mesh
 
 ## Metro Ethernet
 
-- Can be *very* fast, 10Gbps and above.
-- Can also offer high SLA.
-- Usually easy to ask for more bandwidth.
+- Can be *very* fast, 10Gbps and above
+- Can also offer high SLA
+- Usually easy to ask for more bandwidth
 
 ## Fiber Technologies
 
 
 ### DWDM
 
-- Usually owned by the ISP as the multiplexers are very, very expensive.
-- A single fiber can support multiple channels.
-- A single channel can support 10 to 400G.
+- Usually owned by the ISP as the multiplexers are very, very expensive
+- A single fiber can support multiple channels
+- A single channel can support 10 to 400G
 - Tight channel spacing. (Less than 1nm)
-- 80+ channels.
-- Used to link continents with [submarine cables](https://cablegraph.com).
-- Can multiplex wavelengths of light in channels.
-- Unknown theoretical speed.
+- 80+ channels
+- Used to link continents with [submarine cables](https://cablegraph.com)
+- Can multiplex wavelengths of light in channels
+- Unknown theoretical speed
 
 ### CWDM
 
-- Channels are widely spaced. (20nm)
-- Significantly cheaper that DWDM.
-- 18 channels is common.
+- Channels are widely spaced
+  - 20 nm
+- Significantly cheaper that DWDM
+- 18 channels is common
 
 ### Dark Fiber
 
 - The DIY Solution
 - A business asks an ISP "do you have any fiber I can just .. use?"
 - The ISP goes "yeah, but ... it's your problem."
-- Dark fiber is service-less.
-- Dark fiber is literally a glass pipe.
-- Dark fiber doesn't have a SLA.
-- Dark fiber means bringing your own optics, your own transceivers, your own signal regenerators. Anything an ISP would ordinarily provide or cover.
-- Very secure once running.
+- Dark fiber is service-less
+- Dark fiber is literally a glass pipe
+- Dark fiber doesn't have a SLA
+- Dark fiber means bringing your own optics, your own transceivers, your own signal regenerators. Anything an ISP would ordinarily provide or cover
+- Very secure once running
+- Tends to be cheaper
 
 
 ## Cloud
@@ -123,30 +131,57 @@ An ordinary connection to the Internet.
 
 ### Slow
 
-- **GSM** is 9600bps, or about an hour to transfer a 5MB file.
-- **GPRS** can be 128 Kbps, or about 5 minutes for that 5MB file.
-- **UMTS** (3G) is around 1Mbps. It takes about 8 seconds to transfer that file.
+**GSM**
+
+- 9600bps
+- ~1h to transfer 5MB 
+
+- **GPRS**
+
+- 128 Kbps
+- ~5 minutes to transfer 5MB
+
+- **UMTS (3G)**
+
+- 1Mbps
+- ~8 seconds to transfer 5MB
 
 ### OK
 
-- **LTE** can be 300/50 Mbps . It takes about an hour to upload a 20GB file.
-- **LTE Advanced** can be 600/100 Mbps. It takes about 30 minutes to upload a 20GB file.
-- **LTE Advanced Pro** can be 1.1GB/200 Mbps. It takes about 15 minutes to upload a 20GB file.
+**LTE**
+
+- 300/50 Mbps
+- ~1 hour to upload a 20GB file
+
+**LTE Advanced**
+
+- 600/100 Mbps
+- ~30 minutes to upload a 20GB file
+
+
+**LTE Advanced Pro**
+
+- 1.1GB/200 Mbps
+- ~15 minutes to upload a 20GB file
 
 ### Modern
 
-- 5G can be 20/10 Gbps. It can upload a 20GB file in about 16 seconds.
+**5G**
+
+- 20/10 Gbps
+- ~16 seconds to upload a 20GB file 
 
 ## Overlay Technologies
 
 ## [IPSec](./ipsec.md)
 
-IPSec doesn't support routing protocols unless encapsulated in GRE.
+- IPSec doesn't support routing protocols unless encapsulated in GRE
 
-## GETVPN
+## [GETVPN](./getvpn.md)
 
-- Good over ISP L2 networks to encrypt the traffic, just in case.
-- Doesn't change the outside IPs, does not make an overlay network.
+- Doesn't change the outside IPs
+- Does not make an overlay network
+- Native Multicast
 
 ## References
 [Leased line - Wikipedia](https://en.wikipedia.org/wiki/Leased_line)

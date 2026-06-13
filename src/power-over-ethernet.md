@@ -1,47 +1,49 @@
 # Power Over Ethernet
 
-**PSE**
+**PSE** --- Power sourcing equipment
 
-- Power sourcing equipment, i.e. a PoE ethernet switch.
+- A PoE Ethernet switch
 
-**PD**
+**PD** --- Powered Device
 
-- Powered Device, i.e. a phone.
+- A phone
 
 **PoE Splitter**
 
-- Use Ethernet as a power source for low power devices.
+- Use Ethernet as a power source for low power devices
 
 **PoE Extender**
 
-- Increases Ethernet's data and power range beyond 100m.
+- Increases Ethernet's data and power range beyond 100m
 
 **Passive PoE**
 
-- AKA Pre-standard PoE. 
-- Usually old installs.
+- AKA Pre-standard PoE.
+- Usually old installs
 
 **Endspan**
 
-- The switch is the PSE.
+- The switch is the PSE
 
 **Midspan**
 
-- The PSE is an injector and daisy chained into the Ethernet.
+- The PSE is an injector and daisy chained into the Ethernet
 
 **Mode-A**
 
-- AKA Alt-A.
+- AKA Alt-A
 - Deliver power on the data pairs of 10Base-T or 100Base-T. (pairs 2, 3)
 
 **Mode-B**
 
-- AKA Alt-B. 
+- AKA Alt-B
 - Deliver power on the spare pairs of 10Base-T or 100Base-T. (pairs 1, 4)
 
 **LLDP**
 
-- Link Layer Discovery Protocol. The IEEE equivalent to CDP. Used in IEEE PoE to request power.
+- Link Layer Discovery Protocol
+- The IEEE equivalent to CDP
+- Used by IEEE PoE to request power
 
 
 > [!IMPORTANT]

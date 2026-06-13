@@ -3,29 +3,48 @@
 DMVPN has a lot of benefits:
 
 - One GRE interface
-- One IPSec Profile for all spoke routers
+- (optional) One IPSec Profile for all spoke routers
   - IPsec transport
-- Automatic and Dynamic IPSec initiation
+  - Automatic and Dynamic IPSec initiation
 - Remote spokes can by dynamically addressed
 - Remote spokes can be behind NAT
   - Hub can be behind static NAT
 - Supports Dynamic spoke-to-spoke with phases 2 and 3
 - QoS
 - Dynamic Routing
-- Multicast
+- OKish Multicast
+  - IOS-XE Supports PIM-SM
+
+## Terms
+
+**DMVPN** --- Dynamic Multipoint VPN
+
+**Underlay**
+
+- Sometimes dynamically addressed
+- AKA NBMBA
+- AKA The ISP Network
+
+**Overlay**
+
+- Usually one /24
+- Used on the mGRE tunnel interfaces
 
 ## Caveats
 
 > [!WARNING]
 > 
-> For ospf `point-to-multipoint` needs the following bit of config
+> OSPF `point-to-multipoint` needs the following config
 
-```console
+```text,editable
 distribute-list prefix-list PL_BLOCK_OSPF_32 out   
   ip prefix-list PL_BLOCK_OSPF_32 deny <tunnel-subnet> <mask> ge 32 
   ip prefix-list PL_BLOCK_OSPF_32 permit any le 32
 ```
 
+[This is why.](./ospfv2-p2mp.md)
+
+[This is a Cisco documented failing](https://www.cisco.com/c/en/us/td/docs/routers/ios/config/17-x/ip-multicast/b-ip-multicast/m_sec-conn-dmvpn-dmvpn-0.html#restrictions_dmvpn)
 
 ## Phase 1
 
@@ -90,7 +109,7 @@ distribute-list prefix-list PL_BLOCK_OSPF_32 out
 
 ### Hub
 
-```text
+```text,editable
 interface Tunnel1
  ip address 192.168.100.1 255.255.255.0
  ip nhrp network-id 111
@@ -104,7 +123,7 @@ interface Tunnel1
 
 ### Spoke
 
-```text
+```text,editable
 interface Tunnel1
  ip address 192.168.100.2 255.255.255.0
  no ip redirects
@@ -120,20 +139,21 @@ interface Tunnel1
  tunnel mode gre multipoint
 ```
 
-
 ## References
 
-[Dynamic Multipoint Virtual Private Network](https://en.wikipedia.org/wiki/Dynamic_Multipoint_Virtual_Private_Network)
+[Cisco - Technote - Configure BGP over DMVPN Phase 3](https://www.cisco.com/c/en/us/support/docs/security/dynamic-multipoint-vpn-dmvpn/222585-configure-bgp-over-dmvpn-phase-3.html)
 
-[DMVPN - Concepts & Configuration](https://learningnetwork.cisco.com/s/article/dmvpn-concepts-amp-configuration)
+[Cisco - Datasheet - Dynamic Multipoint VPN: Simple and Secure Branch-to-Branch Communications](https://www.cisco.com/c/en/us/products/collateral/security/dynamic-multipoint-vpn-dmvpn/data_sheet_c78-468520.html)
 
-[Security and VPN Configuration Guide, Cisco IOS XE 17.x - Dynamic Multipoint VPN Cisco IOS XE 17 - Cisco](https://www.cisco.com/c/en/us/td/docs/routers/ios/config/17-x/sec-vpn/b-security-vpn/m_sec-conn-dmvpn-dmvpn-0.html#examples_dmvpn)
+[Cisco - Concepts & Configuration - DMVPN](https://learningnetwork.cisco.com/s/article/dmvpn-concepts-amp-configuration)
 
-[IP Multicast Configuration Guide, Cisco IOS XE 17.x - Dynamic Multipoint VPN Cisco IOS XE 17 - Cisco](https://www.cisco.com/c/en/us/td/docs/routers/ios/config/17-x/ip-multicast/b-ip-multicast/m_sec-conn-dmvpn-dmvpn-0.html)
+[Cisco - Security and VPN Configuration Guide, Dynamic Multipoint VPN - IOS-XE 17](https://www.cisco.com/c/en/us/td/docs/routers/ios/config/17-x/sec-vpn/b-security-vpn/m_sec-conn-dmvpn-dmvpn-0.html#examples_dmvpn)
+
+[Cisco - IP Multicast Configuration Guide, Dynamic Multipoint VPN - IOS-XE 17](https://www.cisco.com/c/en/us/td/docs/routers/ios/config/17-x/ip-multicast/b-ip-multicast/m_sec-conn-dmvpn-dmvpn-0.html)
+
+[Wikipedia - Dynamic Multipoint Virtual Private Network](https://en.wikipedia.org/wiki/Dynamic_Multipoint_Virtual_Private_Network)
 
 [Send The Payload - Just A Bunch of DMVPN Configuration Examples](https://sendthepayload.com/just-a-bunch-of-dmvpn-configuration-examples/)
-
-[Configure BGP over DMVPN Phase 3 - Cisco](https://www.cisco.com/c/en/us/support/docs/security/dynamic-multipoint-vpn-dmvpn/222585-configure-bgp-over-dmvpn-phase-3.html)
 
 [Yasser Auda - CCIEv5 DMVPN Lab Workbook](https://learningnetwork.cisco.com/s/article/cciev5-dmvpn-labs-workbook)
 

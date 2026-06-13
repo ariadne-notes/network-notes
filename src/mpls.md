@@ -2,10 +2,9 @@
 
 ## MPLS Requires CEF
 
-
 ## Frame Format
 
-<pre>
+```text
   RFC 3032 - MPLS Label Stack Encoding
 
   0                   1                   2                   3
@@ -18,7 +17,7 @@
                       Exp:    Experimental Use, 3 bits
                       S:      Bottom of Stack, 1 bit
                       TTL:    Time to Live, 8 bits
-</pre>
+```
 
 ## MPLS Control Plane
 

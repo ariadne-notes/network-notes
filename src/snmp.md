@@ -25,7 +25,6 @@
 
 ## Finding used CPU time
 
-
 On the device, I run a normal command, and look at the outputs:
 
 ```console

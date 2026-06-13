@@ -4,15 +4,19 @@ description = "My notes for studying network things."
 authors = ["Ariadne"]
 language = "en"
 
+[preprocessor.svgbob]
+
 [preprocessor.mermaid]
 command = "mdbook-mermaid"     # render only code-blocks marked as "mermaid" e.g. ```mermaid
 
-[preprocessor.svgbob]
+[preprocessor.gitinfo]
+enable      = true
+hyperlink   = true
+date-format = "%A, %B %e, %Y."
+time-format = "%l:%M %P UTC%Z"
 
-[output.html]
-additional-css = ["theme/custom.css"]
-additional-js = ["mermaid.min.js", "mermaid-init.js","editable-extras.js"]
-git-repository-url = "https://github.com/ariadne-notes/network-notes"
+[preprocessor.gitinfo.message]
+footer = "Last Modified{{sep}}{{date}}{{sep}}Commit: {{hash}}"
 
 [output.html.fold]
 enable = true
@@ -21,3 +25,8 @@ level = 0
 [output.html.playground]
 editable = true
 copy-js = true
+
+[output.html]
+additional-css = ["theme/custom.css"]
+additional-js = ["mermaid.min.js", "mermaid-init.js","editable-extras.js"]
+git-repository-url = "https://github.com/ariadne-notes/network-notes"

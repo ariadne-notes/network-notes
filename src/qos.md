@@ -64,56 +64,50 @@
 
 **SLA** --- Service Level Agreement
 
-SLAs are business agreements about data servicing requirements.
+- A Business agreements about data servicing requirements
 
-**WFQ** --- Weighted Fair Queuing.
+**WFQ** --- Weighted Fair Queuing
 
-WFQ is the legacy default on serial interfaces at E1 speeds and below ~2.048 Mbps
-
-Sorts traffic into high bw and low bw classes.
+- Legacy default on serial interfaces at E1 speeds and below ~2.048 Mbps
+- Sorts traffic into high bw and low bw classes.
 
 **CBWFQ** --- Class Based Weighted Fair Queuing
 
-- AKA, Modular QoS: multiple queues, bandwidth limits, and access to different kinds of queues, like LLQ.
+- AKA, Modular QoS 
+- Multiple queues
+- Bandwidth limits
+- Different kinds of queues, like LLQ
 
 **MQC**
 
-Modular QoS CLI.
+- Modular QoS CLI
 
 **PQ** --- Priority Queue
 
-A queue that is served first, even if other queues have been waiting longer.
-
-An LLQ is an example of a PQ.
+- A queue that is served first, even if other queues have been waiting longer
+- An LLQ is an example of a PQ
 
 ## Type of Service
 
 How these 8 bits get used has changed over the years.
 
-```plain
+```text
                    0 1 2 3 4 5 6 7
-
                   ┌─────┬─────┬─┬─┐
    RFC 791 (1981) │IP Pr│ ToS │0│0│
                   └─────┴─────┴─┴─┘
 
-
                    0 1 2 3 4 5 6 7
-
                   ┌─────┬───────┬─┐
   RFC 1349 (1992) │IP Pr│  TOS  │0│
                   └─────┴───────┴─┘
 
-
                    0 1 2 3 4 5 6 7
-
                   ┌───────────┬─┬─┐
   RFC 2474 (1998) │    DSCP   │0│0│
                   └───────────┴─┴─┘
 
-
                    0 1 2 3 4 5 6 7
-
                   ┌───────────┬───┐
   RFC 3168 (2001) │    DSCP   │ECN│
                   └───────────┴───┘
@@ -122,11 +116,10 @@ How these 8 bits get used has changed over the years.
 ### PHB - Per Hop Behaviors
 
 | PHB | Name | Description |
-|--------|-----------------------|---|
+|--------|-----------------------|----------------------------------------------------|
 | **CS** | Class Selector        | CS0 to CS7, backward compatible with IP Precedence |
-| **AF** | Assured Forwarding    | Modern Queuing and congestion avoidance |
-| **EF** | Expedited Forwarding  | Lossless and LLQ |
-
+| **AF** | Assured Forwarding    | Modern Queuing and congestion avoidance            |
+| **EF** | Expedited Forwarding  | Lossless and LLQ                                   |
 
 ## Assured Forwarding
 

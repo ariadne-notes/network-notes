@@ -18,6 +18,7 @@
   - [Git Log](git-log.md)
   - [Git Rebase](git-rebase.md)
   - [Git Reset](git-reset.md)
+  - [Git RM](git-rm.md)
   - [Git Commit](git-commit.md)
   - [Git Restore](git-restore.md)
   - [Git Ignore](git-ignore.md)

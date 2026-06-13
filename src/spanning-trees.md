@@ -20,9 +20,8 @@ In the tree these paths are placed.
 
 A mesh is made by folks like me,
 then bridges find a spanning tree.
-
--- *Radia Perlman*
 ```
+-- *Radia Perlman*
 
 L2 networks were getting larger, and a common mistake was creating a loop, where frame would go around infinitely.
 

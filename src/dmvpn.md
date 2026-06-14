@@ -141,6 +141,8 @@ interface Tunnel1
 
 ## References
 
+[Cisco Live - BRKSEC-4054 - Advanced Concepts of DMVPN - Mike Sullenberger DSE](./pdfs/ciscolive/BRKSEC-4054.pdf)
+
 [Cisco - Technote - Configure BGP over DMVPN Phase 3](https://www.cisco.com/c/en/us/support/docs/security/dynamic-multipoint-vpn-dmvpn/222585-configure-bgp-over-dmvpn-phase-3.html)
 
 [Cisco - Datasheet - Dynamic Multipoint VPN: Simple and Secure Branch-to-Branch Communications](https://www.cisco.com/c/en/us/products/collateral/security/dynamic-multipoint-vpn-dmvpn/data_sheet_c78-468520.html)

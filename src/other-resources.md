@@ -15,3 +15,7 @@
 ## Videos
 
 [Jeremy's IT Lab | Free CCNA & Anki Flashcards, CCNA 200-301 Complete Course - YouTube](https://www.youtube.com/watch?v=6Atw8oMtVTA)
+
+## Etc
+
+[Old Cisco Live Slides](https://github.com/hcce1999/ciscolivecollection)

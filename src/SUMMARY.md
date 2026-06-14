@@ -286,6 +286,7 @@
 - [Packet Drops](packet-drops.md)
 - [SecureCRT](securecrt.md)
 - [Add Cephfs to Debian](add-cephfs-to-debian.md)
+- [ISE and PxGrid](ise-and-pxgrid.md)
 
 # Certification Stuff
 
